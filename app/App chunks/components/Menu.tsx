@@ -10,7 +10,6 @@ const Menu = ({
   className?: string;
   menu: { title: string; link: string }[];
 }) => {
-  const [id, setId] = React.useState<number | null>(null);
   const path = usePathname();
   return (
     <motion.div
@@ -18,8 +17,7 @@ const Menu = ({
     >
       {menu.map((item, index) => (
         <Link
-          onMouseEnter={() => setId(index)}
-          onMouseLeave={() => setId(null)}
+
           href={item.link}
           key={index}
           className="capitalize transition-all duration-300"

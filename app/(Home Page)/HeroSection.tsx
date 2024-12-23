@@ -1,11 +1,9 @@
-// @ts-nocheck
 "use client";
 import React from "react";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { GoArrowRight } from "react-icons/go";
 export default function HeroSection() {
-  const container = useRef();
+  const container = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
@@ -21,7 +19,7 @@ export default function HeroSection() {
   );
 }
 
-const Section1 = ({ scrollYProgress }) => {
+const Section1 = ({ scrollYProgress } : { scrollYProgress: MotionValue<number>}) => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, -10]);
   const tags = [
@@ -106,10 +104,13 @@ const Section1 = ({ scrollYProgress }) => {
   );
 };
 
-const Section2 = ({ scrollYProgress }) => {
+const Section2 = ({
+  scrollYProgress,
+}: {
+  scrollYProgress: MotionValue<number>;
+}) => {
   const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
   const rotate = useTransform(scrollYProgress, [0, 0.5], [7, 0]);
-  const grayScale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
   const [isSticky, setIsSticky] = React.useState<boolean>(false);
   const [inView, setIsInView] = React.useState<boolean>(false);
   const services = [
@@ -144,13 +145,15 @@ const Section2 = ({ scrollYProgress }) => {
   useEffect(() => {
     const handleScroll = () => {
       const element = document.getElementById("sticky-section");
-      const rect = element.getBoundingClientRect();
+     if(element){
+       const rect = element.getBoundingClientRect();
 
-      if (rect.top <= 0) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
+       if (rect.top <= 0) {
+         setIsSticky(true);
+       } else {
+         setIsSticky(false);
+       }
+     }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -162,9 +165,6 @@ const Section2 = ({ scrollYProgress }) => {
   return (
     <motion.section
       style={{ scale, rotate }}
-      whileInView={() => {
-        setIsInView(true);
-      }}
       viewport={{ once: false }}
       className="relative py-24 bg-purple-100 text-gray-950"
     >
@@ -211,11 +211,10 @@ const Section2 = ({ scrollYProgress }) => {
             className="w-full group rounded-xl overflow-hidden relative aspect-[3/4] bg-black"
             initial={{
               opacity: 0,
-              y: 300, // Start position off-screen
             }}
             animate={{
               opacity: 1, // Fully visible after animation
-              y: inView && 0, // Move to the final position (top of the screen)
+              y: inView ? 0 : 300, // Move to the final position (top of the screen)
             }}
             transition={{
               delay: index * 0.1, // Staggered animation with a delay based on the index
@@ -225,7 +224,7 @@ const Section2 = ({ scrollYProgress }) => {
           >
             <div className="absolute top-0 left-0 z-10 w-full h-full bg-gradient-to-t from-gray-950/70 to-transparent" />
             <img
-              src={service.img}
+              src={service.img ?? ""}
               className="w-full grayscale group-hover:grayscale-0 group-hover:scale-[1.1] transition-all duration-300 h-full object-cover"
             />
 
