@@ -2,6 +2,7 @@
 import React from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { BackgroundGradientAnimation } from "./HeroGradient";
 export default function HeroSection() {
   const container = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -34,14 +35,9 @@ const Section1 = ({ scrollYProgress } : { scrollYProgress: MotionValue<number>})
       className="sticky bg-black top-0 h-screen"
     >
       <div className="absolute top-0 left-0 -z-[1]">
-        <img
-          src="https://cdn.prod.website-files.com/67061df890aa3a22852e80c7/67061df890aa3a22852e80db_hero%20ribbon.png"
-          loading="lazy"
-          sizes="100vw"
-          srcSet="https://cdn.prod.website-files.com/67061df890aa3a22852e80c7/67061df890aa3a22852e80db_hero%2520ribbon-p-500.png 500w, https://cdn.prod.website-files.com/67061df890aa3a22852e80c7/67061df890aa3a22852e80db_hero%2520ribbon-p-800.png 800w, https://cdn.prod.website-files.com/67061df890aa3a22852e80c7/67061df890aa3a22852e80db_hero%2520ribbon-p-1080.png 1080w, https://cdn.prod.website-files.com/67061df890aa3a22852e80c7/67061df890aa3a22852e80db_hero%2520ribbon-p-1600.png 1600w, https://cdn.prod.website-files.com/67061df890aa3a22852e80c7/67061df890aa3a22852e80db_hero%2520ribbon-p-2000.png 2000w, https://cdn.prod.website-files.com/67061df890aa3a22852e80c7/67061df890aa3a22852e80db_hero%2520ribbon-p-2600.png 2600w, https://cdn.prod.website-files.com/67061df890aa3a22852e80c7/67061df890aa3a22852e80db_hero%20ribbon.png 3200w"
-          alt=""
-          className=" w-full h-full object-cover "
-        />
+       <BackgroundGradientAnimation>
+        
+       </BackgroundGradientAnimation>
       </div>
       <div className="container flex flex-col items-center text-purple-50 justify-center py-28 w-full h-full">
         <div className="flex items-center gap-6 h-[100px] overflow-hidden">
