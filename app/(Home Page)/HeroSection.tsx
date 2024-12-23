@@ -3,6 +3,7 @@ import React from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { BackgroundGradientAnimation } from "./HeroGradient";
+import { ArrowUpRight } from "@phosphor-icons/react";
 export default function HeroSection() {
   const container = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -20,7 +21,11 @@ export default function HeroSection() {
   );
 }
 
-const Section1 = ({ scrollYProgress } : { scrollYProgress: MotionValue<number>}) => {
+const Section1 = ({
+  scrollYProgress,
+}: {
+  scrollYProgress: MotionValue<number>;
+}) => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, -10]);
   const tags = [
@@ -28,7 +33,7 @@ const Section1 = ({ scrollYProgress } : { scrollYProgress: MotionValue<number>})
     "Strategic Branding",
     "Campaign Management",
   ];
-  
+
   return (
     <motion.section
       style={{ scale, rotate }}
@@ -37,12 +42,25 @@ const Section1 = ({ scrollYProgress } : { scrollYProgress: MotionValue<number>})
       <div className="absolute top-0 left-0  -z-[1]">
         <BackgroundGradientAnimation></BackgroundGradientAnimation>
       </div>
-      <div className="container flex flex-col items-center  justify-center bg-gradient-to-tl from-purple-200 from-20% to-purple-100 to-90% bg-clip-text text-transparent py-28 w-full h-full">
+
+      <div className="container relative flex flex-col items-center  justify-center  py-28 w-full h-full">
+        <div className="absolute bottom-10  right-0">
+          <motion.div className="size-28 relative origin-center cursor-pointer rounded-full ">
+            <motion.img
+              animate={{ rotate: -360 }}
+              whileHover={{ rotate: 360, transition: { duration: 3, ease:[0.19, 1, 0.22, 1] } }}
+              transition={{ ease: "linear", repeat: Infinity, duration: 10 }}
+              src="roundShape.svg"
+              className="w-full h-full"
+            />
+            <ArrowUpRight className="absolute -rotate-90 text-4xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+          </motion.div>
+        </div>
         <div className="flex items-center gap-6 h-[100px] overflow-hidden">
           {["Elevate", "Your", "Brand", "&"].map((text, index) => (
             <motion.h1
               key={index}
-              initial={{ y: 200 }}
+              initial={{ y: index + 1 * 200 }}
               animate={{ y: 0 }}
               transition={{
                 delay: index * 0.1,
@@ -50,14 +68,14 @@ const Section1 = ({ scrollYProgress } : { scrollYProgress: MotionValue<number>})
                 ease: [0.22, 0.61, 0.36, 1],
               }}
               style={{ textShadow: "0px 0px 2px #000000F" }}
-              className="text-[7rem] leading-[6.5rem] font-Grostek font-[700]"
+              className="text-[7rem] leading-[6.5rem] font-Grostek font-[700] bg-gradient-to-tl from-purple-200 to-purple-100  bg-clip-text text-transparent"
             >
               {text}
             </motion.h1>
           ))}
         </div>
 
-        <div className="flex items-center gap-6 h-[100px] overflow-hidden">
+        <div className="flex items-center gap-6 h-[100px]  overflow-hidden">
           {["Dominate", "the", "Market"].map((text, index) => (
             <motion.h1
               key={index}
@@ -69,13 +87,13 @@ const Section1 = ({ scrollYProgress } : { scrollYProgress: MotionValue<number>})
                 ease: [0.22, 0.61, 0.36, 1],
               }}
               style={{ textShadow: "0px 0px 2px #000000F" }}
-              className="text-[7rem] leading-[6.5rem] font-Grostek font-[700] "
+              className="text-[7rem] leading-[6.5rem] font-Grostek bg-gradient-to-tl from-purple-200 to-purple-100  bg-clip-text text-transparent font-[700] "
             >
               {text}
             </motion.h1>
           ))}
         </div>
-        <div className="flex items-center font-[500] font-Synonym mt-3 gap-3 overflow-hidden h-[25px] ">
+        <div className="flex items-center font-[500] font-Synonym mt-3 text-purple-100 gap-3 overflow-hidden h-[25px] ">
           {tags.map((tag, index) => (
             <motion.p
               key={index}
@@ -86,9 +104,7 @@ const Section1 = ({ scrollYProgress } : { scrollYProgress: MotionValue<number>})
                 duration: 0.6,
                 ease: [0.22, 0.61, 0.36, 1],
               }}
-              className={`pr-3 ${
-                index != 2 && "border-r"
-              } border-slate-50 `}
+              className={`pr-3 ${index != 2 && "border-r"} border-slate-50 `}
             >
               {" "}
               {tag}
@@ -108,7 +124,7 @@ const Section2 = ({
   const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
   const rotate = useTransform(scrollYProgress, [0, 0.5], [7, 0]);
   const [isSticky, setIsSticky] = React.useState<boolean>(false);
- 
+
   const services = [
     {
       name: "Web Development",
@@ -141,15 +157,15 @@ const Section2 = ({
   useEffect(() => {
     const handleScroll = () => {
       const element = document.getElementById("sticky-section");
-     if(element){
-       const rect = element.getBoundingClientRect();
+      if (element) {
+        const rect = element.getBoundingClientRect();
 
-       if (rect.top <= 0) {
-         setIsSticky(true);
-       } else {
-         setIsSticky(false);
-       }
-     }
+        if (rect.top <= 0) {
+          setIsSticky(true);
+        } else {
+          setIsSticky(false);
+        }
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -163,7 +179,6 @@ const Section2 = ({
       style={{ scale, rotate }}
       viewport={{ once: false }}
       className="relative py-24 bg-purple-100 text-gray-950"
-      
     >
       <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
       <motion.article
@@ -208,11 +223,11 @@ const Section2 = ({
             className="w-full group rounded-xl overflow-hidden relative aspect-[3/4] bg-black"
             initial={{
               opacity: 0,
-              y:300
+              y: 300,
             }}
             animate={{
               opacity: 1, // Fully visible after animation
-              y: 0 // Move to the final position (top of the screen)
+              y: 0, // Move to the final position (top of the screen)
             }}
             transition={{
               delay: index * 0.1, // Staggered animation with a delay based on the index

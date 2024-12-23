@@ -37,7 +37,7 @@ const SlideTabs = ({
           opacity: 0,
         }));
       }}
-      className={`relative mx-auto font-Grostek flex w-fit rounded-full border border-slate-50/30 isolate bg-white/10 shadow-lg ring-1 ring-black/5  p-1 ${className}`}
+      className={`relative mx-auto font-Grostek flex w-fit rounded-full border border-slate-50/30 isolate bg-gray-500/10 bg-clip-padding backdrop-saturate-100 backdrop-contrast-100 backdrop-blur backdrop-filter   p-1 ${className}`}
     >
       {menu.map((item, index) => (
         <Tab key={index} setPosition={setPosition} link={item.link}>
@@ -94,7 +94,7 @@ const Cursor = ({
         width: position.width,
         opacity: position.opacity,
       }}
-      transition={{ duration: .4, ease:[.17, .84, .44, 1] }}
+      transition={{ duration: 0.4, ease: [0.17, 0.84, 0.44, 1] }}
       className="absolute z-0 h-7 rounded-full bg-black md:h-12"
     />
   );
