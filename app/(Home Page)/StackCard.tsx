@@ -82,7 +82,7 @@ export default function StackCard(): JSX.Element {
               key={`p_${i}`}
               i={i}
               url={project?.link}
-              src={project?.src}
+              
               title={project?.title}
               color={project?.color}
               description={project?.description}
@@ -100,7 +100,7 @@ interface CardProps {
   i: number;
   title: string;
   description: string;
-  src: string;
+
   url: string;
   color: string;
   progress: MotionValue<number>;
@@ -111,7 +111,6 @@ export const Card: React.FC<CardProps> = ({
   i,
   title,
   description,
-  src,
   url,
   color,
   progress,

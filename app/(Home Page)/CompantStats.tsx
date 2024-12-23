@@ -1,5 +1,5 @@
 'use client'
-import React, {useRef, useEffect} from "react";
+import React, {useRef} from "react";
 import {useInView} from "framer-motion";
 import NumberFlow from "@number-flow/react";
 export const CompantStats = () => {
