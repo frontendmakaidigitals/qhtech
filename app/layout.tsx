@@ -1,16 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import NavBar from "./App chunks/components/Navbar";
+import { ReactLenis } from "lenis/react"; // Import ReactLenis
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,10 +16,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <head>
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&f[]=synonym@200,300,400,500,600,700&f[]=spline-sans@300,400,500,600,700&f[]=cabinet-grotesk@100,200,300,400,500,700,800,900&display=swap"
+          rel="stylesheet"
+        ></link>
+      </head>
+
+      <body className={`antialiased`}>
+        {/* Initialize Lenis Smooth Scrolling */}
+        <ReactLenis
+          root
+          options={{  lerp: .1, smoothWheel: true, duration:1.5 }}
+        >
+          <div className="w-full relative">
+            <NavBar />
+          </div>
+
+          {children}
+        </ReactLenis>
       </body>
     </html>
   );
