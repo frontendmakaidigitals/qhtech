@@ -27,7 +27,7 @@ const Section1 = ({ scrollYProgress } : { scrollYProgress: MotionValue<number>})
     "Strategic Branding",
     "Campaign Management",
   ];
-  const cards = [{ rotate: 7 }, { rotate: 3 }, { rotate: 3 }];
+  
   return (
     <motion.section
       style={{ scale, rotate }}
@@ -112,7 +112,7 @@ const Section2 = ({
   const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
   const rotate = useTransform(scrollYProgress, [0, 0.5], [7, 0]);
   const [isSticky, setIsSticky] = React.useState<boolean>(false);
-  const [inView, setIsInView] = React.useState<boolean>(false);
+ 
   const services = [
     {
       name: "Web Development",
@@ -167,6 +167,7 @@ const Section2 = ({
       style={{ scale, rotate }}
       viewport={{ once: false }}
       className="relative py-24 bg-purple-100 text-gray-950"
+      
     >
       <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
       <motion.article
@@ -211,10 +212,11 @@ const Section2 = ({
             className="w-full group rounded-xl overflow-hidden relative aspect-[3/4] bg-black"
             initial={{
               opacity: 0,
+              y:300
             }}
             animate={{
               opacity: 1, // Fully visible after animation
-              y: inView ? 0 : 300, // Move to the final position (top of the screen)
+              y: 0 // Move to the final position (top of the screen)
             }}
             transition={{
               delay: index * 0.1, // Staggered animation with a delay based on the index

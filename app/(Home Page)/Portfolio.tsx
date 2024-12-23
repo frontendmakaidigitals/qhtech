@@ -31,7 +31,11 @@ const HorizontalScrollCarousel = () => {
   );
 };
 
-const Card = ({ card }: { card: any }) => {
+const Card = ({
+  card,
+}: {
+  card: { url: string; title: string; id: number; color: string };
+}) => {
   return (
     <motion.div
       key={card.id}
