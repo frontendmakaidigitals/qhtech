@@ -1,8 +1,7 @@
-"use client";
-import React from "react";
-import Link from "next/link";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
+import Link from "next/link";
+
 const Menu = ({
   menu = [{ title: "Home", link: "/" }],
   className,
@@ -10,28 +9,94 @@ const Menu = ({
   className?: string;
   menu: { title: string; link: string }[];
 }) => {
-  const path = usePathname();
   return (
-    <motion.div
-      className={`flex relative border border-gray-500 rounded-full gap-2 px-2 group bg-gray-200 bg-clip-padding backdrop-filter backdrop-blur bg-opacity-30 backdrop-saturate-100 backdrop-contrast-100 py-2 items-center ${className}`}
+    <div className=" ">
+      <SlideTabs menu={menu} className={className} />
+    </div>
+  );
+};
+
+const SlideTabs = ({
+  menu,
+  className,
+}: {
+  menu: { title: string; link: string }[];
+  className?: string;
+}) => {
+  const [position, setPosition] = useState({
+    left: 0,
+    width: 0,
+    opacity: 0,
+  });
+
+  return (
+    <ul
+      onMouseLeave={() => {
+        setPosition((pv) => ({
+          ...pv,
+          opacity: 0,
+        }));
+      }}
+      className={`relative mx-auto font-Grostek flex w-fit rounded-full border border-slate-50/30 isolate bg-white/10 shadow-lg ring-1 ring-black/5  p-1 ${className}`}
     >
       {menu.map((item, index) => (
-        <Link
-
-          href={item.link}
-          key={index}
-          className="capitalize transition-all duration-300"
-        >
-          <motion.p
-            className={`text-md px-4 ${
-              path === `${item.link}` && " bg-purple-200 text-slate-950"
-            } transition-all font-SplineSans text-slate-50 py-2 rounded-full duration-500 `}
-          >
-            {item.title}
-          </motion.p>
-        </Link>
+        <Tab key={index} setPosition={setPosition} link={item.link}>
+          {item.title}
+        </Tab>
       ))}
-    </motion.div>
+
+      <Cursor position={position} />
+    </ul>
+  );
+};
+
+const Tab = ({
+  children,
+  setPosition,
+  link,
+}: {
+  children: React.ReactNode;
+  setPosition: any;
+  link: string;
+}) => {
+  const ref = useRef<HTMLLIElement>(null);
+
+  return (
+    <li
+      ref={ref}
+      onMouseEnter={() => {
+        if (!ref?.current) return;
+
+        const { width } = ref.current.getBoundingClientRect();
+
+        setPosition({
+          left: ref.current.offsetLeft,
+          width,
+          opacity: 1,
+        });
+      }}
+      className={`relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-white mix-blend-difference md:px-5 md:py-3 md:text-base `}
+    >
+      <Link href={link}>{children}</Link>
+    </li>
+  );
+};
+
+const Cursor = ({
+  position,
+}: {
+  position: { left: number; width: number; opacity: number };
+}) => {
+  return (
+    <motion.li
+      animate={{
+        left: position.left,
+        width: position.width,
+        opacity: position.opacity,
+      }}
+      transition={{ duration: .4, ease:[.17, .84, .44, 1] }}
+      className="absolute z-0 h-7 rounded-full bg-black md:h-12"
+    />
   );
 };
 

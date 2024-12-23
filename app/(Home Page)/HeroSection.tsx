@@ -32,14 +32,12 @@ const Section1 = ({ scrollYProgress } : { scrollYProgress: MotionValue<number>})
   return (
     <motion.section
       style={{ scale, rotate }}
-      className="sticky bg-black top-0 h-screen"
+      className="sticky bg-black overflow-hidden top-0 h-screen"
     >
-      <div className="absolute top-0 left-0 -z-[1]">
-       <BackgroundGradientAnimation>
-        
-       </BackgroundGradientAnimation>
+      <div className="absolute top-0 left-0  -z-[1]">
+        <BackgroundGradientAnimation></BackgroundGradientAnimation>
       </div>
-      <div className="container flex flex-col items-center text-purple-50 justify-center py-28 w-full h-full">
+      <div className="container flex flex-col items-center  justify-center bg-gradient-to-tl from-purple-200 from-20% to-purple-100 to-90% bg-clip-text text-transparent py-28 w-full h-full">
         <div className="flex items-center gap-6 h-[100px] overflow-hidden">
           {["Elevate", "Your", "Brand", "&"].map((text, index) => (
             <motion.h1
@@ -52,7 +50,7 @@ const Section1 = ({ scrollYProgress } : { scrollYProgress: MotionValue<number>})
                 ease: [0.22, 0.61, 0.36, 1],
               }}
               style={{ textShadow: "0px 0px 2px #000000F" }}
-              className="text-[7rem] leading-[6.5rem] font-Grostek font-[700] bg-gradient-to-tl from-slate-200 to-white bg-clip-text text-transparent"
+              className="text-[7rem] leading-[6.5rem] font-Grostek font-[700]"
             >
               {text}
             </motion.h1>
@@ -63,7 +61,7 @@ const Section1 = ({ scrollYProgress } : { scrollYProgress: MotionValue<number>})
           {["Dominate", "the", "Market"].map((text, index) => (
             <motion.h1
               key={index}
-              initial={{ y: 250 }}
+              initial={{ y: index + 1 * 250 }}
               animate={{ y: 0 }}
               transition={{
                 delay: index * 0.15,
@@ -71,7 +69,7 @@ const Section1 = ({ scrollYProgress } : { scrollYProgress: MotionValue<number>})
                 ease: [0.22, 0.61, 0.36, 1],
               }}
               style={{ textShadow: "0px 0px 2px #000000F" }}
-              className="text-[7rem] leading-[6.5rem] font-Grostek font-[700] bg-gradient-to-tl from-slate-200 to-white bg-clip-text text-transparent"
+              className="text-[7rem] leading-[6.5rem] font-Grostek font-[700] "
             >
               {text}
             </motion.h1>
@@ -88,7 +86,9 @@ const Section1 = ({ scrollYProgress } : { scrollYProgress: MotionValue<number>})
                 duration: 0.6,
                 ease: [0.22, 0.61, 0.36, 1],
               }}
-              className={`pr-3 ${index != 2 && "border-r"} border-slate-50 `}
+              className={`pr-3 ${
+                index != 2 && "border-r"
+              } border-slate-50 `}
             >
               {" "}
               {tag}
