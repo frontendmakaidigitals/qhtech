@@ -51,6 +51,7 @@ export default function StackCard(): JSX.Element {
     target: container,
     offset: ["start start", "end end"],
   });
+  
   return (
     <main className="relative " ref={container}>
       <div className="absolute top-12 w-full  ">
@@ -76,13 +77,11 @@ export default function StackCard(): JSX.Element {
       <section className="text-white   w-full bg-slate-950  ">
         {projects.map((project, i) => {
           const targetScale = 1 - (projects.length - i) * 0.05;
-
           return (
             <Card
               key={`p_${i}`}
               i={i}
               url={project?.link}
-              
               title={project?.title}
               color={project?.color}
               description={project?.description}

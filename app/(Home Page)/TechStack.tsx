@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion, useInView } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 const TechStack = () => {
   const image1 = [
     "media/electron.png",
@@ -25,15 +25,10 @@ const TechStack = () => {
     "media/wordpress.svg",
     "media/azure.png",
   ];
-  console.log(
-    image1[0].substring(
-      image1[0].lastIndexOf("/") + 1,
-      image1[0].lastIndexOf(".")
-    )
-  );
   const ref = React.useRef(null);
   const isInView = useInView(ref);
   const [id, setId] = React.useState<number | null>(null);
+  const [id2, setId2] = React.useState<number | null>(null);
   return (
     <div ref={ref} className="w-full py-16 bg-purple-100 ">
       <div className="container">
@@ -74,21 +69,34 @@ const TechStack = () => {
                 }}
                 transition={{
                   delay: index * 0.07,
-                  duration: 0.4,
+                  duration: 0.6,
                   ease: [0.22, 0.61, 0.36, 1],
                 }}
                 key={index}
-                className="w-full relative bg-black rounded-xl p-3"
+                className="w-full relative bg-black rounded-xl"
               >
-                <img src={src} className="w-full h-full object-contain" />
-                {index === id && (
-                  <motion.p className="absolute -top-12 left-1/2 -translate-x-1/2 bg-white text-black p-2">
-                    {src.substring(
-                      src.lastIndexOf("/") + 1,
-                      src.lastIndexOf(".")
-                    )}
-                  </motion.p>
-                )}
+                <div className="w-full h-full bg-black relative p-3 rounded-xl z-10">
+                  <img
+                    src={src}
+                    className="w-full bg-black h-full object-contain"
+                  />
+                </div>
+                <AnimatePresence mode="wait">
+                  {index === id && (
+                    <motion.p
+                      initial={{ y: 50 }}
+                      animate={{ y: 0 }}
+                      exit={{ y: 50 }}
+                      transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.6 }}
+                      className="absolute w-full text-center capitalize font-SplineSans font-[500] left-0 rounded-t-xl -top-8 bg-fuchsia-300 text-black px-2 pb-4 pt-2"
+                    >
+                      {src.substring(
+                        src.lastIndexOf("/") + 1,
+                        src.lastIndexOf(".")
+                      )}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
               </motion.div>
             ))}
           </motion.div>
@@ -97,20 +105,42 @@ const TechStack = () => {
           <div className="flex justify-center h-32 gap-4">
             {image2.map((src, index) => (
               <motion.div
-                initial={{ y: 150, opacity: 0 }}
+                onMouseEnter={() => setId2(index)}
+                onMouseLeave={() => setId2(null)}
                 animate={{
-                  y: isInView ? 0 : 150,
-                  opacity: isInView ? 1 : 0,
+                  y: isInView ? 0 : 150, // Move to 0 when in view, else stay at 150
+                  opacity: isInView ? 1 : 0, // Fade in when in view, else stay invisible
                 }}
                 transition={{
                   delay: index * 0.07,
-                  duration: 0.3,
+                  duration: 0.6,
                   ease: [0.22, 0.61, 0.36, 1],
                 }}
                 key={index}
-                className="w-full bg-black rounded-xl p-3"
+                className="w-full relative bg-black rounded-xl"
               >
-                <img src={src} className="w-full h-full object-contain" />
+                <div className="w-full h-full bg-black relative p-3 rounded-xl z-10">
+                  <img
+                    src={src}
+                    className="w-full bg-black h-full object-contain"
+                  />
+                </div>
+                <AnimatePresence mode="wait">
+                  {index === id2 && (
+                    <motion.p
+                      initial={{ y: -50 }}
+                      animate={{ y: 0 }}
+                      exit={{ y: -50 }}
+                      transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.6 }}
+                      className="absolute w-full text-center capitalize font-SplineSans font-[500] left-0 rounded-b-xl -bottom-8 bg-fuchsia-300 text-black px-2 pt-4 pb-2"
+                    >
+                      {src.substring(
+                        src.lastIndexOf("/") + 1,
+                        src.lastIndexOf(".")
+                      )}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
               </motion.div>
             ))}
           </div>
