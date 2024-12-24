@@ -1,10 +1,16 @@
 "use client";
 import React from "react";
-import { useScroll, useTransform, motion, MotionValue, useInView } from "framer-motion";
+import {
+  useScroll,
+  useTransform,
+  motion,
+  MotionValue,
+  useInView,
+} from "framer-motion";
 import { useEffect, useRef } from "react";
 import { BackgroundGradientAnimation } from "./HeroGradient";
 import { ArrowUpRight } from "@phosphor-icons/react";
- 
+
 export default function HeroSection() {
   const container = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -34,7 +40,8 @@ const Section1 = ({
     "Strategic Branding",
     "Campaign Management",
   ];
-
+  const [isHovered, setIsHovered] = React.useState<boolean>(false);
+  console.log(isHovered)
   return (
     <motion.section
       style={{ scale, rotate }}
@@ -48,17 +55,22 @@ const Section1 = ({
         <div className="absolute bottom-10  right-0">
           <motion.div
             initial={{ scale: 0 }}
-            transition={{ delay: .6, duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
-            whileInView={{ scale: 1 }}
+            transition={{
+              delay: 1,
+              duration: 0.6,
+              ease: [0.22, 0.61, 0.36, 1],
+            }}
+            animate={{
+              scale: isHovered ? 1.5 : 1,
+              transition: { duration: 0.3, delay: 0 },
+            }}
             className="size-28 relative origin-center cursor-pointer rounded-full "
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
             <motion.img
               animate={{ rotate: -360 }}
-              whileHover={{
-                rotate: 360,
-                transition: { duration: 3, ease: [0.19, 1, 0.22, 1] },
-              }}
-              transition={{ ease: "linear", repeat: Infinity, duration: 10 }}
+              transition={{ ease: "linear", repeat: Infinity, duration: 6 }}
               src="roundShape.svg"
               className="w-full h-full"
             />
@@ -208,11 +220,10 @@ const Section2 = ({
     };
   }, []);
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, {once:true})
+  const inView = useInView(ref, { once: true });
   return (
     <motion.section
       style={{ scale, rotate }}
-   
       className="relative py-24 bg-purple-100 text-gray-950"
       ref={ref}
     >

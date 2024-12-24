@@ -26,7 +26,7 @@ const TechStack = () => {
     "media/azure.png",
   ];
   const ref = React.useRef(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, {once: true})
   const [id, setId] = React.useState<number | null>(null);
   const [id2, setId2] = React.useState<number | null>(null);
   return (
