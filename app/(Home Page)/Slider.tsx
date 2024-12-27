@@ -5,7 +5,6 @@ import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 
 const Slider = () => {
-  const [velocity, setVelocity] = useState<number>(0); // Velocity in slides per second
   const [isHovered, setIsHovered] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [mouseSpeed, setMouseSpeed] = useState(0); // Speed of the mouse movement
@@ -41,16 +40,12 @@ const Slider = () => {
     "https://images.unsplash.com/photo-1635972064135-8ec7711f9895?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ];
 
-  const [ref, slider] = useKeenSlider<HTMLDivElement>({
+  const [ref] = useKeenSlider<HTMLDivElement>({
     loop: true,
     mode: "free",
     slides: {
       perView: 3.2,
       spacing: 2,
-    },
-    dragSpeed: (speed) => {
-      setVelocity(speed);
-      return speed;
     },
   });
 
