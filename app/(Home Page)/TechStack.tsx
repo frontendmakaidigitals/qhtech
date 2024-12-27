@@ -26,11 +26,11 @@ const TechStack = () => {
     "media/azure.png",
   ];
   const ref = React.useRef(null);
-  const isInView = useInView(ref, {once: true})
+  const isInView = useInView(ref, { once: true });
   const [id, setId] = React.useState<number | null>(null);
   const [id2, setId2] = React.useState<number | null>(null);
   return (
-    <div ref={ref} className="w-full py-16 bg-purple-100 ">
+    <div ref={ref} className="w-full py-16 bg-black ">
       <div className="container">
         <motion.article className="flex items-center gap-3">
           {["Supercharged", "by", "the", "Right", "Tools"].map(
@@ -45,7 +45,7 @@ const TechStack = () => {
                 viewport={{ once: true }}
                 initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className={`text-6xl leading-[100%] font-Grostek font-[600] tracking-tight ${
+                className={`text-6xl leading-[100%] text-purple-100 font-Grostek font-[600] tracking-tight ${
                   text.toLowerCase() === "supercharged" &&
                   "bg-gradient-to-r from-blue-600 to-pink-500 bg-clip-text text-transparent"
                 }`}
@@ -56,7 +56,7 @@ const TechStack = () => {
           )}
         </motion.article>
 
-        <div className="mt-8 w-full flex justify-center items-center">
+        <div className="mt-14 w-full flex justify-center items-center">
           {/* Grid Container */}
           <motion.div className="grid grid-cols-10 h-32 w-full gap-4">
             {image1.map((src, index) => (
@@ -73,12 +73,12 @@ const TechStack = () => {
                   ease: [0.22, 0.61, 0.36, 1],
                 }}
                 key={index}
-                className="w-full relative bg-black rounded-xl"
+                className="w-full relative bg-purple-100 rounded-xl"
               >
-                <div className="w-full h-full bg-black relative p-3 rounded-xl z-10">
+                <div className="w-full h-full bg-purple-100 relative p-3 rounded-xl z-10">
                   <img
                     src={src}
-                    className="w-full bg-black h-full object-contain"
+                    className={`w-full bg-purple-100 h-full object-contain `}
                   />
                 </div>
                 <AnimatePresence mode="wait">
@@ -88,7 +88,7 @@ const TechStack = () => {
                       animate={{ y: 0 }}
                       exit={{ y: 50 }}
                       transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.6 }}
-                      className="absolute w-full text-center capitalize font-SplineSans font-[500] left-0 rounded-t-xl -top-8 bg-fuchsia-300 text-black px-2 pb-4 pt-2"
+                      className="absolute w-full text-center capitalize font-SplineSans font-[500] left-0 rounded-t-xl -top-8 bg-white/20 backdrop-filter backdrop-blur-lg text-purple-100 px-2 pb-4 pt-2"
                     >
                       {src.substring(
                         src.lastIndexOf("/") + 1,
@@ -108,8 +108,8 @@ const TechStack = () => {
                 onMouseEnter={() => setId2(index)}
                 onMouseLeave={() => setId2(null)}
                 animate={{
-                  y: isInView ? 0 : 150, // Move to 0 when in view, else stay at 150
-                  opacity: isInView ? 1 : 0, // Fade in when in view, else stay invisible
+                  y: isInView ? 0 : 150,  
+                  opacity: isInView ? 1 : 0,  
                 }}
                 transition={{
                   delay: index * 0.07,
@@ -117,12 +117,12 @@ const TechStack = () => {
                   ease: [0.22, 0.61, 0.36, 1],
                 }}
                 key={index}
-                className="w-full relative bg-black rounded-xl"
+                className="w-full relative bg-purple-100 rounded-xl"
               >
-                <div className="w-full h-full bg-black relative p-3 rounded-xl z-10">
+                <div className="w-full h-full bg-purple-100 relative p-3 rounded-xl z-10">
                   <img
                     src={src}
-                    className="w-full bg-black h-full object-contain"
+                    className="w-full bg-purple-100 h-full object-contain"
                   />
                 </div>
                 <AnimatePresence mode="wait">
@@ -132,7 +132,7 @@ const TechStack = () => {
                       animate={{ y: 0 }}
                       exit={{ y: -50 }}
                       transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.6 }}
-                      className="absolute w-full text-center capitalize font-SplineSans font-[500] left-0 rounded-b-xl -bottom-8 bg-fuchsia-300 text-black px-2 pt-4 pb-2"
+                      className="absolute w-full text-center capitalize font-SplineSans font-[500] left-0 rounded-b-xl -bottom-8 bg-white/20 backdrop-filter backdrop-blur-lg text-purple-100 px-2 pt-4 pb-2"
                     >
                       {src.substring(
                         src.lastIndexOf("/") + 1,

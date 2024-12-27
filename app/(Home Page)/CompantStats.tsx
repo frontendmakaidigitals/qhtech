@@ -1,6 +1,6 @@
-'use client'
-import React, {useRef} from "react";
-import {useInView} from "framer-motion";
+"use client";
+import React, { useRef } from "react";
+import { useInView } from "framer-motion";
 import NumberFlow from "@number-flow/react";
 export const CompantStats = () => {
   const stats = [
@@ -9,10 +9,10 @@ export const CompantStats = () => {
     { data: 10, title: "Happy clients" },
     { data: 1, title: "projects completed" },
   ];
-  const ref= useRef(null);
+  const ref = useRef(null);
   const isInView = useInView(ref);
   return (
-    <div ref={ref} className="w-full py-14">
+    <div ref={ref} className="w-full py-14 bg-purple-100">
       <div className="grid container grid-cols-1 lg:grid-cols-2 gap-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {stats.map((stat, index) => (
@@ -22,16 +22,16 @@ export const CompantStats = () => {
             >
               <div className="flex text-[#14062c] items-center gap-3">
                 <NumberFlow
-           
                   className="text-7xl  font-SplineSans font-[700]"
-                  value={isInView ? stat.data : 0}
+                  value={isInView ? stat.data : -5000}
+             
                 />
 
                 <p className="text-7xl font-SplineSans font-[500]">
                   {index === 3 && "K"}+
                 </p>
               </div>
-              <h1 className="text-lg font-bold text-gray-050">{stat.title}</h1>
+              <h1 className="text-lg font-bold text-gray-950 capitalize">{stat.title}</h1>
             </div>
           ))}
         </div>

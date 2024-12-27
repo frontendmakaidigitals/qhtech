@@ -162,7 +162,7 @@ const Footer = () => {
             }}
             className="flex font-Satoshi text-white px-6 py-2 border border-[#363636] rounded-xl justify-center items-center gap-2"
           >
-            <Circle className="text-[.5rem] text-[#00FF6A]" />
+            <Circle weight="fill" className="text-[.5rem] text-[#00FF6A]" />
 
             <span className="text-lg font-regular">Connected</span>
           </motion.div>

@@ -41,7 +41,12 @@ const Section1 = ({
     "Campaign Management",
   ];
   const [isHovered, setIsHovered] = React.useState<boolean>(false);
-  console.log(isHovered)
+  const btnHandler = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth",
+    });
+  };
   return (
     <motion.section
       style={{ scale, rotate }}
@@ -51,9 +56,10 @@ const Section1 = ({
         <BackgroundGradientAnimation></BackgroundGradientAnimation>
       </div>
 
-      <div className="container relative flex flex-col items-center  justify-center  py-28 w-full h-full">
-        <div className="absolute bottom-10  right-0">
-          <motion.div
+      <div className="container relative flex flex-col items-center   justify-center  py-28 w-full h-full">
+        <div className="absolute bottom-10  right-0 ">
+          <motion.button
+            onClick={btnHandler}
             initial={{ scale: 0 }}
             transition={{
               delay: 1,
@@ -74,26 +80,58 @@ const Section1 = ({
               src="roundShape.svg"
               className="w-full h-full"
             />
-            <ArrowUpRight className="absolute pointer-events-none -rotate-90 text-4xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-          </motion.div>
+            <ArrowUpRight className="absolute pointer-events-none -rotate-180 text-4xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+          </motion.button>
         </div>
-        <div className="flex items-center gap-6 h-[100px] overflow-hidden">
-          {["Elevate", "Your", "Brand", "&"].map((text, index) => (
-            <motion.h1
-              key={index}
-              initial={{ y: index + 1 * 200 }}
-              animate={{ y: 0 }}
+
+        <div className="relative">
+          <div className="absolute -top-16 left-20 ">
+            <motion.div
+              initial={{ scale: 0 }}
               transition={{
-                delay: index * 0.1,
-                duration: 0.6,
+                delay: 1,
+                duration: 0.3,
                 ease: [0.22, 0.61, 0.36, 1],
               }}
-              style={{ textShadow: "0px 0px 2px #000000F" }}
-              className="text-[7rem] leading-[6.5rem] font-Grostek font-[700] bg-gradient-to-tl from-purple-200 to-purple-100  bg-clip-text text-transparent"
+              animate={{
+                scale: 1,
+                transition: { duration: 0.6, delay: 1 },
+              }}
+              style={{ transformOrigin: "center" }}
+              className="size-28 relative  rounded-full "
             >
-              {text}
-            </motion.h1>
-          ))}
+              <svg
+                width="67"
+                height="68"
+                viewBox="0 0 67 68"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M46.5625 39.4375L61.5625 55.4375L47.5625 67.8125L34 50.0625L19.9375 67.8125L6.5 55.4375L20.1875 39.5625L0.5 28.25L8.8125 13.3125L24.6875 21.625V0.625H42.5625V21.625L59.75 13.3125L66.9375 28.9375L46.5625 39.4375Z"
+                  fill="#A4CA92"
+                />
+              </svg>
+            </motion.div>
+          </div>
+          <div className="flex items-center gap-6 h-[100px] overflow-hidden">
+            {["Elevate", "Your", "Brand", "&"].map((text, index) => (
+              <motion.h1
+                key={index}
+                initial={{ y: index + 1 * -200 }}
+                animate={{ y: 0 }}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  ease: [0.22, 0.61, 0.36, 1],
+                }}
+                style={{ textShadow: "0px 0px 2px #000000F" }}
+                className="text-[7rem] leading-[6.5rem] font-Grostek font-[700] bg-gradient-to-tl from-purple-200 to-purple-100  bg-clip-text text-transparent"
+              >
+                {text}
+              </motion.h1>
+            ))}
+          </div>
         </div>
 
         <div className="flex items-center gap-6 h-[100px]  overflow-hidden">
@@ -118,7 +156,7 @@ const Section1 = ({
           {tags.map((tag, index) => (
             <motion.p
               key={index}
-              initial={{ y: -200 }}
+              initial={{ y: index + 1 * -250 }}
               animate={{ y: 0 }}
               transition={{
                 delay: index * 0.15,
@@ -283,7 +321,7 @@ const Section2 = ({
               className="w-full group-hover:scale-[1.1] transition-all duration-300 h-full object-cover"
             />
 
-            <div className="absolute bottom-4 z-20 left-4">
+            <div className="w-full absolute bg-white/30 px-4 py-2 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
               <p className="text-white text-2xl font-Synonym font-[500]">
                 {service.name}
               </p>

@@ -19,8 +19,26 @@ const HorizontalScrollCarousel = () => {
   const x = useTransform(scrollYProgress, [0, 1], [".2%", "-75%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[400vh] bg-neutral-900">
-      <div className="sticky top-0 flex h-screen  bg-yellow-300 items-center overflow-hidden">
+    <section ref={targetRef} className="relative h-[400vh] py-20 bg-black">
+        <motion.article className="flex container items-center text-purple-100 gap-3">
+        {["Our", "Portfolio"].map((text, index) => (
+          <motion.h1
+            key={index}
+            transition={{
+              delay: index * 0.1,
+              duration: 0.6,
+              ease: [0.22, 0.61, 0.36, 1],
+            }}
+            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-6xl leading-[100%] font-Grostek font-[600] tracking-tight"
+          >
+            {text}
+          </motion.h1>
+        ))}
+      </motion.article>
+      <div className="sticky top-0 flex h-screen   items-center overflow-hidden">
         <motion.div style={{ x }} className="flex">
           {cards.map((card) => {
             return <Card card={card} key={card.id} />;
@@ -62,25 +80,25 @@ export default Portfolio;
 const cards = [
   {
     url: "/imgs/abstract/1.jpg",
-    title: "Card 1",
+    title: "Portfolio 1",
     id: 1,
     color: "red",
   },
   {
     url: "/imgs/abstract/2.jpg",
-    title: "card 2",
+    title: "Portfolio 2",
     id: 2,
     color: "yellow",
   },
   {
     url: "/imgs/abstract/3.jpg",
-    title: "card 3",
+    title: "Portfolio 3",
     id: 3,
     color: "green",
   },
   {
     url: "/imgs/abstract/4.jpg",
-    title: "card 4",
+    title: "Portfolio 4",
     id: 4,
     color: "blue",
   },

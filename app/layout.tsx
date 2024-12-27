@@ -28,9 +28,12 @@ export default function RootLayout({
         {/* Initialize Lenis Smooth Scrolling */}
         <ReactLenis
           root
-          options={{ lerp: 0.1, smoothWheel: true, duration: 1.5 }}
+          options={{
+            lerp: 0.1,
+            smoothWheel: true,
+            duration: 1.5,
+          }}
         >
-         
           <div className="w-full relative">
             <NavBar />
           </div>
