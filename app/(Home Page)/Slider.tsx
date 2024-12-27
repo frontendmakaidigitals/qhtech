@@ -34,69 +34,62 @@ const Slider = () => {
   // Calculate the skew amount based on the speed of the mouse
   const skewAmount = Math.min(mouseSpeed * 0.5, 20); // Adjust sensitivity as needed
   const images = [
-    "https://images.unsplash.com/photo-1658474598480-74daa87936af?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1695807216937-fddfaa1f63ac?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1633430688358-8e27e527e527?q=80&w=2022&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1635972064135-8ec7711f9895?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    {
+      name: "Real Estate",
+      image: "industries/realEstate.jpg",
+    },
+    {
+      name: "Technology",
+      image: "industries/technology.jpg",
+    },
+    {
+      name: "Business Consulting",
+      image: "industries/consulting.jpg",
+    },
+    {
+      name: "Corporate Services",
+      image: "industries/corporateServices.jpg",
+    },
+    {
+      name: "F&B",
+      image:
+        "https://images.unsplash.com/photo-1635972064135-8ec7711f9895?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      name: "Events & Shows",
+      image: "industries/shows.jpg",
+    },
+    {
+      name: "Hospitality",
+      image: "industries/hospitality.jpg",
+    },
+    {
+      name: "Retail",
+      image: "industries/retail.jpg",
+    },
+    {
+      name: "Entertainment & Media",
+      image: "industries/media.jpg",
+    },
+    {
+      name: "Automotive",
+      image: "industries/automative.jpg",
+    },
   ];
+  
 
   const [ref] = useKeenSlider<HTMLDivElement>({
-    loop: true,
     mode: "free",
     slides: {
-      perView: 3.2,
+      perView: 4,
       spacing: 2,
     },
+    
   });
-
-  // Ref to hold each slide element
-  const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  // Function to track intersections of slides
-  const trackIntersection = (entries: IntersectionObserverEntry[]) => {
-    entries.forEach((entry) => {
-      const index = slideRefs.current.findIndex((el) => el === entry.target);
-      if (index !== -1) {
-        // If the element is entering from the left or right
-        if (entry.isIntersecting) {
-          if (entry.boundingClientRect.left < 0) {
-            console.log(`Slide ${index} is entering from the right.`);
-          } else if (entry.boundingClientRect.right > window.innerWidth) {
-            console.log(`Slide ${index} is entering from the left.`);
-          } else {
-            console.log(`Slide ${index} is in the viewport.`);
-          }
-        }
-      }
-    });
-  };
-  console.log(lastPosition);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(trackIntersection, {
-      root: null, // Observe intersection with the viewport
-      threshold: 0.5, // Trigger when 50% of the slide is visible
-    });
-
-    // Observe each slide
-    slideRefs.current.forEach((slide) => {
-      if (slide) {
-        observer.observe(slide);
-      }
-    });
-
-    // Cleanup on unmount
-    return () => {
-      slideRefs.current.forEach((slide) => {
-        if (slide) {
-          observer.unobserve(slide);
-        }
-      });
-    };
-  }, []);
   const containerRef = useRef(null);
   const inView = useInView(containerRef, { once: true });
-
+  
+  
   return (
     <div
       ref={containerRef}
@@ -107,8 +100,7 @@ const Slider = () => {
           <motion.div
             style={{
               position: "fixed",
-              skewX: `-${skewAmount}deg`,
-              skewY: `${skewAmount}deg`,
+              transform: `skew(${skewAmount}deg)`,
             }}
             initial={{ scale: 0, top: mousePosition.y, left: mousePosition.x }}
             exit={{ scale: 0 }}
@@ -159,16 +151,32 @@ const Slider = () => {
           ref={ref}
           className="keen-slider w-full mt-7"
         >
-          {images.map((image: string, index) => {
+          {images.map((image: { name: string; image: string }, index) => {
+            const imageRef = useRef<HTMLDivElement | null>(null);
+            const inView = useInView(imageRef);
             return (
-              <div key={index} className="w-full keen-slider__slide">
-                <motion.div className="w-full h-[70vh]">
+              <div
+               
+                ref={imageRef}
+                key={index}
+                className="w-full group keen-slider__slide"
+              >
+                <motion.div className="relative bg-red-500 overflow-hidden w-full h-[760px] ">
                   <motion.img
-                    src={image}
+                    src={image.image}
                     alt={`slide-${index}`}
-                    className="w-full h-full object-cover"
+                    transition={{ duration: 0.5 }}
+                    className="w-full top-0 left-0 h-full object-cover absolute "
+                    style={{ scale: 1.2 }}
+                   
                   />
                 </motion.div>
+
+                <div className="mt-2">
+                  <p className="font-[600] font-Grostek text-xl">
+                    {image.name}
+                  </p>
+                </div>
               </div>
             );
           })}

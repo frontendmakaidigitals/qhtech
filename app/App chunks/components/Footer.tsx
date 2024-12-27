@@ -43,30 +43,24 @@ const Footer = () => {
   return (
     <div
       ref={ref}
-      className="h-full overflow-hidden  flex  flex-col justify-around  w-full bg-black "
+      className="h-full overflow-hidden  flex  flex-col justify-around  w-full bg-gradient-to-t from-purple-400 to-purple-100 "
     >
-      <div className="container  grid grid-cols-1 lg:grid-cols-2">
+      <div className="container  grid grid-cols-1 lg:grid-cols-3">
         <div className="">
           <motion.div
             transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
-            ref={logoRef}
-            className="inline-block"
             animate={{ y: inView ? 0 : 200, rotate: inView ? 0 : 10 }}
           >
-            <Logo className="text-white text-6xl lg:text-7xl" />
+            <Logo />
           </motion.div>
           <motion.p
-            style={{ width: `${logoWidth + 60}px` }}
             animate={{ y: inView ? 0 : 200 }}
-            className={`text-slate-100 text-md lg:text-lg  font-Satoshi mt-2 lg:mt-4`}
+            className={`text-indigo-950 text-md lg:text-lg  font-Satoshi mt-2 lg:mt-4`}
           >
             We create possibilities for the connected world.
           </motion.p>
 
-          <motion.div
-            style={{ width: `${logoWidth + 15}px` }}
-            className="w-full grid grid-cols-4 gap-3 mt-8 lg:mt-12"
-          >
+          <motion.div className="w-full grid grid-cols-4 gap-3 mt-8 lg:mt-12">
             {socialIcons.map((elem, index) => (
               <motion.div
                 key={index}
@@ -83,14 +77,15 @@ const Footer = () => {
             ))}
           </motion.div>
         </div>
+        <div></div>
         <div className="flex items-start mt-6 justify-end gap-20">
           <motion.ul whileInView={"animate"} className="">
-            <motion.p className="text-white mb-2 font-Satoshi text-2xl lg:text-3xl">
+            <motion.p className="text-indigo-950 mb-2 font-Synonym font-[500] text-2xl lg:text-3xl">
               Menu
             </motion.p>
             {menu.map((item, index) => (
               <motion.li
-                className="font-Satoshi mb-1 text-md lg:text-lg text-slate-100 flex items-center gap-1 "
+                className="font-Satoshi mb-1 text-md capitalize lg:text-lg text-purple-950 flex items-center gap-1 "
                 key={index}
                 animate={{ y: inView ? 0 : 130 }}
                 transition={{
@@ -104,12 +99,12 @@ const Footer = () => {
             ))}
           </motion.ul>
           <motion.ul className="">
-            <motion.p className="text-white mb-2 font-Satoshi text-2xl lg:text-3xl">
+            <motion.p className="text-indigo-950 mb-2 font-Synonym font-[500] text-2xl lg:text-3xl">
               Legal
             </motion.p>
             {legal.map((item, index) => (
               <motion.li
-                className="font-Satoshi mb-1 text-md lg:text-lg text-slate-100 flex items-center gap-1 "
+                className="font-Satoshi mb-1 text-md lg:text-lg text-purple-950 flex items-center gap-1 "
                 key={index}
                 animate={{ y: inView ? 0 : 130 }}
                 transition={{
@@ -124,15 +119,15 @@ const Footer = () => {
           </motion.ul>
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-end container">
-        <motion.div style={{ width: `${logoWidth}px` }}>
+      <div className="grid grid-cols-1 lg:grid-cols-3 lg:items-end container">
+        <motion.div>
           <motion.p
             animate={{ y: inView ? 0 : 180 }}
             transition={{
               ease: [0.22, 0.61, 0.36, 1],
               duration: 0.7,
             }}
-            className="text-slate-50 font-Satoshi text-lg"
+            className="text-indigo-950 font-Synonym font-[500] text-lg"
           >
             Subscribe
           </motion.p>
@@ -146,13 +141,14 @@ const Footer = () => {
           >
             <input
               placeholder="Enter your email"
-              className="w-full text-slate-100 pl-5 pr-16 py-3 bg-transparent border border-[#363636] rounded-full"
+              className="w-full text-purple-950 placeholder:text-slate-700 pl-5 pr-16 py-3 bg-transparent border border-[#363636] rounded-full"
             />
-            <button className="text-xl overflow-hidden rounded-full flex justify-center items-center bg-lime-300 hover:bg-lime-200 absolute top-1/2 right-1 -translate-y-1/2 px-4 py-1 h-11">
+            <button className="text-xl overflow-hidden rounded-full flex justify-center items-center bg-black hover:bg-slate-950 text-purple-100 absolute top-1/2 right-1 -translate-y-1/2 px-4 py-1 h-11">
               <ArrowUpRight fontWeight={500} />
             </button>
           </motion.div>
         </motion.div>
+        <div></div>
         <motion.div className="w-full justify-start mt-5 lg:mt-0 lg:justify-end flex">
           <motion.div
             animate={{ y: inView ? 0 : 180 }}
@@ -160,7 +156,7 @@ const Footer = () => {
               ease: [0.22, 0.61, 0.36, 1],
               duration: 0.7,
             }}
-            className="flex font-Satoshi text-white px-6 py-2 border border-[#363636] rounded-xl justify-center items-center gap-2"
+            className="flex  text-black p-2 font-Synonym font-[500] border border-[#363636] rounded-xl justify-center items-center gap-2"
           >
             <Circle weight="fill" className="text-[.5rem] text-[#00FF6A]" />
 
@@ -169,26 +165,29 @@ const Footer = () => {
         </motion.div>
       </div>
       <motion.div
-        animate={{ y: inView ? 0 : 300, scale: inView ? 1 : .6, rotateX:inView ? 0 : '40deg' }}
+        animate={{
+          y: inView ? 0 : 300,
+          scale: inView ? 1 : 0.6,
+          rotateX: inView ? 0 : "40deg",
+        }}
         transition={{
           ease: [0.22, 0.61, 0.36, 1],
           duration: 0.7,
         }}
-        
         className="overflow-hidden origin-top-left w-full"
       >
         <Ribbon
-          className="bg-slate-50 !text-lg lg:!text-7xl"
-          text={` Let's Talk ↗ `}
+          className="  !text-purple-950 !text-lg lg:!text-7xl"
+          text={`  Let's Talk ↗  `}
         />
       </motion.div>
-      <div className="flex justify-between  text-slate-100  container text-sm lg:text-md items-center">
-        <motion.p className="text-slate-100 hidden lg:block">
+      <div className="flex justify-between  text-purple-950  container text-sm lg:text-md items-center">
+        <motion.p className="text-purple-950 hidden lg:block">
           Copyright © 2025 Insight Vision
         </motion.p>
-        <motion.p className="text-slate-100 w-full text-center lg:w-auto">
+        <motion.p className="text-purple-950 w-full text-center lg:w-auto">
           Designed and Developed by{" "}
-          <span className="underline  font-Satoshi text-lime-300 underline-offset-4">
+          <span className="underline  font-Synonym text-black font-[600] underline-offset-4">
             Faheem
           </span>
         </motion.p>

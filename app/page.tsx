@@ -5,6 +5,7 @@ import { CompantStats } from "./(Home Page)/CompantStats";
 import MaskSection from "./(Home Page)/MaskSection";
 import Portfolio from "./(Home Page)/Portfolio";
 import Slider from "./(Home Page)/Slider";
+import Form from "./App chunks/components/Form";
 export default function Home() {
   return (
     <>
@@ -15,6 +16,7 @@ export default function Home() {
       <Portfolio />
       <CompantStats />
       <Slider />
+      <Form />
     </>
   );
 }
