@@ -55,7 +55,7 @@ const Tab = ({
   link,
 }: {
   children: React.ReactNode;
-  setPosition: any;
+  setPosition: React.Dispatch<React.SetStateAction<{ left: number; width: number; opacity: number }>>;
   link: string;
 }) => {
   const ref = useRef<HTMLLIElement>(null);
