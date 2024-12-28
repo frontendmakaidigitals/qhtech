@@ -121,7 +121,7 @@ const Footer = () => {
           </motion.ul>
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 lg:items-end container">
+      <div className="grid mt-3 lg:mt-6 grid-cols-1 lg:grid-cols-3 lg:items-end container">
         <motion.div>
           <motion.p
             animate={{ y: inView ? 0 : 180 }}
