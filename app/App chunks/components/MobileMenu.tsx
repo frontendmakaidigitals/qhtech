@@ -25,7 +25,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menu }) => {
               delay: 0.1,
               ease: [0.79, 0.14, 0.15, 0.86],
             }}
-            className="w-full h-screen absolute top-0 right-0 bg-blue-300"
+            className="w-full h-screen absolute top-0 right-0 bg-slate-400"
           >
             {/* Parent container with staggerChildren */}
             <motion.div

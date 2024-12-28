@@ -58,7 +58,7 @@ const Slider = () => {
   };
 
   
-
+  const containerRef = useRef(null);
   const images = [
     {
       name: "Real Estate",
@@ -110,8 +110,9 @@ const Slider = () => {
       spacing: 2,
     },
   });
-  const containerRef = useRef(null);
-  const inView = useInView(containerRef, { once: true });
+
+  
+ 
   
   return (
     <div
@@ -172,17 +173,16 @@ const Slider = () => {
         onMouseMove={handleMouseMove}
       >
         <motion.div
-          animate={{ x: inView ? "0%" : "90%" }}
+         
           transition={{ ease: [0.29, 1.08, 0.67, 0.98], duration: 1.4 }}
           ref={ref}
           className="keen-slider w-full mt-7"
         >
           {images.map((image: { name: string; image: string }, index) => {
-            const imageRef = useRef<HTMLDivElement | null>(null);
-            const inView = useInView(imageRef);
+            
             return (
               <div
-                ref={imageRef}
+             
                 key={index}
                 className="w-full group keen-slider__slide"
               >

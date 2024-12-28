@@ -79,7 +79,7 @@ const Section1 = ({
       </div>
 
       <div className="container relative flex flex-col items-center   justify-center  py-28 w-full h-full">
-        <div className="absolute bottom-10  right-0 ">
+        <div className="absolute bottom-10  right-7 ">
           <motion.button
             onClick={btnHandler}
             initial={{ scale: 0 }}
@@ -107,7 +107,7 @@ const Section1 = ({
         </div>
 
         <div className="relative">
-          <div className="absolute -top-16 left-20 ">
+          <div className="absolute -top-20 lg:-top-16 lg:left-20 ">
             <motion.div
               initial={{ scale: 0 }}
               transition={{
@@ -120,7 +120,7 @@ const Section1 = ({
                 transition: { duration: 0.6, delay: 1 },
               }}
               style={{ transformOrigin: "center" }}
-              className="size-28 relative  rounded-full "
+              className="size-24 lg:size-28 relative rounded-full "
             >
               <svg
                 width="67"
@@ -141,7 +141,7 @@ const Section1 = ({
               perspective: "6144px",
               perspectiveOrigin: "bottom center",
             }}
-            className="flex items-center w-full gap-6 h-[100px] overflow-hidden"
+            className="flex items-center w-full gap-3 lg:gap-6 h-[50px] lg:h-[100px] overflow-hidden"
           >
             {["Elevate", "Your", "Brand", "&"].map((text, index) => (
               <motion.div
@@ -157,7 +157,7 @@ const Section1 = ({
                   textShadow: "0px 0px 2px #000000F",
                   transformStyle: "preserve-3d",
                 }}
-                className="text-[7rem] w-full relative leading-[6.5rem] font-Grostek  font-[700] text-purple-100"
+                className="text-[8.6vw] lg:text-[7rem] w-full relative leading-[6.5rem] font-Grostek  font-[700] text-purple-100"
                 whileHover={"hover"}
               >
                 <motion.p className="text-transparent">{text}</motion.p>
@@ -194,7 +194,7 @@ const Section1 = ({
           </div>
         </div>
 
-        <div className="flex items-center gap-6 h-[100px]  overflow-hidden">
+        <div className="flex items-center gap-3 lg:gap-6 h-[50px] lg:h-[100px]  overflow-hidden">
           {["Dominate", "the", "Market"].map((text, index) => (
             <motion.div
               key={index}
@@ -209,7 +209,7 @@ const Section1 = ({
                 textShadow: "0px 0px 2px #000000F",
                 transformStyle: "preserve-3d",
               }}
-              className="text-[7rem] w-full relative leading-[6.5rem] font-Grostek  font-[700] text-purple-100"
+              className="text-[8.6vw] lg:text-[7rem] w-full relative leading-[6.5rem] font-Grostek  font-[700] text-purple-100"
               whileHover={"hover"}
             >
               <motion.p className="text-transparent">{text}</motion.p>
@@ -233,7 +233,7 @@ const Section1 = ({
             </motion.div>
           ))}
         </div>
-        <div className="flex items-center font-[500] font-Synonym mt-3 text-purple-100 gap-3 overflow-hidden h-[25px] ">
+        <div className="flex text-[.7rem] lg:text-md justify-between items-center font-[500] font-Synonym mt-3 text-purple-100 gap-2 overflow-hidden h-[25px] ">
           {tags.map((tag, index) => (
             <motion.p
               key={index}
@@ -244,7 +244,9 @@ const Section1 = ({
                 duration: 0.6,
                 ease: [0.22, 0.61, 0.36, 1],
               }}
-              className={`pr-3 ${index != 2 && "border-r"} border-slate-50 `}
+              className={`pr-1 lg:pr-3 ${
+                index != 2 && "border-r"
+              } border-slate-50 `}
             >
               {" "}
               {tag}
@@ -285,10 +287,6 @@ const Section2 = ({
 }: {
   scrollYProgress: MotionValue<number>;
 }) => {
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
-  const rotate = useTransform(scrollYProgress, [0, 0.5], [7, 0]);
-  const [isSticky, setIsSticky] = React.useState<boolean>(false);
-
   const services = [
     {
       name: "Web Development",
@@ -340,6 +338,35 @@ const Section2 = ({
   }, []);
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true });
+
+  const [viewportWidth, setViewportWidth] = React.useState(window.innerWidth);
+
+  // Update the viewport width when the window is resized
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth); // Update state with new width
+    };
+
+    // Add event listener for resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  const scale = useTransform(
+    scrollYProgress,
+    [0, viewportWidth > 450 ? 0.5 : 0.2],
+    [viewportWidth > 450 ? 0.8 : 0.8, 1]
+  );
+  const rotate = useTransform(
+    scrollYProgress,
+    [0, viewportWidth > 450 ? 0.5 : 0.25],
+    [viewportWidth > 450 ? 0.5 : 0.25, 0]
+  );
+  const [isSticky, setIsSticky] = React.useState<boolean>(false);
+
   return (
     <motion.section
       style={{ scale, rotate }}
@@ -355,7 +382,7 @@ const Section2 = ({
           backdropFilter: isSticky ? "blur(10px)" : "none",
           color: isSticky ? "white" : "black",
         }}
-        className="container flex items-center gap-3 sticky top-0 left-0 mx-auto z-[50] "
+        className="container flex items-center gap-3 sticky top-0 left-0 mx-auto z-[50] flex-wrap" // Added flex-wrap here
       >
         {["Services", "Designed", "to", "Drive", "Growth"].map(
           (text, index) => (
@@ -369,7 +396,7 @@ const Section2 = ({
               viewport={{ once: true }}
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-6xl leading-[100%] font-Grostek font-[600] tracking-tight "
+              className="text-4xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words" // Added break-words class
             >
               {text}
             </motion.h1>
@@ -378,7 +405,7 @@ const Section2 = ({
       </motion.article>
       <motion.div
         id="sticky-section"
-        className="mt-10 relative z-20 container grid grid-cols-4 gap-4"
+        className="mt-10 relative z-20 container grid grid-cols-1 lg:grid-cols-4 gap-4"
         initial={{ opacity: 1 }} // Initially, the parent container is invisible
         whileInView={{ opacity: 1 }} // Make the parent visible when in view
         transition={{ duration: 0.5 }}
