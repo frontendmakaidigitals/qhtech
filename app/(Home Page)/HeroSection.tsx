@@ -47,6 +47,28 @@ const Section1 = ({
       behavior: "smooth",
     });
   };
+  const charMotion1 = {
+    hover: {
+      y: -200,
+      rotateX: "90deg",
+    },
+  };
+  const charMotion2 = {
+    hover: {
+      y: 0,
+      rotateX: "0deg",
+    },
+  };
+  const charMotion3 = {
+    hover: {
+      y: 0,
+    },
+  };
+  const charMotion4 = {
+    hover: {
+      y: 200,
+    },
+  };
   return (
     <motion.section
       style={{ scale, rotate }}
@@ -114,42 +136,101 @@ const Section1 = ({
               </svg>
             </motion.div>
           </div>
-          <div className="flex items-center gap-6 h-[100px] overflow-hidden">
+          <div
+            style={{
+              perspective: "6144px",
+              perspectiveOrigin: "bottom center",
+            }}
+            className="flex items-center w-full gap-6 h-[100px] overflow-hidden"
+          >
             {["Elevate", "Your", "Brand", "&"].map((text, index) => (
-              <motion.h1
+              <motion.div
                 key={index}
-                initial={{ y: index + 1 * -200 }}
+                initial={{ y: -200 }}
                 animate={{ y: 0 }}
                 transition={{
                   delay: index * 0.1,
                   duration: 0.6,
                   ease: [0.22, 0.61, 0.36, 1],
                 }}
-                style={{ textShadow: "0px 0px 2px #000000F" }}
-                className="text-[7rem] leading-[6.5rem] font-Grostek font-[700] bg-gradient-to-tl from-purple-200 to-purple-100  bg-clip-text text-transparent"
+                style={{
+                  textShadow: "0px 0px 2px #000000F",
+                  transformStyle: "preserve-3d",
+                }}
+                className="text-[7rem] w-full relative leading-[6.5rem] font-Grostek  font-[700] text-purple-100"
+                whileHover={"hover"}
               >
-                {text}
-              </motion.h1>
+                <motion.p className="text-transparent">{text}</motion.p>
+
+                <motion.p
+                  initial={{ y: 0, rotateX: 0 }}
+                  style={{
+                    perspective: "6144px",
+                    perspectiveOrigin: "bottom center",
+                    rotateX: "0deg",
+                  }}
+                  variants={charMotion1}
+                  transition={{
+                    duration: 1,
+                    ease: [0.19, 1, 0.22, 1],
+                  }}
+                  className=" absolute top-0  left-0"
+                >
+                  {text}
+                </motion.p>
+                <motion.p
+                  initial={{ y: 200, rotateX: "-90deg" }}
+                  transition={{
+                    duration: 1,
+                    ease: [0.19, 1, 0.22, 1],
+                  }}
+                  variants={charMotion2}
+                  className="absolute top-0 left-0 "
+                >
+                  {text}
+                </motion.p>
+              </motion.div>
             ))}
           </div>
         </div>
 
         <div className="flex items-center gap-6 h-[100px]  overflow-hidden">
           {["Dominate", "the", "Market"].map((text, index) => (
-            <motion.h1
+            <motion.div
               key={index}
-              initial={{ y: index + 1 * 250 }}
+              initial={{ y: 200 }}
               animate={{ y: 0 }}
               transition={{
-                delay: index * 0.15,
+                delay: index * 0.1,
                 duration: 0.6,
                 ease: [0.22, 0.61, 0.36, 1],
               }}
-              style={{ textShadow: "0px 0px 2px #000000F" }}
-              className="text-[7rem] leading-[6.5rem] font-Grostek bg-gradient-to-tl from-purple-200 to-purple-100  bg-clip-text text-transparent font-[700] "
+              style={{
+                textShadow: "0px 0px 2px #000000F",
+                transformStyle: "preserve-3d",
+              }}
+              className="text-[7rem] w-full relative leading-[6.5rem] font-Grostek  font-[700] text-purple-100"
+              whileHover={"hover"}
             >
-              {text}
-            </motion.h1>
+              <motion.p className="text-transparent">{text}</motion.p>
+
+              <motion.p
+                initial={{ y: -200, rotateX: 0 }}
+                variants={charMotion3}
+                transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
+                className=" absolute top-0  left-0"
+              >
+                {text}
+              </motion.p>
+              <motion.p
+                initial={{ y: 0, rotateX: 0 }}
+                transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
+                variants={charMotion4}
+                className="absolute top-0 left-0 "
+              >
+                {text}
+              </motion.p>
+            </motion.div>
           ))}
         </div>
         <div className="flex items-center font-[500] font-Synonym mt-3 text-purple-100 gap-3 overflow-hidden h-[25px] ">

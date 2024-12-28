@@ -8,11 +8,14 @@ const Slider = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [mouseSpeed, setMouseSpeed] = useState(0); // Speed of the mouse movement
-  const lastPosition = useRef({ x: 0, y: 0 }); // Reference to store previous mouse position
-  // Track mouse position and speed
-  const handleMouseMove = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
+  const lastPosition = useRef({ x: 0, y: 0 });
+  const [rotation, setRotation] = useState(0); // Reference to store previous mouse position
+  const pointerRef = useRef<HTMLDivElement | null>(null);
+  const MAX_SPEED = 20; // Maximum speed limit (in pixels)
+ 
+
+  // Function to calculate the rotation angle and mouse speed
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const currentX = event.clientX;
     const currentY = event.clientY;
 
@@ -20,19 +23,42 @@ const Slider = () => {
     const deltaX = currentX - lastPosition.current.x;
     const deltaY = currentY - lastPosition.current.y;
 
-    // Calculate the mouse movement speed
-    const speed = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-    setMouseSpeed(speed);
+    // Calculate the mouse movement speed (distance moved per frame)
+    let speed = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-    // Update the last position for the next frame
+    // Cap the speed to not exceed MAX_SPEED
+    if (speed > MAX_SPEED) {
+      speed = MAX_SPEED;
+    }
+
+    setMouseSpeed(speed); // Set the mouse speed (limited)
+
+    // Update the mouse position
+    setMousePosition({ x: currentX, y: currentY });
+
+    // Update last position
     lastPosition.current = { x: currentX, y: currentY };
 
-    // Update the current mouse position
-    setMousePosition({ x: currentX, y: currentY });
+    // If mouse is moving while dragging, update rotation
+    if (speed > 0) {
+      // Calculate the rotation angle based on mouse position relative to the div
+      if (pointerRef.current) {
+        const rect = pointerRef.current.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const deltaXForRotation = currentX - centerX;
+        const deltaYForRotation = currentY - centerY;
+        const angle =
+          Math.atan2(deltaYForRotation, deltaXForRotation) * (180 / Math.PI); // Convert radians to degrees
+
+        setRotation(angle); 
+      }
+    }
   };
 
-  // Calculate the skew amount based on the speed of the mouse
-  const skewAmount = Math.min(mouseSpeed * 0.5, 20); // Adjust sensitivity as needed
+  
+
   const images = [
     {
       name: "Real Estate",
@@ -76,7 +102,6 @@ const Slider = () => {
       image: "industries/automative.jpg",
     },
   ];
-  
 
   const [ref] = useKeenSlider<HTMLDivElement>({
     mode: "free",
@@ -84,15 +109,14 @@ const Slider = () => {
       perView: 4,
       spacing: 2,
     },
-    
   });
   const containerRef = useRef(null);
   const inView = useInView(containerRef, { once: true });
   
-  
   return (
     <div
       ref={containerRef}
+     
       className="w-full  overflow-hidden  py-12 bg-purple-100"
     >
       <AnimatePresence>
@@ -100,8 +124,13 @@ const Slider = () => {
           <motion.div
             style={{
               position: "fixed",
-              transform: `skew(${skewAmount}deg)`,
+              rotate: rotation,
+              width: `calc(1.5rem + ${mouseSpeed}px)`,
+              height: `calc(1.5rem - ${mouseSpeed / 2}px)`,
+              borderRadius: "50%",
             }}
+           
+            ref={pointerRef}
             initial={{ scale: 0, top: mousePosition.y, left: mousePosition.x }}
             exit={{ scale: 0 }}
             animate={{
@@ -110,13 +139,11 @@ const Slider = () => {
               left: mousePosition.x,
             }}
             transition={{
-              ease: [0.1, 0.82, 0.7, 1.08],
-              duration: 0.4,
+              duration: 0.3,
+              ease: [0.165, 0.84, 0.44, 1],
             }}
-            className="w-20 z-[999] -m-10 h-20 font-Synonym font-[600] bg-slate-500/30 flex justify-center items-center backdrop-filter backdrop-blur text-slate-50 rounded-full pointer-events-none"
-          >
-            Scroll
-          </motion.div>
+            className=" z-[999] -m-3   font-Synonym font-[600] bg-slate-50/60 flex justify-center items-center backdrop-filter backdrop-blur text-slate-50 pointer-events-none"
+          ></motion.div>
         )}
       </AnimatePresence>
 
@@ -143,7 +170,6 @@ const Slider = () => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onMouseMove={handleMouseMove}
-        className="cursor-none"
       >
         <motion.div
           animate={{ x: inView ? "0%" : "90%" }}
@@ -156,7 +182,6 @@ const Slider = () => {
             const inView = useInView(imageRef);
             return (
               <div
-               
                 ref={imageRef}
                 key={index}
                 className="w-full group keen-slider__slide"
@@ -168,7 +193,6 @@ const Slider = () => {
                     transition={{ duration: 0.5 }}
                     className="w-full top-0 left-0 h-full object-cover absolute "
                     style={{ scale: 1.2 }}
-                   
                   />
                 </motion.div>
 

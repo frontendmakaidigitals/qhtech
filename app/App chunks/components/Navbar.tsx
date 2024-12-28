@@ -27,7 +27,7 @@ const NavBar = () => {
           }}
           className=" relative z-10"
         >
-          <Logo className="!w-[110px]" />
+          <Logo source="/Logo-white.png" className="!w-[110px]" />
         </motion.div>
         <motion.div
           initial={{ y: -200 }}

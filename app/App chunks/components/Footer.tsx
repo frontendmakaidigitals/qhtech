@@ -70,9 +70,11 @@ const Footer = () => {
                   ease: [0.22, 0.61, 0.36, 1],
                   duration: 0.7,
                 }}
-                className=" flex justify-center text-4xl text-slate-600 items-center size-14 rounded-full bg-slate-100/10 border border-gray-800"
+                className=" flex overflow-hidden justify-center text-4xl text-slate-600 items-center size-14 rounded-full bg-slate-100/10 border border-gray-800"
               >
-                {elem.icon}
+                <motion.button whileHover={{ scale: 1.3 }}>
+                  {elem.icon}
+                </motion.button>
               </motion.div>
             ))}
           </motion.div>
