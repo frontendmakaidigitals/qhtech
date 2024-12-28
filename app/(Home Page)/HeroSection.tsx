@@ -10,6 +10,7 @@ import {
 import { useEffect, useRef } from "react";
 import { BackgroundGradientAnimation } from "./HeroGradient";
 import { ArrowUpRight } from "@phosphor-icons/react";
+import "../App chunks/components/textAnim.css";
 
 export default function HeroSection() {
   const container = useRef<HTMLElement | null>(null);
@@ -47,28 +48,7 @@ const Section1 = ({
       behavior: "smooth",
     });
   };
-  const charMotion1 = {
-    hover: {
-      y: -200,
-      rotateX: "90deg",
-    },
-  };
-  const charMotion2 = {
-    hover: {
-      y: 0,
-      rotateX: "0deg",
-    },
-  };
-  const charMotion3 = {
-    hover: {
-      y: 0,
-    },
-  };
-  const charMotion4 = {
-    hover: {
-      y: 200,
-    },
-  };
+
   return (
     <motion.section
       style={{ scale, rotate }}
@@ -157,36 +137,11 @@ const Section1 = ({
                   textShadow: "0px 0px 2px #000000F",
                   transformStyle: "preserve-3d",
                 }}
-                className="text-[8.6vw] lg:text-[7rem] w-full relative leading-[6.5rem] font-Grostek  font-[700] text-purple-100"
-                whileHover={"hover"}
+                className="textContainer text-[8.6vw] lg:text-[7rem] w-full relative leading-[6.5rem] font-Grostek  font-[700] text-purple-100"
               >
-                <motion.p className="text-transparent">{text}</motion.p>
+                <motion.p className="primary">{text}</motion.p>
 
-                <motion.p
-                  initial={{ y: 0, rotateX: 0 }}
-                  style={{
-                    perspective: "6144px",
-                    perspectiveOrigin: "bottom center",
-                    rotateX: "0deg",
-                  }}
-                  variants={charMotion1}
-                  transition={{
-                    duration: 1,
-                    ease: [0.19, 1, 0.22, 1],
-                  }}
-                  className=" absolute top-0  left-0"
-                >
-                  {text}
-                </motion.p>
-                <motion.p
-                  initial={{ y: 200, rotateX: "-90deg" }}
-                  transition={{
-                    duration: 1,
-                    ease: [0.19, 1, 0.22, 1],
-                  }}
-                  variants={charMotion2}
-                  className="absolute top-0 left-0 "
-                >
+                <motion.p className="absolute  secondary  top-0 left-0">
                   {text}
                 </motion.p>
               </motion.div>
@@ -194,7 +149,7 @@ const Section1 = ({
           </div>
         </div>
 
-        <div className="flex items-center gap-3 lg:gap-6 h-[50px] lg:h-[100px]  overflow-hidden">
+        <div className=" flex items-center gap-3 lg:gap-6 h-[50px] lg:h-[100px]  overflow-hidden">
           {["Dominate", "the", "Market"].map((text, index) => (
             <motion.div
               key={index}
@@ -207,27 +162,12 @@ const Section1 = ({
               }}
               style={{
                 textShadow: "0px 0px 2px #000000F",
-                transformStyle: "preserve-3d",
               }}
-              className="text-[8.6vw] lg:text-[7rem] w-full relative leading-[6.5rem] font-Grostek  font-[700] text-purple-100"
-              whileHover={"hover"}
+              className="textContainer text-[8.6vw] lg:text-[7rem] w-full relative leading-[6.5rem] font-Grostek  font-[700] text-purple-100"
             >
-              <motion.p className="text-transparent">{text}</motion.p>
+              <motion.p className="primary">{text}</motion.p>
 
-              <motion.p
-                initial={{ y: -200, rotateX: 0 }}
-                variants={charMotion3}
-                transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
-                className=" absolute top-0  left-0"
-              >
-                {text}
-              </motion.p>
-              <motion.p
-                initial={{ y: 0, rotateX: 0 }}
-                transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
-                variants={charMotion4}
-                className="absolute top-0 left-0 "
-              >
+              <motion.p className="absolute  secondary  top-0 left-0">
                 {text}
               </motion.p>
             </motion.div>
