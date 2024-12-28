@@ -37,7 +37,7 @@ const AboutUs = () => {
     return phrase.split(" ").map((word, i) => {
       const letters = splitLetters(word);
       return (
-        <p key={word + "_" + i} className="font-Synonym mr-[1.1vw] font-[500] text-3xl">
+        <p key={word + "_" + i} className="font-Synonym mr-[1.1vw] font-[500] text-xl lg:text-3xl">
           {letters}
         </p>
       );
@@ -92,14 +92,14 @@ const AboutUs = () => {
               viewport={{ once: true }}
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-6xl leading-[100%] font-Grostek font-[600] tracking-tight"
+               className="text-4xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
             >
               {text}
             </motion.h1>
           ))}
         </motion.article>
 
-        <div className="grid grid-cols-2 gap-7 mt-6 !text-purple-50">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 mt-6 !text-purple-50">
           <div>
             <div ref={body} className="w-full flex flex-wrap">
               {splitWords(para1)}

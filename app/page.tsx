@@ -10,8 +10,13 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-   
-      
+      <MaskSection />
+      <AboutUs />
+      <TechStack />
+      <Portfolio />
+      <CompantStats />
+      <Slider />
+      <Form />
     </>
   );
 }

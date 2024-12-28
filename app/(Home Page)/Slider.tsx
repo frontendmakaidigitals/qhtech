@@ -12,10 +12,11 @@ const Slider = () => {
   const [rotation, setRotation] = useState(0); // Reference to store previous mouse position
   const pointerRef = useRef<HTMLDivElement | null>(null);
   const MAX_SPEED = 20; // Maximum speed limit (in pixels)
- 
 
   // Function to calculate the rotation angle and mouse speed
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleMouseMove = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
     const currentX = event.clientX;
     const currentY = event.clientY;
 
@@ -52,12 +53,11 @@ const Slider = () => {
         const angle =
           Math.atan2(deltaYForRotation, deltaXForRotation) * (180 / Math.PI); // Convert radians to degrees
 
-        setRotation(angle); 
+        setRotation(angle);
       }
     }
   };
 
-  
   const containerRef = useRef(null);
   const images = [
     {
@@ -103,21 +103,34 @@ const Slider = () => {
     },
   ];
 
+ 
+  const [viewportWidth, setViewportWidth] = React.useState(window.innerWidth);
+
+  // Update the viewport width when the window is resized
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth); // Update state with new width
+    };
+
+    // Add event listener for resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   const [ref] = useKeenSlider<HTMLDivElement>({
     mode: "free",
     slides: {
-      perView: 4,
+      perView: viewportWidth > 450 ? 4 : 1.2,
       spacing: 2,
     },
   });
 
-  
- 
-  
   return (
     <div
       ref={containerRef}
-     
       className="w-full  overflow-hidden  py-12 bg-purple-100"
     >
       <AnimatePresence>
@@ -130,7 +143,6 @@ const Slider = () => {
               height: `calc(1.5rem - ${mouseSpeed / 2}px)`,
               borderRadius: "50%",
             }}
-           
             ref={pointerRef}
             initial={{ scale: 0, top: mousePosition.y, left: mousePosition.x }}
             exit={{ scale: 0 }}
@@ -173,19 +185,13 @@ const Slider = () => {
         onMouseMove={handleMouseMove}
       >
         <motion.div
-         
           transition={{ ease: [0.29, 1.08, 0.67, 0.98], duration: 1.4 }}
           ref={ref}
           className="keen-slider w-full mt-7"
         >
           {images.map((image: { name: string; image: string }, index) => {
-            
             return (
-              <div
-             
-                key={index}
-                className="w-full group keen-slider__slide"
-              >
+              <div key={index} className="w-full group keen-slider__slide">
                 <motion.div className="relative bg-red-500 overflow-hidden w-full h-[760px] ">
                   <motion.img
                     src={image.image}

@@ -14,7 +14,7 @@ export const CompantStats = () => {
   return (
     <div ref={ref} className="w-full py-14 bg-purple-100">
       <div className="grid container grid-cols-1 lg:grid-cols-2 gap-5">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-2 gap-5">
           {stats.map((stat, index) => (
             <div
               key={index}

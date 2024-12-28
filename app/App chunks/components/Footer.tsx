@@ -43,7 +43,7 @@ const Footer = () => {
   return (
     <div
       ref={ref}
-      className="h-full overflow-hidden  flex  flex-col justify-around  w-full bg-gradient-to-t from-purple-400 to-purple-100 "
+      className="h-full overflow-hidden py-10 flex  flex-col justify-around  w-full bg-gradient-to-t from-purple-400 to-purple-100 "
     >
       <div className="container  grid grid-cols-1 lg:grid-cols-3">
         <div className="">
@@ -176,14 +176,14 @@ const Footer = () => {
           ease: [0.22, 0.61, 0.36, 1],
           duration: 0.7,
         }}
-        className="overflow-hidden origin-top-left w-full"
+        className="overflow-hidden mt-5 origin-top-left w-full"
       >
         <Ribbon
           className="  !text-purple-950 !text-lg lg:!text-7xl"
           text={`  Let's Talk ↗  `}
         />
       </motion.div>
-      <div className="flex justify-between  text-purple-950  container text-sm lg:text-md items-center">
+      <div className="flex justify-between mt-3  text-purple-950  container text-sm lg:text-md items-center">
         <motion.p className="text-purple-950 hidden lg:block">
           Copyright © 2025 Insight Vision
         </motion.p>

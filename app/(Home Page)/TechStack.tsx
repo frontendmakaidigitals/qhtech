@@ -32,7 +32,7 @@ const TechStack = () => {
   return (
     <div ref={ref} className="w-full py-16 bg-black ">
       <div className="container">
-        <motion.article className="flex items-center gap-3">
+        <motion.article className=" flex items-center gap-3  mx-auto z-[50] flex-wrap">
           {["Supercharged", "by", "the", "Right", "Tools"].map(
             (text, index) => (
               <motion.h1

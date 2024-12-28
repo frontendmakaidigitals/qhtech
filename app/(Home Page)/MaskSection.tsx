@@ -44,12 +44,12 @@ export default function MaskSection() {
  
   return (
     <main className={"main bg-purple-100"}>
-      <div ref={container} className={"contaner"}>
+      <div ref={container} className={"contaner h-[300vh] lg:h-[500vh]"}>
         {" "}
         {/* Increased the height of the container */}
-        <div ref={stickyMask} className={"stickyMask"}>
-          <div className="bg-lime-50 relative">
-          <video className=" object-cover" autoPlay muted loop>
+        <div ref={stickyMask} className={"stickyMask h-screen"}>
+          <div className="relative h-screen">
+          <video className="object-cover w-full h-full" autoPlay muted loop>
           <source
             src="aboutus.mp4"
             type="video/mp4"
