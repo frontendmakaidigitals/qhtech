@@ -250,13 +250,34 @@ const Section2 = ({
       name: "Photography & Videography",
       img: "https://blog.fotonic.co.uk/wp-content/uploads/2022/02/kushagra-kevat-9ESAufvpgjI-unsplash-1024x576-1.jpg",
     },
-    { name: "Media Buying", img: null },
-    { name: "Performance Marketing", img: null },
-    { name: "Content Marketing", img: null },
-    { name: "PUBLIC RELATIONS", img: null },
-    { name: "Branding & Advertising", img: null },
-    { name: "IT Consulting & Advisory", img: null },
-    { name: "Cyber Security", img: null },
+    {
+      name: "Media Buying",
+      img: "https://www.rankontechnologies.com/wp-content/uploads/2023/06/Media-Buying-Process-Role-of-Media-Buyer-How-Much-Does-it-Cost-02.jpg",
+    },
+    {
+      name: "Performance Marketing",
+      img: "https://www.thelaneagency.com/wp-content/uploads/2023/04/What-is-Performance-Marketing.jpg",
+    },
+    {
+      name: "Content Marketing",
+      img: "https://cdn.pixabay.com/photo/2019/04/07/23/11/content-marketing-4111003_1280.jpg",
+    },
+    {
+      name: "Public Relation",
+      img: "https://resources.workable.com/wp-content/uploads/2019/11/public_relations-1.jpg",
+    },
+    {
+      name: "Branding & Advertising",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPsFkT7x-RaNG-aWXXPpfjE3VUGLykspflIg&s",
+    },
+    {
+      name: "IT Consulting & Advisory",
+      img: "https://media.istockphoto.com/id/943067460/photo/male-it-specialist-holds-laptop-and-discusses-work-with-female-server-technician-theyre.jpg?s=612x612&w=0&k=20&c=851ArmF2ooz-2yQCRCWkjJLCYwDdpTCYzPinl9WgA_s=",
+    },
+    {
+      name: "Cyber Security",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4FHzSW4MDaYX8YUhRS_lHEFryCX-jbET4xA&s",
+    },
   ];
   useEffect(() => {
     const handleScroll = () => {
