@@ -197,7 +197,7 @@ const Slider = () => {
           {images.map((image: { name: string; image: string }, index) => {
             return (
               <div key={index} className="w-full group keen-slider__slide">
-                <motion.div className="relative bg-red-500 overflow-hidden w-full h-[550px] lg:h-[760px] ">
+                <motion.div className="relative bg-red-500 overflow-hidden w-full h-[550px] lg:h-[660px] ">
                   <motion.img
                     src={image.image}
                     alt={`slide-${index}`}
