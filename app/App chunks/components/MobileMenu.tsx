@@ -22,8 +22,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menu }) => {
         lenis.on("scroll", (e) => {
           console.log(e);
         });
+        lenis.stop();
       } else {
         body.style.overflow = "auto";
+        lenis.start();
       }
     }
   }, [isOpen]);
