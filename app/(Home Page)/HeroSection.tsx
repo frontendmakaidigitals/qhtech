@@ -61,7 +61,7 @@ const Section1 = ({
       </div>
 
       <div className="container relative flex flex-col items-center   justify-center  py-28 w-full h-full">
-        <div className="absolute bottom-10  right-7 ">
+        <div className="absolute yellowButton bottom-10  right-7 ">
           <motion.button
             onClick={btnHandler}
             initial={{ scale: 0 }}

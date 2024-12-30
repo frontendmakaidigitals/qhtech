@@ -6,6 +6,7 @@ import MaskSection from "./(Home Page)/MaskSection";
 import Portfolio from "./(Home Page)/Portfolio";
 import Slider from "./(Home Page)/Slider";
 import Form from "./App chunks/components/Form";
+import Loader from "./App chunks/components/Loader";
 export default function Home() {
   return (
     <>
@@ -17,6 +18,7 @@ export default function Home() {
       <CompantStats />
       <Slider />
       <Form />
+      <Loader />
     </>
   );
 }
