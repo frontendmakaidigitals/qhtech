@@ -324,7 +324,7 @@ const Section2 = ({
           backdropFilter: isSticky ? "blur(10px)" : "none",
           color: isSticky ? "white" : "black",
         }}
-        className="container flex justify-center lg:justify-center items-center gap-3 sticky top-0 left-0 mx-auto z-[50] flex-wrap" // Added flex-wrap here
+        className="container flex justify-center lg:justify-start items-center gap-3 sticky top-0 left-0 mx-auto z-[50] flex-wrap" // Added flex-wrap here
       >
         {["Services", "Designed", "to", "Drive", "Growth"].map(
           (text, index) => (
