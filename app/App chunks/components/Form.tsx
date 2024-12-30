@@ -5,14 +5,6 @@ import Button from "./Button";
 import { motion } from "framer-motion";
 
 const Form = () => {
-  const formRef = useRef<HTMLDivElement>(null);
-  const [formHeight, setFormHeight] = useState<number>(0);
-  useEffect(() => {
-    if (formRef.current) {
-      setFormHeight(formRef.current.offsetHeight);
-    }
-  }, []);
-
   return (
     <div className=" w-full   font-Satoshi bg-purple-100 py-24 font-bold mb-[0px]">
       <div className="container h-full">
@@ -35,7 +27,7 @@ const Form = () => {
           ))}
         </motion.article>
         <div className="w-full h-full mt-5">
-          <div ref={formRef} className="w-full">
+          <div className="w-full">
             <div className="w-full flex flex-col items-center justify-start gap-5">
               <div className="grid w-full grid-cols-1 lg:grid-cols-2 gap-5">
                 <div className="w-full">

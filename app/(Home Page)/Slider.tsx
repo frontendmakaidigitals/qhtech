@@ -103,7 +103,6 @@ const Slider = () => {
     },
   ];
 
- 
   const [viewportWidth, setViewportWidth] = React.useState(window.innerWidth);
 
   // Update the viewport width when the window is resized
@@ -127,6 +126,7 @@ const Slider = () => {
       spacing: 2,
     },
   });
+  const inView = useInView(containerRef, { once: true });
 
   return (
     <div
@@ -185,6 +185,7 @@ const Slider = () => {
         onMouseMove={handleMouseMove}
       >
         <motion.div
+          animate={{ x: inView ? "0%" : "100%" }}
           transition={{ ease: [0.29, 1.08, 0.67, 0.98], duration: 1.4 }}
           ref={ref}
           className="keen-slider w-full mt-7"

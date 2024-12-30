@@ -13,13 +13,6 @@ import {
 } from "@phosphor-icons/react";
 
 const Footer = () => {
-  const logoRef = React.useRef<HTMLDivElement>(null);
-  const [logoWidth, setLogoWidth] = React.useState(0);
-  React.useEffect(() => {
-    if (logoRef.current) {
-      setLogoWidth(logoRef.current.offsetWidth);
-    }
-  }, []);
   const menu = [
     { title: "home", link: "/" },
     { title: "about", link: "/" },
