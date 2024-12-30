@@ -40,11 +40,11 @@ export default function RootLayout({
           <ToTop />
           {children}
           <div
-            className="relative h-[100%]"
+            className="relative h-screen lg:h-[90vh]"
             style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
           >
-            <div className="relative h-[calc(60vh+100%)] -top-[100%]">
-              <div className="h-[100%] sticky top-[calc(100vh-100%)]">
+            <div className="relative h-[calc(100vh+100vh)] lg:h-[calc(100vh+90vh)] -top-[100vh] lg:-top-[90vh]">
+              <div className="h-screen lg:h-[90vh] sticky top-[calc(100vh-100vh)] lg:top-[calc(100vh-90vh)]">
                 <Footer />
               </div>
             </div>
