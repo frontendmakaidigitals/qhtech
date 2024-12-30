@@ -43,7 +43,7 @@ export default function RootLayout({
             className="relative h-screen lg:h-[90vh]"
             style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
           >
-            <div className="relative h-[calc(100vh+100vh)] lg:h-[calc(100vh+90vh)] -top-[100vh] lg:-top-[90vh]">
+            <div className="relative h-[calc(100vh+100vh)] lg:h-[calc(100vh+80vh)] -top-[100vh] lg:-top-[90vh]">
               <div className="h-screen lg:h-[90vh] sticky top-[calc(100vh-100vh)] lg:top-[calc(100vh-90vh)]">
                 <Footer />
               </div>
