@@ -55,7 +55,7 @@ export default function StackCard(): JSX.Element {
   return (
     <main className="relative " ref={container}>
       <div className="absolute top-12 w-full  ">
-        <motion.article className=" flex container items-center gap-3">
+        <motion.article className=" flex container justify-center lg:justify-center items-center gap-3">
           {["Our", "Vast", "Portfolio"].map((text, index) => (
             <motion.h1
               key={index}
@@ -67,7 +67,7 @@ export default function StackCard(): JSX.Element {
               viewport={{ once: true }}
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className={`text-6xl leading-[100%] font-Grostek font-[600] tracking-tight text-slate-50`}
+              className={`text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight text-slate-50`}
             >
               {text}
             </motion.h1>

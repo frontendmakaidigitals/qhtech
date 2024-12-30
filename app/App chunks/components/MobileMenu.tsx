@@ -1,16 +1,32 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import Button from "./Button";
-// Define the type for the `menu` prop passed to the `MobileMenu` component
+import Lenis from "lenis";
 interface MobileMenuProps {
   menu: { title: string; link: string }[]; // You can replace `any` with a more specific type depending on your `menu` structure
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ menu }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const lenis = new Lenis({
+    autoRaf: true,
+  });
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const body = document.body;
 
+      if (isOpen) {
+        body.style.overflow = "hidden";
+        lenis.on("scroll", (e) => {
+          console.log(e);
+        });
+      } else {
+        body.style.overflow = "auto";
+      }
+    }
+  }, [isOpen]);
   return (
     <div className="block lg:hidden">
       <AnimatePresence mode="wait">

@@ -129,12 +129,13 @@ const Slider = () => {
       spacing: 2,
     },
   });
+  console.log(viewportWidth)
   const inView = useInView(containerRef, { once: true });
 
   return (
     <div
       ref={containerRef}
-      className="w-full  overflow-hidden  py-12 bg-purple-100"
+      className="w-full overflow-hidden py-12 bg-purple-100"
     >
       <AnimatePresence>
         {isHovered && (
@@ -163,7 +164,7 @@ const Slider = () => {
         )}
       </AnimatePresence>
 
-      <motion.article className="flex container items-center text-black gap-3">
+      <motion.article className="flex container justify-center lg:justify-center items-center text-black gap-3">
         {["Industry", "Usage"].map((text, index) => (
           <motion.h1
             key={index}
@@ -175,7 +176,7 @@ const Slider = () => {
             viewport={{ once: true }}
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-6xl leading-[100%] font-Grostek font-[600] tracking-tight"
+            className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight"
           >
             {text}
           </motion.h1>
@@ -191,12 +192,12 @@ const Slider = () => {
           animate={{ x: inView ? "0%" : "100%" }}
           transition={{ ease: [0.29, 1.08, 0.67, 0.98], duration: 1.4 }}
           ref={ref}
-          className="keen-slider w-full mt-7"
+          className="keen-slider overflow-hidden w-full mt-7"
         >
           {images.map((image: { name: string; image: string }, index) => {
             return (
               <div key={index} className="w-full group keen-slider__slide">
-                <motion.div className="relative bg-red-500 overflow-hidden w-full h-[760px] ">
+                <motion.div className="relative bg-red-500 overflow-hidden w-full h-[550px] lg:h-[760px] ">
                   <motion.img
                     src={image.image}
                     alt={`slide-${index}`}

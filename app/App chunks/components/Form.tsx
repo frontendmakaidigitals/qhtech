@@ -7,7 +7,7 @@ const Form = () => {
   return (
     <div className=" w-full   font-Satoshi bg-purple-100 py-24 font-bold mb-[0px]">
       <div className="container h-full">
-        <motion.article className="flex items-center text-black gap-3">
+        <motion.article className="flex justify-center lg:justify-center items-center text-black gap-3">
           {["Give", "Us", "a", "Sign"].map((text, index) => (
             <motion.h1
               key={index}
@@ -19,7 +19,7 @@ const Form = () => {
               viewport={{ once: true }}
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-6xl leading-[100%] font-Grostek font-[600] tracking-tight"
+              className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight"
             >
               {text}
             </motion.h1>

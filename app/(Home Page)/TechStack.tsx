@@ -30,9 +30,9 @@ const TechStack = () => {
   const [id, setId] = React.useState<number | null>(null);
   const [id2, setId2] = React.useState<number | null>(null);
   return (
-    <div ref={ref} className="w-full py-16 bg-black ">
+    <div ref={ref} className="w-full overflow-hidden py-16 bg-black ">
       <div className="container">
-        <motion.article className=" flex items-center gap-3  mx-auto z-[50] flex-wrap">
+        <motion.article className=" flex justify-center lg:justify-center items-center gap-3  mx-auto z-[50] flex-wrap">
           {["Supercharged", "by", "the", "Right", "Tools"].map(
             (text, index) => (
               <motion.h1
@@ -45,7 +45,7 @@ const TechStack = () => {
                 viewport={{ once: true }}
                 initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className={`text-6xl leading-[100%] text-purple-100 font-Grostek font-[600] tracking-tight ${
+                className={`text-5xl lg:text-6xl leading-[100%] text-purple-100 font-Grostek font-[600] tracking-tight ${
                   text.toLowerCase() === "supercharged" &&
                   "bg-gradient-to-r from-blue-600 to-pink-500 bg-clip-text text-transparent"
                 }`}

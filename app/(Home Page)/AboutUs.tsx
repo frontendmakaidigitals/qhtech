@@ -80,7 +80,7 @@ const AboutUs = () => {
   return (
     <div ref={container} className="w-full bg-black py-14">
       <div className="container">
-        <motion.article className="flex items-center text-purple-100 gap-3">
+        <motion.article className="flex justify-center lg:justify-center items-center text-purple-100 gap-3">
           {["About", "Us"].map((text, index) => (
             <motion.h1
               key={index}
@@ -92,7 +92,7 @@ const AboutUs = () => {
               viewport={{ once: true }}
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
-               className="text-4xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+               className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
             >
               {text}
             </motion.h1>

@@ -12,7 +12,7 @@ export const CompantStats = () => {
   const ref = useRef(null);
   const isInView = useInView(ref);
   return (
-    <div ref={ref} className="w-full py-14 bg-purple-100">
+    <div ref={ref} className="w-full py-14 overflow-hidden bg-red-100">
       <div className="grid container grid-cols-1 lg:grid-cols-2 gap-5">
         <div className="grid grid-cols-2 lg:grid-cols-2 gap-5">
           {stats.map((stat, index) => (
@@ -24,22 +24,23 @@ export const CompantStats = () => {
                 <NumberFlow
                   className="text-7xl  font-SplineSans font-[700]"
                   value={isInView ? stat.data : -5000}
-             
                 />
 
                 <p className="text-7xl font-SplineSans font-[500]">
                   {index === 3 && "K"}+
                 </p>
               </div>
-              <h1 className="text-lg font-bold text-gray-950 capitalize">{stat.title}</h1>
+              <h1 className="text-lg font-bold text-gray-950 capitalize">
+                {stat.title}
+              </h1>
             </div>
           ))}
         </div>
-        <div className="h-full flex justify-center items-start flex-col">
-          <p className="text-3xl font-SplineSans font-[500] text-start">
+        <div className="h-full flex mt-6 lg:mt-0 justify-center items-start flex-col">
+          <p className="text-3xl font-SplineSans font-[500] text-center lg:text-start ">
             The Region&apos;s Leading Luxury Digital Marketing Agency
           </p>
-          <p className="text-3xl mt-2 font-Synonym text-start">
+          <p className="text-3xl mt-2 font-Synonym text-center lg:text-start">
             Trusted by Hundered of Brands
           </p>
         </div>
