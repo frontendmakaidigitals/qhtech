@@ -13,51 +13,6 @@ const Slider = () => {
   const pointerRef = useRef<HTMLDivElement | null>(null);
   const MAX_SPEED = 20; // Maximum speed limit (in pixels)
 
-  // Function to calculate the rotation angle and mouse speed
-  const handleMouseMove = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    const currentX = event.clientX;
-    const currentY = event.clientY;
-
-    // Calculate the distance moved from the last position
-    const deltaX = currentX - lastPosition.current.x;
-    const deltaY = currentY - lastPosition.current.y;
-
-    // Calculate the mouse movement speed (distance moved per frame)
-    let speed = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-
-    // Cap the speed to not exceed MAX_SPEED
-    if (speed > MAX_SPEED) {
-      speed = MAX_SPEED;
-    }
-
-    setMouseSpeed(speed); // Set the mouse speed (limited)
-
-    // Update the mouse position
-    setMousePosition({ x: currentX, y: currentY });
-
-    // Update last position
-    lastPosition.current = { x: currentX, y: currentY };
-
-    // If mouse is moving while dragging, update rotation
-    if (speed > 0) {
-      // Calculate the rotation angle based on mouse position relative to the div
-      if (pointerRef.current) {
-        const rect = pointerRef.current.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-
-        const deltaXForRotation = currentX - centerX;
-        const deltaYForRotation = currentY - centerY;
-        const angle =
-          Math.atan2(deltaYForRotation, deltaXForRotation) * (180 / Math.PI); // Convert radians to degrees
-
-        setRotation(angle);
-      }
-    }
-  };
-
   const containerRef = useRef(null);
   const images = [
     {
@@ -102,22 +57,70 @@ const Slider = () => {
       image: "industries/automative.jpg",
     },
   ];
+  const handleMouseMove = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    // Ensure this logic runs only on the client side
+    if (typeof window !== 'undefined') {
+      const currentX = event.clientX;
+      const currentY = event.clientY;
+  
+      // Calculate the distance moved from the last position
+      const deltaX = currentX - lastPosition.current.x;
+      const deltaY = currentY - lastPosition.current.y;
+  
+      // Calculate the mouse movement speed (distance moved per frame)
+      let speed = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+  
+      // Cap the speed to not exceed MAX_SPEED
+      if (speed > MAX_SPEED) {
+        speed = MAX_SPEED;
+      }
+  
+      setMouseSpeed(speed); // Set the mouse speed (limited)
+  
+      // Update the mouse position
+      setMousePosition({ x: currentX, y: currentY });
+  
+      // Update last position
+      lastPosition.current = { x: currentX, y: currentY };
+  
+      // If mouse is moving while dragging, update rotation
+      if (speed > 0) {
+        // Calculate the rotation angle based on mouse position relative to the div
+        if (pointerRef.current) {
+          const rect = pointerRef.current.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+  
+          const deltaXForRotation = currentX - centerX;
+          const deltaYForRotation = currentY - centerY;
+          const angle =
+            Math.atan2(deltaYForRotation, deltaXForRotation) * (180 / Math.PI); // Convert radians to degrees
+  
+          setRotation(angle);
+        }
+      }
+    }
+  };
+  
 
-  const [viewportWidth, setViewportWidth] = React.useState(window.innerWidth);
+  const [viewportWidth, setViewportWidth] = React.useState(0);
 
-  // Update the viewport width when the window is resized
   useEffect(() => {
     const handleResize = () => {
-      setViewportWidth(window.innerWidth); // Update state with new width
+      setViewportWidth(window.innerWidth);
     };
 
-    // Add event listener for resize
-    window.addEventListener("resize", handleResize);
+    if (typeof window !== "undefined") {
+      setViewportWidth(window.innerWidth);
 
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
   }, []);
   const [ref] = useKeenSlider<HTMLDivElement>({
     mode: "free",

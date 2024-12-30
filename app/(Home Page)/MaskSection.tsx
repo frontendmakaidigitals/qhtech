@@ -31,7 +31,7 @@ export default function MaskSection() {
   };
 
   const getScrollProgress = () => {
-    if (stickyMask.current && container.current) {
+    if (typeof window !== 'undefined' && stickyMask.current && container.current) {
       const scrollProgress =
         stickyMask.current.offsetTop /
         (container.current.getBoundingClientRect().height - window.innerHeight);
@@ -39,7 +39,7 @@ export default function MaskSection() {
       easedScrollProgress += delta * easing;
       return easedScrollProgress;
     }
-    return 0; // In case the refs are null, we return a default value
+    return 0; // In case the refs are null, or window is not available, return a default value
   };
  
   return (

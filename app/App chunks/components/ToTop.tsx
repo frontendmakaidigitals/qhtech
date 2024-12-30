@@ -24,11 +24,14 @@ const ToTop = () => {
   });
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth", // Smooth scroll effect
-    });
+    if (typeof window !== 'undefined') {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth", // Smooth scroll effect
+      });
+    }
   };
+  
 
   return (
     <AnimatePresence>

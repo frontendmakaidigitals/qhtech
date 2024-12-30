@@ -43,10 +43,12 @@ const Section1 = ({
   ];
   const [isHovered, setIsHovered] = React.useState<boolean>(false);
   const btnHandler = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: "smooth",
-    });
+    if (typeof window !== "undefined") {
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -279,7 +281,7 @@ const Section2 = ({
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true });
 
-  const [viewportWidth, setViewportWidth] = React.useState(window.innerWidth);
+  const [viewportWidth, setViewportWidth] = React.useState(0);
 
   // Update the viewport width when the window is resized
   useEffect(() => {
