@@ -164,7 +164,7 @@ const Slider = () => {
         )}
       </AnimatePresence>
 
-      <motion.article className="flex container justify-center lg:justify-center items-center text-black gap-3">
+      <motion.article className="flex container justify-center lg:justify-start items-center text-black gap-3">
         {["Industry", "Usage"].map((text, index) => (
           <motion.h1
             key={index}

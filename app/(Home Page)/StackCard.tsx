@@ -55,7 +55,7 @@ export default function StackCard(): JSX.Element {
   return (
     <main className="relative " ref={container}>
       <div className="absolute top-12 w-full  ">
-        <motion.article className=" flex container justify-center lg:justify-center items-center gap-3">
+        <motion.article className=" flex container justify-center lg:justify-start items-center gap-3">
           {["Our", "Vast", "Portfolio"].map((text, index) => (
             <motion.h1
               key={index}

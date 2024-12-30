@@ -20,7 +20,7 @@ const HorizontalScrollCarousel = () => {
 
   return (
     <section ref={targetRef} className="relative h-[400vh] py-20 bg-black">
-        <motion.article className="flex container justify-center lg:justify-center items-center text-purple-100 gap-3">
+        <motion.article className="flex container justify-center lg:justify-start items-center text-purple-100 gap-3">
         {["Our", "Portfolio"].map((text, index) => (
           <motion.h1
             key={index}

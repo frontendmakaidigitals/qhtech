@@ -80,7 +80,7 @@ const AboutUs = () => {
   return (
     <div ref={container} className="w-full bg-black py-14">
       <div className="container">
-        <motion.article className="flex justify-center lg:justify-center items-center text-purple-100 gap-3">
+        <motion.article className="flex justify-center lg:justify-start items-center text-purple-100 gap-3">
           {["About", "Us"].map((text, index) => (
             <motion.h1
               key={index}
