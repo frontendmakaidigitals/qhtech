@@ -1,6 +1,12 @@
-'use client'
+"use client";
 import React, { useRef, useEffect } from "react";
-import { motion,   useScroll, useTransform, useSpring } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  useInView,
+} from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -10,7 +16,7 @@ const AboutUs = () => {
   const refs = useRef<(HTMLSpanElement | null)[]>([]); // To store refs for each span
 
   const para1 = `We’re more than just a marketing agency. At Insight Vision, we’re your growth partners. With a deep understanding of digital landscapes, creative strategies, and technology, we specialize in turning ideas into results. With a team of creative thinkers, data enthusiasts, and tech-savvy experts, we specialize in putting out solutions that drive real results. Whether it’s building a strong online presence, creating engaging content, or scaling your marketing efforts, we are here to guide you every step of the way.`;
-  const para2 =`At our core, we’re passionate about helping brands reach their full potential and making a lasting impact in the industries they serve. Let us help you write the next chapter of your success story.`
+  const para2 = `At our core, we’re passionate about helping brands reach their full potential and making a lasting impact in the industries they serve. Let us help you write the next chapter of your success story.`;
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     if (refs.current.length > 0) {
@@ -23,7 +29,7 @@ const AboutUs = () => {
     gsap.to(refs.current, {
       scrollTrigger: {
         trigger: container.current,
-        start: "top bottom", 
+        start: "top bottom",
         end: "center",
         scrub: true,
       },
@@ -37,7 +43,10 @@ const AboutUs = () => {
     return phrase.split(" ").map((word, i) => {
       const letters = splitLetters(word);
       return (
-        <p key={word + "_" + i} className="font-Synonym mr-[1.1vw] font-[500] text-xl lg:text-3xl">
+        <p
+          key={word + "_" + i}
+          className="font-Synonym mr-[1.1vw] font-[500] text-xl lg:text-3xl"
+        >
           {letters}
         </p>
       );
@@ -75,7 +84,8 @@ const AboutUs = () => {
     damping: 30,
     restDelta: 0.001,
   });
- 
+
+  const inView = useInView(container, { once: true });
 
   return (
     <div ref={container} className="w-full bg-black py-14">
@@ -92,7 +102,7 @@ const AboutUs = () => {
               viewport={{ once: true }}
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
-               className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+              className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
             >
               {text}
             </motion.h1>
@@ -107,16 +117,15 @@ const AboutUs = () => {
             <div className="w-full mt-4 flex flex-wrap">
               {splitWords(para2)}
             </div>
-            
           </div>
 
           {/* Image section */}
           <motion.div className="w-full h-full relative overflow-hidden">
             <motion.div
-              animate={{ y: "100%" }}
+              animate={{ y: inView ? "-100%" : "0%" }}
               transition={{
-                delay: 0.7,
-                duration: 0.8,
+                delay: 0.2,
+                duration: 0.6,
                 ease: "easeOut",
               }}
               className="w-full h-full absolute z-[10] top-0 left-0 bg-purple-100"
