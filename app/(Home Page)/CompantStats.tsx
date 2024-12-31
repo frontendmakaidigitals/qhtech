@@ -12,17 +12,24 @@ export const CompantStats = () => {
   const ref = useRef(null);
   const isInView = useInView(ref);
   return (
-    <div ref={ref} className="w-full py-14 overflow-hidden bg-red-100">
-      <div className="grid container grid-cols-1 lg:grid-cols-2 gap-5">
-        <div className="grid grid-cols-2 lg:grid-cols-2 gap-5">
+    <div
+      ref={ref}
+      className="w-full py-16 relative overflow-hidden bg-purple-100"
+    >
+      <img
+        src={"graphic.svg"}
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      />
+      <div className="grid container ">
+        <div className="grid lg:grid-cols-4 gap-5 p-6 bg-slate-50/30 rounded-xl bg-opacity-60 backdrop-filter backdrop-blur-lg">
           {stats.map((stat, index) => (
             <div
               key={index}
               className="flex justify-center items-center flex-col"
             >
-              <div className="flex text-[#14062c] items-center gap-3">
+              <div className="flex text-[#25193a] items-center gap-3">
                 <NumberFlow
-                  className="text-7xl  font-SplineSans font-[700]"
+                  className="text-7xl font-SplineSans font-[700]"
                   value={isInView ? stat.data : -5000}
                 />
 
@@ -35,14 +42,6 @@ export const CompantStats = () => {
               </h1>
             </div>
           ))}
-        </div>
-        <div className="h-full flex mt-6 lg:mt-0 justify-center items-start flex-col">
-          <p className="text-3xl font-SplineSans font-[500] text-center lg:text-start ">
-            The Region&apos;s Leading Luxury Digital Marketing Agency
-          </p>
-          <p className="text-3xl mt-2 font-Synonym text-center lg:text-start">
-            Trusted by Hundered of Brands
-          </p>
         </div>
       </div>
     </div>
