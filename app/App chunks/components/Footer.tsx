@@ -32,7 +32,7 @@ const Footer = () => {
     { icon: <LinkedinLogo />, link: "" },
   ];
   const ref = useRef(null);
-  const inView = useInView(ref);
+  const inView = useInView(ref, { once: true });
   return (
     <div
       ref={ref}

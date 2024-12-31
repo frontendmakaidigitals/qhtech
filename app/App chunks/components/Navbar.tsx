@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 const menu = [
   { title: "home", link: "/" },
-  { title: "about", link: "/about" },
+  { title: "about", link: "/About" },
   { title: "services", link: "/service" },
   { title: "contact", link: "/contact" },
 ];

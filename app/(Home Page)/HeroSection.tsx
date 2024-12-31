@@ -325,8 +325,8 @@ const Section2 = ({
   );
   const rotate = useTransform(
     scrollYProgress,
-    [0, viewportWidth > 450 ? 0.5 : 0.25],
-    [viewportWidth > 450 ? 0.5 : 0.25, 0]
+    [0, viewportWidth > 450 ? 0.8 : 0.25],
+    [viewportWidth > 450 ? 1 : 0.25, 0]
   );
   const [isSticky, setIsSticky] = React.useState<boolean>(false);
 
