@@ -160,7 +160,7 @@ const page = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h2 className="text-3xl mt-3 font-SplineSans font-[400]">
+              <h2 className="text-4xl mt-3 font-Grostek font-[600]">
                 Our Vision
               </h2>
               <p className="text-lg font-Synonym font-[400]">
@@ -179,7 +179,7 @@ const page = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h2 className="text-3xl mt-3 font-SplineSans font-[400]">
+                <h2 className="text-4xl mt-3 font-Grostek font-[600]">
                   Our Mission
                 </h2>
                 <p className="text-lg font-Synonym font-[400]">
