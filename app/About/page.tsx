@@ -6,7 +6,7 @@ import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
 const page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
-  const inView = useInView(containerRef, { once: true });
+
   const scrollY = useMotionValue(0);
 
   const background = useTransform(
