@@ -3,6 +3,7 @@ import React from "react";
 import { motion, useMotionValue, useTransform, useInView } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
+import SparklesText from "../App chunks/components/SparklesText";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -87,9 +88,10 @@ const Page = () => {
                   <div className="absolute -top-4 right-0">
                     <img src={"aboutUsright.svg"} />
                   </div>
-                  <p className="text-slate-50 text-center text-lg font-[400] font-Synonym">
-                    Beyond Marketing
-                  </p>
+                  <SparklesText
+                    className="text-slate-50 text-center text-lg font-[400] font-Synonym"
+                    text={" Beyond Marketing"}
+                  />
                 </div>
                 <motion.h1 className="text-center font-[600] text-slate-100 flex-wrap lg:text-3xl xl:text-6xl xxl:text-8xl  font-Grostek relative">
                   {para.split(" ").map((item, index) => (
@@ -125,7 +127,7 @@ const Page = () => {
                 </motion.h1>
                 <div className="grid grid-cols-1 lg:grid-cols-2 w-full lg:w-1/2 gap-10 mt-10">
                   <div className="bg-white/30  backdrop-filter backdrop-blur-lg p-3 rounded-xl">
-                    <h2 className="text-6xl font-[600] font-Grostek text-white">
+                    <h2 className="text-6xl text-orange-600 font-[600] font-Grostek ">
                       10+
                     </h2>
                     <p className="text-lg text-slate-100 font-Satoshi">
@@ -133,7 +135,7 @@ const Page = () => {
                     </p>
                   </div>
                   <div className="bg-white/30  backdrop-filter backdrop-blur-lg p-3 rounded-xl">
-                    <h2 className="text-6xl font-[600] font-Grostek text-white">
+                    <h2 className="text-6xl font-[600] font-Grostek text-indigo-500">
                       90+
                     </h2>
                     <p className="text-slate-100 text-lg font-Satoshi">

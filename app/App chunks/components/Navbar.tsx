@@ -14,7 +14,7 @@ const menu = [
 ];
 const NavBar = () => {
   return (
-    <div className="HeadNavigation py-4 w-full absolute  top-0 left-0 z-[99] ">
+    <div className="HeadNavigation py-4 w-full absolute  top-0 left-0 z-[99999] ">
       <div className="flex justify-between items-center container ">
         <motion.div
           initial={{ y: -200 }}
