@@ -103,7 +103,7 @@ const Page = () => {
                       }}
                     >
                       <motion.span
-                        initial={{ y: 300, opacity: 0, rotate: 10, x: -30 }} // Start from below
+                        initial={{ y: 300, opacity: 0, rotate: 20, x: -10 }} // Start from below
                         animate={{
                           y: 0, // Move to original position
                           opacity: 1,
@@ -115,9 +115,10 @@ const Page = () => {
                         }}
                         transition={{
                           ease: [0, 0, 0.2, 1],
-                          duration: 1.3,
-                          delay: index * 0.01, // Increased delay to prevent overlap
+                          duration: 1,
+                          delay: index * 0.1, // Increased delay to prevent overlap
                         }}
+                        className="origin-top-right"
                       >
                         {item}
                       </motion.span>

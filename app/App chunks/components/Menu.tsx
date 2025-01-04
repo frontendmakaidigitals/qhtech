@@ -247,7 +247,7 @@ const ShowPopup = () => {
                     top: `${menu.top}%`,
                     left: `${menu.left}%`,
                   }}
-                  className="absolute bg-blue-300 pointer-events-none z-[99] overflow-hidden  w-full h-[100px]"
+                  className="absolute bg-blue-300 pointer-events-none z-[99] overflow-hidden  w-[250px] h-[140px]"
                 >
                   <img
                     className=" w-full h-full object-cover"
