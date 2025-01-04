@@ -88,7 +88,7 @@ const Page = () => {
                     <img src={"aboutUsright.svg"} />
                   </div>
                   <p className="text-slate-50 text-center text-lg font-[400] font-Synonym">
-                    Some tagline here
+                    Beyond Marketing
                   </p>
                 </div>
                 <motion.h1 className="text-center font-[600] text-slate-100 flex-wrap lg:text-3xl xl:text-6xl xxl:text-8xl  font-Grostek relative">
@@ -232,7 +232,7 @@ const Page = () => {
                 />
                 <img
                   src={
-                    "https://images.pexels.com/photos/17485633/pexels-photo-17485633/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-depicts-ai-safety-research-to-prevent-its-misuse-and-encourage-beneficial-uses-it-was-created-by-khyati-trehan-as-part.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    "https://londonsba.org.uk/wp-content/uploads/2023/09/digital_marketing_11.jpg"
                   }
                 />
               </div>
