@@ -234,7 +234,7 @@ const ShowPopup = () => {
     >
       <div className="mt-2 realtive grid grid-cols-1 gap-3 lg:grid-cols-2 p-4 rounded-lg bg-white">
         {menui.map((menu, index) => (
-          <div className="relative">
+          <div className="relative" key={index}>
             <AnimatePresence mode="wait">
               {id === index ? (
                 <motion.div
@@ -247,6 +247,7 @@ const ShowPopup = () => {
                     top: `${menu.top}%`,
                     left: `${menu.left}%`,
                   }}
+                  
                   className="absolute bg-blue-300 pointer-events-none z-[99] overflow-hidden  w-[250px] h-[140px]"
                 >
                   <img

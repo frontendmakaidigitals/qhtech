@@ -244,7 +244,7 @@ const Page = () => {
         </div>
       </div>
 
-      <div ref={selfPrasiseContainer} className="w-full py-12 ">
+      <div ref={selfPrasiseContainer} className="w-full py-12 overflow-hidden">
         <div className="container ">
           <motion.article className="flex justify-center lg:justify-start items-center text-black gap-3">
             {["Why", "Choose", "us?"].map((text, index) => (

@@ -10,6 +10,7 @@ import {
   AccordionWrapper,
 } from "../App chunks/components/Accordion";
 import { Plus } from "@phosphor-icons/react";
+import { Circle } from "@phosphor-icons/react";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -87,10 +88,10 @@ const Page = () => {
       details: [
         "Flexibility: Built with scalability in mind, your site can grow alongside your business.",
         "Unique Design: Stand out in your market with a website designed exclusively for your brand.",
-        "Optimized Performance: Enjoy fast load times, easy navigation, and mobile responsiveness to engage your audience effectively."
+        "Optimized Performance: Enjoy fast load times, easy navigation, and mobile responsiveness to engage your audience effectively.",
       ],
       conclusion:
-        "Whether you're a startup or an established enterprise, our custom web development services give you the competitive edge to succeed online."
+        "Whether you're a startup or an established enterprise, our custom web development services give you the competitive edge to succeed online.",
     },
     {
       title: "E-commerce Solutions",
@@ -101,10 +102,10 @@ const Page = () => {
         "Secure Payment Gateways: Integrate trusted payment systems to ensure secure transactions and build customer confidence.",
         "Inventory Management: Simplify stock tracking and order fulfillment with efficient tools.",
         "Mobile Optimization: Deliver a flawless shopping experience on any device, ensuring maximum reach.",
-        "Analytics and Reporting: Gain insights into customer behavior and sales performance to drive growth."
+        "Analytics and Reporting: Gain insights into customer behavior and sales performance to drive growth.",
       ],
       conclusion:
-        "Whether you're launching your first store or upgrading an existing one, we provide the tools and expertise to help you succeed in the digital marketplace."
+        "Whether you're launching your first store or upgrading an existing one, we provide the tools and expertise to help you succeed in the digital marketplace.",
     },
     {
       title: "Content Management Systems (CMS)",
@@ -115,10 +116,10 @@ const Page = () => {
         "User-Friendly Interfaces: Simplify content creation and updates with intuitive dashboards.",
         "Integration Capabilities: Easily connect your CMS with third-party tools and plugins to enhance functionality.",
         "Scalable Solutions: Built to grow with your business, accommodating expanding content and user demands.",
-        "Training and Support: Ensure your team is equipped to make the most of your CMS with expert guidance and ongoing assistance."
+        "Training and Support: Ensure your team is equipped to make the most of your CMS with expert guidance and ongoing assistance.",
       ],
       conclusion:
-        "With our CMS solutions, you’ll have complete control over your digital presence, enabling you to keep your website fresh, relevant, and engaging."
+        "With our CMS solutions, you’ll have complete control over your digital presence, enabling you to keep your website fresh, relevant, and engaging.",
     },
     {
       title: "Responsive Web Design",
@@ -129,10 +130,10 @@ const Page = () => {
         "Optimized Performance: Fast-loading designs that minimize bounce rates and maximize engagement on mobile devices.",
         "Cross-Browser Compatibility: Ensuring easy functionality across different browsers and operating systems.",
         "Mobile-First Approach: Designing with mobile users in mind, prioritizing usability and accessibility.",
-        "Testing and Support: Support and testing are done to ensure flawless responsiveness and ongoing support to adapt to new devices and trends."
+        "Testing and Support: Support and testing are done to ensure flawless responsiveness and ongoing support to adapt to new devices and trends.",
       ],
       conclusion:
-        "We ensure that your website provides a seamless experience across all devices, enhancing your audience's engagement and satisfaction."
+        "We ensure that your website provides a seamless experience across all devices, enhancing your audience's engagement and satisfaction.",
     },
     {
       title: "Web Application Development",
@@ -142,13 +143,13 @@ const Page = () => {
         "Frontend Development: We use the latest frontend technologies like HTML5, CSS3, JavaScript, and popular frameworks such as React.js, Angular, or Vue.js to build responsive, fast, and dynamic user interfaces.",
         "Backend Development: Our backend developers work with cutting-edge technologies to create powerful, efficient, and scalable server-side solutions.",
         "API Development & Integration: Whether you need a custom API or need to integrate third-party services, our team builds secure, well-documented APIs. We integrate payment systems, social media logins, geolocation, and other essential services to enhance the functionality of your web application.",
-        "Testing & Quality Assurance: Before launching, we perform testing to ensure the application is bug-free and performs flawlessly across all devices. Our testing includes unit testing, integration testing, performance testing, and security audits to ensure quality at every stage of development."
+        "Testing & Quality Assurance: Before launching, we perform testing to ensure the application is bug-free and performs flawlessly across all devices. Our testing includes unit testing, integration testing, performance testing, and security audits to ensure quality at every stage of development.",
       ],
       conclusion:
-        "Our web application development services empower your business with custom, scalable, and secure web apps that optimize efficiency and deliver a seamless user experience."
-    }
+        "Our web application development services empower your business with custom, scalable, and secure web apps that optimize efficiency and deliver a seamless user experience.",
+    },
   ];
-  
+
   const selfPrasiseContainer = React.useRef<HTMLDivElement>(null);
   const boxInView = useInView(selfPrasiseContainer, { once: true });
   return (
@@ -169,8 +170,62 @@ const Page = () => {
           </div>
         </div>
       </motion.div>
+      <div className="my-16">
+        <div className="container">
+          <motion.article className="flex justify-center lg:justify-start items-center text-slate-950 gap-3">
+            {["Our", "Services"].map((text, index) => (
+              <motion.h1
+                key={index}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  ease: [0.22, 0.61, 0.36, 1],
+                }}
+                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+              >
+                {text}
+              </motion.h1>
+            ))}
+          </motion.article>
+        </div>
+        <div className="container grid grid-cols-1 mt-7 gap-4 lg:grid-cols-2">
+          {servicesData.map((service, index) => (
+            <div key={index} className={`p-6 bg-[#e0f5ff] rounded-xl`}>
+              <h3 className="text-3xl font-Grostek font-[500]">
+                {service.title}
+              </h3>
+              <p className="mt-2 font-Synonym text-lg font-[400]">
+                {service.description}
+              </p>
+              <div className="mt-3">
+                {service.details.map((detail, id) => (
+                  <div
+                    key={id}
+                    className="flex bg-[#c5edff] text-blue-950 rounded-lg px-3 items-start gap-2 mt-2 py-2"
+                  >
+                    <div className="mt-[6px]">
+                      <Circle weight="fill" />
+                    </div>
+                    <p
+                      className={` rounded-lg font-sans font-[400]  text-lg `}
+                    >
+                      {detail}
+                    </p>
+                  </div>
+                ))}
 
-      <div ref={selfPrasiseContainer} className="w-full py-12 ">
+                {service.conclusion ? (
+                  <p className="mt-3">{service.conclusion}</p>
+                ) : null}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div ref={selfPrasiseContainer} className="w-full py-12 overflow-hidden">
         <div className="container ">
           <motion.article className="flex justify-center lg:justify-start items-center text-black gap-3">
             {["Why", "Choose", "us?"].map((text, index) => (
@@ -252,7 +307,7 @@ const Page = () => {
             <div>
               <Accordion defaultValue={["item-0"]}>
                 {faqData.map((faq, index) => (
-                  <AccordionItem value={`item-${index}`}>
+                  <AccordionItem key={index} value={`item-${index}`}>
                     <AccordionHeader icon={<Plus className="text-xl" />}>
                       {faq.question}
                     </AccordionHeader>
