@@ -78,7 +78,7 @@ const Page = () => {
             >
               <BreadCrumb />
               <div
-                style={{ height: `calc(100vh - ${height + 200}px)` }}
+                style={{ height: `calc(100vh - ${height + 150}px)` }}
                 className="flex flex-col items-center justify-center "
               >
                 <div className="relative w-full">
@@ -93,11 +93,11 @@ const Page = () => {
                     text={" Beyond Marketing"}
                   />
                 </div>
-                <motion.h1 className="text-center font-[600] text-slate-100 flex-wrap lg:text-3xl xl:text-6xl xxl:text-8xl  font-Grostek relative">
+                <motion.h1 className="text-center font-[600] text-slate-100 flex-wrap lg:text-3xl xl:text-6xl xxl:text-7xl  font-Grostek relative">
                   {para.split(" ").map((item, index) => (
                     <motion.span
                       key={index}
-                      className="xl:mr-2 xxl:mr-5 overflow-hidden h-[100px]"
+                      className="xl:mr-2 xxl:mr-5 overflow-hidden h-[80px]"
                       style={{
                         display: "inline-block", // Ensure words are treated as block elements
                       }}
