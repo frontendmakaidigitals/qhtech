@@ -46,7 +46,6 @@ const SlideTabs = ({
           link={item.link}
           setHoveredTab={setHoveredTab}
           hoveredTab={hoveredTab}
-          id={index}
         >
           {item.title}
         </Tab>
@@ -62,7 +61,6 @@ const Tab = ({
   link,
   setHoveredTab,
   hoveredTab,
-  id, // Assuming 'id' is passed to the Tab component
 }: {
   children: React.ReactNode;
   setPosition: React.Dispatch<
@@ -71,7 +69,6 @@ const Tab = ({
   link: string;
   setHoveredTab: React.Dispatch<React.SetStateAction<string | null>>;
   hoveredTab: string | null;
-  id: string | number; // Add id to the props
 }) => {
   const ref = useRef<HTMLLIElement>(null);
 
