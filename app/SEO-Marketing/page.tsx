@@ -7,10 +7,8 @@ import {
   AccordionHeader,
   AccordionItem,
   AccordionPanel,
-  AccordionWrapper,
 } from "../App chunks/components/Accordion";
 import { Plus } from "@phosphor-icons/react";
-import { Circle } from "@phosphor-icons/react";
 
 const Page = () => {
   const [height, setHeight] = React.useState(0);

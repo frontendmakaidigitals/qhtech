@@ -1,101 +1,118 @@
-// @ts-nocheck
 import React, { ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const AccordionContext = React.createContext({});
-const useAccordion = () => React.useContext(AccordionContext);
+// Define a context type
+interface AccordionContextType {
+  isActive: boolean;
+  value: string;
+  onChangeIndex: (value: string) => void;
+}
 
-export function AccordionContainer({
-  children,
-  className,
-}: {
+const AccordionContext = React.createContext<AccordionContextType | undefined>(undefined);
+
+const useAccordion = () => {
+  const context = React.useContext(AccordionContext);
+  if (!context) {
+    throw new Error("useAccordion must be used within an Accordion component");
+  }
+  return context;
+};
+
+interface AccordionContainerProps {
   children: ReactNode;
   className?: string;
-}) {
-  return (
-    <div className={cn("grid grid-cols-2 gap-1", className)}>{children}</div>
-  );
 }
-export function AccordionWrapper({ children }) {
+
+export function AccordionContainer({ children, className }: AccordionContainerProps) {
+  return <div className={cn("grid grid-cols-2 gap-1", className)}>{children}</div>;
+}
+
+interface AccordionWrapperProps {
+  children: ReactNode;
+}
+
+export function AccordionWrapper({ children }: AccordionWrapperProps) {
   return <div>{children}</div>;
 }
 
-export function Accordion({
-  children,
-  multiple,
-  defaultValue,
-}: {
+interface AccordionProps {
   children: ReactNode;
   multiple?: boolean;
-  defaultValue?: string | undefined | string[];
-}) {
-  const [activeIndex, setActiveIndex] = React.useState(
-    multiple ? (defaultValue ? [defaultValue] : []) : [defaultValue]
+  defaultValue?: string | string[];
+}
+
+export function Accordion({ children, multiple, defaultValue }: AccordionProps) {
+  const [activeIndex, setActiveIndex] = React.useState<string | string[] | null>(
+    multiple ? (defaultValue || []) : (defaultValue || null)
   );
 
-  function onChangeIndex(value) {
+  function onChangeIndex(value: string) {
     setActiveIndex((currentActiveIndex) => {
       if (!multiple) {
         return value === currentActiveIndex ? null : value;
       }
 
-      if (currentActiveIndex.includes(value)) {
-        return currentActiveIndex.filter((i) => i !== value);
+      if (Array.isArray(currentActiveIndex)) {
+        if (currentActiveIndex.includes(value)) {
+          return currentActiveIndex.filter((i) => i !== value);
+        } else {
+          return [...currentActiveIndex, value];
+        }
       }
-
-      return [...currentActiveIndex, value];
+      return [value];
     });
   }
 
   return React.Children.map(children, (child) => {
-    const value = child.props.value;
-    const isActive = multiple
-      ? Array.isArray(activeIndex) && activeIndex.includes(value)
-      : Array.isArray(activeIndex)
-      ? activeIndex[0].includes(value)
-      : activeIndex === value;
+    if (React.isValidElement(child)) {
+      const value = child.props.value;
+      const isActive = multiple
+        ? Array.isArray(activeIndex) && activeIndex.includes(value)
+        : activeIndex === value;
 
-    return (
-      <AccordionContext.Provider value={{ isActive, value, onChangeIndex }}>
-        <>{child}</>
-      </AccordionContext.Provider>
-    );
+      return (
+        <AccordionContext.Provider value={{ isActive, value, onChangeIndex }}>
+          {child}
+        </AccordionContext.Provider>
+      );
+    }
+    return null;
   });
 }
 
-export function AccordionItem({ children, value }) {
+interface AccordionItemProps {
+  children: ReactNode;
+  value: string;
+}
+
+export function AccordionItem({ children }: AccordionItemProps) {
   const { isActive } = useAccordion();
 
   return (
     <div
-      className={` border-b border-slate-600/40 overflow-hidden mb-2  ${
-        isActive ? "active  bg-transparent" : "bg-transparent "
-      }
-    `}
-      value={value}
+      className={`border-b border-slate-600/40 overflow-hidden mb-2 ${isActive ? "active bg-transparent" : "bg-transparent"}`}
+       
     >
       {children}
     </div>
   );
 }
 
-export function AccordionHeader({
-  children,
-  icon,
-}: {
+interface AccordionHeaderProps {
   children: ReactNode;
-  icon?: any;
-}) {
+  icon?: ReactNode;
+}
+
+export function AccordionHeader({ children, icon }: AccordionHeaderProps) {
   const { isActive, value, onChangeIndex } = useAccordion();
 
   return (
     <motion.div
-      className={`p-4 cursor-pointer transition-all rounded-lg text-xl font-semibold hover:bg-slate-100/10  hover:text-slate-100 flex justify-between items-center ${
-        isActive ? "active text-slate-200" : " bg-transparent text-slate-50"
-      }
-      `}
+      className={`p-4 cursor-pointer transition-all rounded-lg text-xl font-semibold hover:bg-slate-100/10 hover:text-slate-100 flex justify-between items-center ${
+        isActive ? "active text-slate-200" : "bg-transparent text-slate-50"
+      }`}
       onClick={() => onChangeIndex(value)}
     >
       {children}
@@ -105,24 +122,24 @@ export function AccordionHeader({
             isActive
               ? "rotate-45 bg-[#363842] text-[#94959D]"
               : "rotate-0 bg-[#5A5A5F] text-[#191A1F]"
-          } transition-transform size-8  flex justify-center items-center rounded-full`}
+          } transition-transform size-8 flex justify-center items-center rounded-full`}
         >
           {icon}
         </div>
       ) : (
-        <>
-          <ChevronDown
-            className={`${
-              isActive ? "rotate-180 " : "rotate-0 "
-            } transition-transform`}
-          />
-        </>
+        <ChevronDown
+          className={`${isActive ? "rotate-180" : "rotate-0"} transition-transform`}
+        />
       )}
     </motion.div>
   );
 }
 
-export function AccordionPanel({ children }) {
+interface AccordionPanelProps {
+  children: ReactNode;
+}
+
+export function AccordionPanel({ children }: AccordionPanelProps) {
   const { isActive } = useAccordion();
 
   return (
@@ -133,21 +150,14 @@ export function AccordionPanel({ children }) {
           animate={{ height: "auto", overflow: "hidden" }}
           exit={{ height: 0 }}
           transition={{ type: "spring", duration: 0.3, bounce: 0 }}
-          className={` bg-transparent
-          `}
+          className="bg-transparent"
         >
           <motion.article
             initial={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" }}
             animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)" }}
-            exit={{
-              clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-            }}
-            transition={{
-              type: "spring",
-              duration: 0.4,
-              bounce: 0,
-            }}
-            className={`p-3 bg-transparent text-slate-300 `}
+            exit={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" }}
+            transition={{ type: "spring", duration: 0.4, bounce: 0 }}
+            className="p-3 bg-transparent text-slate-300"
           >
             {children}
           </motion.article>

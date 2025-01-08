@@ -7,7 +7,7 @@ import {
   AccordionHeader,
   AccordionItem,
   AccordionPanel,
-  AccordionWrapper,
+  
 } from "../App chunks/components/Accordion";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
 import { Plus } from "@phosphor-icons/react";
