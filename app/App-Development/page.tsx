@@ -9,8 +9,8 @@ import {
   AccordionPanel,
   AccordionWrapper,
 } from "../App chunks/components/Accordion";
+import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
 import { Plus } from "@phosphor-icons/react";
-import { Circle } from "@phosphor-icons/react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 const Page = () => {
@@ -205,6 +205,12 @@ const Page = () => {
       <motion.div>
         <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
           <div className="w-full h-full flex relative">
+            <div className="absolute top-0 left-0 w-full h-full">
+              <BackgroundGradientAnimation
+                gradientBackgroundStart="white"
+                gradientBackgroundEnd="blue"
+              />
+            </div>
             <div
               style={{ marginTop: `${height + 50}px` }}
               className="container relative z-[99]"
@@ -273,7 +279,7 @@ const Page = () => {
             ))}
           </motion.article>
         </div>
-        <div className="container grid grid-cols-1 mt-7 gap-4 lg:grid-cols-2">
+        <div className="container grid grid-cols-1 mt-7 gap-4 lg:grid-cols-1">
           <AnimatePresence mode="wait">
             {servicesData.map((service, index) => (
               <motion.div
@@ -281,7 +287,7 @@ const Page = () => {
                 whileInView={{ y: "0%" }}
                 transition={{ ease: [0.175, 0.885, 0.32, 1.1], duration: 0.8 }}
                 key={index}
-                className={`p-6 bg-[#e0f5ff] rounded-xl`}
+                className={`p-6 bg-slate-50 rounded-xl`}
               >
                 <h3 className="text-3xl font-Grostek font-[500]">
                   {service.title}
@@ -289,15 +295,12 @@ const Page = () => {
                 <p className="mt-2 font-Synonym text-lg font-[400]">
                   {service.description}
                 </p>
-                <div className="mt-3">
+                <div className="mt-3 grid grid-cols-4 gap-4">
                   {service.details.map((detail, id) => (
                     <div
                       key={id}
-                      className="flex bg-[#c5edff] text-blue-950 rounded-lg px-3 items-start gap-2 mt-2 py-2"
+                      className="flex bg-slate-100 border border-slate-200 shadow-sm text-gray-950 rounded-lg px-3 items-start gap-2 mt-2 py-2"
                     >
-                      <div className="mt-[6px]">
-                        <Circle weight="fill" />
-                      </div>
                       <p
                         className={` rounded-lg font-sans font-[400]  text-lg `}
                       >
@@ -305,11 +308,10 @@ const Page = () => {
                       </p>
                     </div>
                   ))}
-
-                  {service.conclusion ? (
-                    <p className="mt-3">{service.conclusion}</p>
-                  ) : null}
                 </div>
+                {service.conclusion ? (
+                  <p className="mt-3">{service.conclusion}</p>
+                ) : null}
               </motion.div>
             ))}
           </AnimatePresence>
@@ -335,7 +337,7 @@ const Page = () => {
               </motion.h1>
             ))}
           </motion.article>
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-7 mt-10 !text-purple-50">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-7 mt-10 !text-purple-50">
             {selfPraise.map((item, index) => (
               <motion.div
                 animate={{
