@@ -11,6 +11,8 @@ import {
 } from "../App chunks/components/Accordion";
 import { Plus } from "@phosphor-icons/react";
 import { Circle } from "@phosphor-icons/react";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -23,139 +25,185 @@ const Page = () => {
   }, []);
   const faqData = [
     {
-      question: "How long does it take to develop a website?",
+      question: "How long does it take to develop an app?",
       answer:
-        "The timeline for web development varies depending on the scope and complexity of your project. A simple website may take 2-6 weeks, while more complex sites with custom features can take more time. We’ll provide an estimated timeline during the planning phase.",
+        "The timeline for app development depends on the complexity and features of the app. We provide a detailed timeline after understanding your requirements.",
     },
     {
-      question: "How much does it cost to build a website?",
+      question: "Do you provide ongoing maintenance and support?",
       answer:
-        "The cost of web development depends on factors like the complexity of the site, the features you need, and the technologies used. Simple websites cost less, while complex sites with advanced features (e-commerce, custom integrations, etc.) may require a larger budget. Contact us for a personalized quote based on your project.",
+        "Yes, we offer post-launch maintenance, bug fixes, updates, and performance optimization to ensure your app runs smoothly.",
     },
     {
-      question: "Will my website be mobile-friendly?",
+      question: "Do you help with app store submissions?",
       answer:
-        "Yes, all websites we develop are responsive, meaning they will automatically adjust to look great on any device, from desktops to smartphones and tablets. We focus on delivering a good user experience on all screen sizes.",
+        "Yes, we assist with the submission process to both the Apple App Store and Google Play Store to ensure a smooth launch.",
     },
     {
-      question: "Can you redesign my existing website?",
+      question: "How do you ensure app security?",
       answer:
-        "Yes, we can help revamp your current website with a fresh design, improved functionality, and better user experience. Whether you're looking for a complete different or small adjustments, we’ll work with you to bring your vision to life.",
+        "We follow best practices for security, including data encryption, secure code practices, and regular security testing, to protect your app and user data.",
     },
     {
-      question: "Will I be able to update my website myself?",
+      question: "Can you integrate third-party tools or APIs into my app?",
       answer:
-        "Yes, if you choose a CMS-based website, you’ll be able to make content updates easily through a user-friendly admin panel. For custom websites, we provide a content management system or back-end interface to give you control over your website’s content.",
+        "Yes, we can integrate third-party tools, APIs, and services like payment gateways, CRMs, analytics tools, and more.",
     },
   ];
   const selfPraise = [
     {
       title: "Custom Solutions",
       description:
-        "We build tailored web applications that meet your business needs and objectives, ensuring scalability and flexibility.",
+        "Every business is unique, and so are our apps. We tailor solutions to fit your specific needs, ensuring your app aligns perfectly with your marketing goals.",
       color: "#D4E157",
     },
     {
-      title: "Expert Team",
+      title: "User-Friendly Design",
       description:
-        "Our team of developers, designers, and project managers have years of experience delivering high-quality web development across various industries.",
+        "We create visually appealing and easy-to-navigate applications to provide the best user experience.",
       color: "#4FC3F7",
     },
     {
-      title: "User-Centric Approach",
+      title: "Scalable Architecture",
       description:
-        "We prioritize user experience and design to ensure your application is easy to use, intuitive, and engaging for your customers.",
+        "As your business grows, so should your app. We build scalable applications that grow with you.",
       color: "#FF8A65",
     },
     {
-      title: "Agile Development",
+      title: "Expert Developers",
       description:
-        "We use agile methodologies to ensure flexibility in the development process and to accommodate changes quickly and efficiently.",
+        "Our team comprises industry experts with years of experience in mobile and web application development.",
       color: "#FFEE58",
     },
     {
-      title: "End-to-End Service",
+      title: "End-to-End Services",
       description:
-        "From concept to deployment, we provide full-stack web development services, including ongoing support and maintenance.",
+        "From idea and design to development, testing, and deployment, we handle everything effortlessly.",
       color: "#FFEE65",
     },
+    {
+      title: "On-Time Delivery",
+      description:
+        "We ensure timely delivery without compromising on quality, so your app launches on schedule.",
+      color: "#42A5F5",
+    },
   ];
+
   const servicesData = [
     {
-      title: "Custom Website Development",
+      title: "Mobile App Development",
       description:
-        "Get a website designed and built from scratch to represent your brand and goals perfectly. Our custom solutions ensure flexibility, scalability, and a unique edge in your market.",
+        "We specialize in creating cutting-edge mobile applications customized to your business needs. Our team ensures smooth performance, easy navigation, and a superior user experience for your target audience.",
       details: [
-        "Flexibility: Built with scalability in mind, your site can grow alongside your business.",
-        "Unique Design: Stand out in your market with a website designed exclusively for your brand.",
-        "Optimized Performance: Enjoy fast load times, easy navigation, and mobile responsiveness to engage your audience effectively.",
+        "Tailored Solutions: We build apps designed to meet your unique business goals and user requirements.",
+        "Native Development: High-performance apps for iOS and Android, built using platform-specific technologies like Swift and Kotlin.",
+        "Cross-Platform Options: Cost-effective solutions using frameworks like Flutter and React Native to reach users on both iOS and Android.",
+        "Progressive Web Apps: Enhance accessibility and engagement with PWAs that offer offline functionality and push notifications.",
       ],
       conclusion:
-        "Whether you're a startup or an established enterprise, our custom web development services give you the competitive edge to succeed online.",
-    },
-    {
-      title: "E-commerce Solutions",
-      description:
-        "Transform your business with a fully optimized online store. We develop secure, user-friendly e-commerce platforms to boost your sales and streamline your operations.",
-      details: [
-        "Custom Online Stores: From design to functionality, we create stores that align with your brand and captivate your audience.",
-        "Secure Payment Gateways: Integrate trusted payment systems to ensure secure transactions and build customer confidence.",
-        "Inventory Management: Simplify stock tracking and order fulfillment with efficient tools.",
-        "Mobile Optimization: Deliver a flawless shopping experience on any device, ensuring maximum reach.",
-        "Analytics and Reporting: Gain insights into customer behavior and sales performance to drive growth.",
-      ],
-      conclusion:
-        "Whether you're launching your first store or upgrading an existing one, we provide the tools and expertise to help you succeed in the digital marketplace.",
-    },
-    {
-      title: "Content Management Systems (CMS)",
-      description:
-        "Take control of your website with easy-to-use CMS platforms. Manage content, update pages, and stay in charge of your digital presence.",
-      details: [
-        "Custom CMS Development: Tailored to your unique needs, providing flexibility and ease of use.",
-        "User-Friendly Interfaces: Simplify content creation and updates with intuitive dashboards.",
-        "Integration Capabilities: Easily connect your CMS with third-party tools and plugins to enhance functionality.",
-        "Scalable Solutions: Built to grow with your business, accommodating expanding content and user demands.",
-        "Training and Support: Ensure your team is equipped to make the most of your CMS with expert guidance and ongoing assistance.",
-      ],
-      conclusion:
-        "With our CMS solutions, you’ll have complete control over your digital presence, enabling you to keep your website fresh, relevant, and engaging.",
-    },
-    {
-      title: "Responsive Web Design",
-      description:
-        "Ensure your website looks great and functions flawlessly on any device, from desktops to smartphones. Our responsive designs provide a superior user experience across all screen sizes.",
-      details: [
-        "Fluid Grids and Layouts: Websites that automatically adjust to fit any screen size, providing a consistent user experience.",
-        "Optimized Performance: Fast-loading designs that minimize bounce rates and maximize engagement on mobile devices.",
-        "Cross-Browser Compatibility: Ensuring easy functionality across different browsers and operating systems.",
-        "Mobile-First Approach: Designing with mobile users in mind, prioritizing usability and accessibility.",
-        "Testing and Support: Support and testing are done to ensure flawless responsiveness and ongoing support to adapt to new devices and trends.",
-      ],
-      conclusion:
-        "We ensure that your website provides a seamless experience across all devices, enhancing your audience's engagement and satisfaction.",
+        "Whether native or cross-platform, our mobile app development services help you connect with your audience effectively and grow your business.",
     },
     {
       title: "Web Application Development",
       description:
-        "Streamline your business processes with custom web applications. From customer portals to business management tools, we create solutions that drive efficiency.",
+        "We design and develop web applications to streamline processes, engage users, and drive growth through customized solutions.",
       details: [
-        "Frontend Development: We use the latest frontend technologies like HTML5, CSS3, JavaScript, and popular frameworks such as React.js, Angular, or Vue.js to build responsive, fast, and dynamic user interfaces.",
-        "Backend Development: Our backend developers work with cutting-edge technologies to create powerful, efficient, and scalable server-side solutions.",
-        "API Development & Integration: Whether you need a custom API or need to integrate third-party services, our team builds secure, well-documented APIs. We integrate payment systems, social media logins, geolocation, and other essential services to enhance the functionality of your web application.",
-        "Testing & Quality Assurance: Before launching, we perform testing to ensure the application is bug-free and performs flawlessly across all devices. Our testing includes unit testing, integration testing, performance testing, and security audits to ensure quality at every stage of development.",
+        "Custom Web Apps: Fully tailored web applications that meet your business needs with scalability and security.",
+        "E-commerce Platforms: Develop secure, user-friendly online stores with features like inventory management and payment gateways.",
+        "CRM & CMS Development: Build or customize CRM and CMS systems for better data and content management.",
+        "Performance Optimization: Ensure fast-loading, highly efficient web applications for superior user experiences.",
       ],
       conclusion:
-        "Our web application development services empower your business with custom, scalable, and secure web apps that optimize efficiency and deliver a seamless user experience.",
+        "Our web application development services help your business achieve operational efficiency and deliver value to your customers.",
+    },
+    {
+      title: "UI/UX Design",
+      description:
+        "A beautiful, user-friendly design can make or break your app. Our UI/UX design services focus on delivering intuitive and visually engaging digital experiences that keep users coming back.",
+      details: [
+        "Wireframing & Prototyping: Visualize app structures and user flows with detailed prototypes before development.",
+        "User Experience (UX) Enhancement: Optimize navigation, usability, and retention rates through in-depth UX analysis.",
+        "Visual Interface Design: Create pixel-perfect, visually appealing designs that align with your brand identity.",
+        "User-Centric Approach: Prioritize end-user needs to deliver a seamless and satisfying experience.",
+      ],
+      conclusion:
+        "Our UI/UX designs ensure your digital solutions are both functional and visually engaging, enhancing user satisfaction and brand loyalty.",
+    },
+    {
+      title: "App Maintenance & Support",
+      description:
+        "We provide post-launch support to ensure your app runs flawlessly, stays updated, and continues delivering value to users.",
+      details: [
+        "Bug Fixes: Quickly identify and resolve technical issues for uninterrupted app performance.",
+        "Performance Monitoring: Analyze and optimize app performance to ensure reliability and user satisfaction.",
+        "Regular Updates: Keep your app secure and aligned with the latest OS and technology standards.",
+        "Scalability Support: Adjust and expand app functionality as your business grows.",
+      ],
+      conclusion:
+        "Our maintenance and support services keep your app running smoothly, ensuring long-term success and user satisfaction.",
+    },
+    {
+      title: "Progressive Web Applications (PWA)",
+      description:
+        "Progressive Web Apps combine the best of mobile and web. PWAs load like regular web pages but offer app-like functionality, including offline access, push notifications, and home screen installation.",
+      details: [
+        "Offline Access: Enable functionality even without an internet connection to improve user retention.",
+        "Push Notifications: Re-engage users with timely updates and alerts directly from your PWA.",
+        "Cross-Platform Compatibility: Provide a seamless experience across browsers and devices without needing app store downloads.",
+        "Improved Performance: Deliver fast loading times and responsive experiences to enhance user engagement.",
+      ],
+      conclusion:
+        "With PWAs, you can reach your audience efficiently while providing a superior user experience without the need for native app development.",
     },
   ];
-  const para = "Build Your Digital Presence with Insight Vision";
+
+  const processSteps = [
+    {
+      title: "Discovery & Planning",
+      description:
+        "We begin by understanding your business goals, target audience, and app requirements to create a clear project roadmap.",
+    },
+    {
+      title: "Design & Prototyping",
+      description:
+        "Our design team creates interactive prototypes and wireframes to visualize the user journey and app functionality.",
+    },
+    {
+      title: "Development",
+      description:
+        "Using the latest tools and frameworks, our developers build secure applications customized to your needs.",
+    },
+    {
+      title: "Testing",
+      description:
+        "We rigorously test your app for performance, security, and functionality to ensure a flawless user experience.",
+    },
+    {
+      title: "Launch & Deployment",
+      description:
+        "We assist with launching your app on relevant platforms and ensure smooth deployment.",
+    },
+    {
+      title: "Post-Launch Support",
+      description:
+        "After the launch, we provide ongoing maintenance and updates to keep your app performing at its best.",
+    },
+  ];
+
+  const [sliderRef] = useKeenSlider({
+    slides: {
+      perView: 5,
+      spacing: 15,
+    },
+  });
+
+  const para = "Transform Your Vision Into Powerful Mobile & Web Application";
   const selfPrasiseContainer = React.useRef<HTMLDivElement>(null);
   const boxInView = useInView(selfPrasiseContainer, { once: true });
   return (
     <motion.div className="  bg-white" ref={containerRef}>
       <motion.div>
-        <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-fuchsia-100 from-10% to-indigo-700 relative">
+        <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
           <div className="w-full h-full flex relative">
             <div
               style={{ marginTop: `${height + 50}px` }}
@@ -309,6 +357,46 @@ const Page = () => {
         </div>
       </div>
 
+      <div className="my-20">
+        <div>
+          {" "}
+          <motion.article className="container flex justify-center lg:justify-start items-center text-slate-950 gap-3">
+            {["Our", "App", "Development", "Process"].map((text, index) => (
+              <motion.h1
+                key={index}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  ease: [0.22, 0.61, 0.36, 1],
+                }}
+                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+              >
+                {text}
+              </motion.h1>
+            ))}
+          </motion.article>
+        </div>
+        <div ref={sliderRef} className="keen-slider mt-4">
+          {processSteps.map((slide, index) => (
+            <div
+              key={index}
+              className="keen-slider__slide bg-fuchsia-100 p-7 rounded "
+            >
+              <p className="font-Synonym text-slate-700 font-[500]">
+                0{index + 1}
+              </p>
+              <h2 className="text-2xl font-[600] text-fuchsia-950 font-SplineSans mb-2">
+                {slide.title}
+              </h2>
+              <p className="text-gray-700 ">{slide.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className="py-16 bg-[#121316]">
         <div className="container">
           <div>
@@ -365,13 +453,11 @@ const Page = () => {
         <div className=" ">
           <div className=" p-7  w-full bg-[#3F51B5] text-slate-100 rounded-xl">
             <h2 className="text-3xl font-SplineSans font-[500]">
-              Ready to Build the Digital Imprint of Your Business?
+              Ready to Build Your Dream App?
             </h2>
             <p className="mt-3 font-Synonym font-[400] text-lg">
-              Whether you’re looking to build a new website from scratch or
-              enhance an existing one, we are here to help you every step of the
-              way. Contact us today to discuss your project, and let’s bring
-              your idea to life.
+              Let us bring your ideas to life with our expert app development
+              services.
             </p>
 
             <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">

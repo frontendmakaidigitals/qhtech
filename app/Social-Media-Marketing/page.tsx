@@ -11,6 +11,8 @@ import {
 } from "../App chunks/components/Accordion";
 import { Plus } from "@phosphor-icons/react";
 import { Circle } from "@phosphor-icons/react";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -23,139 +25,188 @@ const Page = () => {
   }, []);
   const faqData = [
     {
-      question: "How long does it take to develop a website?",
+      question: "Which social media platforms should my business be on?",
       answer:
-        "The timeline for web development varies depending on the scope and complexity of your project. A simple website may take 2-6 weeks, while more complex sites with custom features can take more time. We’ll provide an estimated timeline during the planning phase.",
+        "The best platforms depend on your business goals and target audience. We analyze your business and decide on which platforms you must target.",
     },
     {
-      question: "How much does it cost to build a website?",
+      question: "How often should I post on social media?",
       answer:
-        "The cost of web development depends on factors like the complexity of the site, the features you need, and the technologies used. Simple websites cost less, while complex sites with advanced features (e-commerce, custom integrations, etc.) may require a larger budget. Contact us for a personalized quote based on your project.",
+        "Consistency is key. The optimal posting frequency depends on the platform and your audience’s preferences.",
     },
     {
-      question: "Will my website be mobile-friendly?",
+      question: "Do I need a big budget for social media marketing?",
       answer:
-        "Yes, all websites we develop are responsive, meaning they will automatically adjust to look great on any device, from desktops to smartphones and tablets. We focus on delivering a good user experience on all screen sizes.",
+        "Not necessarily! Organic strategies can be highly effective with creativity and time. You can start small and scale for paid campaigns as you see results.",
     },
     {
-      question: "Can you redesign my existing website?",
+      question:
+        "Can I handle my social media marketing, or do I need a professional?",
       answer:
-        "Yes, we can help revamp your current website with a fresh design, improved functionality, and better user experience. Whether you're looking for a complete different or small adjustments, we’ll work with you to bring your vision to life.",
+        "You can manage it yourself, but hiring professionals ensures expert strategy development and high-quality content creation.",
     },
     {
-      question: "Will I be able to update my website myself?",
+      question:
+        "How long does it take to see results from social media marketing?",
       answer:
-        "Yes, if you choose a CMS-based website, you’ll be able to make content updates easily through a user-friendly admin panel. For custom websites, we provide a content management system or back-end interface to give you control over your website’s content.",
+        "Results vary based on your goals. Organic growth may take a few months, while paid ads can show results within days. Consistent effort and strategy deliver long-term success.",
     },
   ];
   const selfPraise = [
     {
       title: "Custom Solutions",
       description:
-        "We build tailored web applications that meet your business needs and objectives, ensuring scalability and flexibility.",
+        "Every business is unique, and so are our apps. We tailor solutions to fit your specific needs, ensuring your app aligns perfectly with your marketing goals.",
       color: "#D4E157",
     },
     {
-      title: "Expert Team",
+      title: "User-Friendly Design",
       description:
-        "Our team of developers, designers, and project managers have years of experience delivering high-quality web development across various industries.",
+        "We create visually appealing and easy-to-navigate applications to provide the best user experience.",
       color: "#4FC3F7",
     },
     {
-      title: "User-Centric Approach",
+      title: "Scalable Architecture",
       description:
-        "We prioritize user experience and design to ensure your application is easy to use, intuitive, and engaging for your customers.",
+        "As your business grows, so should your app. We build scalable applications that grow with you.",
       color: "#FF8A65",
     },
     {
-      title: "Agile Development",
+      title: "Expert Developers",
       description:
-        "We use agile methodologies to ensure flexibility in the development process and to accommodate changes quickly and efficiently.",
+        "Our team comprises industry experts with years of experience in mobile and web application development.",
       color: "#FFEE58",
     },
     {
-      title: "End-to-End Service",
+      title: "End-to-End Services",
       description:
-        "From concept to deployment, we provide full-stack web development services, including ongoing support and maintenance.",
+        "From idea and design to development, testing, and deployment, we handle everything effortlessly.",
       color: "#FFEE65",
     },
+    {
+      title: "On-Time Delivery",
+      description:
+        "We ensure timely delivery without compromising on quality, so your app launches on schedule.",
+      color: "#42A5F5",
+    },
   ];
+
   const servicesData = [
     {
-      title: "Custom Website Development",
+      title: "Social Media Advertising",
       description:
-        "Get a website designed and built from scratch to represent your brand and goals perfectly. Our custom solutions ensure flexibility, scalability, and a unique edge in your market.",
+        "We create tailored ad campaigns to promote products, services, or brands across platforms like Facebook, Instagram, Twitter, LinkedIn, and TikTok. These campaigns are designed to engage users, build brand awareness, and drive conversions.",
       details: [
-        "Flexibility: Built with scalability in mind, your site can grow alongside your business.",
-        "Unique Design: Stand out in your market with a website designed exclusively for your brand.",
-        "Optimized Performance: Enjoy fast load times, easy navigation, and mobile responsiveness to engage your audience effectively.",
+        "Behavioral Targeting: Ads are customized to resonate with specific audience interests, age groups, locations, and behaviors.",
+        "Diverse Ad Formats: Utilize image ads, video ads, carousel ads, story ads, and influencer partnerships to maximize impact.",
+        "Engaging Copy: Short, persuasive text with clear CTAs like 'Shop Now,' 'Learn More,' or 'Sign Up.'",
+        "Visual Appeal: High-quality visuals, including images, videos, or animations, that grab attention and reinforce your brand message.",
+        "Hashtag Strategy: Use trending or branded hashtags to enhance discoverability and reach.",
       ],
       conclusion:
-        "Whether you're a startup or an established enterprise, our custom web development services give you the competitive edge to succeed online.",
+        "Our social media advertising strategies drive measurable results, helping your brand connect with the right audience and achieve business goals.",
     },
     {
-      title: "E-commerce Solutions",
+      title: "Lead Generation",
       description:
-        "Transform your business with a fully optimized online store. We develop secure, user-friendly e-commerce platforms to boost your sales and streamline your operations.",
+        "We help businesses attract high-quality leads and turn them into loyal customers through strategic campaigns and compelling content.",
       details: [
-        "Custom Online Stores: From design to functionality, we create stores that align with your brand and captivate your audience.",
-        "Secure Payment Gateways: Integrate trusted payment systems to ensure secure transactions and build customer confidence.",
-        "Inventory Management: Simplify stock tracking and order fulfillment with efficient tools.",
-        "Mobile Optimization: Deliver a flawless shopping experience on any device, ensuring maximum reach.",
-        "Analytics and Reporting: Gain insights into customer behavior and sales performance to drive growth.",
+        "Targeted Advertising: Leverage Facebook Ads, Google Ads, and LinkedIn to reach the right audience with precision.",
+        "Landing Pages That Convert: Design user-friendly, visually appealing pages optimized for capturing leads.",
+        "Automated Lead Nurturing: Use email sequences and workflows to guide prospects through your sales funnel.",
+        "Comprehensive Analytics: Track campaign performance and optimize for maximum ROI with detailed reports.",
       ],
       conclusion:
-        "Whether you're launching your first store or upgrading an existing one, we provide the tools and expertise to help you succeed in the digital marketplace.",
+        "Our lead generation services help you grow your customer base effectively, driving long-term business success.",
     },
     {
-      title: "Content Management Systems (CMS)",
+      title: "Influencer Marketing",
       description:
-        "Take control of your website with easy-to-use CMS platforms. Manage content, update pages, and stay in charge of your digital presence.",
+        "Collaborate with influencers to promote your brand organically and authentically. We connect you with the right influencers to amplify your message.",
       details: [
-        "Custom CMS Development: Tailored to your unique needs, providing flexibility and ease of use.",
-        "User-Friendly Interfaces: Simplify content creation and updates with intuitive dashboards.",
-        "Integration Capabilities: Easily connect your CMS with third-party tools and plugins to enhance functionality.",
-        "Scalable Solutions: Built to grow with your business, accommodating expanding content and user demands.",
-        "Training and Support: Ensure your team is equipped to make the most of your CMS with expert guidance and ongoing assistance.",
+        "Influencer Matching: Identify influencers who align with your brand values and target audience.",
+        "Custom Campaign Strategies: Design campaigns that authentically showcase your products or services.",
+        "Performance Tracking: Monitor results in real time to optimize campaign effectiveness.",
+        "Long-Term Partnerships: Build lasting relationships with influencers to drive continuous engagement.",
       ],
       conclusion:
-        "With our CMS solutions, you’ll have complete control over your digital presence, enabling you to keep your website fresh, relevant, and engaging.",
+        "Our influencer marketing campaigns create authentic connections with your audience, driving engagement and boosting sales.",
     },
     {
-      title: "Responsive Web Design",
+      title: "Affiliate Marketing",
       description:
-        "Ensure your website looks great and functions flawlessly on any device, from desktops to smartphones. Our responsive designs provide a superior user experience across all screen sizes.",
+        "Tap into affiliate marketing to generate consistent revenue. We help you set up and manage successful affiliate programs to boost your online presence.",
       details: [
-        "Fluid Grids and Layouts: Websites that automatically adjust to fit any screen size, providing a consistent user experience.",
-        "Optimized Performance: Fast-loading designs that minimize bounce rates and maximize engagement on mobile devices.",
-        "Cross-Browser Compatibility: Ensuring easy functionality across different browsers and operating systems.",
-        "Mobile-First Approach: Designing with mobile users in mind, prioritizing usability and accessibility.",
-        "Testing and Support: Support and testing are done to ensure flawless responsiveness and ongoing support to adapt to new devices and trends.",
+        "Program Setup: Design and implement affiliate programs that attract top-performing affiliates.",
+        "Targeted Affiliate Recruitment: Identify affiliates who align with your audience and goals.",
+        "Affiliate Support: Provide onboarding, training, and ongoing assistance to ensure success.",
+        "Analytics & Optimization: Track affiliate performance and refine strategies to maximize results.",
       ],
       conclusion:
-        "We ensure that your website provides a seamless experience across all devices, enhancing your audience's engagement and satisfaction.",
+        "With our affiliate marketing services, you can drive revenue growth and build a network of partners promoting your brand.",
     },
     {
-      title: "Web Application Development",
+      title: "Community Management",
       description:
-        "Streamline your business processes with custom web applications. From customer portals to business management tools, we create solutions that drive efficiency.",
+        "Build and nurture meaningful relationships with your audience through community management. We help turn followers into loyal advocates for your brand.",
       details: [
-        "Frontend Development: We use the latest frontend technologies like HTML5, CSS3, JavaScript, and popular frameworks such as React.js, Angular, or Vue.js to build responsive, fast, and dynamic user interfaces.",
-        "Backend Development: Our backend developers work with cutting-edge technologies to create powerful, efficient, and scalable server-side solutions.",
-        "API Development & Integration: Whether you need a custom API or need to integrate third-party services, our team builds secure, well-documented APIs. We integrate payment systems, social media logins, geolocation, and other essential services to enhance the functionality of your web application.",
-        "Testing & Quality Assurance: Before launching, we perform testing to ensure the application is bug-free and performs flawlessly across all devices. Our testing includes unit testing, integration testing, performance testing, and security audits to ensure quality at every stage of development.",
+        "Active Engagement: Respond to comments, messages, and mentions to maintain ongoing conversations.",
+        "Content Moderation: Ensure a positive and supportive community aligned with your brand values.",
+        "Brand Advocacy: Transform your most loyal followers into ambassadors who promote your business.",
+        "Growth Strategies: Develop plans to grow and sustain an active, engaged community.",
       ],
       conclusion:
-        "Our web application development services empower your business with custom, scalable, and secure web apps that optimize efficiency and deliver a seamless user experience.",
+        "Our community management services foster genuine connections, creating a loyal customer base that supports your brand's growth.",
     },
   ];
-  const para = "Build Your Digital Presence with Insight Vision";
+
+  const processSteps = [
+    {
+      title: "Discovery & Planning",
+      description:
+        "We begin by understanding your business goals, target audience, and app requirements to create a clear project roadmap.",
+    },
+    {
+      title: "Design & Prototyping",
+      description:
+        "Our design team creates interactive prototypes and wireframes to visualize the user journey and app functionality.",
+    },
+    {
+      title: "Development",
+      description:
+        "Using the latest tools and frameworks, our developers build secure applications customized to your needs.",
+    },
+    {
+      title: "Testing",
+      description:
+        "We rigorously test your app for performance, security, and functionality to ensure a flawless user experience.",
+    },
+    {
+      title: "Launch & Deployment",
+      description:
+        "We assist with launching your app on relevant platforms and ensure smooth deployment.",
+    },
+    {
+      title: "Post-Launch Support",
+      description:
+        "After the launch, we provide ongoing maintenance and updates to keep your app performing at its best.",
+    },
+  ];
+
+  const [sliderRef] = useKeenSlider({
+    slides: {
+      perView: 5,
+      spacing: 15,
+    },
+  });
+
+  const para = "Transform Your Vision Into Powerful Mobile & Web Application";
   const selfPrasiseContainer = React.useRef<HTMLDivElement>(null);
   const boxInView = useInView(selfPrasiseContainer, { once: true });
   return (
     <motion.div className="  bg-white" ref={containerRef}>
       <motion.div>
-        <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-fuchsia-100 from-10% to-indigo-700 relative">
+        <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
           <div className="w-full h-full flex relative">
             <div
               style={{ marginTop: `${height + 50}px` }}
@@ -309,6 +360,46 @@ const Page = () => {
         </div>
       </div>
 
+      <div className="my-20">
+        <div>
+          {" "}
+          <motion.article className="container flex justify-center lg:justify-start items-center text-slate-950 gap-3">
+            {["Our", "App", "Development", "Process"].map((text, index) => (
+              <motion.h1
+                key={index}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  ease: [0.22, 0.61, 0.36, 1],
+                }}
+                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+              >
+                {text}
+              </motion.h1>
+            ))}
+          </motion.article>
+        </div>
+        <div ref={sliderRef} className="keen-slider mt-4">
+          {processSteps.map((slide, index) => (
+            <div
+              key={index}
+              className="keen-slider__slide bg-fuchsia-100 p-7 rounded "
+            >
+              <p className="font-Synonym text-slate-700 font-[500]">
+                0{index + 1}
+              </p>
+              <h2 className="text-2xl font-[600] text-fuchsia-950 font-SplineSans mb-2">
+                {slide.title}
+              </h2>
+              <p className="text-gray-700 ">{slide.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className="py-16 bg-[#121316]">
         <div className="container">
           <div>
@@ -365,17 +456,16 @@ const Page = () => {
         <div className=" ">
           <div className=" p-7  w-full bg-[#3F51B5] text-slate-100 rounded-xl">
             <h2 className="text-3xl font-SplineSans font-[500]">
-              Ready to Build the Digital Imprint of Your Business?
+              Are You Ready to Grow Your Business Online?
             </h2>
             <p className="mt-3 font-Synonym font-[400] text-lg">
-              Whether you’re looking to build a new website from scratch or
-              enhance an existing one, we are here to help you every step of the
-              way. Contact us today to discuss your project, and let’s bring
-              your idea to life.
+              We have a proven track record of helping businesses like yours
+              grow online. We focus on a results-driven approach to generating
+              real ROI.
             </p>
 
             <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
-              Contact us
+              Get a Free consultation today!
             </button>
           </div>
         </div>

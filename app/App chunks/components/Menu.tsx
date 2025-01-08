@@ -46,6 +46,7 @@ const SlideTabs = ({
           link={item.link}
           setHoveredTab={setHoveredTab}
           hoveredTab={hoveredTab}
+          id={index}
         >
           {item.title}
         </Tab>
@@ -61,6 +62,7 @@ const Tab = ({
   link,
   setHoveredTab,
   hoveredTab,
+  id, // Assuming 'id' is passed to the Tab component
 }: {
   children: React.ReactNode;
   setPosition: React.Dispatch<
@@ -69,12 +71,15 @@ const Tab = ({
   link: string;
   setHoveredTab: React.Dispatch<React.SetStateAction<string | null>>;
   hoveredTab: string | null;
+  id: string | number; // Add id to the props
 }) => {
   const ref = useRef<HTMLLIElement>(null);
 
-  return (
-    <li
-      ref={ref}
+  const shouldUseLink = children !== "services";
+
+  return shouldUseLink ? (
+    <Link
+      href={link}
       onMouseEnter={() => {
         if (!ref?.current) return;
         const { width } = ref.current.getBoundingClientRect();
@@ -88,9 +93,11 @@ const Tab = ({
       onMouseLeave={() => {
         setHoveredTab(null); // Reset the hovered tab when mouse leaves
       }}
-      className={`relative group z-10 block cursor-pointer px-3 py-1.5 text-xs text-white mix-blend-difference md:px-5 md:py-3 md:text-base`}
     >
-      <Link href={link}>
+      <li
+        ref={ref}
+        className={`relative group  z-10 block cursor-pointer px-3 py-1.5 text-xs text-white mix-blend-difference md:px-5 md:py-3 md:text-base`}
+      >
         <button className="group relative rounded-full uppercase text-purple-50">
           <span className="relative inline-flex overflow-hidden">
             <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
@@ -101,7 +108,40 @@ const Tab = ({
             </div>
           </span>
         </button>
-      </Link>
+
+        <AnimatePresence>
+          {hoveredTab === children && children === "services" && <ShowPopup />}
+        </AnimatePresence>
+      </li>
+    </Link>
+  ) : (
+    <li
+      onMouseEnter={() => {
+        if (!ref?.current) return;
+        const { width } = ref.current.getBoundingClientRect();
+        setPosition({
+          left: ref.current.offsetLeft,
+          width,
+          opacity: 1,
+        });
+        setHoveredTab(children as string); // Set the hovered tab to trigger the pop-up
+      }}
+      onMouseLeave={() => {
+        setHoveredTab(null); // Reset the hovered tab when mouse leaves
+      }}
+      ref={ref}
+      className={`relative group  z-10 block cursor-pointer px-3 py-1.5 text-xs text-white mix-blend-difference md:px-5 md:py-3 md:text-base`}
+    >
+      <button className="group relative rounded-full uppercase text-purple-50">
+        <span className="relative inline-flex overflow-hidden">
+          <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
+            {children}
+          </div>
+          <div className="absolute translate-y-[114%] skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+            {children}
+          </div>
+        </span>
+      </button>
 
       <AnimatePresence>
         {hoveredTab === children && children === "services" && <ShowPopup />}
@@ -121,6 +161,7 @@ const ShowPopup = () => {
       rounded: 60,
       top: 30,
       left: 12,
+      route: "App-Development",
     },
     {
       title: "Web Development",
@@ -130,6 +171,7 @@ const ShowPopup = () => {
       rounded: 70,
       top: 30,
       left: 8,
+      route: "Web-Development",
     },
     {
       title: "Social Media Marketing",
@@ -140,6 +182,7 @@ const ShowPopup = () => {
       rounded: 80,
       top: 20,
       left: 18,
+      route: "Social-Media-Marketing",
     },
     {
       title: "Content Marketing",
@@ -150,6 +193,7 @@ const ShowPopup = () => {
       rounded: 60,
       top: 40,
       left: 40,
+      route: "/",
     },
     {
       title: "SEO Marketing",
@@ -160,6 +204,7 @@ const ShowPopup = () => {
       rounded: 60,
       top: 30,
       left: 18,
+      route: "SEO-Marketing",
     },
     {
       title: "Media Buying",
@@ -170,6 +215,7 @@ const ShowPopup = () => {
       rounded: 66,
       top: 35,
       left: 15,
+      route: "/",
     },
     {
       title: "Performance Marketing",
@@ -180,6 +226,7 @@ const ShowPopup = () => {
       rounded: 60,
       top: 30,
       left: 12,
+      route: "/",
     },
     {
       title: "IT Consulting & Advisory",
@@ -190,6 +237,7 @@ const ShowPopup = () => {
       rounded: 60,
       top: 50,
       left: 17,
+      route: "/",
     },
     {
       title: "Cyber Security",
@@ -200,6 +248,7 @@ const ShowPopup = () => {
       rounded: 66,
       top: 30,
       left: 16,
+      route: "/",
     },
     {
       title: "Public Relations",
@@ -210,6 +259,7 @@ const ShowPopup = () => {
       rounded: 60,
       top: 30,
       left: 12,
+      route: "/",
     },
     {
       title: "Branding & Designing",
@@ -220,6 +270,7 @@ const ShowPopup = () => {
       rounded: 60,
       top: 30,
       left: 12,
+      route: "/",
     },
   ];
   const [id, setHoverid] = useState<number | null>(null);
@@ -234,38 +285,39 @@ const ShowPopup = () => {
     >
       <div className="mt-2 realtive grid grid-cols-1 gap-3 lg:grid-cols-2 p-4 rounded-lg bg-white">
         {menui.map((menu, index) => (
-          <div className="relative" key={index}>
-            <AnimatePresence mode="wait">
-              {id === index ? (
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  exit={{ scale: 0 }}
-                  style={{
-                    borderRadius: `${menu.rounded}%`,
-                    rotate: `${menu.rotate}deg`,
-                    top: `${menu.top}%`,
-                    left: `${menu.left}%`,
-                  }}
-                  
-                  className="absolute bg-blue-300 pointer-events-none z-[99] overflow-hidden  w-[250px] h-[140px]"
-                >
-                  <img
-                    className=" w-full h-full object-cover"
-                    src={menui[id].image}
-                  />
-                </motion.div>
-              ) : null}
-            </AnimatePresence>
-            <button
-              key={index}
-              onMouseEnter={() => setHoverid(index)}
-              onMouseLeave={() => setHoverid(null)}
-              className={`font-Grostek relative z-[10] font-[500] rounded-lg hover:bg-slate-100 text-start p-3`}
-            >
-              {menu.title}
-            </button>
-          </div>
+          <Link href={`/${menu.route}`} className="relative" key={index}>
+            <div>
+              <AnimatePresence mode="wait">
+                {id === index ? (
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0 }}
+                    style={{
+                      borderRadius: `${menu.rounded}%`,
+                      rotate: `${menu.rotate}deg`,
+                      top: `${menu.top}%`,
+                      left: `${menu.left}%`,
+                    }}
+                    className="absolute bg-blue-300 pointer-events-none z-[99] overflow-hidden  w-[250px] h-[140px]"
+                  >
+                    <img
+                      className=" w-full h-full object-cover"
+                      src={menui[id].image}
+                    />
+                  </motion.div>
+                ) : null}
+              </AnimatePresence>
+              <button
+                key={index}
+                onMouseEnter={() => setHoverid(index)}
+                onMouseLeave={() => setHoverid(null)}
+                className={`font-Grostek relative z-[10] font-[500] rounded-lg hover:bg-slate-100 text-start p-3`}
+              >
+                {menu.title}
+              </button>
+            </div>
+          </Link>
         ))}
       </div>
     </motion.div>

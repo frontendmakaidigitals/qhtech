@@ -233,6 +233,7 @@ const Section2 = ({
     {
       name: "Web Development",
       img: "https://iaqmc.com/wp-content/uploads/2024/03/IAQMC-WEB-DEVELOPMENT.jpg",
+      
     },
     {
       name: "App Development",

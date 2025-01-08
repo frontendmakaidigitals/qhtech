@@ -11,6 +11,7 @@ import {
 } from "../App chunks/components/Accordion";
 import { Plus } from "@phosphor-icons/react";
 import { Circle } from "@phosphor-icons/react";
+
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -23,139 +24,166 @@ const Page = () => {
   }, []);
   const faqData = [
     {
-      question: "How long does it take to develop a website?",
+      question: "How long does it take to see results from SEO?",
       answer:
-        "The timeline for web development varies depending on the scope and complexity of your project. A simple website may take 2-6 weeks, while more complex sites with custom features can take more time. We’ll provide an estimated timeline during the planning phase.",
+        "SEO is a long-term investment. While some improvements can be seen within the first few months, significant results often take 6-12 months, depending on your industry, competition, and strategy.",
     },
     {
-      question: "How much does it cost to build a website?",
+      question: "What is the difference between on-page and off-page SEO?",
       answer:
-        "The cost of web development depends on factors like the complexity of the site, the features you need, and the technologies used. Simple websites cost less, while complex sites with advanced features (e-commerce, custom integrations, etc.) may require a larger budget. Contact us for a personalized quote based on your project.",
+        "On-page SEO involves optimizing elements on your website, such as content, meta tags, and internal links. Off-page SEO focuses on external factors like backlinks and social signals that influence your site’s authority.",
     },
     {
-      question: "Will my website be mobile-friendly?",
+      question: "What are keywords and why are they important?",
       answer:
-        "Yes, all websites we develop are responsive, meaning they will automatically adjust to look great on any device, from desktops to smartphones and tablets. We focus on delivering a good user experience on all screen sizes.",
+        "Keywords are terms people search for online. Targeting the right keywords ensures your website attracts relevant traffic and meets the needs of your audience.",
     },
     {
-      question: "Can you redesign my existing website?",
+      question: "How do you measure the success of an SEO campaign?",
       answer:
-        "Yes, we can help revamp your current website with a fresh design, improved functionality, and better user experience. Whether you're looking for a complete different or small adjustments, we’ll work with you to bring your vision to life.",
+        "Success is measured through key performance indicators (KPIs) such as organic traffic, keyword rankings, conversion rates, and ROI. We provide detailed reports to track your progress.",
     },
     {
-      question: "Will I be able to update my website myself?",
+      question: "What is SEO and why is it important?",
       answer:
-        "Yes, if you choose a CMS-based website, you’ll be able to make content updates easily through a user-friendly admin panel. For custom websites, we provide a content management system or back-end interface to give you control over your website’s content.",
+        "SEO (Search Engine Optimization) is the practice of optimizing your website to rank higher in search engine results. It drives organic traffic, increases visibility, and enhances user experience, ultimately boosting conversions and revenue.",
     },
   ];
   const selfPraise = [
     {
       title: "Custom Solutions",
       description:
-        "We build tailored web applications that meet your business needs and objectives, ensuring scalability and flexibility.",
+        "Every business is unique, and so are our apps. We tailor solutions to fit your specific needs, ensuring your app aligns perfectly with your marketing goals.",
       color: "#D4E157",
     },
     {
-      title: "Expert Team",
+      title: "User-Friendly Design",
       description:
-        "Our team of developers, designers, and project managers have years of experience delivering high-quality web development across various industries.",
+        "We create visually appealing and easy-to-navigate applications to provide the best user experience.",
       color: "#4FC3F7",
     },
     {
-      title: "User-Centric Approach",
+      title: "Scalable Architecture",
       description:
-        "We prioritize user experience and design to ensure your application is easy to use, intuitive, and engaging for your customers.",
+        "As your business grows, so should your app. We build scalable applications that grow with you.",
       color: "#FF8A65",
     },
     {
-      title: "Agile Development",
+      title: "Expert Developers",
       description:
-        "We use agile methodologies to ensure flexibility in the development process and to accommodate changes quickly and efficiently.",
+        "Our team comprises industry experts with years of experience in mobile and web application development.",
       color: "#FFEE58",
     },
     {
-      title: "End-to-End Service",
+      title: "End-to-End Services",
       description:
-        "From concept to deployment, we provide full-stack web development services, including ongoing support and maintenance.",
+        "From idea and design to development, testing, and deployment, we handle everything effortlessly.",
       color: "#FFEE65",
     },
+    {
+      title: "On-Time Delivery",
+      description:
+        "We ensure timely delivery without compromising on quality, so your app launches on schedule.",
+      color: "#42A5F5",
+    },
   ];
+
   const servicesData = [
     {
-      title: "Custom Website Development",
+      title: "Search Engine Optimization (SEO)",
       description:
-        "Get a website designed and built from scratch to represent your brand and goals perfectly. Our custom solutions ensure flexibility, scalability, and a unique edge in your market.",
-      details: [
-        "Flexibility: Built with scalability in mind, your site can grow alongside your business.",
-        "Unique Design: Stand out in your market with a website designed exclusively for your brand.",
-        "Optimized Performance: Enjoy fast load times, easy navigation, and mobile responsiveness to engage your audience effectively.",
+        "Boost your visibility on search engines like Google and Bing. Our comprehensive SEO services include:",
+      services: [
+        {
+          category: "Keyword Research and Optimization",
+          details: [
+            "Keyword Identification: We identify the most relevant and high-performing keywords for your business by analyzing search trends, competitor strategies, and customer behavior.",
+            "Search Intent Analysis: Understanding user intent is key to delivering the right content. We categorize keywords into informational, navigational, transactional, and commercial categories.",
+            "Long-Tail Keyword Integration: By incorporating niche-specific, long-tail keywords, we help your site rank for less competitive and highly targeted search terms.",
+            "Regular Updates: Search trends evolve, and so do we. We continuously refine your keyword strategy based on real-time data and algorithm updates.",
+          ],
+        },
+        {
+          category: "Technical SEO Audits",
+          details: [
+            "Site Crawls and Error Resolution: We conduct in-depth audits to identify and fix crawl errors, broken links, and site architecture issues.",
+            "Performance Optimization: Enhance website speed, mobile usability, and overall user experience to meet search engine standards.",
+            "Structured Data Implementation: Add schema markup to improve search engine understanding and boost rich snippet visibility.",
+            "Indexing and Accessibility: Ensure that all vital pages are indexed properly and accessible to search engines.",
+          ],
+        },
+        {
+          category: "On-Page and Off-Page Optimization",
+          details: [
+            "On-Page: Optimize meta tags, headers, images, and internal linking for better relevance and readability.",
+            "Off-Page: Build high-quality backlinks through outreach, partnerships, and guest blogging to boost your domain authority.",
+            "Competitor Analysis: Identify and replicate winning strategies from your industry peers.",
+          ],
+        },
+        {
+          category: "Content Creation and Optimization",
+          details: [
+            "SEO-Friendly Content: Create high-quality, keyword-optimized content tailored to your audience.",
+            "Content Refresh: Update existing content to keep it relevant and improve its ranking potential.",
+            "Multimedia Integration: Enhance user engagement with videos, infographics, and interactive elements.",
+            "Topic Clusters: Organize your content into strategic clusters to signal authority on specific subjects.",
+          ],
+        },
+        {
+          category: "Local SEO Strategies",
+          details: [
+            "Google My Business Optimization: Ensure your business appears prominently in local search results with a fully optimized GMB profile.",
+            "Local Listings Management: Maintain consistency across all local directories and citations.",
+            "Geo-Targeted Keywords: Use location-specific keywords to attract customers in your service area.",
+            "Reviews and Ratings: Encourage and manage customer reviews to build trust and credibility.",
+          ],
+        },
       ],
-      conclusion:
-        "Whether you're a startup or an established enterprise, our custom web development services give you the competitive edge to succeed online.",
     },
     {
-      title: "E-commerce Solutions",
+      title: "Pay-Per-Click (PPC) Advertising",
       description:
-        "Transform your business with a fully optimized online store. We develop secure, user-friendly e-commerce platforms to boost your sales and streamline your operations.",
-      details: [
-        "Custom Online Stores: From design to functionality, we create stores that align with your brand and captivate your audience.",
-        "Secure Payment Gateways: Integrate trusted payment systems to ensure secure transactions and build customer confidence.",
-        "Inventory Management: Simplify stock tracking and order fulfillment with efficient tools.",
-        "Mobile Optimization: Deliver a flawless shopping experience on any device, ensuring maximum reach.",
-        "Analytics and Reporting: Gain insights into customer behavior and sales performance to drive growth.",
+        "Get immediate results with targeted PPC campaigns. We help you:",
+      services: [
+        {
+          category: "Set Up and Manage Google Ads",
+          details: [
+            "Account Setup: We establish and configure your Google Ads account, tailoring it to your business objectives.",
+            "Campaign Creation: Design campaigns with clear goals, such as increasing website traffic, lead generation, or brand awareness.",
+            "Ad Group Structuring: Create tightly themed ad groups for optimal relevance and performance.",
+            "Bid Management: Implement strategic bidding tactics to maximize results within your budget.",
+          ],
+        },
+        {
+          category: "Optimize Ad Spend for Maximum ROI",
+          details: [
+            "Performance Monitoring: Track campaign performance through analytics to identify opportunities for improvement.",
+            "Budget Allocation: Focus ad spend on the highest-performing campaigns and keywords.",
+            "A/B Testing: Test multiple ad variations to identify the most effective copy, visuals, and CTAs.",
+            "Negative Keyword Lists: Eliminate irrelevant clicks by refining your negative keyword strategy.",
+          ],
+        },
+        {
+          category: "Craft Compelling Ad Copy and Visuals",
+          details: [
+            "Engaging Headlines: Write attention-grabbing headlines that align with user intent.",
+            "Persuasive Descriptions: Highlight unique selling points and include strong calls to action.",
+            "Visual Appeal: Design high-quality, visually appealing banners and images that resonate with your target audience.",
+            "Ad Extensions: Enhance ads with extensions like site links, callouts, and structured snippets to increase click-through rates.",
+          ],
+        },
       ],
-      conclusion:
-        "Whether you're launching your first store or upgrading an existing one, we provide the tools and expertise to help you succeed in the digital marketplace.",
-    },
-    {
-      title: "Content Management Systems (CMS)",
-      description:
-        "Take control of your website with easy-to-use CMS platforms. Manage content, update pages, and stay in charge of your digital presence.",
-      details: [
-        "Custom CMS Development: Tailored to your unique needs, providing flexibility and ease of use.",
-        "User-Friendly Interfaces: Simplify content creation and updates with intuitive dashboards.",
-        "Integration Capabilities: Easily connect your CMS with third-party tools and plugins to enhance functionality.",
-        "Scalable Solutions: Built to grow with your business, accommodating expanding content and user demands.",
-        "Training and Support: Ensure your team is equipped to make the most of your CMS with expert guidance and ongoing assistance.",
-      ],
-      conclusion:
-        "With our CMS solutions, you’ll have complete control over your digital presence, enabling you to keep your website fresh, relevant, and engaging.",
-    },
-    {
-      title: "Responsive Web Design",
-      description:
-        "Ensure your website looks great and functions flawlessly on any device, from desktops to smartphones. Our responsive designs provide a superior user experience across all screen sizes.",
-      details: [
-        "Fluid Grids and Layouts: Websites that automatically adjust to fit any screen size, providing a consistent user experience.",
-        "Optimized Performance: Fast-loading designs that minimize bounce rates and maximize engagement on mobile devices.",
-        "Cross-Browser Compatibility: Ensuring easy functionality across different browsers and operating systems.",
-        "Mobile-First Approach: Designing with mobile users in mind, prioritizing usability and accessibility.",
-        "Testing and Support: Support and testing are done to ensure flawless responsiveness and ongoing support to adapt to new devices and trends.",
-      ],
-      conclusion:
-        "We ensure that your website provides a seamless experience across all devices, enhancing your audience's engagement and satisfaction.",
-    },
-    {
-      title: "Web Application Development",
-      description:
-        "Streamline your business processes with custom web applications. From customer portals to business management tools, we create solutions that drive efficiency.",
-      details: [
-        "Frontend Development: We use the latest frontend technologies like HTML5, CSS3, JavaScript, and popular frameworks such as React.js, Angular, or Vue.js to build responsive, fast, and dynamic user interfaces.",
-        "Backend Development: Our backend developers work with cutting-edge technologies to create powerful, efficient, and scalable server-side solutions.",
-        "API Development & Integration: Whether you need a custom API or need to integrate third-party services, our team builds secure, well-documented APIs. We integrate payment systems, social media logins, geolocation, and other essential services to enhance the functionality of your web application.",
-        "Testing & Quality Assurance: Before launching, we perform testing to ensure the application is bug-free and performs flawlessly across all devices. Our testing includes unit testing, integration testing, performance testing, and security audits to ensure quality at every stage of development.",
-      ],
-      conclusion:
-        "Our web application development services empower your business with custom, scalable, and secure web apps that optimize efficiency and deliver a seamless user experience.",
     },
   ];
-  const para = "Build Your Digital Presence with Insight Vision";
+
+  const para =
+    "Welcome to Insight Vision - Elevate Your Online Presence through SEO ";
   const selfPrasiseContainer = React.useRef<HTMLDivElement>(null);
   const boxInView = useInView(selfPrasiseContainer, { once: true });
   return (
     <motion.div className="  bg-white" ref={containerRef}>
       <motion.div>
-        <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-fuchsia-100 from-10% to-indigo-700 relative">
+        <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
           <div className="w-full h-full flex relative">
             <div
               style={{ marginTop: `${height + 50}px` }}
@@ -163,7 +191,7 @@ const Page = () => {
             >
               <BreadCrumb />
               <div
-                style={{ height: `calc(100vh - ${height + 200}px)` }}
+                style={{ height: `calc(100vh - ${height + 100}px)` }}
                 className="flex flex-col container items-center text-slate-100 justify-center"
               >
                 <motion.h1 className="text-center font-[600]  flex-wrap lg:text-3xl xl:text-6xl xxl:text-7xl  font-Grostek relative">
@@ -225,7 +253,7 @@ const Page = () => {
             ))}
           </motion.article>
         </div>
-        <div className="container grid grid-cols-1 mt-7 gap-4 lg:grid-cols-2">
+        <div className="container grid grid-cols-1 mt-7 gap-4 lg:grid-cols-1">
           <AnimatePresence mode="wait">
             {servicesData.map((service, index) => (
               <motion.div
@@ -241,26 +269,29 @@ const Page = () => {
                 <p className="mt-2 font-Synonym text-lg font-[400]">
                   {service.description}
                 </p>
-                <div className="mt-3">
-                  {service.details.map((detail, id) => (
-                    <div
-                      key={id}
-                      className="flex bg-[#c5edff] text-blue-950 rounded-lg px-3 items-start gap-2 mt-2 py-2"
-                    >
-                      <div className="mt-[6px]">
-                        <Circle weight="fill" />
-                      </div>
-                      <p
-                        className={` rounded-lg font-sans font-[400]  text-lg `}
-                      >
-                        {detail}
+
+                <div className="">
+                  {service.services.map((detail, id) => (
+                    <div key={id} className="mt-6">
+                      <p className="font-Synonym text-lg font-[500]">
+                        {detail.category}
                       </p>
+                      <div className="grid grid-cols-2 gap-5">
+                        {detail.details.map((item, i) => (
+                          <div
+                            key={i}
+                            className="flex  bg-[#c5edff] text-blue-950 rounded-lg px-3 items-start gap-2 mt-2 py-2"
+                          >
+                            <p
+                              className={` rounded-lg font-sans font-[400]  text-lg `}
+                            >
+                              {item}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   ))}
-
-                  {service.conclusion ? (
-                    <p className="mt-3">{service.conclusion}</p>
-                  ) : null}
                 </div>
               </motion.div>
             ))}
@@ -365,17 +396,16 @@ const Page = () => {
         <div className=" ">
           <div className=" p-7  w-full bg-[#3F51B5] text-slate-100 rounded-xl">
             <h2 className="text-3xl font-SplineSans font-[500]">
-              Ready to Build the Digital Imprint of Your Business?
+              Let’s Grow Your Business Together
             </h2>
             <p className="mt-3 font-Synonym font-[400] text-lg">
-              Whether you’re looking to build a new website from scratch or
-              enhance an existing one, we are here to help you every step of the
-              way. Contact us today to discuss your project, and let’s bring
-              your idea to life.
+              Ready to take your digital marketing to the next level? Partner
+              with Insight Vision and watch your business soar. Contact us today
+              for a free consultation!
             </p>
 
             <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
-              Contact us
+              Get a Free consultation today!
             </button>
           </div>
         </div>
