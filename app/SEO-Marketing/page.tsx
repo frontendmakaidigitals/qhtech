@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import {
   Accordion,

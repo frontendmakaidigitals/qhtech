@@ -337,7 +337,7 @@ const Page = () => {
               Let’s Grow Together
             </h2>
             <p className="mt-3 font-Synonym font-[400] text-lg">
-              Content marketing isn't just about creating content—it's about
+              Content marketing isn`t just about creating content—it`s about
               creating connections. Ready to elevate your brand? Partner with
               Insight Vision, where your story meets strategy.
             </p>

@@ -496,12 +496,12 @@ const Page = () => {
         <div className=" ">
           <div className=" p-7  w-full bg-[#3F51B5] text-slate-100 rounded-xl">
             <h2 className="text-3xl font-SplineSans font-[500]">
-              Let's Create Something Amazing Together
+              Let`s Create Something Amazing Together
             </h2>
             <p className="mt-3 font-Synonym font-[400] text-lg">
               Ready to elevate your brand? Get in touch with us today and let’s
               start building a brand that connects, inspires, and delivers.
-              Whether you're launching a new brand or rebranding your business,
+              Whether you`re launching a new brand or rebranding your business,
               Insight Vision is here to help you shine.
             </p>
 

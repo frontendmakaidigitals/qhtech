@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import {motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import {
   Accordion,
@@ -10,8 +10,6 @@ import {
 } from "../App chunks/components/Accordion";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
 import { Plus } from "@phosphor-icons/react";
-import { useKeenSlider } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -320,8 +318,8 @@ const Page = () => {
               Let’s Drive Performance Together
             </h2>
             <p className="mt-3 font-Synonym font-[400] text-lg">
-              If you’re ready to take your marketing to the next level and see
-              measurable growth, contact us today. Whether you're looking to
+              If you`re ready to take your marketing to the next level and see
+              measurable growth, contact us today. Whether you`re looking to
               scale quickly or improve your marketing ROI, we have the tools and
               expertise to get you there.
             </p>
