@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import {  motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import {
   Accordion,
@@ -10,7 +10,7 @@ import {
 } from "../App chunks/components/Accordion";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
 import { Plus } from "@phosphor-icons/react";
-import { Circle } from "@phosphor-icons/react";
+ 
 
 const Page = () => {
   const [height, setHeight] = React.useState(0);

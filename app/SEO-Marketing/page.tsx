@@ -48,44 +48,7 @@ const Page = () => {
         "SEO (Search Engine Optimization) is the practice of optimizing your website to rank higher in search engine results. It drives organic traffic, increases visibility, and enhances user experience, ultimately boosting conversions and revenue.",
     },
   ];
-  const selfPraise = [
-    {
-      title: "Custom Solutions",
-      description:
-        "Every business is unique, and so are our apps. We tailor solutions to fit your specific needs, ensuring your app aligns perfectly with your marketing goals.",
-      color: "#D4E157",
-    },
-    {
-      title: "User-Friendly Design",
-      description:
-        "We create visually appealing and easy-to-navigate applications to provide the best user experience.",
-      color: "#4FC3F7",
-    },
-    {
-      title: "Scalable Architecture",
-      description:
-        "As your business grows, so should your app. We build scalable applications that grow with you.",
-      color: "#FF8A65",
-    },
-    {
-      title: "Expert Developers",
-      description:
-        "Our team comprises industry experts with years of experience in mobile and web application development.",
-      color: "#FFEE58",
-    },
-    {
-      title: "End-to-End Services",
-      description:
-        "From idea and design to development, testing, and deployment, we handle everything effortlessly.",
-      color: "#FFEE65",
-    },
-    {
-      title: "On-Time Delivery",
-      description:
-        "We ensure timely delivery without compromising on quality, so your app launches on schedule.",
-      color: "#42A5F5",
-    },
-  ];
+ 
 
   const servicesData = [
     {
@@ -177,8 +140,8 @@ const Page = () => {
 
   const para =
     "Welcome to Insight Vision - Elevate Your Online Presence through SEO ";
-  const selfPrasiseContainer = React.useRef<HTMLDivElement>(null);
-  const boxInView = useInView(selfPrasiseContainer, { once: true });
+  
+ 
   return (
     <motion.div className="  bg-white" ref={containerRef}>
       <motion.div>
