@@ -190,7 +190,7 @@ const ShowPopup = () => {
       rounded: 60,
       top: 40,
       left: 40,
-      route: "/",
+      route: "Content-Marketing",
     },
     {
       title: "SEO Marketing",
@@ -212,7 +212,7 @@ const ShowPopup = () => {
       rounded: 66,
       top: 35,
       left: 15,
-      route: "/",
+      route: "Media-Buying",
     },
     {
       title: "Performance Marketing",
@@ -223,7 +223,7 @@ const ShowPopup = () => {
       rounded: 60,
       top: 30,
       left: 12,
-      route: "/",
+      route: "Performance-Marketing",
     },
     {
       title: "IT Consulting & Advisory",
@@ -234,7 +234,7 @@ const ShowPopup = () => {
       rounded: 60,
       top: 50,
       left: 17,
-      route: "/",
+      route: "IT-Consulting",
     },
     {
       title: "Cyber Security",
@@ -245,7 +245,7 @@ const ShowPopup = () => {
       rounded: 66,
       top: 30,
       left: 16,
-      route: "/",
+      route: "Cyber-Security",
     },
     {
       title: "Public Relations",
@@ -256,7 +256,7 @@ const ShowPopup = () => {
       rounded: 60,
       top: 30,
       left: 12,
-      route: "/",
+      route: "Public-Relations",
     },
     {
       title: "Branding & Designing",
@@ -267,7 +267,7 @@ const ShowPopup = () => {
       rounded: 60,
       top: 30,
       left: 12,
-      route: "/",
+      route: "Branding",
     },
   ];
   const [id, setHoverid] = useState<number | null>(null);

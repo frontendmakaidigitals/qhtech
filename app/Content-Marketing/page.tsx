@@ -1,0 +1,356 @@
+"use client";
+import React from "react";
+import { AnimatePresence, motion, useInView } from "framer-motion";
+import BreadCrumb from "../App chunks/components/BreadCrumb";
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionItem,
+  AccordionPanel,
+} from "../App chunks/components/Accordion";
+import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
+import { Plus } from "@phosphor-icons/react";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
+const Page = () => {
+  const [height, setHeight] = React.useState(0);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const rect = document
+      .getElementsByClassName("HeadNavigation")[0]
+      .getBoundingClientRect();
+    setHeight(rect.height);
+  }, []);
+  const faqData = [
+    {
+      question: "Can content marketing work for small businesses?",
+      answer:
+        "Yes, content marketing is highly effective for small businesses. In fact, it offers small businesses an affordable way.",
+    },
+    {
+      question: "How often should I publish new content?",
+      answer:
+        "The frequency of content publishing depends on your resources and business goals. However, consistency is key.",
+    },
+    {
+      question:
+        "What is the difference between content marketing and traditional marketing?",
+      answer:
+        "The main difference between content marketing and traditional marketing is that content marketing focuses on providing valuable, informative content to build trust with the audience, while traditional marketing often focuses on direct promotion and sales.",
+    },
+    {
+      question: "How long does it take to see results from content marketing?",
+      answer:
+        "Content marketing is a long-term strategy, and it can take 3–6 months to start seeing significant results.",
+    },
+    {
+      question: "What types of content can be used in content marketing?",
+      answer:
+        "There are many types of content used in content marketing, including Blogs & Articles, Videos, Podcasts, E-books & Whitepapers.",
+    },
+  ];
+
+  const services = [
+    {
+      title: "Social Media Content Creation",
+      description:
+        "Social media is where conversations happen, trends are set, and brands come to life. At Insight Vision, we create scroll-stopping, share-worthy content that connects with your audience and grows your online presence.",
+      details: {
+        platformSpecificContent: [
+          "Facebook: Engaging posts, carousel ads, and videos designed to spark conversations and drive traffic.",
+          "Instagram: Visually stunning posts, Reels, and Stories that captivate and grow your followers.",
+          "LinkedIn: Thought leadership articles, professional updates, and customized B2B content to establish authority.",
+          "Twitter (X): Concise, impactful tweets that provide engagement and real-time interaction.",
+          "TikTok: Creative, trending short-form videos that capture attention and go viral.",
+          "Pinterest: Eye-catching pins that drive traffic and inspire action.",
+        ],
+        contentFormats: [
+          "Posts & Captions: Compelling copy and visuals that reflect your brand’s personality.",
+          "Stories & Reels: Short, impactful content optimized for virality and engagement.",
+          "Infographics: Shareable, informative graphics that simplify complex ideas.",
+          "Live Streams: Real-time interaction to build a deeper connection with your audience.",
+          "Polls, Quizzes & Contests: Interactive content to boost participation and engagement.",
+          "User-Generated Content (UGC): Campaigns to leverage your audience’s voice and enhance authenticity.",
+        ],
+        contentCalendarManagement:
+          "We plan and schedule posts to ensure consistency and timely delivery, aligning with your overall marketing goals. Content calendar management involves planning, scheduling, and coordinating content across platforms to achieve marketing objectives.",
+      },
+    },
+    {
+      title: "Blog Writing & Management",
+      description:
+        "Blogs are the cornerstone of content marketing, driving traffic, building authority, and nurturing customer trust. We create high-quality, value-driven blog content that informs, engages, and converts. From topic ideation to performance tracking, we handle every step of the process so you can focus on your business.",
+      details: {
+        blogContentCreation: [
+          "Informative Articles: In-depth pieces that position you as an expert in your industry.",
+          "How-To Guides: Step-by-step instructions that provide actionable value to readers.",
+          "Thought Leadership: Insightful blogs that showcase your unique perspective and innovations.",
+          "Trend Spotlights: Timely content that keeps your audience informed about industry developments.",
+          "Product & Service Highlights: Engaging blogs that promote your offerings without feeling salesy.",
+        ],
+        seoOptimization: [
+          "Keyword Research: Identifying high-impact keywords that align with your audience’s search intent.",
+          "On-Page SEO: Crafting meta titles, descriptions, and headings to enhance visibility.",
+          "Internal & External Linking: Structuring content to boost authority and drive organic traffic.",
+          "Content Refreshing: Regularly updating old blogs to maintain relevance and search rankings.",
+        ],
+        topicIdeation:
+          "We identify the topics your audience cares about, including audience pain points, seasonal trends, and evergreen content.",
+        visualEnhancements: [
+          "Custom graphics and infographics.",
+          "Embedded videos and rich media.",
+          "Optimized images for readability and SEO.",
+        ],
+      },
+    },
+    {
+      title: "Video Marketing",
+      description:
+        "Video is one of the most powerful tools in digital marketing. It’s dynamic, engaging, and capable of delivering your message in a way that resonates with your audience. We specialize in creating impactful video marketing strategies that bring your brand’s story to life and drive measurable results.",
+      details: {
+        videoStrategyDevelopment: [
+          "Identifying target audiences and platforms (YouTube, social media, website, etc.).",
+          "Aligning video goals with broader marketing campaigns.",
+          "Creating a content roadmap to ensure consistent messaging.",
+        ],
+        videoProduction: [
+          "Concept Development: Crafting unique ideas that align with your brand’s vision.",
+          "Scripting & Storyboarding: Writing engaging scripts and visualizing scenes for impactful storytelling.",
+          "Filming & Editing: Professional shooting, audio recording, and post-production editing.",
+          "Animation & Motion Graphics: Dynamic visual effects and animations to elevate your videos.",
+        ],
+        videoFormats: [
+          "Brand Story Videos: Showcase your company’s mission, values, and culture.",
+          "Product Demonstrations: Highlight features and benefits with clear, engaging demos.",
+          "Explainer Videos: Simplify complex ideas with animations or live-action content.",
+          "Testimonial Videos: Build trust with real customer stories.",
+          "How-To Videos: Provide actionable value to your audience with step-by-step guides.",
+          "Social Media Videos: Create short, engaging content designed for platforms like Instagram, TikTok, and Facebook.",
+          "Corporate Videos: Professional content for internal communication, events, or B2B audiences.",
+        ],
+      },
+    },
+    {
+      title: "Podcasting",
+      description:
+        "Podcasts are one of the fastest-growing forms of content, providing businesses with a unique opportunity to connect with their audience in a highly personal and engaging way. We specialize in creating and executing podcast strategies that amplify your brand’s message, build authority, and create deeper connections with your listeners.",
+      details: {
+        podcastStrategyDevelopment: [
+          "Target Audience: Understanding who you're speaking to and what topics interest them.",
+          "Podcast Goals: Setting clear objectives (e.g., brand awareness, lead generation, thought leadership).",
+          "Format & Structure: Deciding on the podcast’s format (interviews, solo episodes, storytelling, etc.) and the episode length.",
+          "Content Planning: Developing a content calendar with episode ideas, themes, and guest appearances.",
+        ],
+        podcastProduction: [
+          "Recording: We guide you on equipment choices, microphone setup, and recording tips for clear, high-quality audio.",
+          "Editing: Our team edits your episodes to remove any errors, enhance audio quality, and incorporate music or sound effects.",
+          "Intro/Outro Creation: We create custom intros and outros to reinforce your brand and give your podcast a polished feel.",
+          "Guest Management: We coordinate with interviewees or industry experts, ensuring smooth scheduling and communication.",
+        ],
+        podcastBranding: [
+          "Cover Art: Custom podcast artwork that stands out and aligns with your brand’s aesthetics.",
+          "Logo & Branding Guidelines: Creating a logo and consistent branding elements that reflect your podcast’s identity.",
+          "Theme Music & Sound: Custom music selection or original compositions to enhance your podcast’s atmosphere.",
+        ],
+        podcastFormats: [
+          "Interview-Style Podcasts",
+          "Solo Podcasts",
+          "Storytelling & Narrative Podcasts",
+          "Panel Discussions",
+          "Educational & How-To Podcasts",
+        ],
+      },
+    },
+  ];
+
+  const para = "Great content is the best sales tool in the world";
+
+  return (
+    <motion.div className="  bg-white" ref={containerRef}>
+      <motion.div>
+        <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
+          <div className="w-full h-full flex relative">
+            <div className="absolute top-0 left-0 w-full h-full">
+              <BackgroundGradientAnimation
+                gradientBackgroundStart="silver"
+                gradientBackgroundEnd="purple"
+              />
+            </div>
+            <div
+              style={{ marginTop: `${height + 50}px` }}
+              className="container relative z-[99]"
+            >
+              <BreadCrumb />
+              <div
+                style={{ height: `calc(100vh - ${height + 200}px)` }}
+                className="flex flex-col container items-center text-slate-100 justify-center"
+              >
+                <motion.h1 className="text-center font-[600]  flex-wrap lg:text-3xl xl:text-6xl xxl:text-7xl  font-Grostek relative">
+                  {para.split(" ").map((item, index) => (
+                    <motion.span
+                      key={index}
+                      className="xl:mr-2 xxl:mr-4 overflow-hidden h-[80px]"
+                      style={{
+                        display: "inline-block", // Ensure words are treated as block elements
+                      }}
+                    >
+                      <motion.span
+                        initial={{ y: 300, opacity: 0, rotate: 20, x: -10 }} // Start from below
+                        animate={{
+                          y: 0, // Move to original position
+                          opacity: 1,
+                          rotate: 0,
+                          x: 0,
+                        }}
+                        style={{
+                          display: "inline-block", // Ensure words are treated as block elements
+                        }}
+                        transition={{
+                          ease: [0, 0, 0.2, 1],
+                          duration: 1,
+                          delay: index * 0.1, // Increased delay to prevent overlap
+                        }}
+                        className="origin-top-right"
+                      >
+                        {item}
+                      </motion.span>
+                      {"  "}
+                    </motion.span>
+                  ))}
+                </motion.h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      <div className="my-16">
+        <div className="container">
+          <motion.article className="flex justify-center lg:justify-start items-center text-slate-950 gap-3">
+            {["Our", "Services"].map((text, index) => (
+              <motion.h1
+                key={index}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  ease: [0.22, 0.61, 0.36, 1],
+                }}
+                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+              >
+                {text}
+              </motion.h1>
+            ))}
+          </motion.article>
+        </div>
+        <div className="mx-auto container mt-12 grid grid-cols-1 gap-4">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="bg-purple-50 rounded-lg shadow-md p-6 border border-gray-200"
+            >
+              <h2 className="text-xl font-semibold text-gray-700 mb-2">
+                {service.title}
+              </h2>
+              <p className="text-gray-600 mb-4">{service.description}</p>
+              <div className="space-y-4 ">
+                {Object.entries(service.details).map(([key, value], i) => (
+                  <div key={i}>
+                    <h3 className="text-lg  font-medium text-gray-800 capitalize">
+                      {key.replace(/([A-Z])/g, " $1")}
+                    </h3>
+                    {Array.isArray(value) ? (
+                      <ul className="grid grid-cols-1 gap-3 lg:grid-cols-4 text-gray-600">
+                        {value.map((item, j) => (
+                          <li key={j} className="bg-purple-100 p-3">{item}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-gray-600 ">{value}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="py-16 bg-[#121316]">
+        <div className="container">
+          <div>
+            {" "}
+            <motion.article className="flex justify-center lg:justify-start items-center text-slate-100 gap-3">
+              {["Frequently", "Asked", "Questions"].map((text, index) => (
+                <motion.h1
+                  key={index}
+                  transition={{
+                    delay: index * 0.1,
+                    duration: 0.6,
+                    ease: [0.22, 0.61, 0.36, 1],
+                  }}
+                  viewport={{ once: true }}
+                  initial={{ opacity: 0, y: 100 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+                >
+                  {text}
+                </motion.h1>
+              ))}
+            </motion.article>
+          </div>
+          <div className="mt-10 grid gap-x-12 grid-cols-1 lg:grid-cols-[1fr_2fr]">
+            <div>
+              <p className="text-slate-400 text-md font-Grostek">
+                Can&apos;t find what you are looking for?
+              </p>
+              <h3 className="text-slate-100 text-2xl font-Grostek font-[500]">
+                We would like to chat with you.
+              </h3>
+              <div className="mt-3">
+                <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
+                  Contact us
+                </button>
+              </div>
+            </div>
+            <div>
+              <Accordion defaultValue={["item-0"]}>
+                {faqData.map((faq, index) => (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionHeader icon={<Plus className="text-xl" />}>
+                      {faq.question}
+                    </AccordionHeader>
+                    <AccordionPanel>{faq.answer}</AccordionPanel>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="py-16 container">
+        <div className=" ">
+          <div className=" p-7  w-full bg-[#3F51B5] text-slate-100 rounded-xl">
+            <h2 className="text-3xl font-SplineSans font-[500]">
+              Let’s Grow Together
+            </h2>
+            <p className="mt-3 font-Synonym font-[400] text-lg">
+              Content marketing isn't just about creating content—it's about
+              creating connections. Ready to elevate your brand? Partner with
+              Insight Vision, where your story meets strategy.
+            </p>
+
+            <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
+              Contact Us
+            </button>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+export default Page;

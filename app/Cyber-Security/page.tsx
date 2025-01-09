@@ -1,0 +1,420 @@
+"use client";
+import React from "react";
+import { AnimatePresence, motion, useInView } from "framer-motion";
+import BreadCrumb from "../App chunks/components/BreadCrumb";
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionItem,
+  AccordionPanel,
+} from "../App chunks/components/Accordion";
+import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
+import { Plus } from "@phosphor-icons/react";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
+const Page = () => {
+  const [height, setHeight] = React.useState(0);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const rect = document
+      .getElementsByClassName("HeadNavigation")[0]
+      .getBoundingClientRect();
+    setHeight(rect.height);
+  }, []);
+  const faqData = [
+    {
+      question: "Why is cybersecurity important for my business?",
+      answer:
+        "Cybersecurity is critical to protecting your business from data breaches, financial losses, and reputational damage. It ensures the integrity of your systems, safeguards sensitive information, and maintains trust with your customers and stakeholders.",
+    },
+    {
+      question: "What industries do you specialize in?",
+      answer:
+        "We provide cybersecurity services across a wide range of industries, including healthcare, finance, retail, manufacturing, and government. Our solutions are tailored to meet the specific needs and regulations of each sector.",
+    },
+    {
+      question:
+        "How do you ensure my business stays compliant with regulations?",
+      answer:
+        "We conduct detailed compliance audits and provide guidance on adhering to standards like GDPR, HIPAA, PCI-DSS, and others. We also offer ongoing support to ensure your business remains compliant as regulations evolve.",
+    },
+    {
+      question: "What should I do if my business experiences a cyberattack?",
+      answer:
+        "Contact us immediately. Our incident response team will work quickly to contain the threat, investigate the breach, and restore your systems. We will also help you develop measures to prevent future incidents.",
+    },
+    {
+      question: "How often should I update my cybersecurity measures?",
+      answer:
+        "Cybersecurity is an ongoing process. We recommend regular assessments, updates, and employee training to stay ahead of emerging threats. We also provide continuous monitoring and support to keep your systems secure.",
+    },
+  ];
+
+  const services = [
+    {
+      category: "Digital Transformation Consultancy",
+      description:
+        "Helping businesses optimize and integrate advanced technologies to improve productivity and operational efficiency.",
+      subcategories: [
+        {
+          type: "Assessment",
+          description:
+            "Evaluate your current technology infrastructure, workflows, and business processes to identify gaps and opportunities for improvement.",
+        },
+        {
+          type: "Roadmap",
+          description:
+            "Design a comprehensive plan that integrates advanced technologies, optimizes operations, and aligns with your strategic objectives.",
+        },
+        {
+          type: "Implementation Support",
+          description:
+            "Facilitate the seamless deployment of tools, technologies, and processes to enhance productivity and operational efficiency.",
+        },
+        {
+          type: "Change Management",
+          description:
+            "Provide training and support to ensure your team adapts smoothly to new systems and practices.",
+        },
+      ],
+    },
+    {
+      category: "Cloud Consulting",
+      description:
+        "Support for cloud adoption, optimization, and ongoing management, ensuring your cloud strategy aligns with business goals.",
+      subcategories: [
+        {
+          type: "Cloud Readiness Assessment",
+          description:
+            "Analyze your current IT landscape to determine suitability for cloud adoption.",
+        },
+        {
+          type: "Migration Planning",
+          description:
+            "Develop secure and efficient strategies for moving data, applications, and systems to cloud platforms.",
+        },
+        {
+          type: "Multi-Cloud Solutions",
+          description:
+            "Assist in leveraging multiple cloud providers to optimize performance and cost-efficiency.",
+        },
+        {
+          type: "Cloud Optimization",
+          description:
+            "Regularly review and adjust configurations to ensure optimal use of cloud resources.",
+        },
+        {
+          type: "Security & Compliance",
+          description:
+            "Ensure your cloud environment adheres to industry regulations and standards, safeguarding sensitive data.",
+        },
+      ],
+    },
+    {
+      category: "Cybersecurity Solutions",
+      description:
+        "Protecting your business from threats with tailored cybersecurity services, risk management, and ongoing monitoring.",
+      subcategories: [
+        {
+          type: "Risk Assessment",
+          description:
+            "Identify vulnerabilities in your IT systems, applications, and networks.",
+        },
+        {
+          type: "Security Framework Development",
+          description:
+            "Build scalable security frameworks customized for your business.",
+        },
+        {
+          type: "Incident Response",
+          description:
+            "Provide rapid support to address and mitigate security breaches.",
+        },
+        {
+          type: "Ongoing Monitoring",
+          description:
+            "Implement advanced threat detection and response systems to continuously protect your infrastructure.",
+        },
+        {
+          type: "Compliance Management",
+          description:
+            "Ensure adherence to regulations like GDPR, HIPAA, and ISO standards.",
+        },
+      ],
+    },
+    {
+      category: "IT Infrastructure Optimization",
+      description:
+        "Optimizing your IT systems to maximize performance, reduce downtime, and align with modern business needs.",
+      subcategories: [
+        {
+          type: "System Integration",
+          description:
+            "Unify disparate systems to create cohesive workflows and improve operational efficiency.",
+        },
+        {
+          type: "Infrastructure Modernization",
+          description:
+            "Upgrade legacy systems to align with modern business needs.",
+        },
+        {
+          type: "Performance Enhancement",
+          description:
+            "Optimize IT hardware, software, and network components to reduce downtime and improve productivity.",
+        },
+        {
+          type: "Cost Management",
+          description:
+            "Identify and eliminate inefficiencies to lower operational expenses.",
+        },
+        {
+          type: "Sustainable IT Practices",
+          description:
+            "Incorporate eco-friendly solutions to reduce your carbon footprint while maintaining efficiency.",
+        },
+      ],
+    },
+    {
+      category: "Data Analytics & Business Intelligence",
+      description:
+        "Leveraging data to gain insights, forecast trends, and support decision-making with advanced analytics and visualization tools.",
+      subcategories: [
+        {
+          type: "Data Strategy Development",
+          description:
+            "Create systems for collecting, managing, and analyzing data effectively.",
+        },
+        {
+          type: "Predictive Analytics",
+          description:
+            "Use advanced analytics tools to forecast trends and support decision-making.",
+        },
+        {
+          type: "Real-Time Insights",
+          description:
+            "Implement solutions that provide immediate visibility into business operations and performance.",
+        },
+        {
+          type: "Visualization Tools",
+          description:
+            "Utilize dashboards and visualization platforms to make data more accessible and actionable.",
+        },
+        {
+          type: "Data Governance",
+          description:
+            "Ensure data accuracy, security, and compliance with regulatory requirements.",
+        },
+      ],
+    },
+    {
+      category: "CCTV Installation Services",
+      description:
+        "Providing tailored CCTV solutions for enhanced security, from site assessment to remote monitoring.",
+      subcategories: [
+        {
+          type: "Site Assessment",
+          description:
+            "Evaluate your premises to determine the optimal placement of cameras for maximum coverage.",
+        },
+        {
+          type: "Customized Solutions",
+          description:
+            "Design CCTV systems tailored to your specific security needs and budget.",
+        },
+        {
+          type: "Professional Installation",
+          description:
+            "Ensure reliable setup and integration of CCTV equipment with existing systems.",
+        },
+        {
+          type: "Maintenance & Support",
+          description:
+            "Provide ongoing support, including troubleshooting, repairs, and upgrades.",
+        },
+        {
+          type: "Remote Monitoring",
+          description:
+            "Enable real-time monitoring through secure online access for enhanced peace of mind.",
+        },
+      ],
+    },
+  ];
+
+  const para =
+    "Cybersecurity is not just a technology problem—it’s a business risk.";
+
+  return (
+    <motion.div className="  bg-white" ref={containerRef}>
+      <motion.div>
+        <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
+          <div className="w-full h-full flex relative">
+            <div className="absolute top-0 left-0 w-full h-full">
+              <BackgroundGradientAnimation
+                gradientBackgroundStart="white"
+                gradientBackgroundEnd="blue"
+              />
+            </div>
+            <div
+              style={{ marginTop: `${height + 50}px` }}
+              className="container relative z-[99]"
+            >
+              <BreadCrumb />
+              <div
+                style={{ height: `calc(100vh - ${height + 200}px)` }}
+                className="flex flex-col container items-center text-slate-100 justify-center"
+              >
+                <motion.h1 className="text-center font-[600]  flex-wrap lg:text-3xl xl:text-6xl  font-Grostek relative">
+                  {para.split(" ").map((item, index) => (
+                    <motion.span
+                      key={index}
+                      className="xl:mr-2 xxl:mr-4 overflow-hidden h-[70px]"
+                      style={{
+                        display: "inline-block", // Ensure words are treated as block elements
+                      }}
+                    >
+                      <motion.span
+                        initial={{ y: 300, opacity: 0, rotate: 20, x: -10 }} // Start from below
+                        animate={{
+                          y: 0, // Move to original position
+                          opacity: 1,
+                          rotate: 0,
+                          x: 0,
+                        }}
+                        style={{
+                          display: "inline-block", // Ensure words are treated as block elements
+                        }}
+                        transition={{
+                          ease: [0, 0, 0.2, 1],
+                          duration: 1,
+                          delay: index * 0.1, // Increased delay to prevent overlap
+                        }}
+                        className="origin-top-right"
+                      >
+                        {item}
+                      </motion.span>
+                      {"  "}
+                    </motion.span>
+                  ))}
+                </motion.h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      <div className="mt-10">
+        <motion.article className="flex container justify-center lg:justify-start items-center text-slate-950 gap-3">
+          {["Our", "Services"].map((text, index) => (
+            <motion.h1
+              key={index}
+              transition={{
+                delay: index * 0.1,
+                duration: 0.6,
+                ease: [0.22, 0.61, 0.36, 1],
+              }}
+              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+            >
+              {text}
+            </motion.h1>
+          ))}
+        </motion.article>
+        <div className="container grid grid-cols-1 gap-6 mt-5">
+          {services.map((service, index) => (
+            <div key={index} className="border bg-purple-50 p-6 rounded-lg ">
+              <h2 className="text-2xl font-bold ">{service.category}</h2>
+              <p className="text-lg  text-gray-700">{service.description}</p>
+              <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 mt-6 ">
+                {service.subcategories.map((subcategory, subIndex) => (
+                  <div key={subIndex} className="bg-purple-100 p-4 rounded-lg">
+                    <h3 className="text-xl font-semibold">
+                      {subcategory.type}
+                    </h3>
+                    <p className="text-gray-600">{subcategory.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="py-16 bg-[#121316] mt-16">
+        <div className="container">
+          <div>
+            {" "}
+            <motion.article className="flex justify-center lg:justify-start items-center text-slate-100 gap-3">
+              {["Frequently", "Asked", "Questions"].map((text, index) => (
+                <motion.h1
+                  key={index}
+                  transition={{
+                    delay: index * 0.1,
+                    duration: 0.6,
+                    ease: [0.22, 0.61, 0.36, 1],
+                  }}
+                  viewport={{ once: true }}
+                  initial={{ opacity: 0, y: 100 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+                >
+                  {text}
+                </motion.h1>
+              ))}
+            </motion.article>
+          </div>
+          <div className="mt-10 grid gap-x-12 grid-cols-1 lg:grid-cols-[1fr_2fr]">
+            <div>
+              <p className="text-slate-400 text-md font-Grostek">
+                Can&apos;t find what you are looking for?
+              </p>
+              <h3 className="text-slate-100 text-2xl font-Grostek font-[500]">
+                We would like to chat with you.
+              </h3>
+              <div className="mt-3">
+                <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
+                  Contact us
+                </button>
+              </div>
+            </div>
+            <div>
+              <Accordion defaultValue={["item-0"]}>
+                {faqData.map((faq, index) => (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionHeader icon={<Plus className="text-xl" />}>
+                      {faq.question}
+                    </AccordionHeader>
+                    <AccordionPanel>{faq.answer}</AccordionPanel>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="py-16 container">
+        <div className=" ">
+          <div className=" p-7  w-full bg-[#3F51B5] text-slate-100 rounded-xl">
+            <h2 className="text-3xl font-SplineSans font-[500]">
+              Partner with Us
+            </h2>
+            <p className="mt-3 font-Synonym font-[400] text-lg">
+              Let us be your trusted IT partner, helping you navigate the
+              complexities of the digital world. Together, we’ll drive
+              innovation, optimize your operations, and achieve transformational
+              success.
+            </p>
+
+            <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
+              Contact Us
+            </button>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+export default Page;

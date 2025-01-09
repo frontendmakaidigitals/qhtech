@@ -10,8 +10,8 @@ import {
 } from "../App chunks/components/Accordion";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
 import { Plus } from "@phosphor-icons/react";
-import { Circle } from "@phosphor-icons/react";
-
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -24,179 +24,224 @@ const Page = () => {
   }, []);
   const faqData = [
     {
-      question: "Which social media platforms should my business be on?",
+      question: "What industries do you serve?",
       answer:
-        "The best platforms depend on your business goals and target audience. We analyze your business and decide on which platforms you must target.",
-    },
-    {
-      question: "How often should I post on social media?",
-      answer:
-        "Consistency is key. The optimal posting frequency depends on the platform and your audience’s preferences.",
-    },
-    {
-      question: "Do I need a big budget for social media marketing?",
-      answer:
-        "Not necessarily! Organic strategies can be highly effective with creativity and time. You can start small and scale for paid campaigns as you see results.",
+        "We serve a wide range of industries, including healthcare, finance, retail, manufacturing, and more. Our expertise allows us to customize solutions to meet the specific needs of your sector.",
     },
     {
       question:
-        "Can I handle my social media marketing, or do I need a professional?",
+        "How do you ensure your solutions align with our business goals?",
       answer:
-        "You can manage it yourself, but hiring professionals ensures expert strategy development and high-quality content creation.",
+        "Our approach is collaborative. We take the time to understand your business objectives, challenges, and opportunities before developing customized recommendations.",
     },
     {
-      question:
-        "How long does it take to see results from social media marketing?",
+      question: "What size businesses do you work with?",
       answer:
-        "Results vary based on your goals. Organic growth may take a few months, while paid ads can show results within days. Consistent effort and strategy deliver long-term success.",
+        "We work with businesses of all sizes, from startups to large enterprises. Our scalable solutions ensure we can meet your needs regardless of your company’s size.",
+    },
+    {
+      question: "What is the typical timeline for implementing your solutions?",
+      answer:
+        "Timelines vary based on the scope and complexity of the project. During our initial consultation, we provide a detailed project plan with clear milestones and timelines.",
+    },
+    {
+      question: "How do you ensure data security during your projects?",
+      answer:
+        "Data security is a top priority. We follow industry best practices, use secure tools, and implement robust risk management strategies to protect your sensitive information.",
     },
   ];
 
-  const marketingServices = [
+  const services = [
     {
-      category: "Social Media Advertising",
+      category: "Digital Transformation Consultancy",
       description:
-        "We help campaigns create ad campaigns to promote products, services, events, or brands across social media platforms like Facebook, Instagram, Twitter, LinkedIn, TikTok, etc. These pieces of content are designed to engage users, build awareness, drive conversions, or encourage actions such as purchasing, subscribing, or sharing.",
+        "Helping businesses optimize and integrate advanced technologies to improve productivity and operational efficiency.",
       subcategories: [
         {
-          type: "Behavioral Targeting",
+          type: "Assessment",
           description:
-            "Content is often designed with a specific target audience in mind. This includes targeting the message and visuals to resonate with the interests, age, location, or behaviors of the audience.",
+            "Evaluate your current technology infrastructure, workflows, and business processes to identify gaps and opportunities for improvement.",
         },
         {
-          type: "Ad Format",
+          type: "Roadmap",
           description:
-            "The content may be done in different formats like: Image ads, Video ads, Carousel ads, Stories ads, Sponsored posts, Influencer partnerships.",
+            "Design a comprehensive plan that integrates advanced technologies, optimizes operations, and aligns with your strategic objectives.",
         },
         {
-          type: "Text/Copy",
+          type: "Implementation Support",
           description:
-            "Short, engaging, and clear copy that conveys the message. Includes catchy headlines, product descriptions, CTAs like 'Shop Now,' 'Learn More,' 'Sign Up,' etc.",
+            "Facilitate the seamless deployment of tools, technologies, and processes to enhance productivity and operational efficiency.",
         },
         {
-          type: "Hashtags",
+          type: "Change Management",
           description:
-            "Hashtags are used to categorize the content and increase discoverability. This includes trending or branded hashtags.",
-        },
-        {
-          type: "Visual Elements",
-          description:
-            "High-quality images, videos, and graphics that catch the audience's attention. This includes product photos, behind-the-scenes footage, or creative animations.",
+            "Provide training and support to ensure your team adapts smoothly to new systems and practices.",
         },
       ],
     },
     {
-      category: "Lead Generation",
+      category: "Cloud Consulting",
       description:
-        "We help businesses generate high-quality leads that convert into loyal customers. From targeted advertising to compelling content, our proven strategies deliver measurable results.",
+        "Support for cloud adoption, optimization, and ongoing management, ensuring your cloud strategy aligns with business goals.",
       subcategories: [
         {
-          type: "Targeted Lead Generation",
+          type: "Cloud Readiness Assessment",
           description:
-            "Reaching the right audience through Facebook Ads, Google Ads, and LinkedIn.",
+            "Analyze your current IT landscape to determine suitability for cloud adoption.",
         },
         {
-          type: "Landing Pages That Convert",
+          type: "Migration Planning",
           description:
-            "Beautiful, user-friendly pages designed to capture attention and increase conversions.",
+            "Develop secure and efficient strategies for moving data, applications, and systems to cloud platforms.",
         },
         {
-          type: "Lead Nurturing",
+          type: "Multi-Cloud Solutions",
           description:
-            "Automated email sequences to nurture prospects and guide them through your sales funnel.",
+            "Assist in leveraging multiple cloud providers to optimize performance and cost-efficiency.",
         },
         {
-          type: "Comprehensive Analytics",
+          type: "Cloud Optimization",
           description:
-            "Detailed tracking and reports to optimize your campaigns and maximize ROI.",
+            "Regularly review and adjust configurations to ensure optimal use of cloud resources.",
+        },
+        {
+          type: "Security & Compliance",
+          description:
+            "Ensure your cloud environment adheres to industry regulations and standards, safeguarding sensitive data.",
         },
       ],
     },
     {
-      category: "Influencer Marketing",
+      category: "Cybersecurity Solutions",
       description:
-        "Influencer marketing is the key to connecting your brand with the right people at the right time. We specialize in creating powerful influencer campaigns that drive authentic engagement and sales.",
+        "Protecting your business from threats with tailored cybersecurity services, risk management, and ongoing monitoring.",
       subcategories: [
         {
-          type: "Identify the Perfect Influencers",
+          type: "Risk Assessment",
           description:
-            "We match your brand with influencers who truly resonate with your target audience.",
+            "Identify vulnerabilities in your IT systems, applications, and networks.",
         },
         {
-          type: "Craft Custom Campaigns",
+          type: "Security Framework Development",
           description:
-            "Tailored strategies to promote your products or services organically and authentically.",
+            "Build scalable security frameworks customized for your business.",
         },
         {
-          type: "Maximize ROI",
+          type: "Incident Response",
           description:
-            "We track results in real time to optimize campaigns for the best performance.",
+            "Provide rapid support to address and mitigate security breaches.",
         },
         {
-          type: "Build Long-Term Partnerships",
+          type: "Ongoing Monitoring",
           description:
-            "We focus on nurturing meaningful relationships with influencers that go beyond just one campaign.",
+            "Implement advanced threat detection and response systems to continuously protect your infrastructure.",
+        },
+        {
+          type: "Compliance Management",
+          description:
+            "Ensure adherence to regulations like GDPR, HIPAA, and ISO standards.",
         },
       ],
     },
     {
-      category: "Affiliate Marketing",
+      category: "IT Infrastructure Optimization",
       description:
-        "Looking for a way to generate consistent revenue without the hassle of creating your product? Affiliate marketing is the solution! We help businesses and individuals tap into the power of affiliate marketing to boost income and grow their online presence.",
+        "Optimizing your IT systems to maximize performance, reduce downtime, and align with modern business needs.",
       subcategories: [
         {
-          type: "Affiliate Program Setup",
+          type: "System Integration",
           description:
-            "We help you create and manage a successful affiliate program that attracts top-performing affiliates.",
+            "Unify disparate systems to create cohesive workflows and improve operational efficiency.",
         },
         {
-          type: "Targeted Affiliate Recruitment",
+          type: "Infrastructure Modernization",
           description:
-            "Find the right affiliates who align with your brand and audience.",
+            "Upgrade legacy systems to align with modern business needs.",
         },
         {
-          type: "Ongoing Affiliate Support",
+          type: "Performance Enhancement",
           description:
-            "From onboarding to training, we ensure your affiliates are set up for success.",
+            "Optimize IT hardware, software, and network components to reduce downtime and improve productivity.",
         },
         {
-          type: "Analytics & Optimization",
+          type: "Cost Management",
           description:
-            "Track performance and optimize campaigns to maximize commissions and conversions.",
+            "Identify and eliminate inefficiencies to lower operational expenses.",
+        },
+        {
+          type: "Sustainable IT Practices",
+          description:
+            "Incorporate eco-friendly solutions to reduce your carbon footprint while maintaining efficiency.",
         },
       ],
     },
     {
-      category: "Community Management",
+      category: "Data Analytics & Business Intelligence",
       description:
-        "In today’s digital world, your community is everything. Community management is key to creating genuine relationships with your audience and creating a loyal customer base. We specialize in growing, engaging, and nurturing online communities that turn followers into brand advocates.",
+        "Leveraging data to gain insights, forecast trends, and support decision-making with advanced analytics and visualization tools.",
       subcategories: [
         {
-          type: "Community Engagement",
+          type: "Data Strategy Development",
           description:
-            "Actively respond to comments, messages, and mentions to keep the conversation going.",
+            "Create systems for collecting, managing, and analyzing data effectively.",
         },
         {
-          type: "Content Moderation",
+          type: "Predictive Analytics",
           description:
-            "Ensure your community stays positive, supportive, and aligned with your brand values.",
+            "Use advanced analytics tools to forecast trends and support decision-making.",
         },
         {
-          type: "Brand Advocacy",
+          type: "Real-Time Insights",
           description:
-            "Turn your most loyal fans into brand ambassadors to organically promote your business.",
+            "Implement solutions that provide immediate visibility into business operations and performance.",
         },
         {
-          type: "Community Building Strategies",
+          type: "Visualization Tools",
           description:
-            "Develop strategies to keep your community engaged, growing, and thriving through meaningful interactions.",
+            "Utilize dashboards and visualization platforms to make data more accessible and actionable.",
+        },
+        {
+          type: "Data Governance",
+          description:
+            "Ensure data accuracy, security, and compliance with regulatory requirements.",
+        },
+      ],
+    },
+    {
+      category: "CCTV Installation Services",
+      description:
+        "Providing tailored CCTV solutions for enhanced security, from site assessment to remote monitoring.",
+      subcategories: [
+        {
+          type: "Site Assessment",
+          description:
+            "Evaluate your premises to determine the optimal placement of cameras for maximum coverage.",
+        },
+        {
+          type: "Customized Solutions",
+          description:
+            "Design CCTV systems tailored to your specific security needs and budget.",
+        },
+        {
+          type: "Professional Installation",
+          description:
+            "Ensure reliable setup and integration of CCTV equipment with existing systems.",
+        },
+        {
+          type: "Maintenance & Support",
+          description:
+            "Provide ongoing support, including troubleshooting, repairs, and upgrades.",
+        },
+        {
+          type: "Remote Monitoring",
+          description:
+            "Enable real-time monitoring through secure online access for enhanced peace of mind.",
         },
       ],
     },
   ];
 
-  const para =
-    "Social media isn't just a trend—it's the heartbeat of your brand. Let your voice be heard!";
+  const para = "Unlock the Full Potential of Your Business with IT Consulting";
 
   return (
     <motion.div className="  bg-white" ref={containerRef}>
@@ -205,8 +250,8 @@ const Page = () => {
           <div className="w-full h-full flex relative">
             <div className="absolute top-0 left-0 w-full h-full">
               <BackgroundGradientAnimation
-                gradientBackgroundStart="orange"
-                gradientBackgroundEnd="white"
+                gradientBackgroundStart="white"
+                gradientBackgroundEnd="sky"
               />
             </div>
             <div
@@ -256,7 +301,8 @@ const Page = () => {
           </div>
         </div>
       </motion.div>
-      <div className="my-16">
+
+      <div className="my-20">
         <div className="container">
           <motion.article className="flex justify-center lg:justify-start items-center text-slate-950 gap-3">
             {["Our", "Services"].map((text, index) => (
@@ -277,28 +323,18 @@ const Page = () => {
             ))}
           </motion.article>
         </div>
-        <div className="mx-auto container mt-12 grid grid-cols-1 gap-4">
-          {marketingServices.map((service, index) => (
-            <div key={index} className={`p-6 bg-purple-50 rounded-xl`}>
-              <h2 className="text-3xl font-bold text-gray-800">
-                {service.category}
-              </h2>
-              <p className="text-lg text-gray-600 mt-2">
-                {service.description}
-              </p>
-
-              <div className="mt-4 grid grid-cols-1 lg:grid-cols-4 gap-5">
+        <div className="container grid grid-col-1 gap-6 mt-5">
+          {services.map((service, index) => (
+            <div key={index} className=" p-6 rounded-lg bg-purple-50">
+              <h2 className="text-2xl font-bold">{service.category}</h2>
+              <p className="text-lg text-gray-700">{service.description}</p>
+              <div className="grid grid-cols-1 lg:grid-cols-4 mt-6 gap-3">
                 {service.subcategories.map((subcategory, subIndex) => (
-                  <div
-                    key={subIndex}
-                    className="bg-purple-100 p-4 rounded-lg mt-4"
-                  >
-                    <h3 className="text-xl font-semibold text-gray-700">
+                  <div key={subIndex} className="bg-purple-100 rounded-lg p-4 ">
+                    <h3 className="text-xl font-semibold">
                       {subcategory.type}
                     </h3>
-                    <p className="text-md text-gray-500 mt-2">
-                      {subcategory.description}
-                    </p>
+                    <p className="text-gray-600">{subcategory.description}</p>
                   </div>
                 ))}
               </div>
@@ -363,16 +399,17 @@ const Page = () => {
         <div className=" ">
           <div className=" p-7  w-full bg-[#3F51B5] text-slate-100 rounded-xl">
             <h2 className="text-3xl font-SplineSans font-[500]">
-              Are You Ready to Grow Your Business Online?
+              Partner with Us
             </h2>
             <p className="mt-3 font-Synonym font-[400] text-lg">
-              We have a proven track record of helping businesses like yours
-              grow online. We focus on a results-driven approach to generating
-              real ROI.
+              Let us be your trusted IT partner, helping you navigate the
+              complexities of the digital world. Together, we’ll drive
+              innovation, optimize your operations, and achieve transformational
+              success.
             </p>
 
             <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
-              Get a Free consultation today!
+              Contact Us
             </button>
           </div>
         </div>

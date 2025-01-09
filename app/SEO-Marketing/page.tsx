@@ -8,7 +8,8 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "../App chunks/components/Accordion";
-import { Plus } from "@phosphor-icons/react";
+import { Circle, Plus } from "@phosphor-icons/react";
+import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
 
 const Page = () => {
   const [height, setHeight] = React.useState(0);
@@ -181,8 +182,14 @@ const Page = () => {
   return (
     <motion.div className="  bg-white" ref={containerRef}>
       <motion.div>
-        <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
+        <div className="w-full h-screen overflow-hidden relative">
           <div className="w-full h-full flex relative">
+            <div className="absolute top-0 left-0 w-full h-full">
+              <BackgroundGradientAnimation
+                gradientBackgroundStart="white"
+                gradientBackgroundEnd="teal"
+              />
+            </div>
             <div
               style={{ marginTop: `${height + 50}px` }}
               className="container relative z-[99]"
@@ -271,10 +278,16 @@ const Page = () => {
                 <div className="">
                   {service.services.map((detail, id) => (
                     <div key={id} className="mt-6">
-                      <p className="font-Synonym text-lg font-[500]">
-                        {detail.category}
-                      </p>
-                      <div className="grid grid-cols-2 gap-5">
+                      <div className="flex items-center gap-1">
+                        <div>
+                          <Circle weight="fill" />
+                        </div>
+                        <p className="font-Synonym text-lg font-[500]">
+                          {detail.category}
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-4 gap-5">
                         {detail.details.map((item, i) => (
                           <div
                             key={i}
@@ -296,48 +309,7 @@ const Page = () => {
           </AnimatePresence>
         </div>
       </div>
-      <div ref={selfPrasiseContainer} className="w-full py-12 overflow-hidden">
-        <div className="container ">
-          <motion.article className="flex justify-center lg:justify-start items-center text-black gap-3">
-            {["Why", "Choose", "us?"].map((text, index) => (
-              <motion.h1
-                key={index}
-                transition={{
-                  delay: index * 0.1,
-                  duration: 0.6,
-                  ease: [0.22, 0.61, 0.36, 1],
-                }}
-                viewport={{ once: true }}
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
-              >
-                {text}
-              </motion.h1>
-            ))}
-          </motion.article>
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-7 mt-10 !text-purple-50">
-            {selfPraise.map((item, index) => (
-              <motion.div
-                animate={{
-                  x: boxInView ? "0%" : "100%",
-                  y: boxInView ? "0%" : "70%",
-                }}
-                transition={{ duration: 1.5, ease: [0.175, 0.885, 0.32, 1] }}
-                key={index}
-                style={{ backgroundColor: item.color }}
-                className=" text-slate-950 rounded-lg p-5"
-              >
-                <h2 className="text-3xl pr-10 capitalize font-SplineSans font-[500]">
-                  {item.title}
-                </h2>
-                <p className="mt-3 text-lg font-Grostek">{item.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
+      
       <div className="py-16 bg-[#121316]">
         <div className="container">
           <div>
