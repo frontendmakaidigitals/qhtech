@@ -219,7 +219,7 @@ const Page = () => {
                 style={{ height: `calc(100vh - ${height + 200}px)` }}
                 className="flex flex-col container items-center text-slate-100 justify-center"
               >
-                <motion.h1 className="text-center font-[600]  flex-wrap lg:text-3xl xl:text-6xl xxl:text-7xl  font-Grostek relative">
+                <motion.h1 className="text-center font-[600]  flex-wrap lg:text-3xl xl:text-6xl font-Grostek relative">
                   {para.split(" ").map((item, index) => (
                     <motion.span
                       key={index}
