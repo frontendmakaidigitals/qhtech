@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import {
   Accordion,
@@ -10,7 +10,7 @@ import {
 } from "../App chunks/components/Accordion";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
 import { Plus } from "@phosphor-icons/react";
- 
+
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -49,193 +49,104 @@ const Page = () => {
         "Cybersecurity is an ongoing process. We recommend regular assessments, updates, and employee training to stay ahead of emerging threats. We also provide continuous monitoring and support to keep your systems secure.",
     },
   ];
-
-  const services = [
+  const selfPrasiseContainer = React.useRef<HTMLDivElement>(null);
+  const boxInView = useInView(selfPrasiseContainer, { once: true });
+  const selfPraise = [
     {
-      category: "Digital Transformation Consultancy",
+      title: "Proactive Threat Management",
       description:
-        "Helping businesses optimize and integrate advanced technologies to improve productivity and operational efficiency.",
-      subcategories: [
-        {
-          type: "Assessment",
-          description:
-            "Evaluate your current technology infrastructure, workflows, and business processes to identify gaps and opportunities for improvement.",
-        },
-        {
-          type: "Roadmap",
-          description:
-            "Design a comprehensive plan that integrates advanced technologies, optimizes operations, and aligns with your strategic objectives.",
-        },
-        {
-          type: "Implementation Support",
-          description:
-            "Facilitate the seamless deployment of tools, technologies, and processes to enhance productivity and operational efficiency.",
-        },
-        {
-          type: "Change Management",
-          description:
-            "Provide training and support to ensure your team adapts smoothly to new systems and practices.",
-        },
+        "We stay ahead of cybercriminals with cutting-edge tools and strategies to detect, prevent, and mitigate threats before they impact your business.",
+      color: "#FF5733", // Vibrant orange
+    },
+    {
+      title: "Customized Solutions",
+      description:
+        "Every organization is unique. We design cybersecurity strategies customized to your industry, size, and specific challenges.",
+      color: "#33B5FF", // Bright blue
+    },
+    {
+      title: "24/7 Monitoring",
+      description:
+        "Our dedicated security experts monitor your systems around the clock to detect and respond to potential threats in real-time.",
+      color: "#28A745", // Green for reliability
+    },
+    {
+      title: "Expert Team",
+      description:
+        "With years of experience and certifications in cybersecurity, our specialists provide unparalleled protection and advice.",
+      color: "#FFC107", // Golden yellow for expertise
+    },
+  ];
+  const cybersecurityServices = [
+    {
+      service: "Risk Assessment and Compliance",
+      description: `Our risk assessment and compliance services are designed to identify vulnerabilities within your organization’s systems and processes. We conduct thorough audits to uncover potential risks and ensure your business adheres to relevant industry standards. With a detailed understanding of your unique security needs, we provide actionable recommendations to fortify your defenses and maintain compliance with evolving regulations.`,
+      details: [
+        "Conducting comprehensive system and network audits.",
+        "Identifying and prioritizing vulnerabilities based on risk level.",
+        "Ensuring adherence to industry standards such as GDPR, HIPAA, and PCI-DSS.",
+        "Providing detailed, actionable recommendations for risk mitigation.",
+        "Regularly reviewing and updating compliance protocols to align with new regulations.",
       ],
     },
     {
-      category: "Cloud Consulting",
-      description:
-        "Support for cloud adoption, optimization, and ongoing management, ensuring your cloud strategy aligns with business goals.",
-      subcategories: [
-        {
-          type: "Cloud Readiness Assessment",
-          description:
-            "Analyze your current IT landscape to determine suitability for cloud adoption.",
-        },
-        {
-          type: "Migration Planning",
-          description:
-            "Develop secure and efficient strategies for moving data, applications, and systems to cloud platforms.",
-        },
-        {
-          type: "Multi-Cloud Solutions",
-          description:
-            "Assist in leveraging multiple cloud providers to optimize performance and cost-efficiency.",
-        },
-        {
-          type: "Cloud Optimization",
-          description:
-            "Regularly review and adjust configurations to ensure optimal use of cloud resources.",
-        },
-        {
-          type: "Security & Compliance",
-          description:
-            "Ensure your cloud environment adheres to industry regulations and standards, safeguarding sensitive data.",
-        },
+      service: "Network Security",
+      description: `Our network security solutions focus on protecting your critical infrastructure from cyber threats. We implement advanced firewall management systems, intrusion detection solutions, and secure network architectures to shield your organization from malicious activities. Regular penetration testing and vulnerability assessments are conducted to identify and address weaknesses, ensuring your network remains resilient against ever-changing cyber risks.`,
+      details: [
+        "Implementing advanced firewall management systems.",
+        "Deploying intrusion detection and prevention systems (IDPS).",
+        "Designing and implementing secure network architectures.",
+        "Performing regular penetration testing to uncover vulnerabilities.",
+        "Monitoring network traffic for suspicious activity in real-time.",
+        "Applying patches and updates to network devices and software.",
       ],
     },
     {
-      category: "Cybersecurity Solutions",
-      description:
-        "Protecting your business from threats with tailored cybersecurity services, risk management, and ongoing monitoring.",
-      subcategories: [
-        {
-          type: "Risk Assessment",
-          description:
-            "Identify vulnerabilities in your IT systems, applications, and networks.",
-        },
-        {
-          type: "Security Framework Development",
-          description:
-            "Build scalable security frameworks customized for your business.",
-        },
-        {
-          type: "Incident Response",
-          description:
-            "Provide rapid support to address and mitigate security breaches.",
-        },
-        {
-          type: "Ongoing Monitoring",
-          description:
-            "Implement advanced threat detection and response systems to continuously protect your infrastructure.",
-        },
-        {
-          type: "Compliance Management",
-          description:
-            "Ensure adherence to regulations like GDPR, HIPAA, and ISO standards.",
-        },
+      service: "Data Protection",
+      description: `Data is the lifeblood of any organization, and our data protection services ensure it remains safe from unauthorized access or loss. We offer encryption technologies, secure data storage solutions, and comprehensive backup and disaster recovery plans. Additionally, we specialize in detecting and mitigating insider threats, safeguarding your organization from risks posed by internal actors.`,
+      details: [
+        "Utilizing encryption technologies for sensitive data.",
+        "Implementing secure data storage solutions for both on-premises and cloud environments.",
+        "Creating comprehensive backup and disaster recovery plans.",
+        "Monitoring for data exfiltration and insider threats.",
+        "Conducting data access audits to ensure appropriate permissions.",
+        "Supporting compliance with data protection laws and regulations.",
       ],
     },
     {
-      category: "IT Infrastructure Optimization",
-      description:
-        "Optimizing your IT systems to maximize performance, reduce downtime, and align with modern business needs.",
-      subcategories: [
-        {
-          type: "System Integration",
-          description:
-            "Unify disparate systems to create cohesive workflows and improve operational efficiency.",
-        },
-        {
-          type: "Infrastructure Modernization",
-          description:
-            "Upgrade legacy systems to align with modern business needs.",
-        },
-        {
-          type: "Performance Enhancement",
-          description:
-            "Optimize IT hardware, software, and network components to reduce downtime and improve productivity.",
-        },
-        {
-          type: "Cost Management",
-          description:
-            "Identify and eliminate inefficiencies to lower operational expenses.",
-        },
-        {
-          type: "Sustainable IT Practices",
-          description:
-            "Incorporate eco-friendly solutions to reduce your carbon footprint while maintaining efficiency.",
-        },
+      service: "Cloud Security",
+      description: `As businesses increasingly move to cloud-based environments, our cloud security services provide the assurance you need to operate securely. We protect platforms like AWS, Azure, and Google Cloud by implementing identity and access management (IAM) solutions, securing configurations, and monitoring for cloud-specific threats. Our team ensures your cloud infrastructure is optimized for both performance and security, allowing you to focus on innovation.`,
+      details: [
+        "Securing cloud platforms such as AWS, Azure, and Google Cloud.",
+        "Implementing robust identity and access management (IAM) solutions.",
+        "Configuring cloud environments to eliminate security misconfigurations.",
+        "Monitoring and managing cloud-based threats in real-time.",
+        "Conducting regular cloud security assessments.",
+        "Providing multi-factor authentication (MFA) for enhanced user access control.",
       ],
     },
     {
-      category: "Data Analytics & Business Intelligence",
-      description:
-        "Leveraging data to gain insights, forecast trends, and support decision-making with advanced analytics and visualization tools.",
-      subcategories: [
-        {
-          type: "Data Strategy Development",
-          description:
-            "Create systems for collecting, managing, and analyzing data effectively.",
-        },
-        {
-          type: "Predictive Analytics",
-          description:
-            "Use advanced analytics tools to forecast trends and support decision-making.",
-        },
-        {
-          type: "Real-Time Insights",
-          description:
-            "Implement solutions that provide immediate visibility into business operations and performance.",
-        },
-        {
-          type: "Visualization Tools",
-          description:
-            "Utilize dashboards and visualization platforms to make data more accessible and actionable.",
-        },
-        {
-          type: "Data Governance",
-          description:
-            "Ensure data accuracy, security, and compliance with regulatory requirements.",
-        },
+      service: "Incident Response",
+      description: `When a cyberattack occurs, every second counts. Our incident response services provide immediate action plans to contain and mitigate ongoing threats. Through forensic analysis, we identify the root cause of breaches and provide insights to prevent future occurrences. Our post-incident support includes system restoration and strengthening your security measures to minimize downtime and reduce the likelihood of repeat incidents.`,
+      details: [
+        "Developing and deploying customized incident response plans.",
+        "Providing rapid containment of active threats to minimize impact.",
+        "Conducting forensic analysis to identify the root cause of breaches.",
+        "Offering post-incident reporting and actionable insights.",
+        "Restoring systems and data to operational status efficiently.",
+        "Conducting lessons-learned reviews to improve future response capabilities.",
       ],
     },
     {
-      category: "CCTV Installation Services",
-      description:
-        "Providing tailored CCTV solutions for enhanced security, from site assessment to remote monitoring.",
-      subcategories: [
-        {
-          type: "Site Assessment",
-          description:
-            "Evaluate your premises to determine the optimal placement of cameras for maximum coverage.",
-        },
-        {
-          type: "Customized Solutions",
-          description:
-            "Design CCTV systems tailored to your specific security needs and budget.",
-        },
-        {
-          type: "Professional Installation",
-          description:
-            "Ensure reliable setup and integration of CCTV equipment with existing systems.",
-        },
-        {
-          type: "Maintenance & Support",
-          description:
-            "Provide ongoing support, including troubleshooting, repairs, and upgrades.",
-        },
-        {
-          type: "Remote Monitoring",
-          description:
-            "Enable real-time monitoring through secure online access for enhanced peace of mind.",
-        },
+      service: "Employee Training",
+      description: `Human error is a leading cause of cybersecurity breaches, which is why we emphasize the importance of employee training. Our cybersecurity awareness programs educate your team on recognizing threats, avoiding phishing scams, and following best practices. By conducting phishing simulations and regular training sessions, we help foster a culture of security within your organization, empowering employees to act as the first line of defense.`,
+      details: [
+        "Delivering interactive cybersecurity awareness programs for all staff levels.",
+        "Conducting phishing simulation tests to evaluate employee readiness.",
+        "Teaching best practices for password management and secure browsing.",
+        "Offering role-based training tailored to specific job functions.",
+        "Providing resources and tools for continuous learning.",
+        "Cultivating a company-wide culture of cybersecurity awareness.",
       ],
     },
   ];
@@ -322,22 +233,66 @@ const Page = () => {
           ))}
         </motion.article>
         <div className="container grid grid-cols-1 gap-6 mt-5">
-          {services.map((service, index) => (
-            <div key={index} className="border bg-purple-50 p-6 rounded-lg ">
-              <h2 className="text-2xl font-bold ">{service.category}</h2>
-              <p className="text-lg  text-gray-700">{service.description}</p>
-              <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 mt-6 ">
-                {service.subcategories.map((subcategory, subIndex) => (
-                  <div key={subIndex} className="bg-purple-100 p-4 rounded-lg">
-                    <h3 className="text-xl font-semibold">
-                      {subcategory.type}
-                    </h3>
-                    <p className="text-gray-600">{subcategory.description}</p>
-                  </div>
+          {cybersecurityServices.map((service, index) => (
+            <div key={index} className="bg-purple-50 rounded-lg p-6 ">
+              <h2 className="text-2xl font-SplineSans font-semibold text-gray-800 mb-3">
+                {service.service}
+              </h2>
+              <p className=" mb-4">{service.description}</p>
+              <ul className="grid grid-cols-1 lg:grid-cols-4 gap-3">
+                {service.details.map((detail, idx) => (
+                  <li
+                    key={idx}
+                    className="p-3 font-[500] rounded-lg bg-purple-100"
+                  >
+                    {detail}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           ))}
+        </div>
+      </div>
+
+      <div ref={selfPrasiseContainer} className="w-full py-12 overflow-hidden">
+        <div className="container ">
+          <motion.article className="flex justify-center lg:justify-start items-center text-black gap-3">
+            {["Why", "Choose", "us?"].map((text, index) => (
+              <motion.h1
+                key={index}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  ease: [0.22, 0.61, 0.36, 1],
+                }}
+                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+              >
+                {text}
+              </motion.h1>
+            ))}
+          </motion.article>
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-7 mt-10 !text-purple-50">
+            {selfPraise.map((item, index) => (
+              <motion.div
+                animate={{
+                  x: boxInView ? "0%" : "100%",
+                  y: boxInView ? "0%" : "70%",
+                }}
+                transition={{ duration: 1.5, ease: [0.175, 0.885, 0.32, 1] }}
+                key={index}
+                style={{ backgroundColor: item.color }}
+                className=" text-slate-950 rounded-lg p-5"
+              >
+                <h2 className="text-3xl pr-10 capitalize font-SplineSans font-[500]">
+                  {item.title}
+                </h2>
+                <p className="mt-3 text-lg font-Grostek">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
 
