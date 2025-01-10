@@ -7,7 +7,6 @@ import MaskSection from "./(Home Page)/MaskSection";
 import Portfolio from "./(Home Page)/Portfolio";
 import Slider from "./(Home Page)/Slider";
 import Form from "./App chunks/components/Form";
-import Loader from "./App chunks/components/Loader";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Home() {

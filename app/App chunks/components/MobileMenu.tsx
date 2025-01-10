@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import Button from "./Button";
 
 interface MobileMenuProps {
   menu: { title: string; link: string }[]; // You can replace `any` with a more specific type depending on your `menu` structure
