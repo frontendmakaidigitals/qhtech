@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import {motion } from "framer-motion";
+import { motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import {
   Accordion,
@@ -10,7 +10,7 @@ import {
 } from "../App chunks/components/Accordion";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
 import { Plus } from "@phosphor-icons/react";
- 
+
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -49,167 +49,313 @@ const Page = () => {
         "Yes! Before every shoot, we offer a consultation to discuss your objectives, the look and feel you want to achieve, and any specific details you want to include.",
     },
   ];
-  
 
-  const services = [
+  const photographyServices = [
     {
-      category: "Photography",
+      category: "Product Photography",
       description:
-        "At Insight Vision, we understand that photography is not just about taking pictures—it’s about capturing the essence of your brand and delivering a powerful visual narrative.",
-      subcategories: [
+        "Product photography is essential for showcasing your products in the best possible light. Our team specializes in capturing crisp, high-quality images that highlight every detail, from texture to color. Whether you need studio shots or creative, lifestyle-inspired imagery, we’ll help make your products attractive to your audience.",
+      services: [
         {
-          type: "Product Photography",
+          name: "Studio Product Photography",
           description:
-            "Essential for showcasing your products in the best possible light, highlighting every detail with crisp, high-quality images.",
-          services: [
-            "Studio Product Photography: Advanced lighting setups and backdrops for sharp, clean images.",
-            "Creative & Artistic Product Photography: Unique techniques and props for visually appealing compositions.",
-            "360-Degree Product Photography: Interactive, high-quality shots from every angle.",
-            "Lifestyle Product Photography: Real-world settings that show products in everyday use.",
-          ],
+            "We use advanced lighting setups and backdrops to focus on your product’s features, ensuring clear, sharp, and clean images for online stores and advertising materials.",
         },
         {
-          type: "Brand Photography",
+          name: "Creative & Artistic Product Photography",
           description:
-            "Tells the story of your brand through curated photo sessions that reflect your brand's personality and values.",
-          services: [
-            "Branding & Identity Photography: Captures the essence of your brand through storytelling.",
-            "Employee & Team Portraits: Professional portraits showcasing your team and company culture.",
-            "Lifestyle Branding Shots: Depict products/services in real-life settings, emphasizing interaction.",
-          ],
+            "We go beyond standard product shots, using creative techniques and props to create a visually appealing composition that grabs attention.",
         },
         {
-          type: "Event Photography",
+          name: "360-Degree Product Photography",
           description:
-            "Captures important moments from corporate events, weddings, and other celebrations with precision and creativity.",
-          services: [
-            "Corporate Events: Professional documentation of conferences, product launches, and team events.",
-            "Conferences & Trade Shows: Dynamic photos of presentations, booths, and interactions.",
-            "Weddings & Celebrations: Candid, relaxed photography capturing natural moments.",
-          ],
+            "Let your customers view your product from every angle with interactive, high-quality 360-degree shots.",
         },
         {
-          type: "Lifestyle Photography",
+          name: "Lifestyle Product Photography",
           description:
-            "Authentic, relatable images that connect with audiences on a personal level.",
-          services: [
-            "Editorial & Lifestyle Campaigns: Storytelling photos for magazines and campaigns.",
-            "Social Media Content: Visually appealing lifestyle images for social platforms.",
-            "Product Integration: Everyday scenarios showcasing products in use.",
-          ],
-        },
-        {
-          type: "Real Estate Photography",
-          description:
-            "High-quality images highlighting the best features of properties to attract buyers or renters.",
-          services: [
-            "Residential & Commercial Real Estate: Wide-angle shots and architectural details.",
-            "Aerial & Drone Photography: Breathtaking aerial views showcasing properties.",
-            "Virtual Staging & Editing: Enhance listings with virtual staging and editing.",
-          ],
-        },
-        {
-          type: "Headshot Photography",
-          description:
-            "High-quality headshots for professional and personal branding.",
-          services: [
-            "Corporate Headshots: Reflect professionalism for corporate teams.",
-            "Creative Headshots: Personalized sessions for creatives, models, and actors.",
-          ],
-        },
-        {
-          type: "Fashion & Editorial Photography",
-          description:
-            "Visually compelling images for fashion brands, magazines, and models.",
-          services: [
-            "Fashion Campaigns: High-fashion and catalog shots that tell a story.",
-            "Editorial Photoshoots: High-impact images for magazines and promotional materials.",
-          ],
+            "Showcase your products in real-world settings, allowing customers to see how they fit into their daily lives.",
         },
       ],
     },
     {
-      category: "Videography",
+      category: "Brand Photography",
       description:
-        "Video is one of the most powerful storytelling tools, designed to deliver impactful, high-quality visual content that resonates with audiences.",
-      subcategories: [
+        "Brand photography goes beyond just product shots—it tells the story of your brand. We help you build a visual identity that resonates with your target audience, reflecting your brand’s personality, values, and essence through curated photo sessions.",
+      services: [
         {
-          type: "Corporate & Brand Videos",
+          name: "Branding & Identity Photography",
           description:
-            "Communicate your company’s mission, vision, and values through professional brand videos.",
-          services: [
-            "Brand Storytelling: Showcase your brand's history and unique selling points.",
-            "Corporate Introduction Videos: Present your company to clients and partners.",
-            "Company Culture Videos: Highlight workplace environment and team personality.",
-          ],
+            "From behind-the-scenes shots to professional portraits, we capture the essence of your brand with an emphasis on storytelling.",
         },
         {
-          type: "Promotional Videos",
+          name: "Employee & Team Portraits",
           description:
-            "Visually captivating videos designed to inform, inspire, and call viewers to action.",
-          services: [
-            "Product Launch Videos: Introduce new products with dynamic content.",
-            "Social Media Video Ads: Eye-catching ads for Instagram, Facebook, TikTok, and more.",
-            "Campaign Videos: Enhance marketing efforts with powerful visuals.",
-          ],
+            "Professional, approachable portraits that represent your team’s personality and your company culture. Perfect for websites, LinkedIn profiles, and marketing materials.",
         },
         {
-          type: "Event Videography",
+          name: "Lifestyle Branding Shots",
           description:
-            "High-quality documentation of corporate events, weddings, and celebrations.",
-          services: [
-            "Corporate Events: Capture conferences, seminars, and trade shows.",
-            "Conferences & Webinars: Document key sessions and presentations.",
-            "Weddings & Celebrations: Cinematic videos documenting emotional highlights.",
-          ],
+            "Depict your products and services in use, capturing the way your customers interact with your brand in real-life situations.",
+        },
+      ],
+    },
+    {
+      category: "Event Photography",
+      description:
+        "From corporate events to weddings, our event photography service ensures every important moment is captured with precision and creativity. We are experts in photographing both large-scale events and intimate gatherings, delivering photos that document the atmosphere and key moments with style.",
+      services: [
+        {
+          name: "Corporate Events",
+          description:
+            "Whether it’s a product launch, conference, or team-building event, we document the day with professional shots that highlight the energy, key moments, and people involved.",
         },
         {
-          type: "Social Media & Digital Content",
+          name: "Conferences & Trade Shows",
           description:
-            "High-quality videos optimized for social platforms to boost engagement.",
-          services: [
-            "Short-Form Videos: Content for Instagram Reels, TikTok, and more.",
-            "Branded Content: High-quality videos that integrate your message seamlessly.",
-            "Testimonial & User-Generated Content: Build trust with customer testimonials and reviews.",
-          ],
+            "Capture the dynamic interactions, presentations, and booths at industry events, offering impactful photos that highlight your brand's presence.",
         },
         {
-          type: "Explainer Videos",
+          name: "Weddings & Celebrations",
           description:
-            "Simplify complex ideas or demonstrate products/services with engaging videos.",
-          services: [
-            "Product Demonstration Videos: Highlight product features and benefits.",
-            "Service Explainers: Brief videos explaining your services.",
-            "Animated Explainers: Visually compelling animations for complex subjects.",
-          ],
+            "Our team offers a relaxed, candid approach to wedding and event photography, capturing those special moments as they unfold naturally.",
+        },
+      ],
+    },
+    {
+      category: "Lifestyle Photography",
+      description:
+        "Lifestyle photography is all about connecting your audience with authentic, relatable images that represent the essence of your brand. Our approach to lifestyle photography captures moments that reflect real-life interactions and emotions, ensuring your brand resonates on a personal level.",
+      services: [
+        {
+          name: "Editorial & Lifestyle Campaigns",
+          description:
+            "We create engaging photoshoots that tell a story, whether it’s for a magazine, social media campaign, or advertising materials.",
         },
         {
-          type: "Music Videos",
+          name: "Social Media Content",
           description:
-            "Visually striking videos for artists, musicians, and bands.",
-          services: [
-            "Cinematic Music Videos: High-quality visuals that match the tone of your song.",
-            "Performance & Concept Videos: Tailored video styles for your artistic vision.",
-          ],
+            "Engaging, visually appealing lifestyle images designed specifically for use on social media platforms, helping to boost brand awareness and customer engagement.",
         },
         {
-          type: "Drone Videography",
+          name: "Product Integration",
           description:
-            "Stunning aerial shots using drone technology for unique perspectives.",
-          services: [
-            "Aerial Property & Real Estate Videos: Showcase properties with sweeping aerial views.",
-            "Event Coverage: Capture outdoor events from a bird’s-eye view.",
-            "Landscape & Nature Footage: Wide-angle shots for tourism and outdoor brands.",
-          ],
+            "Show your products being used in everyday scenarios, making them more relatable and desirable to your target audience.",
+        },
+      ],
+    },
+    {
+      category: "Real Estate Photography",
+      description:
+        "When it comes to real estate, first impressions are everything. Our real estate photography services provide high-quality images that highlight the best features of your properties, helping you attract potential buyers or renters with captivating visuals.",
+      services: [
+        {
+          name: "Residential & Commercial Real Estate",
+          description:
+            "We specialize in both residential and commercial property photography, capturing everything from wide-angle shots to architectural details that make each space unique.",
+        },
+        {
+          name: "Aerial & Drone Photography",
+          description:
+            "We offer breathtaking aerial shots of properties, showcasing them from a unique perspective that adds depth and interest to your real estate listings.",
+        },
+        {
+          name: "Virtual Staging & Editing",
+          description:
+            "Enhance your real estate listings with virtual staging to help potential buyers envision the property in its best possible light.",
+        },
+      ],
+    },
+    {
+      category: "Headshot Photography",
+      description:
+        "Whether it’s for a corporate website, social media profiles, or professional portfolios, we specialize in providing high-quality headshots that present individuals in a professional yet approachable manner.",
+      services: [
+        {
+          name: "Corporate Headshots",
+          description:
+            "High-quality headshots for your team, executives, and employees that reflect the professionalism of your brand.",
+        },
+        {
+          name: "Creative Headshots",
+          description:
+            "We offer creative, personalized headshot sessions that reflect your personality or career field, ideal for actors, models, or creatives looking to stand out.",
+        },
+      ],
+    },
+    {
+      category: "Fashion & Editorial Photography",
+      description:
+        "We create visually compelling images for fashion brands, designers, magazines, and models. Whether it’s for a runway collection, product catalog, or magazine feature, our photographers specialize in capturing the dynamic and detailed nature of fashion.",
+      services: [
+        {
+          name: "Fashion Campaigns",
+          description:
+            "From high fashion to everyday wear, we deliver images that tell a story and highlight the details of your collection.",
+        },
+        {
+          name: "Editorial Photoshoots",
+          description:
+            "We produce high-impact editorial images designed for magazines, blogs, and promotional materials, focusing on creativity, styling, and composition.",
+        },
+      ],
+    },
+  ];
+  const videographyServices = [
+    {
+      category: "Corporate & Brand Videos",
+      description:
+        "A corporate or brand video is a powerful way to communicate your company’s mission, vision, and values. Whether it’s a brand introduction, company culture video, or corporate storytelling piece, our team will craft a professional video that aligns with your brand’s identity.",
+      services: [
+        {
+          name: "Brand Storytelling",
+          description:
+            "We help tell your brand’s story, showcasing its history, values, and unique selling points in a compelling, emotionally engaging way.",
+        },
+        {
+          name: "Corporate Introduction Videos",
+          description:
+            "Perfect for websites, presentations, and pitches, these videos introduce your company to potential clients, partners, and investors.",
+        },
+        {
+          name: "Company Culture Videos",
+          description:
+            "Show the personality behind your brand by highlighting your workplace environment, employees, and culture, giving potential clients and talent an inside look into your business.",
+        },
+      ],
+    },
+    {
+      category: "Promotional Videos",
+      description:
+        "Promotional videos are one of the most effective tools for driving interest in a product, service, or campaign. Our team creates visually captivating videos designed to inform, inspire, and call viewers to action.",
+      services: [
+        {
+          name: "Product Launch Videos",
+          description:
+            "We help you introduce new products or services with dynamic, engaging videos that capture attention and generate excitement.",
+        },
+        {
+          name: "Social Media Video Ads",
+          description:
+            "Whether for Instagram, Facebook, TikTok, or YouTube, we create eye-catching promotional videos designed specifically for social media platforms to increase engagement and conversions.",
+        },
+        {
+          name: "Campaign Videos",
+          description:
+            "Enhance your marketing campaigns with powerful promotional videos that capture the essence of the campaign and drive action.",
+        },
+      ],
+    },
+    {
+      category: "Event Videography",
+      description:
+        "Events are a huge part of business networking, celebrations, and community engagement. Our event videography services ensure every important moment is captured in high quality, from conferences and trade shows to weddings and parties.",
+      services: [
+        {
+          name: "Corporate Events",
+          description:
+            "We cover conferences, seminars, product launches, and trade shows, capturing key moments and behind-the-scenes content that reflects the energy and significance of your event.",
+        },
+        {
+          name: "Conferences & Webinars",
+          description:
+            "From live streams to highlight reels, we create professional videos that document the key sessions, presentations, and discussions at your corporate events.",
+        },
+        {
+          name: "Weddings & Celebrations",
+          description:
+            "Our team captures weddings, parties, and special occasions with cinematic flair, documenting the emotional highs and unique moments of your event.",
+        },
+      ],
+    },
+    {
+      category: "Social Media & Digital Content",
+      description:
+        "In today’s digital world, engaging social media content is key to building a strong online presence. We specialize in creating high-quality videos optimized for social media platforms, helping you connect with your audience and boost your engagement.",
+      services: [
+        {
+          name: "Short-Form Videos",
+          description:
+            "From Instagram Reels to TikTok, we craft engaging, short-form content designed for social media platforms, increasing reach and interaction with your audience.",
+        },
+        {
+          name: "Branded Content",
+          description:
+            "We create branded videos that seamlessly integrate your message into high-quality content that resonates with your social media followers.",
+        },
+        {
+          name: "Testimonial & User-Generated Content",
+          description:
+            "Capture the voice of your customers and clients through testimonials, unboxing videos, or reviews that can be shared on your social media to build trust and credibility.",
+        },
+      ],
+    },
+    {
+      category: "Explainer Videos",
+      description:
+        "Explainer videos are an excellent way to simplify complex ideas or demonstrate how a product or service works. Whether animated or live-action, these videos provide clear, concise explanations in an engaging format.",
+      services: [
+        {
+          name: "Product Demonstration Videos",
+          description:
+            "Show how your product works, highlighting its key features and benefits to potential customers in a clear, easy-to-understand way.",
+        },
+        {
+          name: "Service Explainers",
+          description:
+            "Help potential clients understand your services, how they can benefit from them, and how to use them, all within a brief, engaging video.",
+        },
+        {
+          name: "Animated Explainers",
+          description:
+            "For more complex subjects, we create dynamic animated videos that break down information in a visually compelling and easy-to-digest way.",
+        },
+      ],
+    },
+    {
+      category: "Music Videos",
+      description:
+        "If you’re an artist, musician, or band, a music video is an essential part of your branding and promotion. Our team works closely with musicians to create visually striking music videos that match the tone and message of your song.",
+      services: [
+        {
+          name: "Cinematic Music Videos",
+          description:
+            "We bring your music to life with high-quality, cinematic videos that visually represent your song’s mood, lyrics, and style.",
+        },
+        {
+          name: "Performance & Concept Videos",
+          description:
+            "From performance shots to concept-driven narratives, we tailor the video style to your music and artistic vision.",
+        },
+      ],
+    },
+    {
+      category: "Drone Videography",
+      description:
+        "Take your videos to new heights with stunning aerial shots captured using drone technology. Whether you’re showcasing real estate, events, or landscapes, drone videography provides unique perspectives and visually captivating footage.",
+      services: [
+        {
+          name: "Aerial Property & Real Estate Videos",
+          description:
+            "Highlight the grandeur and layout of properties, with sweeping aerial views that give a complete picture.",
+        },
+        {
+          name: "Event Coverage",
+          description:
+            "Capture large outdoor events from a bird’s-eye view, offering dynamic and breathtaking footage that enhances your video content.",
+        },
+        {
+          name: "Landscape & Nature Footage",
+          description:
+            "Perfect for tourism, outdoor brands, or nature-focused campaigns, drone videography provides stunning, wide-angle shots of landscapes.",
         },
       ],
     },
   ];
 
-  
+  const para =
+    "From concept to screen—We create engaging videos that captivate your audience";
 
-  const para = "Transform Your Vision Into Powerful Mobile & Web Application";
-  
   return (
     <motion.div className="  bg-white" ref={containerRef}>
       <motion.div>
@@ -221,6 +367,45 @@ const Page = () => {
                 gradientBackgroundEnd="blue"
               />
             </div>
+            <div className=" absolute bottom-20 rotate-12 left-20">
+              <div className=" bg-black p-3">
+                <div className="w-[250px] aspect-[3/4] overflow-hidden">
+                  <img
+                    className="w-full h-full object-cover"
+                    src={
+                      "/media/photographyImages/2024_11_30_12_59_IMG_5791.jpg"
+                    }
+                  />
+                </div>
+                <p className="text-slate-50 mt-1">Real Estate</p>
+              </div>
+            </div>
+            <div className=" absolute -bottom-2 left-1/2 -translate-x-1/2">
+              <div className=" bg-lime-300 p-3">
+                <div className="w-[200px] aspect-[3/4] overflow-hidden">
+                  <img
+                    className="w-full h-full object-cover"
+                    src={
+                      "/media/photographyImages/Snapinsta.app_462791529_1088018526665104_5505518182070144394_n_1080.jpg"
+                    }
+                  />
+                </div>
+                <p className="text-slate-950 mt-1">Sports</p>
+              </div>
+            </div>
+            <div className=" absolute -rotate-12 bottom-20 right-20">
+              <div className=" bg-yellow-300 p-3">
+                <div className="w-[240px] aspect-[3/4] overflow-hidden">
+                  <img
+                    className="w-full h-full object-cover"
+                    src={
+                      "/media/photographyImages/Snapinsta.app_471757945_1006467234854614_4548150390414566411_n_1080.jpg"
+                    }
+                  />
+                </div>
+                <p className="text-slate-950 mt-1">F&B</p>
+              </div>
+            </div>
             <div
               style={{ marginTop: `${height + 50}px` }}
               className="container relative z-[99]"
@@ -228,7 +413,7 @@ const Page = () => {
               <BreadCrumb />
               <div
                 style={{ height: `calc(100vh - ${height + 200}px)` }}
-                className="flex flex-col container items-center text-slate-100 justify-center"
+                className="flex flex-col container items-center text-white justify-center"
               >
                 <motion.h1 className="text-center font-[600]  flex-wrap lg:text-3xl xl:text-6xl font-Grostek relative">
                   {para.split(" ").map((item, index) => (
@@ -289,41 +474,51 @@ const Page = () => {
             ))}
           </motion.article>
         </div>
-        <div className="p-6 bg-gray-50">
-          {services.map((category, index) => (
-            <div key={index} className="mb-8">
-              {/* Category */}
-              <h2 className="text-2xl font-bold text-gray-800">
-                {category.category}
+        <div className="container mt-6">
+          {photographyServices.map((category, index) => (
+            <div
+              key={index}
+              className="bg-purple-50  grid grid-cols-1  gap-5 p-6 "
+            >
+              <h2 className="text-2xl underline underline-offset-8 font-semibold font-Grostek text-gray-950">
+                0{index + 1} {category.category}
               </h2>
-              <p className="text-gray-600 mt-2">{category.description}</p>
-
-              {/* Subcategories */}
-              <div className="mt-6">
-                {category.subcategories.map((subcategory, subIndex) => (
-                  <div
-                    key={subIndex}
-                    className="mb-6 border-t border-gray-300 pt-4"
-                  >
-                    {/* Subcategory Title */}
-                    <h3 className="text-xl font-semibold text-gray-700">
-                      {subcategory.type}
+              <p className="text-gray-800 mt-2">{category.description}</p>
+              <ul className="mt-4 grid grid-cols-1 gap-5 lg:grid-cols-4">
+                {category.services.map((service, idx) => (
+                  <li key={idx} className=" bg-purple-100 p-3 rounded-md">
+                    <h3 className="text-xl font-medium text-gray-800">
+                      {service.name}
                     </h3>
-                    <p className="text-gray-500 mt-2">
-                      {subcategory.description}
-                    </p>
-
-                    {/* List of Services */}
-                    <ul className="mt-4 list-disc list-inside space-y-2">
-                      {subcategory.services.map((service, serviceIndex) => (
-                        <li key={serviceIndex} className="text-gray-600">
-                          {service}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                    <p className="text-gray-600">{service.description}</p>
+                  </li>
                 ))}
-              </div>
+              </ul>
+              <div className="border-b border-slate-700" />
+            </div>
+          ))}
+        </div>
+        <div className="  container">
+          {videographyServices.map((category, index) => (
+            <div
+              key={index}
+              className="bg-purple-50  grid grid-cols-1  gap-5 p-6 "
+            >
+              <h2 className="text-2xl underline underline-offset-8 font-semibold font-Grostek text-gray-950">
+                0{index + 1} {category.category}
+              </h2>
+              <p className="text-gray-800 mt-2">{category.description}</p>
+              <ul className="mt-4 grid grid-cols-1 gap-5 lg:grid-cols-4">
+                {category.services.map((service, idx) => (
+                  <li key={idx} className=" bg-purple-100 p-3 rounded-md">
+                    <h3 className="text-xl font-medium text-gray-800">
+                      {service.name}
+                    </h3>
+                    <p className="text-gray-600">{service.description}</p>
+                  </li>
+                ))}
+              </ul>
+              <div className="border-b border-slate-700" />
             </div>
           ))}
         </div>

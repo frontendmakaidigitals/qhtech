@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import {  motion } from "framer-motion";
+import { motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import {
   Accordion,
@@ -10,7 +10,7 @@ import {
 } from "../App chunks/components/Accordion";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
 import { Plus } from "@phosphor-icons/react";
- 
+
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -347,6 +347,7 @@ const Page = () => {
                 gradientBackgroundEnd="blue"
               />
             </div>
+
             <div
               style={{ marginTop: `${height + 50}px` }}
               className="container relative z-[99]"
@@ -354,8 +355,39 @@ const Page = () => {
               <BreadCrumb />
               <div
                 style={{ height: `calc(100vh - ${height + 200}px)` }}
-                className="flex flex-col container items-center text-slate-100 justify-center"
+                className="flex flex-col container relative items-center text-slate-100 justify-center"
               >
+                <div className="absolute bottom-[10px] -translate-y-2/5 left-20 -rotate-12 w-[200px]">
+                  <img
+                    className="w-full h-full object-cover"
+                    src={"/media/milestone.png"}
+                  />
+                </div>
+                <div className="absolute bottom-[10px] -translate-y-2/5 left-20 -rotate-12 w-[200px]">
+                  <img
+                    className="w-full h-full object-cover"
+                    src={"/media/milestone.png"}
+                  />
+                </div>
+                <div className="absolute -bottom-[26px] right-10 rotate-6  w-[200px] " >
+                  <img
+                    className="w-full h-full object-cover"
+                    src={"/media/menlocloud.png"}
+                  />
+                </div>
+                <div className="absolute -bottom-[60px] left-1/2  -translate-x-1/3 rotate-2 bg-white  w-[140px] p-3">
+                  <img
+                    className="w-full h-full object-cover"
+                    src={"/media/TeaVillaCafe.png"}
+                  />
+                </div>
+                
+                <div className="absolute -top-10 bg-white left-1/2 -translate-x-1/2  w-[100px] p-1">
+                  <img
+                    className="w-full h-full object-cover"
+                    src={"/media/Roofsol1.png"}
+                  />
+                </div>
                 <motion.h1 className="text-center font-[600]  flex-wrap lg:text-3xl xl:text-6xl font-Grostek relative">
                   {para.split(" ").map((item, index) => (
                     <motion.span
@@ -418,10 +450,7 @@ const Page = () => {
         </motion.article>
         <div className="container grid grid-cols-1 mt-7 gap-6">
           {designServices.map((service, index) => (
-            <div
-              key={index}
-              className=" p-6 bg-pruple bg-purple-50 rounded-lg"
-            >
+            <div key={index} className=" p-6 bg-pruple bg-purple-50 rounded-lg">
               <h2 className="text-2xl font-Grostek font-semibold text-gray-800 mb-4">
                 {service.service}
               </h2>

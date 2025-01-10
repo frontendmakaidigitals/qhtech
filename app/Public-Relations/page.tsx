@@ -10,7 +10,7 @@ import {
 } from "../App chunks/components/Accordion";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
 import { Plus } from "@phosphor-icons/react";
- 
+
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -154,8 +154,25 @@ const Page = () => {
               <BreadCrumb />
               <div
                 style={{ height: `calc(100vh - ${height + 200}px)` }}
-                className="flex flex-col container items-center text-slate-100 justify-center"
+                className="flex relative flex-col container items-center text-slate-100 justify-center"
               >
+                <div className="absolute bottom-0 px-3 py-2 rotate-6  bg-slate-50 text-slate-950 left-3/4">
+                  <p className="text-xl font-Grostek  font-bold">Publicity</p>
+                </div>
+                <div className="absolute -bottom-3 px-3 py-2 rotate-2  bg-indigo-200 text-slate-950 left-5">
+                  <p className="text-xl font-Grostek  font-bold">Blogging</p>
+                </div>
+                <div className="absolute top-3 px-3 py-2 rotate-2  bg-pink-200 text-slate-950 left-1/2 -translate-x-1/2">
+                  <p className="text-xl font-Grostek  font-bold">Events</p>
+                </div>
+                <div className="absolute bottom-0 px-3 py-2 rotate-2  bg-blue-100 text-slate-950 left-1/4">
+                  <p className="text-xl font-Grostek  font-bold">
+                    Social Media
+                  </p>
+                </div>
+                <div className="absolute bottom-0 px-3 py-2 -rotate-2  bg-blue-100 text-slate-950 left-2/4">
+                  <p className="text-xl font-Grostek  font-bold">Network</p>
+                </div>
                 <motion.h1 className="text-center font-[600]  flex-wrap lg:text-3xl xl:text-6xl font-Grostek relative">
                   {para.split(" ").map((item, index) => (
                     <motion.span

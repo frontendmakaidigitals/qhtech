@@ -288,7 +288,7 @@ const ShowPopup = () => {
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0, opacity: 0 }}
       transition={{ ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="absolute w-[450px] left-1/2 z-[999] cursor-default top-full origin-top transform -translate-x-1/2 rounded-lg"
+      className="absolute w-[500px] left-1/2 z-[999] cursor-default top-full origin-top transform -translate-x-1/2 rounded-lg"
     >
       <div className="mt-2 realtive grid grid-cols-1 gap-3 lg:grid-cols-2 p-4 rounded-lg bg-white">
         {menui.map((menu, index) => (
@@ -319,7 +319,7 @@ const ShowPopup = () => {
                 key={index}
                 onMouseEnter={() => setHoverid(index)}
                 onMouseLeave={() => setHoverid(null)}
-                className={`font-Grostek relative z-[10] font-[500] rounded-lg hover:bg-slate-100 whitetext-start p-3`}
+                className={`font-Grostek relative z-[10] font-[500] rounded-lg hover:bg-slate-100 text-start p-3`}
               >
                 {menu.title}
               </button>
