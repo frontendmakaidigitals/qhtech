@@ -1,11 +1,25 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import React from "react";
+import { usePathname } from "next/navigation";
+import React, { Suspense } from "react";
+
+const Loading = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Loader />
+    </Suspense>
+  );
+};
+
+export default Loading;
 
 const Loader = () => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [viewportWidth, setViewPortWidth] = React.useState(0);
+  const pathname = usePathname();
+  console.log(pathname);
   React.useEffect(() => {
+    setIsLoading(true);
     if (typeof window !== undefined) {
       setViewPortWidth(window.innerWidth);
     }
@@ -13,7 +27,7 @@ const Loader = () => {
       setIsLoading(false);
     }, 800);
     return () => clearTimeout(timeoutId);
-  }, []);
+  }, [pathname]);
   const stairs = 5;
   return (
     <AnimatePresence mode="wait">
@@ -41,5 +55,3 @@ const Loader = () => {
     </AnimatePresence>
   );
 };
-
-export default Loader;

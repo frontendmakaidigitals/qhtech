@@ -34,7 +34,7 @@ export default function Home() {
         <CompantStats />
         <Slider />
         <Form />
-        <Loader />
+        
       </motion.div>
     </AnimatePresence>
   );
