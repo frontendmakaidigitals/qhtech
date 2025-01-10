@@ -1,18 +1,16 @@
 "use client";
 import React from "react";
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
-import {
-  Accordion,
-  AccordionHeader,
-  AccordionItem,
-  AccordionPanel,
-} from "../App chunks/components/Accordion";
+
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
-import { Check, Circle, Plus, SealCheck } from "@phosphor-icons/react";
-import { useKeenSlider } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
-import Button from "../App chunks/components/Button";
+import {
+  FacebookLogo,
+  InstagramLogo,
+  SealCheck,
+  TwitterLogo,
+  YoutubeLogo,
+} from "@phosphor-icons/react";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -23,7 +21,6 @@ const Page = () => {
       .getBoundingClientRect();
     setHeight(rect.height);
   }, []);
-  const para = "Get In Touch With Us for Expert Guidance!";
 
   return (
     <motion.div className="  bg-white" ref={containerRef}>
@@ -52,12 +49,12 @@ const Page = () => {
                           key={index}
                           transition={{
                             delay: index * 0.1,
-                            duration: 0.6,
+                            duration: 0.7,
                             ease: [0.22, 0.61, 0.36, 1],
                           }}
                           viewport={{ once: true }}
                           initial={{ opacity: 0, y: 100 }}
-                          whileInView={{ opacity: 1, y: 0 }}
+                          animate={{ opacity: 1, y: 0 }}
                           className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
                         >
                           {text}
@@ -78,23 +75,38 @@ const Page = () => {
                       <h4 className="font-Grostek text-xl mt-5 font-bold ">
                         Talk to our team today to
                       </h4>
-                      <div className="flex items-start gap-2 w-fit bg-white px-4 py-1 rounded-sm bg-opacity-60 backdrop-filter backdrop-blur-lg">
+                      <motion.div
+                        initial={{ y: 100 }}
+                        animate={{ y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="flex items-start gap-2 w-fit bg-white px-4 py-1 rounded-sm bg-opacity-60 backdrop-filter backdrop-blur-lg"
+                      >
                         <div className="mt-1">
                           <SealCheck weight="fill" className="text-green-600" />
                         </div>
                         <p className="font-Synonym font-[500]">
                           Understand more about pricing.
                         </p>
-                      </div>
-                      <div className="flex items-start gap-2 w-fit bg-white px-4 py-1 rounded-sm bg-opacity-60 backdrop-filter backdrop-blur-lg">
+                      </motion.div>
+                      <motion.div
+                        initial={{ y: 100 }}
+                        animate={{ y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.3 }}
+                        className="flex items-start gap-2 w-fit bg-white px-4 py-1 rounded-sm bg-opacity-60 backdrop-filter backdrop-blur-lg"
+                      >
                         <div className="mt-1">
                           <SealCheck weight="fill" className="text-green-600" />
                         </div>
                         <p className="font-Synonym font-[500]">
                           Get a customized quote for your business.
                         </p>
-                      </div>
-                      <div className="flex items-start gap-2 w-fit bg-white px-4 py-1 rounded-sm bg-opacity-60 backdrop-filter backdrop-blur-lg">
+                      </motion.div>
+                      <motion.div
+                        initial={{ y: 100 }}
+                        animate={{ y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="flex items-start gap-2 w-fit bg-white px-4 py-1 rounded-sm bg-opacity-60 backdrop-filter backdrop-blur-lg"
+                      >
                         <div className="mt-1">
                           <SealCheck weight="fill" className="text-green-600" />
                         </div>
@@ -102,6 +114,29 @@ const Page = () => {
                           Discover the capabilities and get answer to you
                           questions.
                         </p>
+                      </motion.div>
+                    </div>
+                    <div className="mt-5">
+                      <h4 className="font-Grostek text-xl mt-5 font-bold ">
+                        Stay Connected with us
+                      </h4>
+                      <div className="flex text-3xl mt-1 justify-start items-center gap-5">
+                        <FacebookLogo
+                          weight="fill"
+                          className="hover:scale-[1.3] transition-all duration-300 cursor-pointer"
+                        />
+                        <TwitterLogo
+                          weight="fill"
+                          className="hover:scale-[1.3] transition-all duration-300 cursor-pointer"
+                        />
+                        <InstagramLogo
+                          weight="fill"
+                          className="hover:scale-[1.3] transition-all duration-300 cursor-pointer"
+                        />
+                        <YoutubeLogo
+                          weight="fill"
+                          className="hover:scale-[1.3] transition-all duration-300 cursor-pointer"
+                        />
                       </div>
                     </div>
                   </div>
@@ -162,24 +197,6 @@ const Page = () => {
           </div>
         </div>
       </motion.div>
-
-      <div className="py-16 container">
-        <div className=" ">
-          <div className=" p-7  w-full bg-[#3F51B5] text-slate-100 rounded-xl">
-            <h2 className="text-3xl font-SplineSans font-[500]">
-              Ready to Build Your Dream App?
-            </h2>
-            <p className="mt-3 font-Synonym font-[400] text-lg">
-              Let us bring your ideas to life with our expert app development
-              services.
-            </p>
-
-            <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
-              Contact us
-            </button>
-          </div>
-        </div>
-      </div>
     </motion.div>
   );
 };
