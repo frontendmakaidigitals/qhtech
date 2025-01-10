@@ -56,8 +56,8 @@ const Section1 = ({
       style={{ scale, rotate }}
       className="sticky bg-black overflow-hidden top-0 h-screen"
     >
-      <div className="absolute top-0 left-0  -z-[1]">
-        <BackgroundGradientAnimation></BackgroundGradientAnimation>
+      <div className="absolute top-0 left-0 h-full w-full -z-[1]">
+        <BackgroundGradientAnimation />
       </div>
 
       <div className="container relative flex flex-col items-center   justify-center  py-28 w-full h-full">
@@ -233,7 +233,6 @@ const Section2 = ({
     {
       name: "Web Development",
       img: "https://iaqmc.com/wp-content/uploads/2024/03/IAQMC-WEB-DEVELOPMENT.jpg",
-      
     },
     {
       name: "App Development",

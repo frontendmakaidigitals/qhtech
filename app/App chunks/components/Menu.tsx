@@ -37,7 +37,7 @@ const SlideTabs = ({
           opacity: 0,
         }));
       }}
-      className={`relative mx-auto font-Grostek flex w-fit rounded-full border border-slate-50/30 isolate bg-gray-500/10 bg-clip-padding backdrop-saturate-100 backdrop-contrast-100 backdrop-blur backdrop-filter p-1 ${className}`}
+      className={`relative mx-auto font-Grostek flex w-fit border border-slate-50/30 mix-blend-difference bg-white/20 backdrop-filter backdrop-blur-lg rounded-full p-1 ${className}`}
     >
       {menu.map((item, index) => (
         <Tab
@@ -93,9 +93,9 @@ const Tab = ({
     >
       <li
         ref={ref}
-        className={`relative group  z-10 block cursor-pointer px-3 py-1.5 text-xs text-white mix-blend-difference md:px-5 md:py-3 md:text-base`}
+        className={`relative group  z-10 block cursor-pointer px-3 py-1.5 text-xs  md:px-5 md:py-3 md:text-base`}
       >
-        <button className="group relative rounded-full uppercase text-purple-50">
+        <button className="group relative rounded-full uppercase  group-hover:text-white">
           <span className="relative inline-flex overflow-hidden">
             <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
               {children}
@@ -127,9 +127,9 @@ const Tab = ({
         setHoveredTab(null); // Reset the hovered tab when mouse leaves
       }}
       ref={ref}
-      className={`relative group  z-10 block cursor-pointer px-3 py-1.5 text-xs text-white mix-blend-difference md:px-5 md:py-3 md:text-base`}
+      className={`relative group  z-10 block cursor-pointer  px-3 py-1.5 text-xs md:px-5 md:py-3 md:text-base`}
     >
-      <button className="group relative rounded-full uppercase text-purple-50">
+      <button className="group relative rounded-full uppercase   group-hover:text-white ">
         <span className="relative inline-flex overflow-hidden">
           <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
             {children}
@@ -269,6 +269,16 @@ const ShowPopup = () => {
       left: 12,
       route: "Branding",
     },
+    {
+      title: "Photography & Videography",
+      image:
+        "https://bitwisebranding.com/uploads/blog-images/1603114000main.png",
+      rotate: -8,
+      rounded: 60,
+      top: 30,
+      left: 12,
+      route: "Photography",
+    },
   ];
   const [id, setHoverid] = useState<number | null>(null);
 
@@ -278,7 +288,7 @@ const ShowPopup = () => {
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0, opacity: 0 }}
       transition={{ ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="absolute w-[450px] left-1/2 z-[999] cursor-default top-full origin-top transform -translate-x-1/2  text-black  rounded-lg"
+      className="absolute w-[450px] left-1/2 z-[999] cursor-default top-full origin-top transform -translate-x-1/2 rounded-lg"
     >
       <div className="mt-2 realtive grid grid-cols-1 gap-3 lg:grid-cols-2 p-4 rounded-lg bg-white">
         {menui.map((menu, index) => (
@@ -296,7 +306,7 @@ const ShowPopup = () => {
                       top: `${menu.top}%`,
                       left: `${menu.left}%`,
                     }}
-                    className="absolute bg-blue-300 pointer-events-none z-[99] overflow-hidden  w-[250px] h-[140px]"
+                    className="absolute bg-slate-100 pointer-events-none z-[99] overflow-hidden  w-[250px] h-[140px]"
                   >
                     <img
                       className=" w-full h-full object-cover"
@@ -309,7 +319,7 @@ const ShowPopup = () => {
                 key={index}
                 onMouseEnter={() => setHoverid(index)}
                 onMouseLeave={() => setHoverid(null)}
-                className={`font-Grostek relative z-[10] font-[500] rounded-lg hover:bg-slate-100 text-start p-3`}
+                className={`font-Grostek relative z-[10] font-[500] rounded-lg hover:bg-slate-100 whitetext-start p-3`}
               >
                 {menu.title}
               </button>
