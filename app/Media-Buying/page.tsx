@@ -217,7 +217,7 @@ const Page = () => {
     {
       title: "Social Media Advertising",
       description: "",
-      details: [
+      types: [
         "Platforms: Facebook, Instagram, LinkedIn, Twitter, TikTok, Pinterest, Snapchat",
         "Services: Ad creation, audience segmentation, bidding strategies, campaign optimization, and reporting",
         "Ad Types: Carousel ads, video ads, display ads, story ads, lead generation ads, etc.",
@@ -226,7 +226,7 @@ const Page = () => {
     {
       title: "Search Engine Marketing (SEM)",
       description: "",
-      details: [
+      types: [
         "Platforms: Google Ads, Bing Ads",
         "Services: Keyword research, ad copy creation, bidding strategies, landing page optimization, and continuous performance tracking",
         "Ad Types: Text ads, shopping ads, display ads, retargeting ads",
@@ -236,11 +236,12 @@ const Page = () => {
       title: "Display Advertising",
       description:
         "Services: Creating visually compelling banner ads that appear on websites and apps your audience frequents. Includes strategic placement through Google Display Network and other third-party ad networks.",
+      types: [],
     },
     {
       title: "Video Advertising",
       description: "",
-      details: [
+      types: [
         "Platforms: YouTube, OTT platforms (e.g., Hulu, Roku), and in-stream ads",
         "Services: Video creation, targeting the right audience, and optimizing video ad placements for higher engagement and conversions.",
         "Ad Types: Skippable ads, non-skippable ads, bumper ads, pre-roll, and in-stream ads.",
@@ -250,6 +251,7 @@ const Page = () => {
       title: "Programmatic Advertising",
       description:
         "Services: Real-time, automated ad buying that optimizes your budget allocation by using data-driven insights to place ads across multiple digital platforms.",
+      types: [],
     },
   ];
 
