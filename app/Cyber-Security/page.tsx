@@ -286,7 +286,7 @@ const Page = () => {
                 style={{ backgroundColor: item.color }}
                 className=" text-slate-950 rounded-lg p-5"
               >
-                <h2 className="text-3xl pr-10 capitalize font-SplineSans font-[500]">
+                <h2 className="text-2xl pr-10 capitalize font-SplineSans font-[500]">
                   {item.title}
                 </h2>
                 <p className="mt-3 text-lg font-Grostek">{item.description}</p>

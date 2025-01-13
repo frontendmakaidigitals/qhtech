@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import {motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import {
   Accordion,
@@ -240,7 +240,40 @@ const Page = () => {
   ];
 
   const para = "Unlock the Full Potential of Your Business with IT Consulting";
-
+  const selfPrasiseContainer = React.useRef<HTMLDivElement>(null);
+  const boxInView = useInView(selfPrasiseContainer, { once: true });
+  const selfPraise = [
+    {
+      title: "Retail & E-commerce",
+      description:
+        "Streamline operations, enhance customer experiences, and drive sales growth.",
+      color: "#D97706", // Orange
+    },
+    {
+      title: "Healthcare & Life Sciences",
+      description:
+        "Enable secure, efficient patient data management and innovative solutions for care delivery.",
+      color: "#4ADE80", // Green
+    },
+    {
+      title: "Financial Services",
+      description:
+        "Improve data security, optimize digital banking services, and meet regulatory standards.",
+      color: "#3B82F6", // Blue
+    },
+    {
+      title: "Manufacturing & Supply Chain",
+      description:
+        "Enhance efficiency, predict maintenance needs, and optimize logistics.",
+      color: "#9333EA", // Purple
+    },
+    {
+      title: "Technology & Startups",
+      description:
+        "Scale IT systems, secure funding with tech roadmaps, and foster innovation.",
+      color: "#F59E0B", // Yellow
+    },
+  ];
   return (
     <motion.div className="  bg-white" ref={containerRef}>
       <motion.div>
@@ -325,7 +358,7 @@ const Page = () => {
           {services.map((service, index) => (
             <div key={index} className=" p-6 rounded-lg bg-purple-50">
               <h2 className="text-2xl font-bold">{service.category}</h2>
-              <p className="text-lg text-gray-700">{service.description}</p>
+
               <div className="grid grid-cols-1 lg:grid-cols-4 mt-6 gap-3">
                 {service.subcategories.map((subcategory, subIndex) => (
                   <div key={subIndex} className="bg-purple-100 rounded-lg p-4 ">
@@ -338,6 +371,48 @@ const Page = () => {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+
+      <div ref={selfPrasiseContainer} className="w-full py-12 overflow-hidden">
+        <div className="container ">
+          <motion.article className="flex justify-center lg:justify-start items-center text-black gap-3">
+            {["Industries", "We", "Serve"].map((text, index) => (
+              <motion.h1
+                key={index}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  ease: [0.22, 0.61, 0.36, 1],
+                }}
+                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+              >
+                {text}
+              </motion.h1>
+            ))}
+          </motion.article>
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-7 mt-10 !text-purple-50">
+            {selfPraise.map((item, index) => (
+              <motion.div
+                animate={{
+                  x: boxInView ? "0%" : "100%",
+                  y: boxInView ? "0%" : "70%",
+                }}
+                transition={{ duration: 1.5, ease: [0.175, 0.885, 0.32, 1] }}
+                key={index}
+                style={{ backgroundColor: item.color }}
+                className=" text-slate-950 rounded-lg p-5"
+              >
+                <h2 className="text-2xl pr-10 capitalize font-SplineSans font-[500]">
+                  {item.title}
+                </h2>
+                <p className="mt-3 text-lg font-Grostek">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
 
