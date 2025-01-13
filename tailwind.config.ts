@@ -44,6 +44,7 @@ const config: Config = {
         third: "moveInCircle 40s linear infinite",
         fourth: "moveHorizontal 40s ease infinite",
         fifth: "moveInCircle 20s ease infinite",
+        "infinite-scroll": "infinite-scroll 25s linear infinite",
       },
       keyframes: {
         moveHorizontal: {
@@ -78,6 +79,10 @@ const config: Config = {
           "100%": {
             transform: "translateY(-50%)",
           },
+        },
+        "infinite-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
         },
       },
       borderRadius: {

@@ -10,6 +10,7 @@ const menu = [
   { title: "home", link: "/" },
   { title: "about", link: "/About" },
   { title: "services", link: "/service" },
+  { title: "Portfolio", link: "/Portfolio" },
   { title: "contact", link: "/contact" },
 ];
 const NavBar = () => {

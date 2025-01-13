@@ -8,7 +8,7 @@ import Portfolio from "./(Home Page)/Portfolio";
 import Slider from "./(Home Page)/Slider";
 import Form from "./App chunks/components/Form";
 import { AnimatePresence, motion } from "framer-motion";
-
+import MarqueeLogo from "./App chunks/components/MarqueeLogo";
 export default function Home() {
   return (
     <AnimatePresence mode="wait">
@@ -32,8 +32,9 @@ export default function Home() {
         <Portfolio />
         <CompantStats />
         <Slider />
+
         <Form />
-        
+        <MarqueeLogo />
       </motion.div>
     </AnimatePresence>
   );
