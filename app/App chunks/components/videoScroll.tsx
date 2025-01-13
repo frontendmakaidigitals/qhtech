@@ -1,7 +1,7 @@
 "use client";
 import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef } from "react";
-
+import { useRef, useState } from "react";
+import { ArrowsOutSimple } from "@phosphor-icons/react";
 const VideoPortfolio = () => {
   return (
     <div className="bg-neutral-800">
@@ -54,11 +54,14 @@ const Card = ({
 }: {
   card: { url: string; title: string; id: number; color: string };
 }) => {
+  
   return (
     <motion.div
       key={card.id}
-      className="group bg-gray-800 relative rounded-xl ml-10 h-[500px] w-[calc(50vw)] py-20 overflow-hidden"
+      className="group overflow-hidden bg-gray-800 relative rounded-xl ml-10 h-[500px] w-[calc(50vw)] py-20"
     >
+
+      
       <video
         autoPlay
         loop
