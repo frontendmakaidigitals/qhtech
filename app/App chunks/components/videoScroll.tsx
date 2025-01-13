@@ -1,7 +1,7 @@
 "use client";
 import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef, useState } from "react";
-import { ArrowsOutSimple } from "@phosphor-icons/react";
+import { useRef } from "react";
+
 const VideoPortfolio = () => {
   return (
     <div className="bg-neutral-800">

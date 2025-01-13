@@ -424,7 +424,7 @@ const Page = () => {
           <h3 className="text-2xl font-Synonym font-[500]">
             Digital Media Buying
           </h3>
-          {newsPaperAdvertising.map((category, index) => (
+          {digiatalMediaBuying.map((category, index) => (
             <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">
                 {category.title}
