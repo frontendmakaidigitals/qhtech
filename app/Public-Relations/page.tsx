@@ -143,24 +143,28 @@ const Page = () => {
   const selfPraise = [
     {
       title: "Experience",
-      description: "A proven track record of delivering PR success across diverse industries.",
-      color: "#9feefc" // Blue
+      description:
+        "A proven track record of delivering PR success across diverse industries.",
+      color: "#9feefc", // Blue
     },
     {
       title: "Personalized Approach",
-      description: "We tailor every strategy to meet your unique goals and challenges.",
-      color: "#10B981" // Green
+      description:
+        "We tailor every strategy to meet your unique goals and challenges.",
+      color: "#10B981", // Green
     },
     {
       title: "Comprehensive Solutions",
-      description: "From planning to execution, we manage every aspect of your PR needs.",
-      color: "#6B21A8" // Purple
+      description:
+        "From planning to execution, we manage every aspect of your PR needs.",
+      color: "#6B21A8", // Purple
     },
     {
       title: "Results-Driven",
-      description: "Focused on measurable outcomes that enhance your brand’s visibility and credibility.",
-      color: "#F97316" // Orange
-    }
+      description:
+        "Focused on measurable outcomes that enhance your brand’s visibility and credibility.",
+      color: "#F97316", // Orange
+    },
   ];
   const para =
     "Public Relations and Marketing are the art of persuasion, not the art of information";
@@ -261,11 +265,11 @@ const Page = () => {
             </motion.h1>
           ))}
         </motion.article>
-        <div className="container grid grid-cols-1 gap-6">
+        <div className="container mt-5 grid grid-cols-1 gap-6">
           {mediaRelationsServices.map((serviceCategory, index) => (
             <div key={index} className="bg-purple-50 p-4 rounded-lg">
-              <h2 className="text-xl font-Grostek font-semibold">
-                {serviceCategory.category}
+              <h2 className="text-2xl font-Grostek font-semibold">
+                0{index + 1} {serviceCategory.category}
               </h2>
               <p className="mt-1">{serviceCategory.description}</p>
               <ul className="grid grid-cols-1 lg:grid-cols-3 mt-5 gap-3">

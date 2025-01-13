@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import {motion } from "framer-motion";
+import { motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import {
   Accordion,
@@ -59,7 +59,7 @@ const Page = () => {
     {
       title: "DV360 (Display & Video 360)",
       description:
-        "Enhance your programmatic advertising with Google’s powerful DV360 platform, designed for advanced campaign management across display, video, audio, and connected TV.",
+        "Enhance your programmatic advertising with Google’s powerful DV360 platform. DV360 is part of the Google Marketing Platform and is designed for large-scale advertisers and agencies seeking advanced capabilities for managing programmatic advertising campaigns. It integrates media planning, creative development, measurement, and optimization tools in one platform. This demand-side platform enables unified campaign management across display, video, audio, and connected TV. With DV360, you can.",
       features: [
         "Access premium inventory across YouTube, Google partners, and third-party exchanges",
         "Advanced audience targeting and custom bidding strategies",
@@ -71,7 +71,7 @@ const Page = () => {
     {
       title: "Campaign Management",
       description:
-        "Comprehensive management of multi-channel campaigns, ensuring timely execution, within budget, and delivering desired results.",
+        "Campaign management involves overseeing the entire lifecycle of a marketing campaign—from conception to execution and post-campaign analysis. It ensures campaigns are executed on time, within budget, and deliver the desired results. From planning and creative development to execution and performance tracking, we handle every aspect to deliver campaigns that drive results. Key benefits include.",
       features: [
         "End-to-end management of campaigns",
         "Regular performance reviews and adjustments",
@@ -82,74 +82,74 @@ const Page = () => {
     {
       title: "Paid Search Advertising (PPC)",
       description:
-        "Optimize Google Ads campaigns for highly targeted traffic, ensuring cost-effective ad spend.",
+        "Paid search advertising, such as Google Ads, is one of the most powerful ways to drive highly targeted traffic to your website. Our team optimizes campaigns to ensure you pay only for qualified clicks, maximizing your ad spend efficiency.",
       features: [
-        "Keyword research and strategy",
-        "Compelling ad copywriting with A/B testing",
-        "Real-time bid management",
-        "Remarketing strategies for conversion optimization",
+        "Keyword research and strategy: We conduct extensive research to identify high-performing keywords specific to your business and industry, ensuring your ads are shown to the right audience.",
+        "Compelling ad copywriting with A/B testing: We craft compelling ad copy that attracts clicks and conversions. Through continuous A/B testing, we refine and optimize messaging for better performance.",
+        "Real-time bid management: We monitor and adjust bids in real time to ensure you remain competitive while keeping costs under control.",
+        "Remarketing strategies for conversion optimization: We target previous website visitors with tailored ads to bring them back, increasing the chances of conversion",
       ],
     },
     {
       title: "Affiliate Marketing",
       description:
-        "Performance-based strategy leveraging affiliates to promote your products or services on a commission basis.",
+        "Affiliate marketing is a performance-based strategy where we help you partner with affiliates who will promote your products or services on a commission basis. This channel helps you scale efficiently without upfront costs.",
       features: [
-        "Affiliate recruitment and onboarding",
-        "Comprehensive program management",
-        "Detailed tracking and reporting",
+        "Affiliate recruitment and onboarding: We identify and onboard top-performing affiliates who align with your brand and have an audience that is likely to convert.",
+        "Comprehensive program management: We manage all aspects of your affiliate program, from negotiating commissions to tracking performance and optimizing payouts.",
+        "Detailed tracking and reporting: We provide clear, transparent reporting to measure the effectiveness of your affiliates and ensure that you’re only paying for actual sales or actions.",
       ],
     },
     {
       title: "Display Advertising",
       description:
-        "Visually compelling ads across various websites to boost brand awareness, traffic, and conversions.",
+        "Display advertising involves showing your ads across various websites through banner ads, video ads, and other formats. These ads are visually compelling and can help you increase brand awareness, drive traffic, and boost conversions.",
       features: [
-        "Advanced targeting options",
-        "Creative and engaging ad design",
-        "Performance monitoring and continuous optimization",
+        "Advanced targeting options: We use advanced targeting techniques, such as demographic targeting, interest-based targeting, and retargeting, to ensure your ads are shown to the most relevant audience.",
+        "Creative and engaging ad design: Our design team creates eye-catching banners and visuals that grab attention and encourage clicks.",
+        "Performance monitoring and continuous optimization: We monitor the performance of your display ads and continuously optimize them for better results, reducing wasted ad spend and improving ROI.",
       ],
     },
     {
       title: "Email Marketing",
       description:
-        "Engage with customers and drive conversions through personalized email campaigns.",
+        "Email marketing is a powerful tool for engaging with customers and driving conversions. Our services ensure that your emails reach the right inbox with content that’s tailored to your audience.",
       features: [
-        "List segmentation for personalized messaging",
-        "Mobile-friendly, visually appealing email design",
-        "Automated workflows for nurturing leads",
-        "Performance tracking and optimization",
+        "List Segmentation: We segment your email list to send personalized messages to different customer groups based on behaviors, interests, and purchase history.",
+        "Email Campaign Design: Our team designs mobile-friendly, visually appealing email templates that grab attention and encourage recipients to take action.",
+        "Automated Workflows: We set up automated email campaigns, such as welcome emails, cart abandonment reminders, and re-engagement sequences, to nurture leads and drive sales over time.",
+        "Performance tracking and optimization: We analyze open rates, click-through rates, and conversions to refine email campaigns for better engagement and results.",
       ],
     },
     {
       title: "Conversion Rate Optimization (CRO)",
       description:
-        "Improve website and marketing funnel effectiveness to maximize conversions.",
+        "Conversion Rate Optimization (CRO) focuses on improving the effectiveness of your website, landing pages, and marketing funnels to maximize conversions. We use data-driven strategies to boost the percentage of visitors who take your desired action.",
       features: [
-        "Landing page optimization",
-        "A/B testing for performance improvement",
-        "User experience enhancements",
-        "Funnel analysis and optimization",
+        "Landing page optimization: We analyze and optimize your landing pages, ensuring they are user-friendly, persuasive, and optimized for higher conversions.",
+        "A/B testing: We conduct A/B testing on different elements of your landing pages, such as headlines, calls-to-action, images, and form fields, to determine the best-performing variations.",
+        "User Experience (UX) Design: We focus on enhancing the user experience by ensuring fast load times, intuitive navigation, and mobile-friendly design.",
+        "Funnel analysis and optimization: We analyze your marketing funnel to identify any barriers or drop-off points and optimize it for smoother customer journeys and higher conversion rates.",
       ],
     },
     {
       title: "Analytics & Reporting",
       description:
-        "Track campaign performance and make data-driven decisions with advanced analytics.",
+        "Data is at the heart of our performance marketing approach. Our advanced analytics and reporting services ensure that you can track every aspect of your campaign's performance and make data-driven decisions.",
       features: [
-        "Real-time analytics for immediate insights",
-        "Custom reports tailored to business goals",
-        "Actionable campaign insights and optimization recommendations",
+        "Real-time analytics for immediate insights: We use cutting-edge tools to track your campaigns’ performance in real-time, providing you with insights into what’s working and what’s not.",
+        "Custom Reporting: Our reports are tailored to your business objectives, highlighting key metrics such as ROI, conversion rates, customer acquisition cost (CAC), and more.",
+        "Campaign Insights & Optimization: We provide actionable insights based on campaign performance, helping you refine strategies and optimize ad spending for better outcomes.",
       ],
     },
     {
       title: "Video Advertising",
       description:
-        "Create compelling video ads for platforms like YouTube, Facebook, and Instagram to drive engagement and conversions.",
+        "Video content is an incredibly engaging medium that can drive both awareness and conversions. We help create compelling video ads for platforms like YouTube, Facebook, and Instagram, delivering your message in a visually captivating way.",
       features: [
-        "High-quality video production",
-        "Targeted campaigns for maximum impact",
-        "Performance tracking and campaign optimization",
+        "Video Production: We assist in creating high-quality video ads tailored to your brand and objectives, ensuring they are optimized for various platforms.",
+        "Targeted Campaigns: Video ads are targeted to the right audience to ensure maximum impact, and we optimize campaigns for both views and conversions.",
+        "Performance Tracking: We monitor key metrics like video watch time, engagement, and conversion rates to ensure that your video ads are working effectively.",
       ],
     },
   ];
@@ -244,10 +244,10 @@ const Page = () => {
               className="bg-purple-50 p-6 rounded-lg  transition-shadow"
             >
               <h2 className="text-2xl font-bold text-gray-800">
-                {service.title}
+                0{index + 1} {service.title}
               </h2>
               <p className="text-gray-600 my-4">{service.description}</p>
-              <ul className="grid grid-cols-2 gap-4">
+              <ul className="grid grid-cols-4 gap-4">
                 {service.features.map((feature, idx) => (
                   <li key={idx} className="p-4 bg-purple-100 rounded-lg">
                     {feature}

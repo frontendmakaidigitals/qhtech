@@ -50,181 +50,206 @@ const Page = () => {
     },
   ];
 
-  const advertisingData = [
+  const outdoorAdvertising = [
     {
-      category: "Outdoor Advertising",
-      subcategories: [
-        {
-          type: "Billboards",
-          description:
-            "Billboards are the most common and recognizable form of outdoor advertising. These large, static advertisements are placed along highways, roadsides, and busy intersections to capture the attention of motorists and pedestrians.",
-          types: [
-            "Static Billboards: Traditional billboards with a single image or message displayed.",
-            "Digital Billboards: High-tech, digitally updated billboards that can rotate multiple ads or change messages in real-time.",
-            "Posters & Bulletins: Smaller, more targeted versions of billboards are typically placed on local streets or in neighborhoods.",
-          ],
-        },
-        {
-          type: "Transit Advertising",
-          description:
-            "Transit advertising refers to ads placed on various forms of public transportation or at transit locations like bus stops, subway stations, and airports.",
-          types: [
-            "Bus & Train Wraps: Full or partial ads wrapped around the exterior of buses, subways, or trains.",
-            "Station & Shelter Ads: Ads displayed in train stations, bus shelters, or subway tunnels.",
-            "Airport Advertising: Ads placed in airports, including on walls, floors, baggage claim areas, and even on airport shuttles.",
-          ],
-        },
-        {
-          type: "Digital Outdoor Advertising",
-          description:
-            "Digital outdoor ads use digital technology to display dynamic and interactive content. These can be found in places like shopping malls, city centers, and transportation hubs.",
-          types: [
-            "Digital Billboards: Large, digital displays along roadsides or highways.",
-            "Interactive Kiosks: Digital screens placed in malls, airports, or other public spaces where users can interact with the ad content.",
-            "LED Displays: Dynamic and customizable ads, often found in urban settings, where the message can change throughout the day.",
-          ],
-        },
-        {
-          type: "Street Furniture Advertising",
-          description:
-            "Street furniture advertising refers to ads placed on items commonly found in public spaces, such as benches, bus shelters, newsstands, and kiosks.",
-        },
-        {
-          type: "Wallscapes & Murals",
-          description:
-            "Wallscapes are large advertisements painted or applied to the exterior of buildings. Murals can be a blend of art and advertisement, making them eye-catching and memorable.",
-        },
+      title: "1. Billboards",
+      description: `Billboards are the most common and recognizable form of outdoor advertising. These large, static advertisements are placed along highways, roadsides, and busy intersections to capture the attention of motorists and pedestrians.`,
+      types: [
+        "Static Billboards: Traditional billboards with a single image or message displayed.",
+        "Digital Billboards: High-tech, digitally updated billboards that can rotate multiple ads or change messages in real-time.",
+        "Posters & Bulletins: Smaller, more targeted versions of billboards typically placed on local streets or in neighborhoods.",
       ],
     },
     {
-      category: "TV Advertising",
-      subcategories: [
-        {
-          type: "National TV Advertising",
-          description:
-            "National TV advertising involves airing ads on large-scale, nationwide networks.",
-          types: [
-            "Prime-Time Ads: Aired during the most-watched time slots (8 PM to 11 PM).",
-            "Daytime Ads: Targeted ads aired during the day for specific audiences.",
-            "Cable TV Ads: More affordable ads aired on cable networks, offering targeted demographic reach.",
-          ],
-        },
-        {
-          type: "Local TV Advertising",
-          description:
-            "Local TV advertising targets specific regions, cities, or neighborhoods.",
-          types: [
-            "Regional Network Ads: Ads appearing on regional TV stations.",
-            "Local Station Ads: Ads broadcast on local TV stations focusing on specific communities.",
-          ],
-        },
-        {
-          type: "TV Sponsorships",
-          description:
-            "Sponsorships involve associating your brand with specific programs or events.",
-          types: [
-            "Event Sponsorship: Sponsoring high-profile events like sports or award shows.",
-            "Program Sponsorship: Sponsoring a TV program and receiving mentions or branded segments.",
-          ],
-        },
+      title: "2. Transit Advertising",
+      description: `Transit advertising refers to ads placed on various forms of public transportation or at transit locations like bus stops, subway stations, and airports.`,
+      types: [
+        "Bus & Train Wraps: Full or partial ads wrapped around the exterior of buses, subways, or trains.",
+        "Station & Shelter Ads: Ads displayed in train stations, bus shelters, or subway tunnels.",
+        "Airport Advertising: Ads placed in airports, including on walls, floors, baggage claim areas, and even on airport shuttles.",
       ],
     },
     {
-      category: "Radio Advertising",
-      subcategories: [
-        {
-          type: "Traditional Radio Spots",
-          description:
-            "Pre-recorded commercials aired during specific time slots on a station.",
-          types: [
-            "30-Second Spot: Common for concise messages or promotions.",
-            "60-Second Spot: Longer ads for storytelling or detailed messaging.",
-            "15-Second Spot: Short ads for quick messages or offers.",
-          ],
-        },
-        {
-          type: "Sponsorship and Co-Branding",
-          description:
-            "Associating your brand with specific radio programs or events.",
-          types: [
-            "Program Sponsorship: Sponsoring specific programs or segments.",
-            "Event Sponsorship: Sponsoring live events aired on the radio.",
-            "Co-Branding: Collaborative promotions with the radio station.",
-          ],
-        },
-        {
-          type: "Jingles & Audio Branding",
-          description:
-            "Musical advertisements and auditory branding for memorable messages.",
-        },
-        {
-          type: "Digital Radio Advertising",
-          description:
-            "Ads on digital platforms like Spotify and Pandora, offering targeted audio and display advertising.",
-        },
+      title: "3. Digital Outdoor Advertising",
+      description: `Digital outdoor ads use digital technology to display dynamic and interactive content. These can be found in places like shopping malls, city centers, and transportation hubs. They are often large LED screens that can be updated frequently with new content.`,
+      types: [
+        "Digital Billboards: Large, digital displays along roadsides or highways.",
+        "Interactive Kiosks: Digital screens placed in malls, airports, or other public spaces where users can interact with the ad content.",
+        "LED Displays: Dynamic and customizable ads, often found in urban settings, where the message can change throughout the day.",
       ],
     },
     {
-      category: "Print Advertising",
-      subcategories: [
-        {
-          type: "Newspaper Advertising",
-          description:
-            "Ads in newspapers targeting local, regional, or national audiences.",
-          types: [
-            "Display Ads: Large ads placed throughout the newspaper.",
-            "Classified Ads: Small, text-based ads for specific categories.",
-            "Public Notices: Legal or public announcements.",
-          ],
-        },
-        {
-          type: "Magazine Advertising",
-          description: "Highly targeted ads in niche-interest publications.",
-          types: [
-            "Full-Page Ads: Large, visually impactful ads.",
-            "Half-Page Ads: Smaller, concise promotional ads.",
-            "Advertorials: Paid ads designed to resemble editorial content.",
-          ],
-        },
-        {
-          type: "Direct Mail Advertising",
-          description: "Physical mail pieces sent to homes or businesses.",
-          types: [
-            "Postcards: Brief, visually impactful messages.",
-            "Brochures: Informative materials showcasing products or services.",
-            "Catalogs: Comprehensive product lineups.",
-          ],
-        },
+      title: "4. Street Furniture Advertising",
+      description: `Street furniture advertising refers to ads placed on items commonly found in public spaces, such as benches, bus shelters, newsstands, and kiosks.`,
+      types: [],
+    },
+    {
+      title: "5. Wallscapes & Murals",
+      description: `Wallscapes are large advertisements painted or applied to the exterior of buildings. Murals can be a blend of art and advertisement, making them eye-catching and memorable.`,
+      types: [],
+    },
+  ];
+  const tvdvertising = [
+    {
+      title: "1. National TV Advertising",
+      description: `National TV advertising involves airing ads on large-scale, nationwide networks. This format is best suited for brands aiming to reach a broad audience across the entire country.`,
+      types: [
+        "Prime-Time Ads: These are ads aired during the most-watched time slots (typically between 8 PM and 11 PM). While expensive, prime-time spots offer maximum visibility and impact.",
+        "Daytime Ads: These are typically aired during the day, often targeting a more specific audience, such as stay-at-home parents or retirees.",
+        "Cable TV Ads: These ads air on cable networks and can be more affordable than national broadcast TV. Cable networks can offer targeted demographic reach based on the content type.",
       ],
     },
     {
-      category: "Digital Media Buying",
-      subcategories: [
-        {
-          type: "Social Media Advertising",
-          description:
-            "Targeted ads on platforms like Facebook, Instagram, and LinkedIn.",
-          types: [
-            "Carousel Ads: Interactive ads displaying multiple images or videos.",
-            "Video Ads: Engaging content in video format.",
-            "Story Ads: Ads appearing in platform stories.",
-          ],
-        },
-        {
-          type: "Search Engine Marketing (SEM)",
-          description: "Ads on platforms like Google Ads and Bing Ads.",
-          types: [
-            "Text Ads: Simple text-based ads.",
-            "Shopping Ads: Product-specific ads for e-commerce.",
-            "Retargeting Ads: Targeting users who previously interacted with your site.",
-          ],
-        },
-        {
-          type: "Programmatic Advertising",
-          description:
-            "Real-time, automated ad buying using data-driven insights.",
-        },
+      title: "2. Local TV Advertising",
+      description: `Local TV advertising targets specific regions, cities, or even neighborhoods. These ads are ideal for businesses looking to connect with their community or serve a specific geographic area.`,
+      types: [
+        "Regional Network Ads: These ads appear on regional TV stations and may be part of a larger broadcast network, giving you localized exposure while still benefiting from the reach of a big network.",
+        "Local Station Ads: These are broadcast on local TV stations in a specific city or market, often focusing on local news or community events.",
       ],
+    },
+    {
+      title: "5. TV Sponsorships",
+      description: `Sponsorships involve associating your brand with specific programs or events. Instead of purchasing a commercial spot, you "sponsor" a show or event, and your brand is featured throughout the program.`,
+      types: [
+        "Event Sponsorship: A brand sponsors a high-profile event, such as a major sporting event, awards show, or reality TV program.",
+        "Program Sponsorship: A brand can sponsor a particular TV program, receiving a branded segment or mention within the show.",
+      ],
+    },
+  ];
+  const newsPaperAdvertising = [
+    {
+      title: "1. Traditional Radio Spots",
+      description:
+        "Traditional radio spots are pre-recorded commercials that are aired during specific time slots on a station. These can range from short 15-second ads to longer 60-second or 90-second spots, depending on the messaging and target audience.",
+      types: [
+        "30-Second Spot: This is the most common duration for radio ads and is ideal for concise messages, product promotions, or service announcements.",
+        "60-Second Spot: Allows more time for storytelling, giving your ad the ability to include music, sound effects, and calls to action.",
+        "15-Second Spot: A shorter, punchier ad that’s great for quick messages or limited-time offers.",
+      ],
+    },
+    {
+      title: "2. Sponsorship and Co-Branding",
+      description:
+        "Sponsorship involves associating your brand with specific radio programs, events, or segments. It can be a more subtle form of advertising, as your brand is integrated into the content.",
+      types: [
+        "Program Sponsorship: Your brand becomes the sponsor of a specific radio program or segment, such as a morning show, talk show, or music hour.",
+        "Event Sponsorship: Sponsor live events or competitions aired on the radio, such as music festivals, charity drives, or sports broadcasts.",
+        "Co-Branding: Collaborate with the radio station to co-create promotional content or special offers that are shared with listeners.",
+      ],
+    },
+    {
+      title: "3. Jingles & Audio Branding",
+      description:
+        "Jingles are catchy, musical advertisements that use music and lyrics to create memorable and easily recognizable brand messages. Audio branding uses distinctive sounds and tunes to create a unique auditory identity for your brand.",
+      types: [],
+    },
+    {
+      title: "4. Radio Talk Show or Interview Spots",
+      description:
+        "Radio talk shows and interview spots allow you to feature your brand in a live, conversational context. These segments often involve radio hosts interviewing a spokesperson from your brand, discussing your product or service, or providing insights related to your industry.",
+      types: [],
+    },
+    {
+      title: "5. Live Mentions & Endorsements",
+      description:
+        "This type of advertising involves radio personalities or hosts directly mentioning or endorsing your product during their regular programming. These live mentions can occur within the context of the host's daily conversation or specific promotional segments.",
+      types: [],
+    },
+    {
+      title: "6. Digital Radio Advertising",
+      description:
+        "With the rise of digital radio platforms like Spotify, Pandora, and Apple Music, digital radio advertising has become an increasingly popular way to reach tech-savvy, younger audiences. These platforms offer a mix of audio ads and display ads that can be targeted based on user data.",
+      types: [],
+    },
+  ];
+  const radioAdvertising = [
+    {
+      title: "1. Newspaper Advertising",
+      description:
+        "Newspapers are a well-established medium for reaching a broad audience. They can be local, regional, or national in scope, allowing businesses to select their target audience based on geographic location, demographics, and the publication’s readership.",
+      types: [
+        "Display Ads: These ads are typically large and placed throughout the newspaper in specific sections (e.g., classified, sports, lifestyle, etc.).",
+        "Classified Ads: Smaller, text-based ads often used for job listings, real estate, and services.",
+        "Public Notices: Legal notices or announcements that need to be made public.",
+        "Insertions: Printed materials, such as coupons or brochures, placed inside the newspaper.",
+      ],
+    },
+    {
+      title: "2. Magazine Advertising",
+      description:
+        "Magazines offer a highly targeted platform for print ads, allowing you to reach niche audiences based on their interests. Whether it’s a business magazine, fashion publication, or hobbyist magazine, print ads in magazines often cater to highly engaged, loyal readers.",
+      types: [
+        "Full-Page Ads: Large ads that take up an entire page and showcase a brand or product with strong visuals and messaging.",
+        "Half-Page Ads: Smaller ads that allow you to present a concise message or image.",
+        "Quarter-Page Ads: Even more concise ads, ideal for small promotions or announcements.",
+        "Advertorials: These are paid advertisements designed to look like editorial content, often blending seamlessly with the magazine’s regular articles.",
+      ],
+    },
+    {
+      title: "3. Direct Mail Advertising",
+      description:
+        "Direct mail involves sending physical mail pieces directly to individuals’ homes or businesses. These can range from catalogs and brochures to postcards and letters, and they provide a personal touch that digital ads can’t replicate.",
+      types: [
+        "Postcards: Brief, visually impactful pieces that get straight to the point.",
+        "Brochures: Detailed, informative materials showcasing products or services.",
+        "Catalogs: Large, comprehensive mailings featuring a brand’s entire product lineup or services.",
+        "Letters: Personalized communication often used for special offers, sales, or direct appeals.",
+      ],
+    },
+    {
+      title: "4. Brochures & Flyers",
+      description:
+        "Brochures and flyers are often used for promoting events, special offers, or products. They are typically distributed in person, through mail, or placed in public spaces like stores, trade shows, or local businesses.",
+      types: [
+        "Bi-Fold & Tri-Fold Brochures: Standard formats used for informative, visually engaging designs.",
+        "Flyers: Single-page promotional materials that are short and to the point.",
+        "Product Catalogs: Larger brochures showcasing your product line in detail.",
+      ],
+    },
+  ];
+  const digiatalMediaBuying = [
+    {
+      title: "Digital Media Buying",
+      description:
+        "Digital advertising is a core part of modern media strategies. Our team leverages various digital channels to place targeted ads that drive results.",
+      types: [],
+    },
+    {
+      title: "Social Media Advertising",
+      description: "",
+      details: [
+        "Platforms: Facebook, Instagram, LinkedIn, Twitter, TikTok, Pinterest, Snapchat",
+        "Services: Ad creation, audience segmentation, bidding strategies, campaign optimization, and reporting",
+        "Ad Types: Carousel ads, video ads, display ads, story ads, lead generation ads, etc.",
+      ],
+    },
+    {
+      title: "Search Engine Marketing (SEM)",
+      description: "",
+      details: [
+        "Platforms: Google Ads, Bing Ads",
+        "Services: Keyword research, ad copy creation, bidding strategies, landing page optimization, and continuous performance tracking",
+        "Ad Types: Text ads, shopping ads, display ads, retargeting ads",
+      ],
+    },
+    {
+      title: "Display Advertising",
+      description:
+        "Services: Creating visually compelling banner ads that appear on websites and apps your audience frequents. Includes strategic placement through Google Display Network and other third-party ad networks.",
+    },
+    {
+      title: "Video Advertising",
+      description: "",
+      details: [
+        "Platforms: YouTube, OTT platforms (e.g., Hulu, Roku), and in-stream ads",
+        "Services: Video creation, targeting the right audience, and optimizing video ad placements for higher engagement and conversions.",
+        "Ad Types: Skippable ads, non-skippable ads, bumper ads, pre-roll, and in-stream ads.",
+      ],
+    },
+    {
+      title: "Programmatic Advertising",
+      description:
+        "Services: Real-time, automated ad buying that optimizes your budget allocation by using data-driven insights to place ads across multiple digital platforms.",
     },
   ];
 
@@ -309,37 +334,111 @@ const Page = () => {
             ))}
           </motion.article>
         </div>
-        <div className="container mt-6">
-          {advertisingData.map((category, categoryIndex) => (
-            <div
-              key={categoryIndex}
-              className="mb-8 bg-purple-50 p-4 rounded-lg shadow"
-            >
-              <h2 className="text-2xl underline underline-offset-4 font-semibold mb-4">
-                0{categoryIndex + 1} {category.category}
+        <div className="grid grid-cols-1 gap-5 container mt-6">
+          <h3 className="text-2xl font-Synonym font-[500]">
+            Outdoor Advertising
+          </h3>
+          {outdoorAdvertising.map((category, index) => (
+            <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                {category.title}
               </h2>
-              {category.subcategories.map((subcategory, subcategoryIndex) => (
-                <div key={subcategoryIndex} className="mb-6">
-                  <h3 className="text-xl font-medium mb-2">
-                    {subcategory.type}
-                  </h3>
-                  <p className="text-gray-700 mb-2">
-                    {subcategory.description}
-                  </p>
-                  {subcategory.types && (
-                    <ul className=" list-inside gap-4 text-slate-950 grid grid-cols-1 lg:grid-cols-3">
-                      {subcategory.types.map((type, typeIndex) => (
-                        <li
-                          key={typeIndex}
-                          className="bg-purple-100 rounded-lg p-3"
-                        >
-                          {type}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
+              <p className="">{category.description}</p>
+              {category.types.length > 0 && (
+                <ul className=" grid grid-cols-1 lg:grid-cols-4 gap-4  ">
+                  {category.types.map((type, idx) => (
+                    <li key={idx} className="p-3 bg-purple-100 rounded-lg">
+                      {type}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-1 gap-5 container mt-6">
+          <h3 className="text-2xl font-Synonym font-[500]">TV Advertising</h3>
+          {tvdvertising.map((category, index) => (
+            <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                {category.title}
+              </h2>
+              <p className="">{category.description}</p>
+              {category.types.length > 0 && (
+                <ul className=" grid grid-cols-1 lg:grid-cols-4 gap-4  ">
+                  {category.types.map((type, idx) => (
+                    <li key={idx} className="p-3 bg-purple-100 rounded-lg">
+                      {type}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-1 gap-5 container mt-6">
+          <h3 className="text-2xl font-Synonym font-[500]">
+            Radio Advertising
+          </h3>
+          {radioAdvertising.map((category, index) => (
+            <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                {category.title}
+              </h2>
+              <p className="">{category.description}</p>
+              {category.types.length > 0 && (
+                <ul className=" grid grid-cols-1 lg:grid-cols-4 gap-4  ">
+                  {category.types.map((type, idx) => (
+                    <li key={idx} className="p-3 bg-purple-100 rounded-lg">
+                      {type}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-1 gap-5 container mt-6">
+          <h3 className="text-2xl font-Synonym font-[500]">
+            Newspaper Advertising
+          </h3>
+          {newsPaperAdvertising.map((category, index) => (
+            <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                {category.title}
+              </h2>
+              <p className="">{category.description}</p>
+              {category.types.length > 0 && (
+                <ul className=" grid grid-cols-1 lg:grid-cols-4 gap-4  ">
+                  {category.types.map((type, idx) => (
+                    <li key={idx} className="p-3 bg-purple-100 rounded-lg">
+                      {type}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-1 gap-5 container mt-6">
+          <h3 className="text-2xl font-Synonym font-[500]">
+            Digital Media Buying
+          </h3>
+          {newsPaperAdvertising.map((category, index) => (
+            <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                {category.title}
+              </h2>
+              <p className="">{category.description}</p>
+              {category.types.length > 0 && (
+                <ul className=" grid grid-cols-1 lg:grid-cols-4 gap-4  ">
+                  {category.types.map((type, idx) => (
+                    <li key={idx} className="p-3 bg-purple-100 rounded-lg">
+                      {type}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </div>

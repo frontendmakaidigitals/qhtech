@@ -357,7 +357,9 @@ const Page = () => {
         <div className="container grid grid-col-1 gap-6 mt-5">
           {services.map((service, index) => (
             <div key={index} className=" p-6 rounded-lg bg-purple-50">
-              <h2 className="text-2xl font-bold">{service.category}</h2>
+              <h2 className="text-2xl font-bold">
+                0{index + 1} {service.category}
+              </h2>
 
               <div className="grid grid-cols-1 lg:grid-cols-4 mt-6 gap-3">
                 {service.subcategories.map((subcategory, subIndex) => (
