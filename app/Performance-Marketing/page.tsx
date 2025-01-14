@@ -9,7 +9,7 @@ import {
   AccordionPanel,
 } from "../App chunks/components/Accordion";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
-import { Circle, Plus } from "@phosphor-icons/react";
+import { ArrowUpRight, Circle, Plus } from "@phosphor-icons/react";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -186,7 +186,7 @@ const Page = () => {
                 style={{ height: `calc(100vh - ${height + 200}px)` }}
                 className="flex flex-col container items-center text-slate-100 justify-center"
               >
-                <motion.h1 className="text-center font-[600]  flex-wrap text-3xl xl:text-6xl font-Grostek relative">
+                <motion.div className="text-center font-[600]  flex-wrap text-3xl xl:text-6xl font-Grostek relative">
                   {para.split(" ").map((item, index) => (
                     <motion.span
                       key={index}
@@ -218,7 +218,17 @@ const Page = () => {
                       {"  "}
                     </motion.span>
                   ))}
-                </motion.h1>
+                </motion.div>
+                <button className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50">
+                  <span className="relative inline-flex overflow-hidden">
+                    <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[130%] group-hover:skew-y-12 flex items-center gap-2">
+                      Get Expert Help <ArrowUpRight />
+                    </div>
+                    <div className="absolute  translate-y-[134%] flex items-center gap-2 skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                      Get Expert Help <ArrowUpRight />
+                    </div>
+                  </span>
+                </button>
               </div>
             </div>
           </div>
@@ -320,7 +330,7 @@ const Page = () => {
                 </button>
               </div>
             </div>
-            <div>
+            <div className="order-1 lg:order-2">
               <Accordion defaultValue={["item-0"]}>
                 {faqData.map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`}>

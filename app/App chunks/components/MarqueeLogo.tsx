@@ -35,8 +35,9 @@ const ReviewCard = ({ img }: { img: string }) => {
       className={cn(
         `relative w-[100px] cursor-pointer overflow-hidden ${
           img.split("/").pop() == "interzens.png" ? "bg-black p-2" : ""
-        } ${
-          img.split("/").pop() == "bizgrowth.png" ? " p-2" : ""
+        } ${img.split("/").pop() == "bizgrowth.png" ? " p-2" : ""}
+        ${
+          img.split("/").pop() == "craft-desk.png" ? " p-2" : ""
         } rounded-xl border`
       )}
     >
