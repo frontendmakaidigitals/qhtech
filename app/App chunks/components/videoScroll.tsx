@@ -38,13 +38,13 @@ const HorizontalScrollCarousel = () => {
           </motion.h1>
         ))}
       </motion.article>
-      <div className="sticky top-0 flex h-screen   items-center overflow-hidden">
+      <motion.div className="sticky top-0 flex h-screen   items-center overflow-hidden">
         <motion.div style={{ x }} className="flex">
           {cards.map((card) => {
             return <Card card={card} key={card.id} />;
           })}
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };
@@ -54,14 +54,11 @@ const Card = ({
 }: {
   card: { url: string; title: string; id: number; color: string };
 }) => {
-  
   return (
     <motion.div
       key={card.id}
       className="group overflow-hidden bg-gray-800 relative rounded-xl ml-10 h-[500px] w-[calc(50vw)] py-20"
     >
-
-      
       <video
         autoPlay
         loop

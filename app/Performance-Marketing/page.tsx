@@ -67,6 +67,7 @@ const Page = () => {
         "Robust brand safety tools and third-party integrations",
         "Cross-channel campaign management for maximum impact",
       ],
+      img: "https://images.pexels.com/photos/30207073/pexels-photo-30207073/free-photo-of-capturing-urban-street-scene-with-handheld-camera.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
       title: "Campaign Management",
@@ -78,6 +79,7 @@ const Page = () => {
         "Transparent communication and reporting",
         "Scalable solutions to support business growth",
       ],
+      img:'https://static.vecteezy.com/system/resources/previews/035/757/397/large_2x/ai-generated-a-young-black-man-with-microphones-talking-to-a-crowd-free-photo.jpg'
     },
     {
       title: "Paid Search Advertising (PPC)",
@@ -89,6 +91,7 @@ const Page = () => {
         "Real-time bid management: We monitor and adjust bids in real time to ensure you remain competitive while keeping costs under control.",
         "Remarketing strategies for conversion optimization: We target previous website visitors with tailored ads to bring them back, increasing the chances of conversion",
       ],
+      img:'https://freeup.net/wp-content/uploads/2021/03/what-is-ppc.jpg'
     },
     {
       title: "Affiliate Marketing",
@@ -99,6 +102,7 @@ const Page = () => {
         "Comprehensive program management: We manage all aspects of your affiliate program, from negotiating commissions to tracking performance and optimizing payouts.",
         "Detailed tracking and reporting: We provide clear, transparent reporting to measure the effectiveness of your affiliates and ensure that you’re only paying for actual sales or actions.",
       ],
+      img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIpG25WWFf8qNx9YunI40EpmO0x0jHe3MJUw&s'
     },
     {
       title: "Display Advertising",
@@ -109,6 +113,7 @@ const Page = () => {
         "Creative and engaging ad design: Our design team creates eye-catching banners and visuals that grab attention and encourage clicks.",
         "Performance monitoring and continuous optimization: We monitor the performance of your display ads and continuously optimize them for better results, reducing wasted ad spend and improving ROI.",
       ],
+      img:'https://business.adobe.com/blog/basics/media_1c548963ee6dce0000a9f32d5c60809ab50275cce.png?width=750&format=png&optimize=medium'
     },
     {
       title: "Email Marketing",
@@ -120,6 +125,7 @@ const Page = () => {
         "Automated Workflows: We set up automated email campaigns, such as welcome emails, cart abandonment reminders, and re-engagement sequences, to nurture leads and drive sales over time.",
         "Performance tracking and optimization: We analyze open rates, click-through rates, and conversions to refine email campaigns for better engagement and results.",
       ],
+      img:'https://assets.entrepreneur.com/content/3x2/2000/20180726155253-GettyImages-860221048.jpeg'
     },
     {
       title: "Conversion Rate Optimization (CRO)",
@@ -131,6 +137,7 @@ const Page = () => {
         "User Experience (UX) Design: We focus on enhancing the user experience by ensuring fast load times, intuitive navigation, and mobile-friendly design.",
         "Funnel analysis and optimization: We analyze your marketing funnel to identify any barriers or drop-off points and optimize it for smoother customer journeys and higher conversion rates.",
       ],
+      img:'https://cdn.prod.website-files.com/65e7297194523c404b923b44/662e9ad34739996442f1455e_conversion-rate-optimization-guide.webp'
     },
     {
       title: "Analytics & Reporting",
@@ -141,6 +148,7 @@ const Page = () => {
         "Custom Reporting: Our reports are tailored to your business objectives, highlighting key metrics such as ROI, conversion rates, customer acquisition cost (CAC), and more.",
         "Campaign Insights & Optimization: We provide actionable insights based on campaign performance, helping you refine strategies and optimize ad spending for better outcomes.",
       ],
+      img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKf458j-9wCH5J6G1_SBanK-a8jPx13GulXw&s'
     },
     {
       title: "Video Advertising",
@@ -151,6 +159,7 @@ const Page = () => {
         "Targeted Campaigns: Video ads are targeted to the right audience to ensure maximum impact, and we optimize campaigns for both views and conversions.",
         "Performance Tracking: We monitor key metrics like video watch time, engagement, and conversion rates to ensure that your video ads are working effectively.",
       ],
+      img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIEIFt4se1XUJysO-qK3XLx6UcHLYaRae32A&s'
     },
   ];
 
@@ -237,23 +246,28 @@ const Page = () => {
           </motion.article>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 container ">
+        <div className="grid mt-3 grid-cols-1 gap-4 container ">
           {marketingServices.map((service, index) => (
             <div
               key={index}
-              className="bg-purple-50 p-6 rounded-lg  transition-shadow"
+              className="bg-purple-50 grid grid-cols-2 gap-5 p-6 rounded-lg  transition-shadow"
             >
-              <h2 className="text-2xl font-bold text-gray-800">
-                0{index + 1} {service.title}
-              </h2>
-              <p className="text-gray-600 my-4">{service.description}</p>
-              <ul className="grid grid-cols-4 gap-4">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="p-4 bg-purple-100 rounded-lg">
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              <div>
+                <h2 className="text-2xl underline underline-offset-4 font-bold text-gray-800">
+                  0{index + 1} {service.title}
+                </h2>
+                <p className="text-gray-600 my-4">{service.description}</p>
+                <ul className="grid grid-cols-1 gap-4">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="p-4 bg-purple-100 rounded-lg">
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="w-full min-h-[600px] bg-slate-300 rounded-lg overflow-hidden">
+                <img src={service.img} className="w-full h-full object-cover" />
+              </div>
             </div>
           ))}
         </div>
