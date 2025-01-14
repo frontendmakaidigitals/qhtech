@@ -3,23 +3,27 @@ import Marquee from "@/components/ui/marquee";
 
 const reviews = [
   {
-    img: "https://milestonehomesre.com/wp-content/uploads/2024/09/New-Logo-Cross.png",
+    img: "Logo/bizgrowth.png",
   },
   {
-    img: "https://milestonehomesre.com/wp-content/uploads/2024/09/New-Logo-Cross.png",
+    img: "Logo/Brownstone.png",
   },
   {
-    img: "https://milestonehomesre.com/wp-content/uploads/2024/09/New-Logo-Cross.png",
+    img: "Logo/craft-desk.png",
   },
   {
-    img: "https://milestonehomesre.com/wp-content/uploads/2024/09/New-Logo-Cross.png",
+    img: "Logo/interzens.png",
   },
   {
-    img: "https://milestonehomesre.com/wp-content/uploads/2024/09/New-Logo-Cross.png",
+    img: "Logo/menlocloud.png",
   },
   {
-    img: "https://milestonehomesre.com/wp-content/uploads/2024/09/New-Logo-Cross.png",
+    img: "Logo/milestone.png",
   },
+  {
+    img: "Logo/shobha.png",
+  },
+  { img: "Logo/zippro.png" },
 ];
 
 const firstRow = reviews.slice(0, reviews.length / 2);
@@ -29,10 +33,14 @@ const ReviewCard = ({ img }: { img: string }) => {
   return (
     <figure
       className={cn(
-        "relative w-[200px] cursor-pointer overflow-hidden rounded-xl border"
+        `relative w-[100px] cursor-pointer overflow-hidden ${
+          img.split("/").pop() == "interzens.png" ? "bg-black p-2" : ""
+        } ${
+          img.split("/").pop() == "bizgrowth.png" ? " p-2" : ""
+        } rounded-xl border`
       )}
     >
-      <img className=" w-full h-full object-cover" src={img} />
+      <img className=" w-full h-full object-contain" src={img} />
     </figure>
   );
 };
@@ -45,7 +53,7 @@ export function MarqueeLogo() {
           <ReviewCard key={index} {...review} />
         ))}
       </Marquee>
-      <Marquee  pauseOnHover className="[--duration:20s]">
+      <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review, index) => (
           <ReviewCard key={index} {...review} />
         ))}
