@@ -186,11 +186,11 @@ const Page = () => {
                 style={{ height: `calc(100vh - ${height + 200}px)` }}
                 className="flex flex-col container items-center text-slate-100 justify-center"
               >
-                <motion.h1 className="text-center font-[600]  flex-wrap lg:text-3xl xl:text-6xl font-Grostek relative">
+                <motion.h1 className="text-center font-[600]  flex-wrap text-3xl xl:text-6xl font-Grostek relative">
                   {para.split(" ").map((item, index) => (
                     <motion.span
                       key={index}
-                      className="xl:mr-2 xxl:mr-4 overflow-hidden h-[80px]"
+                      className="mr-2 xl:mr-2 xxl:mr-4 overflow-hidden h-[40px] lg:h-[80px]"
                       style={{
                         display: "inline-block", // Ensure words are treated as block elements
                       }}
@@ -257,7 +257,7 @@ const Page = () => {
                   0{index + 1} {service.title}
                 </h2>
                 <p className="text-gray-600 my-4">{service.description}</p>
-                <ul className="grid grid-cols-2 gap-4">
+                <ul className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                   <div>
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="p-4 rounded-lg">
@@ -287,7 +287,7 @@ const Page = () => {
         <div className="container">
           <div>
             {" "}
-            <motion.article className="flex justify-center lg:justify-start items-center text-slate-100 gap-3">
+            <motion.article className="flex justify-center flex-wrap lg:justify-start items-center text-slate-100 gap-3">
               {["Frequently", "Asked", "Questions"].map((text, index) => (
                 <motion.h1
                   key={index}
@@ -299,7 +299,7 @@ const Page = () => {
                   viewport={{ once: true }}
                   initial={{ opacity: 0, y: 100 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+                  className="text-4xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
                 >
                   {text}
                 </motion.h1>
@@ -307,7 +307,7 @@ const Page = () => {
             </motion.article>
           </div>
           <div className="mt-10 grid gap-x-12 grid-cols-1 lg:grid-cols-[1fr_2fr]">
-            <div>
+            <div className="mt-6 lg:mt-0 order-1 lg:order-2">
               <p className="text-slate-400 text-md font-Grostek">
                 Can&apos;t find what you are looking for?
               </p>
@@ -324,7 +324,13 @@ const Page = () => {
               <Accordion defaultValue={["item-0"]}>
                 {faqData.map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionHeader icon={<Plus className="text-xl" />}>
+                    <AccordionHeader
+                      icon={
+                        <div className="size-6 flex justify-center items-center rounded-full">
+                          <Plus className="text-xl" />
+                        </div>
+                      }
+                    >
                       {faq.question}
                     </AccordionHeader>
                     <AccordionPanel>{faq.answer}</AccordionPanel>

@@ -110,7 +110,7 @@ export function AccordionHeader({ children, icon }: AccordionHeaderProps) {
 
   return (
     <motion.div
-      className={`p-4 cursor-pointer transition-all rounded-lg text-xl font-semibold hover:bg-slate-100/10 hover:text-slate-100 flex justify-between items-center ${
+      className={`py-5 px-2 cursor-pointer transition-all rounded-lg text-xl font-semibold hover:bg-slate-100/10 hover:text-slate-100 flex justify-between items-center ${
         isActive ? "active text-slate-200" : "bg-transparent text-slate-50"
       }`}
       onClick={() => onChangeIndex(value)}
@@ -122,7 +122,7 @@ export function AccordionHeader({ children, icon }: AccordionHeaderProps) {
             isActive
               ? "rotate-45 bg-[#363842] text-[#94959D]"
               : "rotate-0 bg-[#5A5A5F] text-[#191A1F]"
-          } transition-transform size-8 flex justify-center items-center rounded-full`}
+          } transition-transform rounded-full`}
         >
           {icon}
         </div>
