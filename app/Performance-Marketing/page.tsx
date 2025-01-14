@@ -265,7 +265,7 @@ const Page = () => {
                   ))}
                 </ul>
               </div>
-              <div className="w-full min-h-[600px] bg-slate-300 rounded-lg overflow-hidden">
+              <div className="w-full min-h-[600px] bg-slate-300 shadow-md border border-slate-400 rounded-lg overflow-hidden">
                 <img src={service.img} className="w-full h-full object-cover" />
               </div>
             </div>
