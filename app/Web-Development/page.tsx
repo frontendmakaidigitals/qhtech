@@ -10,7 +10,7 @@ import {
   AccordionPanel,
 } from "../App chunks/components/Accordion";
 import { Plus } from "@phosphor-icons/react";
- 
+import { Circle } from "@phosphor-icons/react";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -239,31 +239,39 @@ const Page = () => {
                 whileInView={{ y: "0%" }}
                 transition={{ ease: [0.175, 0.885, 0.32, 1.1], duration: 0.8 }}
                 key={index}
-                className={`p-6 bg-purple-50 rounded-xl`}
+                className={`p-6 bg-purple-50 gap-4 rounded-xl`}
               >
-                <h3 className="text-3xl font-Grostek font-[500]">
-                  {service.title}
-                </h3>
-                <p className="mt-2 font-Synonym text-lg font-[400]">
-                  {service.description}
-                </p>
-                <div className="mt-3 grid grid-cols-1 lg:grid-cols-4 gap-4">
-                  {service.details.map((detail, id) => (
-                    <div
-                      key={id}
-                      className="flex bg-purple-100 border border-slate-200 shadow-sm text-gray-950 rounded-lg px-3 items-start gap-2 mt-2 py-2"
-                    >
-                      <p
-                        className={` rounded-lg font-sans font-[400]  text-lg `}
-                      >
-                        {detail}
-                      </p>
+                <div>
+                  <h3 className="text-3xl font-Grostek font-[500]">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2 font-Synonym text-lg font-[400]">
+                    {service.description}
+                  </p>
+                  <div className="grid mt-5 grid-cols-1 lg:grid-cols-2 gap-3">
+                    <div className=" ">
+                      {service.details.map((detail, id) => (
+                        <div
+                          key={id}
+                          className="flex mb-6 text-gray-950 items-start gap-2 "
+                        >
+                          <div className="mt-1">
+                            <Circle weight="fill" />
+                          </div>
+                          <p
+                            className={` rounded-lg font-sans font-[400]  text-lg `}
+                          >
+                            {detail}
+                          </p>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                    <div className="w-full min-h-[500px] h-full bg-purple-200"></div>
+                  </div>
+                  {service.conclusion ? (
+                    <p className="mt-3">{service.conclusion}</p>
+                  ) : null}
                 </div>
-                {service.conclusion ? (
-                  <p className="mt-3">{service.conclusion}</p>
-                ) : null}
               </motion.div>
             ))}
           </AnimatePresence>

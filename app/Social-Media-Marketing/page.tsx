@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import {  motion } from "framer-motion";
+import { motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import {
   Accordion,
@@ -9,8 +9,7 @@ import {
   AccordionPanel,
 } from "../App chunks/components/Accordion";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
-import { Plus } from "@phosphor-icons/react";
- 
+import { Circle, Plus } from "@phosphor-icons/react";
 
 const Page = () => {
   const [height, setHeight] = React.useState(0);
@@ -287,20 +286,28 @@ const Page = () => {
                 {service.description}
               </p>
 
-              <div className="mt-4 grid grid-cols-1 lg:grid-cols-4 gap-5">
-                {service.subcategories.map((subcategory, subIndex) => (
-                  <div
-                    key={subIndex}
-                    className="bg-purple-100 p-4 rounded-lg mt-4"
-                  >
-                    <h3 className="text-xl font-semibold text-gray-700">
-                      {subcategory.type}
-                    </h3>
-                    <p className="text-md text-gray-500 mt-2">
-                      {subcategory.description}
-                    </p>
-                  </div>
-                ))}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-3">
+                <div className="grid grid-cols-1 gap-2">
+                  {service.subcategories.map((subcategory, subIndex) => (
+                    <div
+                      key={subIndex}
+                      className="bg-purple-100 flex items-start gap-3 p-4 rounded-lg"
+                    >
+                      <div className="mt-1">
+                        <Circle weight="fill" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-700">
+                          {subcategory.type}
+                        </h3>
+                        <p className="text-md text-gray-500 mt-1">
+                          {subcategory.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="w-full h-full bg-slate-300 shadow-md border border-slate-400 rounded-lg overflow-hidden"></div>
               </div>
             </div>
           ))}
