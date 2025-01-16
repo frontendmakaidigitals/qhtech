@@ -236,19 +236,22 @@ const Page = () => {
           {cybersecurityServices.map((service, index) => (
             <div key={index} className="bg-purple-50 rounded-lg p-6 ">
               <h2 className="text-2xl font-Grostek font-semibold text-gray-800 mb-3">
-                0{index + 1} {service.service}
+                {service.service}
               </h2>
               <p className=" mb-4">{service.description}</p>
-              <ul className="grid grid-cols-1 lg:grid-cols-4 gap-3">
-                {service.details.map((detail, idx) => (
-                  <li
-                    key={idx}
-                    className="p-3 font-[500] rounded-lg bg-purple-100"
-                  >
-                    {detail}
-                  </li>
-                ))}
-              </ul>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                <ul className="flex flex-col gap-3">
+                  {service.details.map((detail, idx) => (
+                    <li
+                      key={idx}
+                      className="p-3 font-[500] rounded-lg bg-purple-100"
+                    >
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
+                <div className="bg-purple-200 w-full h-full min-h-[500px]"></div>
+              </div>
             </div>
           ))}
         </div>

@@ -272,14 +272,17 @@ const Page = () => {
                 0{index + 1} {serviceCategory.category}
               </h2>
               <p className="mt-1">{serviceCategory.description}</p>
-              <ul className="grid grid-cols-1 lg:grid-cols-3 mt-5 gap-3">
-                {serviceCategory.services.map((service, idx) => (
-                  <li key={idx} className="bg-purple-100 p-3 rounded-lg">
-                    <h3 className="text-xl font-semibold">{service.name}</h3>
-                    <p>{service.description}</p>
-                  </li>
-                ))}
-              </ul>
+              <div className="grid grid-cols-1 mt-5 lg:grid-cols-2 gap-3">
+                <ul className="flex flex-col gap-3">
+                  {serviceCategory.services.map((service, idx) => (
+                    <li key={idx} className="bg-purple-100 p-3 rounded-lg">
+                      <h3 className="text-xl font-semibold">{service.name}</h3>
+                      <p>{service.description}</p>
+                    </li>
+                  ))}
+                </ul>
+                <div className="w-full bg-purple-300 min-h-[500px] h-full"></div>
+              </div>
             </div>
           ))}
         </div>

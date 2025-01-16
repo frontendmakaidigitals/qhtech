@@ -9,7 +9,7 @@ import {
   AccordionPanel,
 } from "../App chunks/components/Accordion";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
-import { Plus } from "@phosphor-icons/react";
+import { Circle, Plus } from "@phosphor-icons/react";
 
 const Page = () => {
   const [height, setHeight] = React.useState(0);
@@ -369,7 +369,7 @@ const Page = () => {
                     src={"/media/milestone.png"}
                   />
                 </div>
-                <div className="absolute -bottom-[26px] right-10 rotate-6  w-[200px] " >
+                <div className="absolute -bottom-[26px] right-10 rotate-6  w-[200px] ">
                   <img
                     className="w-full h-full object-cover"
                     src={"/media/menlocloud.png"}
@@ -381,7 +381,7 @@ const Page = () => {
                     src={"/media/TeaVillaCafe.png"}
                   />
                 </div>
-                
+
                 <div className="absolute -top-10 bg-white left-1/2 -translate-x-1/2  w-[100px] p-1">
                   <img
                     className="w-full h-full object-cover"
@@ -454,15 +454,23 @@ const Page = () => {
               <h2 className="text-2xl font-Grostek font-semibold text-gray-800 mb-4">
                 {service.service}
               </h2>
-              <div className="grid grid-cols-4 gap-4">
-                {service.details.map((detail, i) => (
-                  <div key={i} className="p-3 rounded-lg bg-purple-100">
-                    <h3 className="text-xl font-medium text-gray-700">
-                      {detail.title}
-                    </h3>
-                    <p className="text-gray-600">{detail.description}</p>
-                  </div>
-                ))}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                <div className="flex flex-col gap-4">
+                  {service.details.map((detail, i) => (
+                    <div key={i} className="p-3 rounded-lg bg-purple-100">
+                      <div className="flex item-start gap-2">
+                        <div className="mt-[6px]">
+                          <Circle weight="fill" />
+                        </div>
+                        <h3 className="text-xl font-medium text-gray-700">
+                          {detail.title}
+                        </h3>
+                      </div>
+                      <p className="text-gray-600">{detail.description}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="w-full bg-purple-300 min-h-[500px] h-full"></div>
               </div>
             </div>
           ))}

@@ -48,7 +48,6 @@ const Page = () => {
         "SEO (Search Engine Optimization) is the practice of optimizing your website to rank higher in search engine results. It drives organic traffic, increases visibility, and enhances user experience, ultimately boosting conversions and revenue.",
     },
   ];
- 
 
   const servicesData = [
     {
@@ -140,8 +139,7 @@ const Page = () => {
 
   const para =
     "Welcome to Insight Vision - Elevate Your Online Presence through SEO ";
-  
- 
+
   return (
     <motion.div className="  bg-white" ref={containerRef}>
       <motion.div>
@@ -224,13 +222,7 @@ const Page = () => {
         <div className="container grid grid-cols-1 mt-7 gap-4 lg:grid-cols-1">
           <AnimatePresence mode="wait">
             {servicesData.map((service, index) => (
-              <motion.div
-                initial={{ y: "50%" }}
-                whileInView={{ y: "0%" }}
-                transition={{ ease: [0.175, 0.885, 0.32, 1.1], duration: 0.8 }}
-                key={index}
-                className={`p-6 bg-[#e0f5ff] rounded-xl`}
-              >
+              <motion.div key={index} className={`p-6 bg-[#e0f5ff] rounded-xl`}>
                 <h3 className="text-3xl font-Grostek font-[500]">
                   {service.title}
                 </h3>
@@ -241,28 +233,32 @@ const Page = () => {
                 <div className="">
                   {service.services.map((detail, id) => (
                     <div key={id} className="mt-6">
-                      <div className="flex items-center gap-1">
-                        <div>
-                          <Circle weight="fill" />
-                        </div>
+                      <div className="">
                         <p className="font-Synonym text-lg font-[500]">
                           {detail.category}
                         </p>
                       </div>
 
-                      <div className="grid grid-cols-4 gap-5">
-                        {detail.details.map((item, i) => (
-                          <div
-                            key={i}
-                            className="flex  bg-[#c5edff] text-blue-950 rounded-lg px-3 items-start gap-2 mt-2 py-2"
-                          >
-                            <p
-                              className={` rounded-lg font-sans font-[400]  text-lg `}
+                      <div className="grid mt-3 grid-cols-1 lg:grid-cols-2 gap-3">
+                        <div className="flex flex-col gap-3">
+                          {detail.details.map((item, i) => (
+                            <div
+                              key={i}
+                              className="flex  bg-[#c5edff] text-blue-950 rounded-lg px-3 items-start gap-2 py-2"
                             >
-                              {item}
-                            </p>
-                          </div>
-                        ))}
+                              <div className="mt-[6px]"
+                              >
+                                <Circle weight="fill" />
+                              </div>
+                              <p
+                                className={` rounded-lg font-sans font-[400]  text-lg `}
+                              >
+                                {item}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="min-h-[550px] w-full h-auto bg-blue-200"></div>
                       </div>
                     </div>
                   ))}
@@ -272,7 +268,7 @@ const Page = () => {
           </AnimatePresence>
         </div>
       </div>
-      
+
       <div className="py-16 bg-[#121316]">
         <div className="container">
           <div>

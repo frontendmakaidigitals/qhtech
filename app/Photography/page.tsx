@@ -9,7 +9,7 @@ import {
   AccordionPanel,
 } from "../App chunks/components/Accordion";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
-import { Plus } from "@phosphor-icons/react";
+import { Circle, Plus } from "@phosphor-icons/react";
 
 const Page = () => {
   const [height, setHeight] = React.useState(0);
@@ -480,20 +480,30 @@ const Page = () => {
               key={index}
               className="bg-purple-50  grid grid-cols-1  gap-5 p-6 "
             >
-              <h2 className="text-2xl underline underline-offset-8 font-semibold font-Grostek text-gray-950">
-                0{index + 1} {category.category}
+              <h2 className="text-2xl font-semibold font-Grostek text-gray-950">
+                {category.category}
               </h2>
               <p className="text-gray-800 mt-2">{category.description}</p>
-              <ul className="mt-4 grid grid-cols-1 gap-5 lg:grid-cols-4">
-                {category.services.map((service, idx) => (
-                  <li key={idx} className=" bg-purple-100 p-3 rounded-md">
-                    <h3 className="text-xl font-medium text-gray-800">
-                      {service.name}
-                    </h3>
-                    <p className="text-gray-600">{service.description}</p>
-                  </li>
-                ))}
-              </ul>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                <ul className="flex flex-col gap-5">
+                  {category.services.map((service, idx) => (
+                    <li key={idx} className=" bg-purple-100 p-3 rounded-md">
+                      <div className="flex items-start gap-2">
+                        <div className="mt-[6px]">
+                          <Circle weight="fill" />
+                        </div>
+                        <h3 className="text-xl font-medium text-gray-800">
+                          {service.name}
+                        </h3>
+                      </div>
+                      <p className="text-gray-600">{service.description}</p>
+                    </li>
+                  ))}
+                </ul>
+                <div
+                  className={"w-full min-h-[500px] h-full bg-purple-200"}
+                ></div>
+              </div>
               <div className="border-b border-slate-700" />
             </div>
           ))}
@@ -508,16 +518,26 @@ const Page = () => {
                 0{index + 1} {category.category}
               </h2>
               <p className="text-gray-800 mt-2">{category.description}</p>
-              <ul className="mt-4 grid grid-cols-1 gap-5 lg:grid-cols-4">
-                {category.services.map((service, idx) => (
-                  <li key={idx} className=" bg-purple-100 p-3 rounded-md">
-                    <h3 className="text-xl font-medium text-gray-800">
-                      {service.name}
-                    </h3>
-                    <p className="text-gray-600">{service.description}</p>
-                  </li>
-                ))}
-              </ul>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                <ul className="flex flex-col gap-5">
+                  {category.services.map((service, idx) => (
+                    <li key={idx} className=" bg-purple-100 p-3 rounded-md">
+                      <div className="flex items-start gap-2">
+                        <div className="mt-[6px]">
+                          <Circle weight="fill" />
+                        </div>
+                        <h3 className="text-xl font-medium text-gray-800">
+                          {service.name}
+                        </h3>
+                      </div>
+                      <p className="text-gray-600">{service.description}</p>
+                    </li>
+                  ))}
+                </ul>
+                <div
+                  className={"w-full min-h-[500px] h-full bg-purple-200"}
+                ></div>
+              </div>
               <div className="border-b border-slate-700" />
             </div>
           ))}

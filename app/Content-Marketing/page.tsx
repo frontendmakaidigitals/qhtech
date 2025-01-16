@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import {motion } from "framer-motion";
+import { motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import {
   Accordion,
@@ -9,8 +9,8 @@ import {
   AccordionPanel,
 } from "../App chunks/components/Accordion";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
-import { Plus } from "@phosphor-icons/react";
- 
+import { Circle, Plus } from "@phosphor-icons/react";
+
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -249,7 +249,7 @@ const Page = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-purple-50 rounded-lg shadow-md p-6 border border-gray-200"
+              className="bg-purple-50 mt-4 rounded-lg p-6 "
             >
               <h2 className="text-xl font-semibold text-gray-700 mb-2">
                 {service.title}
@@ -258,15 +258,25 @@ const Page = () => {
               <div className="space-y-4 ">
                 {Object.entries(service.details).map(([key, value], i) => (
                   <div key={i}>
-                    <h3 className="text-lg  font-medium text-gray-800 capitalize">
+                    <h3 className="text-lg mb-3  font-medium text-gray-800 capitalize">
                       {key.replace(/([A-Z])/g, " $1")}
                     </h3>
                     {Array.isArray(value) ? (
-                      <ul className="grid grid-cols-1 gap-3 lg:grid-cols-4 text-gray-600">
-                        {value.map((item, j) => (
-                          <li key={j} className="bg-purple-100 p-3">{item}</li>
-                        ))}
-                      </ul>
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+                        <ul className="flex flex-col gap-3  text-gray-600">
+                          {value.map((item, j) => (
+                            <li key={j} className="bg-purple-100 rounded-lg p-3">
+                              <div className="flex items-start gap-2">
+                                <div className="mt-[6px]">
+                                  <Circle weight="fill" className="text-sm" />
+                                </div>
+                                {item}
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="w-full min-h-[500px] h-full bg-purple-200"></div>
+                      </div>
                     ) : (
                       <p className="text-gray-600 ">{value}</p>
                     )}
