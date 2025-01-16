@@ -329,7 +329,26 @@ const Section2 = ({
     [viewportWidth > 450 ? 1 : 0.25, 0]
   );
   const [isSticky, setIsSticky] = React.useState<boolean>(false);
+  const [id, setId] = React.useState<number | null>(null); // Track the selected button
+  const [highlightStyle, setHighlightStyle] = React.useState({}); // Store gray div's styles
+  const btnRefs = useRef<(HTMLButtonElement | null)[]>([]); // Use refs for all buttons
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (id !== null && btnRefs.current[id] && containerRef.current) {
+      const rect = btnRefs.current[id].getBoundingClientRect();
+      const containerElement = containerRef.current;
+      setHighlightStyle({
+        width: `${rect.width}px`,
+        height: `${rect.height}px`,
+        transform: `translate(${0}px, ${
+          rect.y - containerElement.getBoundingClientRect().top
+        }px)`,
+        transition: "all 1s cubic-bezier(0.165, 0.84, 0.44, 1)",
 
+        
+      });
+    }
+  }, [id]);
   return (
     <motion.section
       style={{ scale, rotate }}
@@ -343,7 +362,7 @@ const Section2 = ({
             ? "rgba(255, 255, 255, 0.1)"
             : "transparent",
           backdropFilter: isSticky ? "blur(10px)" : "none",
-          color: isSticky ? "white" : "black",
+          color: isSticky ? "gray" : "black",
         }}
         className="container flex justify-center lg:justify-start items-center gap-3 sticky top-0 left-0 mx-auto z-[50] flex-wrap" // Added flex-wrap here
       >
@@ -368,37 +387,38 @@ const Section2 = ({
       </motion.article>
       <motion.div
         id="sticky-section"
-        className="mt-10 relative z-20 container grid grid-cols-1 lg:grid-cols-4 gap-4"
+        className="mt-10 relative z-20 container grid grid-cols-1 lg:grid-cols-2 gap-4"
         initial={{ opacity: 1 }} // Initially, the parent container is invisible
         whileInView={{ opacity: 1 }} // Make the parent visible when in view
         transition={{ duration: 0.5 }}
       >
-        {services.map((service, index) => (
-          <motion.div
-            key={index}
-            className="w-full group rounded-xl overflow-hidden relative aspect-[3/4] bg-black"
-            animate={{
-              y: inView ? 0 : 300,
+        <div ref={containerRef} className="relative ">
+          <div
+            style={{
+              position: "absolute",
+              zIndex: 1, // Behind buttons
+              backgroundColor: "black",
+              borderRadius: "8px",
+              ...highlightStyle,
             }}
-            transition={{
-              delay: index * 0.1, // Staggered animation with a delay based on the index
-              ease: [0.22, 0.61, 0.36, 1],
-              duration: 0.6,
-            }}
-          >
-            <div className="absolute top-0 left-0 z-10 w-full h-full bg-gradient-to-t from-gray-950/70 to-transparent" />
-            <img
-              src={service.img ?? ""}
-              className="w-full group-hover:scale-[1.1] transition-all duration-300 h-full object-cover"
-            />
-
-            <div className="w-full absolute bg-white/30 px-4 py-2 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
-              <p className="text-white text-2xl font-Synonym font-[500]">
+          />
+          {services.map((service, idx) => (
+            <div key={idx} className="w-full relative">
+              <button
+                onClick={() => setId(idx)} // Update selected button
+                ref={(el) => {
+                  btnRefs.current[idx] = el;
+                }}
+                className={`font-Grostek py-2 transition-colors duration-[.3] delay-[.2] relative z-10 px-4 w-full ${
+                  id === idx ? "text-slate-50" : "text-slate-950"
+                } text-start font-[600] text-2xl`}
+              >
                 {service.name}
-              </p>
+              </button>
             </div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
+        <div></div>
       </motion.div>
     </motion.section>
   );
