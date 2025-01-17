@@ -15,8 +15,8 @@ const AboutUs = () => {
   const body = useRef(null);
   const refs = useRef<(HTMLSpanElement | null)[]>([]); // To store refs for each span
 
-  const para1 = `We’re more than just a marketing agency. At Insight Vision, we’re your growth partners. With a deep understanding of digital landscapes, creative strategies, and technology, we specialize in turning ideas into results. With a team of creative thinkers, data enthusiasts, and tech-savvy experts, we specialize in putting out solutions that drive real results. Whether it’s building a strong online presence, creating engaging content, or scaling your marketing efforts, we are here to guide you every step of the way.`;
-  const para2 = `At our core, we’re passionate about helping brands reach their full potential and making a lasting impact in the industries they serve. Let us help you write the next chapter of your success story.`;
+  const para1 = `We’re more than just a marketing agency. At Insight Vision, we’re your growth partners. With a deep understanding of digital landscapes, creative strategies, and technology, we specialize in turning ideas into results.`;
+  
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     if (refs.current.length > 0) {
@@ -30,7 +30,7 @@ const AboutUs = () => {
       scrollTrigger: {
         trigger: container.current,
         start: "top bottom",
-        end: "center",
+        end: "bottom",
         scrub: true,
       },
       opacity: 1, // Fade in the elements
@@ -114,9 +114,7 @@ const AboutUs = () => {
             <div ref={body} className="w-full flex flex-wrap">
               {splitWords(para1)}
             </div>
-            <div className="w-full mt-4 flex flex-wrap">
-              {splitWords(para2)}
-            </div>
+            
           </div>
 
           {/* Image section */}
