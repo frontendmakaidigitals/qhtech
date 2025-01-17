@@ -334,6 +334,13 @@ const Section2 = ({
   const btnRefs = useRef<(HTMLButtonElement | null)[]>([]); // Use refs for all buttons
   const containerRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
+    if (inView === true) {
+      setId(0);
+    } else {
+      setId(services.length - 1);
+    }
+  }, [inView]);
+  useEffect(() => {
     if (id !== null && btnRefs.current[id] && containerRef.current) {
       const rect = btnRefs.current[id].getBoundingClientRect();
       const containerElement = containerRef.current;
