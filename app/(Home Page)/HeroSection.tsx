@@ -329,7 +329,7 @@ const Section2 = ({
     [viewportWidth > 450 ? 1 : 0.25, 0]
   );
   const [isSticky, setIsSticky] = React.useState<boolean>(false);
-  const [id, setId] = React.useState<number | null>(null); // Track the selected button
+  const [id, setId] = React.useState<number>(0); // Track the selected button
   const [highlightStyle, setHighlightStyle] = React.useState({}); // Store gray div's styles
   const btnRefs = useRef<(HTMLButtonElement | null)[]>([]); // Use refs for all buttons
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -343,19 +343,22 @@ const Section2 = ({
         transform: `translate(${0}px, ${
           rect.y - containerElement.getBoundingClientRect().top
         }px)`,
-        transition: "all 1s cubic-bezier(0.165, 0.84, 0.44, 1)",
-
-        
+        transition: "all .7s cubic-bezier(0.165, 0.84, 0.44, 1)",
       });
     }
   }, [id]);
   return (
     <motion.section
       style={{ scale, rotate }}
-      className="relative py-24 bg-purple-100 text-gray-950"
+      className="relative py-24 from-[#CB801A] via-[#E8932E] to-[#CB801A] bg-gradient-to-t  text-gray-950"
       ref={ref}
     >
-      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+      <div
+        style={{
+          backgroundImage: `url(https://images.pexels.com/photos/3756879/pexels-photo-3756879.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)`,
+        }}
+        className={`absolute bg-no-repeat bg-right bottom-0 left-0 right-0 top-0`}
+      ></div>
       <motion.article
         animate={{
           backgroundColor: isSticky
