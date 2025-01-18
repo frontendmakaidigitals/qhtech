@@ -5,14 +5,6 @@ import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 
 const Slider = () => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [mouseSpeed, setMouseSpeed] = useState(0); // Speed of the mouse movement
-  const lastPosition = useRef({ x: 0, y: 0 });
-  const [rotation, setRotation] = useState(0); // Reference to store previous mouse position
-  const pointerRef = useRef<HTMLDivElement | null>(null);
-  const MAX_SPEED = 20; // Maximum speed limit (in pixels)
-
   const containerRef = useRef(null);
   const images = [
     {
@@ -57,52 +49,6 @@ const Slider = () => {
       image: "industries/automative.jpg",
     },
   ];
-  const handleMouseMove = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    // Ensure this logic runs only on the client side
-    if (typeof window !== "undefined") {
-      const currentX = event.clientX;
-      const currentY = event.clientY;
-
-      // Calculate the distance moved from the last position
-      const deltaX = currentX - lastPosition.current.x;
-      const deltaY = currentY - lastPosition.current.y;
-
-      // Calculate the mouse movement speed (distance moved per frame)
-      let speed = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-
-      // Cap the speed to not exceed MAX_SPEED
-      if (speed > MAX_SPEED) {
-        speed = MAX_SPEED;
-      }
-
-      setMouseSpeed(speed); // Set the mouse speed (limited)
-
-      // Update the mouse position
-      setMousePosition({ x: currentX, y: currentY });
-
-      // Update last position
-      lastPosition.current = { x: currentX, y: currentY };
-
-      // If mouse is moving while dragging, update rotation
-      if (speed > 0) {
-        // Calculate the rotation angle based on mouse position relative to the div
-        if (pointerRef.current) {
-          const rect = pointerRef.current.getBoundingClientRect();
-          const centerX = rect.left + rect.width / 2;
-          const centerY = rect.top + rect.height / 2;
-
-          const deltaXForRotation = currentX - centerX;
-          const deltaYForRotation = currentY - centerY;
-          const angle =
-            Math.atan2(deltaYForRotation, deltaXForRotation) * (180 / Math.PI); // Convert radians to degrees
-
-          setRotation(angle);
-        }
-      }
-    }
-  };
 
   const [viewportWidth, setViewportWidth] = React.useState(0);
 
@@ -125,44 +71,43 @@ const Slider = () => {
     mode: "free",
     slides: {
       perView: viewportWidth > 450 ? 4 : 1.2,
-      spacing: 2,
+      spacing: 45,
     },
   });
-  console.log(viewportWidth);
-  const inView = useInView(containerRef, { once: true });
 
+  const inView = useInView(containerRef, { once: true });
+  const hoverRef = useRef<HTMLDivElement | null>(null);
+  const [cardRect, setCardRect] = useState<{
+    width: number;
+    right: number;
+  }>({ width: 0, right: 0 });
+  useEffect(() => {
+    if (hoverRef.current) {
+      setCardRect(hoverRef.current.getBoundingClientRect());
+    }
+  }, []);
+  useEffect(() => {
+    const handleResize = () => {
+      if (hoverRef.current) {
+        const rect = hoverRef.current.getBoundingClientRect();
+        setCardRect(rect);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up event listener
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const [hoverId, setHoverId] = useState<number | null>(null);
   return (
     <div
       ref={containerRef}
       className="w-full overflow-hidden py-12 bg-purple-100"
     >
-      <AnimatePresence>
-        {isHovered && (
-          <motion.div
-            style={{
-              position: "fixed",
-              rotate: rotation,
-              width: `calc(1.5rem + ${mouseSpeed}px)`,
-              height: `calc(1.5rem - ${mouseSpeed / 2}px)`,
-              borderRadius: "50%",
-            }}
-            ref={pointerRef}
-            initial={{ scale: 0, top: mousePosition.y, left: mousePosition.x }}
-            exit={{ scale: 0 }}
-            animate={{
-              scale: 1,
-              top: mousePosition.y,
-              left: mousePosition.x,
-            }}
-            transition={{
-              duration: 0.3,
-              ease: [0.165, 0.84, 0.44, 1],
-            }}
-            className=" z-[999] -m-3   font-Synonym font-[600] bg-slate-50/60 flex justify-center items-center backdrop-filter backdrop-blur text-slate-50 pointer-events-none"
-          ></motion.div>
-        )}
-      </AnimatePresence>
-
       <motion.article className="flex container justify-center lg:justify-start items-center text-black gap-3">
         {["Industry", "Usage"].map((text, index) => (
           <motion.h1
@@ -182,11 +127,8 @@ const Slider = () => {
         ))}
       </motion.article>
 
-      <div
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onMouseMove={handleMouseMove}
-      >
+      <div>
+        <div className="w-[151px] h-[50px] bg-red-300"></div>
         <motion.div
           animate={{ x: inView ? "0%" : "100%" }}
           transition={{ ease: [0.29, 1.08, 0.67, 0.98], duration: 1.4 }}
@@ -195,15 +137,56 @@ const Slider = () => {
         >
           {images.map((image: { name: string; image: string }, index) => {
             return (
-              <div key={index} className="w-full group keen-slider__slide">
-                <motion.div className="relative overflow-hidden w-full h-[550px] lg:h-[660px] ">
+              <div
+                ref={hoverRef}
+                key={index}
+                onMouseEnter={() => setHoverId(index)}
+                onMouseLeave={() => setHoverId(null)}
+                className="w-full group keen-slider__slide"
+              >
+                <motion.div className="relative overflow-hidden w-full h-[550px] lg:h-[500px] ">
                   <motion.img
                     src={image.image}
                     alt={`slide-${index}`}
                     transition={{ duration: 0.5 }}
-                    className="w-full top-0 left-0 h-full object-cover absolute "
+                    className="w-full top-0 left-0  h-full object-cover absolute "
                     style={{ scale: 1.2 }}
                   />
+                  <AnimatePresence mode="wait">
+                    {hoverId === index && (
+                      <motion.div
+                        initial={{ top: "100%", left: 0 }}
+                        animate={{ top: "0%", left: 0 }}
+                        exit={{ top: "100%", left: 0 }}
+                        transition={{ duration: 1.5, ease: [0.19, 1, 0.22, 1] }}
+                        className="absolute text-slate-50 bg-black w-full h-full"
+                      >
+                        <svg
+                          className="w-full absolute bottom-full "
+                          style={{ height: "100px" }}
+                        >
+                          <motion.path
+                            stroke="black"
+                            fill="black"
+                            initial={{
+                              d: `M 0 100 Q ${(cardRect.width * 2.3) / 2} 50 ${
+                                cardRect.width * 2.3
+                              } 100`,
+                            }}
+                            animate={{
+                              d: `M 0 100 Q ${(cardRect.width * 2.3) / 2} 100 ${
+                                cardRect.width * 2.3
+                              } 100`,
+                            }}
+                            transition={{
+                              duration: 5,
+                              ease: [0.19, 1, 0.22, 1],
+                            }}
+                          />
+                        </svg>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
 
                 <div className="mt-2">
