@@ -94,9 +94,9 @@ const AboutUs = () => {
     }
   }, []);
   return (
-    <div ref={container} className="w-full bg-black py-14">
+    <div ref={container} className="w-full  py-14">
       <div className="container">
-        <div className="text-slate-50 leading-[.99] w-full font-Grostek lg:text-[6rem] xl:text-[8rem] font-[400]">
+        <div className="text-slate-950 leading-[.99] w-full font-Grostek lg:text-[6rem] xl:text-[8rem] font-[400]">
           <motion.div
             animate={{ paddingLeft: inView ? "170px" : "0px" }}
             transition={{ delay: 0.8, duration: 1, ease: [] }}
@@ -130,7 +130,7 @@ const AboutUs = () => {
           </motion.div>
         </div>
 
-        <div className=" mt-6 !text-purple-50">
+        <div className=" mt-6 !text-purple-950">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 ">
             <div ref={body} className="w-full flex flex-wrap">
               {splitWords(para1)}

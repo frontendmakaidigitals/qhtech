@@ -26,8 +26,8 @@ export default function Home() {
         }}
       >
         <HeroSection />
-        <MaskSection />
         <AboutUs />
+        <MaskSection />
         <TechStack />
         <CompantStats />
         <Slider />
