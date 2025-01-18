@@ -68,7 +68,7 @@ const Slider = () => {
     }
   }, []);
   const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
-    mode: "free",
+    
     slides: {
       perView: viewportWidth > 450 ? 4 : 1.2,
       spacing: 45,
@@ -106,8 +106,6 @@ const Slider = () => {
   const [hoverId, setHoverId] = useState<number | null>(null);
   const curveControl = 100;
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-  console.log(loaded);
   return (
     <div
       ref={containerRef}
