@@ -103,6 +103,7 @@ const Slider = () => {
   }, []);
 
   const [hoverId, setHoverId] = useState<number | null>(null);
+  const curveControl = 100;
   return (
     <div
       ref={containerRef}
@@ -158,7 +159,7 @@ const Slider = () => {
                         initial={{ top: "100%", left: 0 }}
                         animate={{ top: "0%", left: 0 }}
                         exit={{ top: "100%", left: 0 }}
-                        transition={{ duration: 1.5, ease: [0.19, 1, 0.22, 1] }}
+                        transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
                         className="absolute text-slate-50 bg-black w-full h-full"
                       >
                         <svg
@@ -169,17 +170,28 @@ const Slider = () => {
                             stroke="black"
                             fill="black"
                             initial={{
-                              d: `M 0 100 Q ${(cardRect.width * 2.3) / 2} 50 ${
+                              d: `M 0 ${curveControl} Q ${
+                                (cardRect.width * 2.3) / 2
+                              } ${curveControl / 2} ${
                                 cardRect.width * 2.3
-                              } 100`,
+                              } ${curveControl}`,
+                            }}
+                            exit={{
+                              d: `M 0 ${curveControl} Q ${
+                                (cardRect.width * 2.3) / 2
+                              } ${curveControl} ${
+                                cardRect.width * 2.3
+                              } ${curveControl}`,
                             }}
                             animate={{
-                              d: `M 0 100 Q ${(cardRect.width * 2.3) / 2} 100 ${
+                              d: `M 0 ${curveControl} Q ${
+                                (cardRect.width * 2.3) / 2
+                              } ${curveControl / 2} ${
                                 cardRect.width * 2.3
-                              } 100`,
+                              } ${curveControl}`,
                             }}
                             transition={{
-                              duration: 5,
+                              duration: 0.8,
                               ease: [0.19, 1, 0.22, 1],
                             }}
                           />
