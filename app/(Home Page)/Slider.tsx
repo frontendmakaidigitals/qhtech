@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
-
+import { ArrowArcLeft, ArrowArcRight } from "@phosphor-icons/react";
 const Slider = () => {
   const containerRef = useRef(null);
   const images = [
@@ -51,7 +51,7 @@ const Slider = () => {
   ];
 
   const [viewportWidth, setViewportWidth] = React.useState(0);
-
+  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       setViewportWidth(window.innerWidth);
@@ -67,12 +67,13 @@ const Slider = () => {
       };
     }
   }, []);
-  const [ref] = useKeenSlider<HTMLDivElement>({
+  const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
     mode: "free",
     slides: {
       perView: viewportWidth > 450 ? 4 : 1.2,
       spacing: 45,
     },
+    created: () => setLoaded(true),
   });
 
   const inView = useInView(containerRef, { once: true });
@@ -104,6 +105,9 @@ const Slider = () => {
 
   const [hoverId, setHoverId] = useState<number | null>(null);
   const curveControl = 100;
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  console.log(loaded);
   return (
     <div
       ref={containerRef}
@@ -129,13 +133,31 @@ const Slider = () => {
       </motion.article>
 
       <div>
-        <div className="w-[151px] h-[50px] bg-red-300"></div>
         <motion.div
           animate={{ x: inView ? "0%" : "100%" }}
           transition={{ ease: [0.29, 1.08, 0.67, 0.98], duration: 1.4 }}
           ref={ref}
           className="keen-slider overflow-hidden w-full mt-7"
         >
+          {loaded && (
+            <>
+              <ArrowArcLeft
+                className="absolute size-10 bg-slate-50/70 hover:bg-slate-50 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 left-0"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  instanceRef.current?.prev();
+                }}
+              />
+
+              <ArrowArcRight
+                className="absolute size-10 bg-slate-50/70 hover:bg-slate-50 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 right-0 rotate-360"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  instanceRef.current?.next();
+                }}
+              />
+            </>
+          )}
           {images.map((image: { name: string; image: string }, index) => {
             return (
               <div
