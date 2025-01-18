@@ -86,13 +86,7 @@ const AboutUs = () => {
   });
 
   const inView = useInView(container, { once: false });
-  const text = useRef<HTMLHeadingElement>(null);
-  const [textHeight, setTextHeight] = React.useState<number>(0);
-  useEffect(() => {
-    if (text.current) {
-      setTextHeight(text.current.getBoundingClientRect().height);
-    }
-  }, []);
+
   return (
     <div ref={container} className="w-full  py-14">
       <div className="container">
