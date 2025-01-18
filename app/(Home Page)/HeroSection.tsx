@@ -6,6 +6,7 @@ import {
   motion,
   MotionValue,
   useInView,
+  AnimatePresence,
 } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { BackgroundGradientAnimation } from "./HeroGradient";
@@ -232,51 +233,51 @@ const Section2 = ({
   const services = [
     {
       name: "Web Development",
-      img: "https://iaqmc.com/wp-content/uploads/2024/03/IAQMC-WEB-DEVELOPMENT.jpg",
+      img: "media/serviceImages/web.jpg",
     },
     {
       name: "App Development",
-      img: "https://www.valuecoders.com/blog/wp-content/uploads/2023/02/800x600-29.png.webp",
+      img: "media/serviceImages/app.png",
     },
     {
       name: "Social Media Marketing",
-      img: "https://www.fenews.co.uk/wp-content/uploads/2022/01/social-media-1200x800.jpg",
+      img: "media/serviceImages/socialMedia.jpg",
     },
     {
       name: "SEO Marketing",
-      img: "https://cdn.shopify.com/s/files/1/0070/7032/files/seo-marketing-what-is-it-how-does-it-work-small.jpg?v=1618324109",
+      img: "media/serviceImages/seo.jpg",
     },
     {
       name: "Photography & Videography",
-      img: "https://blog.fotonic.co.uk/wp-content/uploads/2022/02/kushagra-kevat-9ESAufvpgjI-unsplash-1024x576-1.jpg",
+      img: "media/serviceImages/photography.jpeg",
     },
     {
       name: "Media Buying",
-      img: "https://www.rankontechnologies.com/wp-content/uploads/2023/06/Media-Buying-Process-Role-of-Media-Buyer-How-Much-Does-it-Cost-02.jpg",
+      img: "media/serviceImages/media.jpg",
     },
     {
       name: "Performance Marketing",
-      img: "https://www.thelaneagency.com/wp-content/uploads/2023/04/What-is-Performance-Marketing.jpg",
+      img: "media/serviceImages/marketing.jpg",
     },
     {
       name: "Content Marketing",
-      img: "https://cdn.pixabay.com/photo/2019/04/07/23/11/content-marketing-4111003_1280.jpg",
+      img: "media/serviceImages/content.jpg",
     },
     {
       name: "Public Relation",
-      img: "https://resources.workable.com/wp-content/uploads/2019/11/public_relations-1.jpg",
+      img: "media/serviceImages/publicRelation.jpg",
     },
     {
       name: "Branding & Advertising",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPsFkT7x-RaNG-aWXXPpfjE3VUGLykspflIg&s",
+      img: "media/serviceImages/branding.jpg",
     },
     {
       name: "IT Consulting & Advisory",
-      img: "https://media.istockphoto.com/id/943067460/photo/male-it-specialist-holds-laptop-and-discusses-work-with-female-server-technician-theyre.jpg?s=612x612&w=0&k=20&c=851ArmF2ooz-2yQCRCWkjJLCYwDdpTCYzPinl9WgA_s=",
+      img: "media/serviceImages/it.jpg",
     },
     {
       name: "Cyber Security",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4FHzSW4MDaYX8YUhRS_lHEFryCX-jbET4xA&s",
+      img: "media/serviceImages/security.jpg",
     },
   ];
   useEffect(() => {
@@ -329,9 +330,11 @@ const Section2 = ({
     [viewportWidth > 450 ? 1 : 0.25, 0]
   );
   const [isSticky, setIsSticky] = React.useState<boolean>(false);
-  const [id, setId] = React.useState<number>(0); // Track the selected button
-  const [highlightStyle, setHighlightStyle] = React.useState({}); // Store gray div's styles
-  const btnRefs = useRef<(HTMLButtonElement | null)[]>([]); // Use refs for all buttons
+  const [id, setId] = React.useState<number>(0);
+  const [hoverId, setHoverId] = React.useState<number | null>(null);
+  const [hoverStyle, setHoverStyle] = React.useState({});
+  const [highlightStyle, setHighlightStyle] = React.useState({});
+  const btnRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     if (inView === true) {
@@ -354,18 +357,28 @@ const Section2 = ({
       });
     }
   }, [id]);
+
+  useEffect(() => {
+    if (hoverId !== null && btnRefs.current[hoverId] && containerRef.current) {
+      const rect = btnRefs.current[hoverId].getBoundingClientRect();
+      const containerElement = containerRef.current;
+      setHoverStyle({
+        width: `${rect.width}px`,
+        height: `${rect.height}px`,
+        transform: `translate(${0}px, ${
+          rect.y - containerElement.getBoundingClientRect().top
+        }px)`,
+        transition: "all .7s cubic-bezier(0.165, 0.84, 0.44, 1)",
+      });
+    }
+  }, [hoverId]);
+
   return (
     <motion.section
       style={{ scale, rotate }}
-      className="relative py-24 from-[#CB801A] via-[#E8932E] to-[#CB801A] bg-gradient-to-t  text-gray-950"
+      className="relative py-24 bg-slate-100  text-gray-950"
       ref={ref}
     >
-      <div
-        style={{
-          backgroundImage: `url(https://images.pexels.com/photos/3756879/pexels-photo-3756879.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)`,
-        }}
-        className={`absolute bg-no-repeat bg-right bottom-0 left-0 right-0 top-0`}
-      ></div>
       <motion.article
         animate={{
           backgroundColor: isSticky
@@ -397,7 +410,7 @@ const Section2 = ({
       </motion.article>
       <motion.div
         id="sticky-section"
-        className="mt-10 relative z-20 container grid grid-cols-1 lg:grid-cols-2 gap-4"
+        className="mt-10 relative z-20 container grid grid-cols-1 lg:grid-cols-2 gap-10"
         initial={{ opacity: 1 }} // Initially, the parent container is invisible
         whileInView={{ opacity: 1 }} // Make the parent visible when in view
         transition={{ duration: 0.5 }}
@@ -412,8 +425,25 @@ const Section2 = ({
               ...highlightStyle,
             }}
           />
+          {hoverId ? (
+            <div
+              className={`bg-gray-500/40`}
+              style={{
+                position: "absolute",
+                zIndex: 1,
+
+                borderRadius: "8px",
+                ...hoverStyle,
+              }}
+            />
+          ) : null}
           {services.map((service, idx) => (
-            <div key={idx} className="w-full relative">
+            <div
+              key={idx}
+              onMouseEnter={() => setHoverId(idx)}
+              onMouseLeave={() => setHoverId(null)}
+              className="w-full relative"
+            >
               <button
                 onClick={() => setId(idx)} // Update selected button
                 ref={(el) => {
@@ -428,7 +458,18 @@ const Section2 = ({
             </div>
           ))}
         </div>
-        <div></div>
+        <div className="w-full h-full overflow-hidden">
+          <AnimatePresence>
+            <motion.img
+              key={id}
+              initial={{ opacity: 0, filter: "blur(10px)" }}
+              animate={{ opacity: 1, filter: "blur(0px)" }}
+              src={services[id].img}
+              transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+              className="w-full h-full object-cover"
+            />
+          </AnimatePresence>
+        </div>
       </motion.div>
     </motion.section>
   );
