@@ -301,11 +301,9 @@ const Section2 = ({
     };
   }, []);
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true });
+  const inView = useInView(ref, { once: true, amount: 0.8 });
 
   const [viewportWidth, setViewportWidth] = React.useState(0);
-
-  // Update the viewport width when the window is resized
   useEffect(() => {
     const handleResize = () => {
       setViewportWidth(window.innerWidth); // Update state with new width
@@ -329,6 +327,7 @@ const Section2 = ({
     [0, viewportWidth > 450 ? 0.8 : 0.25],
     [viewportWidth > 450 ? 1 : 0.25, 0]
   );
+
   const [isSticky, setIsSticky] = React.useState<boolean>(false);
   const [id, setId] = React.useState<number>(0);
   const [hoverId, setHoverId] = React.useState<number | null>(null);
@@ -336,6 +335,7 @@ const Section2 = ({
   const [highlightStyle, setHighlightStyle] = React.useState({});
   const btnRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const translateX = useTransform(scrollYProgress, [0, 1], [1, 0]);
   useEffect(() => {
     if (inView === true) {
       setId(0);
@@ -389,6 +389,7 @@ const Section2 = ({
         }}
         className="container flex justify-center lg:justify-start items-center gap-3 sticky top-0 left-0 mx-auto z-[50] flex-wrap" // Added flex-wrap here
       >
+      
         {["Services", "Designed", "to", "Drive", "Growth"].map(
           (text, index) => (
             <motion.h1
@@ -425,20 +426,19 @@ const Section2 = ({
               ...highlightStyle,
             }}
           />
-          {hoverId ? (
+          {hoverId !== null ? (
             <div
-              className={`bg-gray-500/40`}
+              className={`bg-gray-500/40 origin-left`}
               style={{
                 position: "absolute",
                 zIndex: 1,
-
                 borderRadius: "8px",
                 ...hoverStyle,
               }}
             />
           ) : null}
           {services.map((service, idx) => (
-            <div
+            <motion.div
               key={idx}
               onMouseEnter={() => setHoverId(idx)}
               onMouseLeave={() => setHoverId(null)}
@@ -455,7 +455,7 @@ const Section2 = ({
               >
                 {service.name}
               </button>
-            </div>
+            </motion.div>
           ))}
         </div>
         <div className="w-full h-full overflow-hidden">

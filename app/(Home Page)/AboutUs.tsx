@@ -30,7 +30,7 @@ const AboutUs = () => {
       scrollTrigger: {
         trigger: container.current,
         start: "top bottom",
-        end: "bottom",
+        end: "center",
         scrub: true,
       },
       opacity: 1, // Fade in the elements
@@ -75,6 +75,8 @@ const AboutUs = () => {
     offset: ["start start", "end end"],
   });
 
+  const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   // Transform scrollYProgress into y movement
   const y = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
 
@@ -86,9 +88,31 @@ const AboutUs = () => {
   });
 
   const inView = useInView(container, { once: false });
-
+  const strokeDashoffset = useTransform(pathLength, [0, 1], [1000, 0]);
   return (
-    <div ref={container} className="w-full  py-14">
+    <div ref={container} className="w-full overflow-hidden relative py-32">
+      <div className="absolute -z-10 top-1/2 -translate-y-1/2 -left-10">
+        <motion.svg
+          width="1616"
+          height="817"
+          viewBox="0 0 1616 817"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          /
+          <motion.path
+            d="M26.5 124C135.667 50.1664 603.5 -70.5 1053 161.5C1372.34 326.32 731.5 386 336.5 386C-53 364.5 678.3 852.7 1589.5 783.5"
+            stroke="#1BFF4D"
+            strokeWidth="52"
+            strokeLinecap="round"
+            style={{
+              pathLength, // The path length animates from 0 to 1
+              strokeDashoffset, // The dash offset animates from 1000 to 0
+            }}
+            strokeDasharray="1000"
+          />
+        </motion.svg>
+      </div>
       <div className="container">
         <div className="text-slate-950 leading-[.99] w-full font-Grostek lg:text-[6rem] xl:text-[8rem] font-[400]">
           <motion.div
