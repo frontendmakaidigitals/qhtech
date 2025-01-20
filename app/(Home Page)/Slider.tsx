@@ -25,8 +25,7 @@ const Slider = () => {
     },
     {
       name: "F&B",
-      image:
-        "https://images.unsplash.com/photo-1635972064135-8ec7711f9895?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "industries/F&B.jpg",
     },
     {
       name: "Events & Shows",
