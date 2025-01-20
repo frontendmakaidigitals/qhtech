@@ -169,7 +169,7 @@ const AboutUs = () => {
                 className="w-full h-full absolute z-[10] top-0 left-0 bg-purple-100"
               />
               <motion.img
-                src="https://cdn.dribbble.com/userupload/12017863/file/original-81427c44c3bb53199e8c3db7196ffd9a.png?resize=1504x1128&vertical=center"
+                src="/about us image.png"
                 alt="Image"
                 className="w-full h-full object-cover"
                 style={{ translateY: springY, scale: 1.1 }}

@@ -199,7 +199,7 @@ const Section1 = ({
         <div className="mt-6">
           <button className="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-tr from-purple-100 to-purple-300  font-medium text-purple-950   transition-all duration-300 hover:w-32">
             <div className="inline-flex whitespace-nowrap opacity-0 transition-all duration-200 group-hover:-translate-x-3 group-hover:opacity-100">
-              No Name
+              Get in Touch
             </div>
             <div className="absolute right-3.5">
               <svg
@@ -332,7 +332,7 @@ const Section2 = ({
   const [id, setId] = React.useState<number>(0);
   const [hoverId, setHoverId] = React.useState<number>(0);
   const [hoverStyle, setHoverStyle] = React.useState({});
-  const [highlightStyle, setHighlightStyle] = React.useState({});
+
   const btnRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -343,20 +343,6 @@ const Section2 = ({
       setId(services.length - 1);
     }
   }, [inView]);
-  useEffect(() => {
-    if (id !== null && btnRefs.current[id] && containerRef.current) {
-      const rect = btnRefs.current[id].getBoundingClientRect();
-      const containerElement = containerRef.current;
-      setHighlightStyle({
-        width: `${rect.width}px`,
-        height: `${rect.height}px`,
-        transform: `translate(${0}px, ${
-          rect.y - containerElement.getBoundingClientRect().top
-        }px)`,
-        transition: "all .7s cubic-bezier(0.165, 0.84, 0.44, 1)",
-      });
-    }
-  }, [id]);
 
   useEffect(() => {
     if (hoverId !== null && btnRefs.current[hoverId] && containerRef.current) {
