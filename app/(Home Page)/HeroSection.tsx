@@ -335,7 +335,7 @@ const Section2 = ({
   const [highlightStyle, setHighlightStyle] = React.useState({});
   const btnRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const translateX = useTransform(scrollYProgress, [0, 1], [1, 0]);
+
   useEffect(() => {
     if (inView === true) {
       setId(0);
