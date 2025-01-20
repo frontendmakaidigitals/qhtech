@@ -330,7 +330,7 @@ const Section2 = ({
 
   const [isSticky, setIsSticky] = React.useState<boolean>(false);
   const [id, setId] = React.useState<number>(0);
-  const [hoverId, setHoverId] = React.useState<number | null>(null);
+  const [hoverId, setHoverId] = React.useState<number>(0);
   const [hoverStyle, setHoverStyle] = React.useState({});
   const [highlightStyle, setHighlightStyle] = React.useState({});
   const btnRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -389,7 +389,6 @@ const Section2 = ({
         }}
         className="container flex justify-center lg:justify-start items-center gap-3 sticky top-0 left-0 mx-auto z-[50] flex-wrap" // Added flex-wrap here
       >
-      
         {["Services", "Designed", "to", "Drive", "Growth"].map(
           (text, index) => (
             <motion.h1
@@ -418,30 +417,19 @@ const Section2 = ({
       >
         <div ref={containerRef} className="relative ">
           <div
+            className={`bg-black origin-left`}
             style={{
               position: "absolute",
-              zIndex: 1, // Behind buttons
-              backgroundColor: "black",
+              zIndex: 1,
               borderRadius: "8px",
-              ...highlightStyle,
+              ...hoverStyle,
             }}
           />
-          {hoverId !== null ? (
-            <div
-              className={`bg-gray-500/40 origin-left`}
-              style={{
-                position: "absolute",
-                zIndex: 1,
-                borderRadius: "8px",
-                ...hoverStyle,
-              }}
-            />
-          ) : null}
+
           {services.map((service, idx) => (
             <motion.div
               key={idx}
               onMouseEnter={() => setHoverId(idx)}
-              onMouseLeave={() => setHoverId(null)}
               className="w-full relative"
             >
               <button
@@ -450,7 +438,7 @@ const Section2 = ({
                   btnRefs.current[idx] = el;
                 }}
                 className={`font-Grostek py-2 transition-colors duration-[.3] delay-[.2] relative z-10 px-4 w-full ${
-                  id === idx ? "text-slate-50" : "text-slate-950"
+                  hoverId === idx ? "text-slate-50" : "text-slate-950"
                 } text-start font-[600] text-2xl`}
               >
                 {service.name}
@@ -461,10 +449,10 @@ const Section2 = ({
         <div className="w-full h-full overflow-hidden">
           <AnimatePresence>
             <motion.img
-              key={id}
+              key={hoverId}
               initial={{ opacity: 0, filter: "blur(10px)" }}
               animate={{ opacity: 1, filter: "blur(0px)" }}
-              src={services[id].img}
+              src={services[hoverId].img}
               transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
               className="w-full h-full object-cover"
             />

@@ -68,7 +68,6 @@ const Slider = () => {
     }
   }, []);
   const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
-    
     slides: {
       perView: viewportWidth > 450 ? 4 : 1.2,
       spacing: 45,
