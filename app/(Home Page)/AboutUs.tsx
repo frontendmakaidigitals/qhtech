@@ -25,12 +25,11 @@ const AboutUs = () => {
   }, []);
 
   const createAnimation = () => {
-    // Ensure GSAP targets valid elements in the refs
     gsap.to(refs.current, {
       scrollTrigger: {
         trigger: container.current,
-        start: "top bottom",
-        end: "center",
+        start: "10%",
+        end: "40%",
         scrub: true,
       },
       opacity: 1, // Fade in the elements
@@ -91,33 +90,49 @@ const AboutUs = () => {
   const strokeDashoffset = useTransform(pathLength, [0, 1], [1000, 0]);
   return (
     <div ref={container} className="w-full overflow-hidden relative py-32">
-      <div className="absolute -z-10 top-1/2 -translate-y-1/2 -left-10">
+      <div className="absolute -z-10 w-full h-full top-1/2 -translate-y-1/2 left-0">
         <motion.svg
-          width="1616"
-          height="817"
+          width="100%"
+          height="100%"
           viewBox="0 0 1616 817"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          /
           <motion.path
-            d="M26.5 124C135.667 50.1664 603.5 -70.5 1053 161.5C1372.34 326.32 731.5 386 336.5 386C-53 364.5 678.3 852.7 1589.5 783.5"
-            stroke="#1BFF4D"
-            strokeWidth="52"
-            strokeLinecap="round"
+            d="M15.5625 27C195.774 33.1937 594.291 154.477 539.593 424.002C471.22 760.908 170.209 479.26 328.932 297.849C455.911 152.72 991.662 505.013 1243.67 699.3C1480.11 881.589 1826.42 846.322 1740.64 589.924C1645.24 304.757 1139.5 356 769 669.5C660.171 761.586 1609.5 1050 1729.5 1094.5"
+            stroke="url(#paint0_linear_1546_83)"
+            strokeWidth="51"
+            strokeLinecap="square"
             style={{
               pathLength, // The path length animates from 0 to 1
               strokeDashoffset, // The dash offset animates from 1000 to 0
             }}
             strokeDasharray="1000"
           />
+          <defs>
+            <linearGradient
+              id="paint0_linear_1546_83"
+              x1="879.64"
+              y1="27.0001"
+              x2="1087.75"
+              y2="413.378"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#52FF00" />
+              <stop offset="1" stopColor="#47D007" />
+            </linearGradient>
+          </defs>
         </motion.svg>
       </div>
       <div className="container">
         <div className="text-slate-950 leading-[.99] w-full font-Grostek lg:text-[6rem] xl:text-[8rem] font-[400]">
           <motion.div
             animate={{ paddingLeft: inView ? "170px" : "0px" }}
-            transition={{ delay: 0.8, duration: 1, ease: [] }}
+            transition={{
+              delay: 1,
+              duration: 0.8,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
             className="inline-block overflow-hidden"
           >
             {"Shape Imagination".split(" ").map((word, idx) => (
