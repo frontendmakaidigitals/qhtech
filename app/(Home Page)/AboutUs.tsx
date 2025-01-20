@@ -173,7 +173,7 @@ const AboutUs = () => {
           {/* Image section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <div></div>
-            <motion.div className="w-full h-full rounded-lg relative overflow-hidden">
+            <motion.div className="w-full h-[500px] rounded-lg relative overflow-hidden">
               <motion.div
                 animate={{ y: inView ? "-100%" : "0%" }}
                 transition={{
