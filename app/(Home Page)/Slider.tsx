@@ -93,6 +93,18 @@ const Slider = () => {
   const hoverRef = useRef<HTMLDivElement | null>(null);
   const [hoverId, setHoverId] = useState<number | null>(null);
 
+  const cardRef = useRef<(HTMLImageElement | null)[]>([]);
+  const [cardHeight, setCardHeight] = React.useState(0);
+  useEffect(() => {
+    // Only run if the refs are populated
+    if (cardRef.current.length > 0) {
+      const heights = cardRef.current.map(
+        (ref) => (ref ? ref.clientHeight : 0)
+      );
+      setCardHeight(Math.max(...heights)); // Set the highest height
+    }
+  }, [images]);
+  console.log(cardHeight)
   return (
     <div
       ref={containerRef}
@@ -162,6 +174,7 @@ const Slider = () => {
                         <motion.div className="relative overflow-hidden w-full aspect-[3/4] ">
                           <motion.img
                             src={image.image}
+                            ref={(el) => { cardRef.current[index] = el; }}
                             alt={`slide-${index}`}
                             transition={{ duration: 0.5 }}
                             className="w-full top-0 left-0  h-full object-cover absolute "
@@ -176,17 +189,18 @@ const Slider = () => {
                         </p>
                       </div>
                     </div>
-                    <div>
-                      <div className="bg-gray-800 p-4 text-slate-50 aspect-[3/4]">
+                    <div className="w-full">
+                      <div
+                        className="bg-gray-800 relative  px-5 py-6 text-slate-50"
+                        style={{ height: `${cardHeight}px` }}
+                      >
                         <h2 className="font-Grostek text-3xl font-[600]">
                           {image.name}
                         </h2>
-                        <motion.div className="relative  mt-2 w-full  ">
+                        <motion.div className=" mt-2 w-full h-full">
                           <p className="font-Grostek text-xl">{image.text}</p>
-                          <button className="flex items-center absolute bottom-2 px-3 py-2 bg-purple-200 text-slate-950  right-2">
-                            Know more <ArrowUpRight />
-                          </button>
                         </motion.div>
+                        
                       </div>
                     </div>
                   </ReactCardFlip>
