@@ -5,8 +5,8 @@ import {
   useTransform,
   motion,
   MotionValue,
- 
   AnimatePresence,
+  color,
 } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { BackgroundGradientAnimation } from "./HeroGradient";
@@ -234,14 +234,17 @@ const Section2 = ({
     {
       name: "Web Development",
       img: "media/serviceImages/web.jpg",
+      color: "#E0E0E0 ",
     },
     {
       name: "App Development",
       img: "media/serviceImages/app.png",
+      color: "#D7CCC8",
     },
     {
       name: "Social Media Marketing",
       img: "media/serviceImages/socialMedia.jpg",
+      color: "#BBDEFB",
     },
     {
       name: "SEO Marketing",
@@ -301,7 +304,6 @@ const Section2 = ({
     };
   }, []);
   const ref = useRef<HTMLDivElement>(null);
-  
 
   const [viewportWidth, setViewportWidth] = React.useState(0);
   useEffect(() => {
@@ -352,7 +354,7 @@ const Section2 = ({
 
   return (
     <motion.section
-      style={{ scale, rotate }}
+      style={{ scale, rotate, backgroundColor: services[hoverId].color }}
       className="relative py-24 bg-slate-100  text-gray-950"
       ref={ref}
     >

@@ -76,33 +76,7 @@ const Slider = () => {
 
   const inView = useInView(containerRef, { once: true });
   const hoverRef = useRef<HTMLDivElement | null>(null);
-  const [cardRect, setCardRect] = useState<{
-    width: number;
-    right: number;
-  }>({ width: 0, right: 0 });
-  useEffect(() => {
-    if (hoverRef.current) {
-      setCardRect(hoverRef.current.getBoundingClientRect());
-    }
-  }, []);
-  useEffect(() => {
-    const handleResize = () => {
-      if (hoverRef.current) {
-        const rect = hoverRef.current.getBoundingClientRect();
-        setCardRect(rect);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    // Clean up event listener
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   const [hoverId, setHoverId] = useState<number | null>(null);
-  const curveControl = 100;
 
   return (
     <div
@@ -161,9 +135,9 @@ const Slider = () => {
                 key={index}
                 onMouseEnter={() => setHoverId(index)}
                 onMouseLeave={() => setHoverId(null)}
-                className="w-full group keen-slider__slide"
+                className="w-full group keen-slider__slide translate-y-12"
               >
-                <motion.div className="relative overflow-hidden w-full h-[550px] lg:h-[500px] ">
+                <motion.div className="relative overflow-hidden w-full aspect-[3/4] ">
                   <motion.img
                     src={image.image}
                     alt={`slide-${index}`}
@@ -171,52 +145,6 @@ const Slider = () => {
                     className="w-full top-0 left-0  h-full object-cover absolute "
                     style={{ scale: 1.2 }}
                   />
-                  <AnimatePresence mode="wait">
-                    {hoverId === index && (
-                      <motion.div
-                        initial={{ top: "100%", left: 0 }}
-                        animate={{ top: "0%", left: 0 }}
-                        exit={{ top: "100%", left: 0 }}
-                        transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
-                        className="absolute text-slate-50 bg-black w-full h-full"
-                      >
-                        <svg
-                          className="w-full absolute bottom-full "
-                          style={{ height: "100px" }}
-                        >
-                          <motion.path
-                            stroke="black"
-                            fill="black"
-                            initial={{
-                              d: `M 0 ${curveControl} Q ${
-                                (cardRect.width * 2.3) / 2
-                              } ${curveControl / 2} ${
-                                cardRect.width * 2.3
-                              } ${curveControl}`,
-                            }}
-                            exit={{
-                              d: `M 0 ${curveControl} Q ${
-                                (cardRect.width * 2.3) / 2
-                              } ${curveControl} ${
-                                cardRect.width * 2.3
-                              } ${curveControl}`,
-                            }}
-                            animate={{
-                              d: `M 0 ${curveControl} Q ${
-                                (cardRect.width * 2.3) / 2
-                              } ${curveControl / 2} ${
-                                cardRect.width * 2.3
-                              } ${curveControl}`,
-                            }}
-                            transition={{
-                              duration: 0.8,
-                              ease: [0.19, 1, 0.22, 1],
-                            }}
-                          />
-                        </svg>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </motion.div>
 
                 <div className="mt-2">
