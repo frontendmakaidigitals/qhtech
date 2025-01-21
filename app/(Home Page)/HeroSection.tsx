@@ -11,7 +11,8 @@ import { useEffect, useRef } from "react";
 import { BackgroundGradientAnimation } from "./HeroGradient";
 import { ArrowUpRight } from "@phosphor-icons/react";
 import "../App chunks/components/textAnim.css";
-
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 export default function HeroSection() {
   const container = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -303,17 +304,15 @@ const Section2 = ({
     };
   }, []);
   const ref = useRef<HTMLDivElement>(null);
-
+  const [sliderRef, instanceRef] = useKeenSlider({
+    vertical: true,
+  });
   const [viewportWidth, setViewportWidth] = React.useState(0);
   useEffect(() => {
     const handleResize = () => {
-      setViewportWidth(window.innerWidth); // Update state with new width
+      setViewportWidth(window.innerWidth);
     };
-
-    // Add event listener for resize
     window.addEventListener("resize", handleResize);
-
-    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -332,12 +331,28 @@ const Section2 = ({
   const [isSticky, setIsSticky] = React.useState<boolean>(false);
   const [hoverId, setHoverId] = React.useState<number>(0);
   const [hoverStyle, setHoverStyle] = React.useState({});
-
+  const [containerHeight, setContainerHeight] = React.useState(0);
   const btnRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [prevHoverId, setPrevHoverId] = React.useState<number | null>(null);
-  const [isDecreasing, setIsDecreasing] = React.useState<boolean>(false);
-  console.log(isDecreasing, prevHoverId, hoverId);
+  useEffect(() => {
+    const updateContainerHeight = () => {
+      if (containerRef.current) {
+        setContainerHeight(containerRef.current.getBoundingClientRect().height); // Get the height of the container
+      }
+    };
+
+    // Initial height calculation
+    updateContainerHeight();
+
+    // Add resize event listener to update height dynamically
+    window.addEventListener("resize", updateContainerHeight);
+
+    // Cleanup the event listener
+    return () => {
+      window.removeEventListener("resize", updateContainerHeight);
+    };
+  }, []);
+  console.log(containerHeight);
   useEffect(() => {
     if (hoverId !== null && btnRefs.current[hoverId] && containerRef.current) {
       const rect = btnRefs.current[hoverId].getBoundingClientRect();
@@ -354,11 +369,10 @@ const Section2 = ({
   }, [hoverId]);
 
   useEffect(() => {
-    if (prevHoverId !== null) {
-      setIsDecreasing(hoverId < prevHoverId);
+    if (instanceRef.current) {
+      instanceRef.current.moveToIdx(hoverId);
     }
-    setPrevHoverId(hoverId); // Update the previous hoverId after comparison
-  }, [hoverId]);
+  }, [hoverId, instanceRef]);
 
   return (
     <motion.section
@@ -402,7 +416,7 @@ const Section2 = ({
         whileInView={{ opacity: 1 }} // Make the parent visible when in view
         transition={{ duration: 0.5 }}
       >
-        <div ref={containerRef} className="relative ">
+        <div ref={containerRef} className="relative">
           <div
             className={`bg-black origin-left`}
             style={{
@@ -432,17 +446,21 @@ const Section2 = ({
             </motion.div>
           ))}
         </div>
-        <div className="w-full h-full overflow-hidden">
-          <AnimatePresence>
-            <motion.img
-              key={prevHoverId}
-              initial={{ y: isDecreasing ? "100%" : "-100%" }}
-              animate={{ y: isDecreasing ? "0%" : "0%" }}
-              src={services[hoverId].img}
-              transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
-              className="w-full h-full object-cover"
-            />
-          </AnimatePresence>
+        <div
+          ref={sliderRef}
+          style={{ height: `${containerHeight}px` }}
+          className={`w-full keen-slider overflow-hidden `}
+        >
+          {services.map((service, idx) => (
+            <div key={idx} className={`keen-slider__slide h-full`}>
+              <motion.img
+                src={service.img}
+                key={hoverId}
+                transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
         </div>
       </motion.div>
     </motion.section>
