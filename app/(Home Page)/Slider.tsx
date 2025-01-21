@@ -3,7 +3,11 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
-import { ArrowArcLeft, ArrowArcRight } from "@phosphor-icons/react";
+import {
+  ArrowArcLeft,
+  ArrowArcRight,
+  ArrowUpRight,
+} from "@phosphor-icons/react";
 import ReactCardFlip from "react-card-flip";
 const Slider = () => {
   const containerRef = useRef(null);
@@ -173,12 +177,15 @@ const Slider = () => {
                       </div>
                     </div>
                     <div>
-                      <div className="bg-gray-800 p-4 text-slate-50">
-                        <h2 className="font-Grostek text-2xl font-[500]">
+                      <div className="bg-gray-800 p-4 text-slate-50 aspect-[3/4]">
+                        <h2 className="font-Grostek text-3xl font-[600]">
                           {image.name}
                         </h2>
-                        <motion.div className="relative overflow-hidden mt-4 w-full aspect-[3/4] ">
+                        <motion.div className="relative  mt-2 w-full  ">
                           <p className="font-Grostek text-xl">{image.text}</p>
+                          <button className="flex items-center absolute bottom-2 px-3 py-2 bg-purple-200 text-slate-950  right-2">
+                            Know more <ArrowUpRight />
+                          </button>
                         </motion.div>
                       </div>
                     </div>
