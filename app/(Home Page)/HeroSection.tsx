@@ -336,14 +336,6 @@ const Section2 = ({
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (inView === true) {
-      setId(0);
-    } else {
-      setId(services.length - 1);
-    }
-  }, [inView]);
-
-  useEffect(() => {
     if (hoverId !== null && btnRefs.current[hoverId] && containerRef.current) {
       const rect = btnRefs.current[hoverId].getBoundingClientRect();
       const containerElement = containerRef.current;
