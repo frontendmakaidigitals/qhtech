@@ -329,7 +329,6 @@ const Section2 = ({
   );
 
   const [isSticky, setIsSticky] = React.useState<boolean>(false);
-  const [id, setId] = React.useState<number>(0);
   const [hoverId, setHoverId] = React.useState<number>(0);
   const [hoverStyle, setHoverStyle] = React.useState({});
 
@@ -419,7 +418,6 @@ const Section2 = ({
               className="w-full relative"
             >
               <button
-                onClick={() => setId(idx)} // Update selected button
                 ref={(el) => {
                   btnRefs.current[idx] = el;
                 }}
