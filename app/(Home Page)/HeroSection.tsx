@@ -6,7 +6,6 @@ import {
   motion,
   MotionValue,
   AnimatePresence,
-
 } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { BackgroundGradientAnimation } from "./HeroGradient";
@@ -336,7 +335,9 @@ const Section2 = ({
 
   const btnRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
-
+  const [prevHoverId, setPrevHoverId] = React.useState<number | null>(null);
+  const [isDecreasing, setIsDecreasing] = React.useState<boolean>(false);
+  console.log(isDecreasing, prevHoverId, hoverId);
   useEffect(() => {
     if (hoverId !== null && btnRefs.current[hoverId] && containerRef.current) {
       const rect = btnRefs.current[hoverId].getBoundingClientRect();
@@ -350,6 +351,13 @@ const Section2 = ({
         transition: "all .7s cubic-bezier(0.165, 0.84, 0.44, 1)",
       });
     }
+  }, [hoverId]);
+
+  useEffect(() => {
+    if (prevHoverId !== null) {
+      setIsDecreasing(hoverId < prevHoverId);
+    }
+    setPrevHoverId(hoverId); // Update the previous hoverId after comparison
   }, [hoverId]);
 
   return (
@@ -427,9 +435,9 @@ const Section2 = ({
         <div className="w-full h-full overflow-hidden">
           <AnimatePresence>
             <motion.img
-              key={hoverId}
-              initial={{ opacity: 0, filter: "blur(10px)" }}
-              animate={{ opacity: 1, filter: "blur(0px)" }}
+              key={prevHoverId}
+              initial={{ y: isDecreasing ? "100%" : "-100%" }}
+              animate={{ y: isDecreasing ? "0%" : "0%" }}
               src={services[hoverId].img}
               transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
               className="w-full h-full object-cover"
