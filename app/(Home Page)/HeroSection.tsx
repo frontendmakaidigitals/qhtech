@@ -6,7 +6,7 @@ import {
   motion,
   MotionValue,
   AnimatePresence,
-  color,
+
 } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { BackgroundGradientAnimation } from "./HeroGradient";
