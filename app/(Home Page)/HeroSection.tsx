@@ -5,7 +5,7 @@ import {
   useTransform,
   motion,
   MotionValue,
-  useInView,
+ 
   AnimatePresence,
 } from "framer-motion";
 import { useEffect, useRef } from "react";
@@ -301,7 +301,7 @@ const Section2 = ({
     };
   }, []);
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.8 });
+  
 
   const [viewportWidth, setViewportWidth] = React.useState(0);
   useEffect(() => {
