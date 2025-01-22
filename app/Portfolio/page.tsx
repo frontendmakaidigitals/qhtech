@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
-import VideoPortfolio from "../App chunks/components/videoScroll";
+ 
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
