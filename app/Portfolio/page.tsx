@@ -1,13 +1,14 @@
 "use client";
 import React from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
 import VideoPortfolio from "../App chunks/components/videoScroll";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
- 
+  const mediaRef = React.useRef<HTMLDivElement>(null);
+  
   React.useEffect(() => {
     const rect = document
       .getElementsByClassName("HeadNavigation")[0]
@@ -16,6 +17,7 @@ const Page = () => {
   }, []);
 
   const fileNames = [
+    "0-Ndu9wl-9Iutftonybbcb6rcsj8jkod3pudyulwpqachg1cyg98sjsy5xbfgyesr-7TpzaaknmRuncmAmyhhnzlofevi.mp4",
     "20241130_130756.jpg",
     "20241227_120804.jpg",
     "2024_11_30_12_51_IMG_5750.jpg",
@@ -24,54 +26,47 @@ const Page = () => {
     "2024_11_30_12_58_IMG_5782.jpg",
     "2024_11_30_12_59_IMG_5788.jpg",
     "2024_11_30_12_59_IMG_5791.jpg",
+    "appAqosdxavbo2ax-Z3xbjqktlgj97vpdhsswl7-84Q0ixr-Kbgz2p61q0Cb5w1myqvn7urunypcjeoy2bhdlpsdmjx8hmfrhoqhuhe.mp4",
+    "app_452254406_1026723278798997_6018970639625638723_n_1080.jpg",
+    "app_453039841_942595274223608_6934573967153387579_n_1080.jpg",
+    "app_454652901_502496362169178_546674086309498333_n_1080.jpg",
+    "app_457376789_530389939384223_4420348549409720635_n_1080.jpg",
+    "app_460633165_1741539829948486_2485596123405912864_n_1080.jpg",
+    "app_462791529_1088018526665104_5505518182070144394_n_1080.jpg",
+    "app_471444803_956581916370012_2594475209786692683_n_1080.jpg",
+    "app_471757945_1006467234854614_4548150390414566411_n_1080.jpg",
+    "app_472188347_591760303465295_7463572913871351307_n_1080.jpg",
+    "app_472264823_1007541284747209_6398948803356672595_n_1080.jpg",
+    "app_472377322_611815898051297_1175092992725811866_n_1080.jpg",
+    "app_64581662_314917629389898_690371902758398562_n_1080.jpg",
+    "app_64767738_377503972904046_5873148007590218512_n_1080.jpg",
+    "Aqm8cfp0gbviuollcf7-Zns8i1z456gtej0olego3ocbit227Oxynjpnlfzuvq23lgyywkkbxursayArrtvcizv-Lcjcywtokqtns.mp4",
+    "Aqmord4qccvtfyzsqlivfv0wgbdvb3q3fwnkypd7kplxo8obqffcujkeazoxkl3ad-H3d2kdjjpoyifwxwykVvwbk6jwug Ni6kfdk.mp4",
+    "Aqn8gm0sjs55vluo1etnjrvhxkktn-Sc864fMbwgqjezawbyxuhsk G4pdjscsgbcavymmkksvpsibmnunpmrf3zlowz391whk-Meu.mp4",
+    "Aqn9zaqqul8toyl-Otes2g15kxcor3ncyqowa9tttenkpfq0aqlxb4ctj0dvvhyihgfhzn18uhcuzxha1izkzzfons06u7uwy2njkik.mp4",
+    "Aqnikcxw0aakk7n7eusdotpeo7vfowmyyk7j55uqrnv-Bmracoyx9l9j4thykn1wgi0i3n5u3wpenamp0y7bd0byprna3hxqfw5rzpa.mp4",
+    "Aqod0gq4pt04m5camszngcoa1wbxehual-Rb-Amgeoik0urxt9f4bkgngqidvns3-7Eri-Nmiuv66egc41ftaqkl5icalad-Ec7ptly.mp4",
+    "Aqoqmktreroz8oksun9d13cpgqhwyrk7p4wypnarw3u9fwqfmm Dmnwo7m4tksacsm70ya7v20k9zqtrsvxkdkrlv761rrzt1rcfpji.mp4",
     "DSC07956.jpg",
     "DSC07967.jpg",
     "DSC07970.jpg",
-    "file.text",
-    "filelist.txt",
-    "filenames.txt",
-    "file_names.txt",
-    "Portfolio 1.mp4",
-    "Portfolio 2.mp4",
-    "Portfolio 3.mp4",
-    "Portfolio 4.mp4",
-    "Portfolio 5.mp4",
-    "Portfolio 6.mp4",
-    "Portfolio 7.mp4",
-    "Snapinsta.app_452254406_1026723278798997_6018970639625638723_n_1080.jpg",
-    "Snapinsta.app_453039841_942595274223608_6934573967153387579_n_1080.jpg",
-    "Snapinsta.app_454652901_502496362169178_546674086309498333_n_1080.jpg",
-    "Snapinsta.app_457376789_530389939384223_4420348549409720635_n_1080.jpg",
-    "Snapinsta.app_460633165_1741539829948486_2485596123405912864_n_1080.jpg",
-    "Snapinsta.app_462791529_1088018526665104_5505518182070144394_n_1080.jpg",
-    "Snapinsta.app_471444803_956581916370012_2594475209786692683_n_1080.jpg",
-    "Snapinsta.app_471757945_1006467234854614_4548150390414566411_n_1080.jpg",
-    "Snapinsta.app_472188347_591760303465295_7463572913871351307_n_1080.jpg",
-    "Snapinsta.app_472264823_1007541284747209_6398948803356672595_n_1080.jpg",
-    "Snapinsta.app_472377322_611815898051297_1175092992725811866_n_1080.jpg",
-    "Snapinsta.app_64581662_314917629389898_690371902758398562_n_1080.jpg",
-    "Snapinsta.app_64767738_377503972904046_5873148007590218512_n_1080.jpg",
-    "Snapinsta.app_video_AQM8cFP0GBviUOllcF7-znS8I1z456GtEj0OLego3ocBit227_OXYNJPNLFZUvQ23LgyYwKKbxUrSAY_arRtvcIzV-lcJcYWToKQtNs.mp4",
-    "Snapinsta.app_video_AQMorD4qcCVtFYZsqliVfv0WGBDVb3Q3FWNkyPd7kpLXo8oBqFFcUJKeAZOxkl3aD-h3d2kDJjPoyifWxWYK_vVwBk6JwUG_NI6KfDk.mp4",
-    "Snapinsta.app_video_AQMs3jEXoW0V86V8icvBbkMAMgy4MdZj76cpSC-Ztw4M0i33W6uxQ2rcYY_aM2F5r4MNccRHKWolYQj9YbfkbMH7e8TlbkbDa9xhxkc.mp4",
-    "Snapinsta.app_video_AQMzOsP_0-NDU9Wl-9IUtfTOnYBBcB6rcSJ8jkOd3PudyuLwpqACHg1CYG98sJsY5XBfgYesr-7tpzaaknM_RUnCM_AmyHHNZLoFevI.mp4",
-    "Snapinsta.app_video_AQN7jjcXg9lKHhUDEmT786WFSqbltb8Znkop-jWB2A3dR1cP6PhAs_UqBwdi6wZhjXFy-QE6Cf5v5TZqWMk4QWQkGccVdScoOnF8F8U.mp4",
-    "Snapinsta.app_video_AQN8gM0SJS55vLuo1EtNjrVHxKKtn-sc864f_mbwGqJEZAwBYxUHSK_g4pdjsCsGbcaVymMKkSvPsIbmnuNPMrf3ZlOwz391wHk-MEU.mp4",
-    "Snapinsta.app_video_AQN9ZAqqUl8TOYl-OTES2G15kxcor3NCYqOwa9TTTENKpFq0aQLxb4CTj0dVVHYIhGFhzN18UHCUzXHa1IzKZZfons06u7uwy2nJKik.mp4",
-    "Snapinsta.app_video_AQNiKcXw0AAKk7n7euSdOtpeO7VFoWmYyk7j55UQRnv-bmRACOYx9l9j4thYkN1wGI0i3N5u3WpeNaMp0y7BD0BYprNA3HXQFW5RZpA.mp4",
-    "Snapinsta.app_video_AQOd0gQ4Pt04M5camsZngcOa1WbxEhuaL-RB-amGeOiK0Urxt9f4bkgnGqIDVNS3-7eri-NmiUV66eGC41FtaQkL5ICALAD-EC7PTLY.mp4",
-    "Snapinsta.app_video_AQOIB_K9BVw95MRqQm-UYIji2BLsQUUU1SDa2Gwr84m7QfRpR9QFJYoMWLUui0G9FdBsboI2YURrORCiLucr2He4r8RhDhfHwT47cm8.mp4",
-    "Snapinsta.app_video_AQOKY_SZHC77Q01_XZvqxcPBAUq8-FcUtLt9sRZx8MCOlf5uqAS00C4GWsECbu3UoaztlmsLF3UDKAz7qnutrrUFmJ2qKKvggvNlh7Y.mp4",
-    "Snapinsta.app_video_AQOQMKtreRoz8Oksun9D13CPGqHWyrk7P4WypNaRW3u9fwQfmm_dMNWo7m4TKsacSM70yA7V20k9zqTrSvXkDKRLv761rRzt1RcFpJI.mp4",
-    "Snapinsta.app_video_AQOsDxAvbo2Ax-z3XbjqktLGJ97vpDhSSwl7-_8_4Q0Ixr-KbGz2P61Q0_CB5W1mYQvN7uRUnyPCjeOY2bhdLpsDMjX8HmFRHoQhuhE.mp4",
-    "Snapinsta.app_video_AQPydmZ4gaz6cEi5Gx981kf1mKWQ9ra6MoGaX3OweUwdvXt-v79qW-tqgS2OSlplsmLv7AR2WPKP7Lx_WxI-SiIafVNClDMoTaqxv4Y.mp4",
+    "K9bvw95mrqqm-Uyiji2blsquuu1sda2gwr84m7qfrpr9qfjyomwluui0g9fdbsboi2yurrorcilucr2he4r8rhdhfhwt47cm8.mp4",
+    "Portfolio1.mp4",
+    "Portfolio2.mp4",
+    "Portfolio3.mp4",
+    "Portfolio4.mp4",
+    "Portfolio5.mp4",
+    "Portfolio6.mp4",
+    "Portfolio7.mp4",
+    "VideoAqms3jexow0v86v8icvbbkmamgy4mdzj76cpsc-Ztw4m0i33w6uxq2rcyyAm2f5r4mnccrhkwolyqj9ybfkbmh7e8tlbkbda9xhxkc.mp4",
+    "VideoAqn7jjcxg9lkhhudemt786wfsqbltb8znkop-Jwb2a3dr1cp6phasUqbwdi6wzhjxfy-Qe6cf5v5tzqwmk4qwqkgccvdscoonf8f8u.mp4",
+    "VideoAqpydmz4gaz6cei5gx981kf1mkwq9ra6mogax3oweuwdvxt-V79qw-Tqgs2oslplsmlv7ar2wpkp7lx Wxi-Siiafvncldmotaqxv4y.mp4",
+    "Xzvqxcpbauq8-Fcutlt9srzx8mcolf5uqas00c4gwsecbu3uoaztlmslf3udkaz7qnutrrufmj2qkkvggvnlh7y.mp4",
   ];
 
   const fileObjects = fileNames.map((name) => ({
     fileName: `media/photographyImages/${name}`,
   }));
-  console.log(fileObjects[0].fileName.split("/").pop());
-
   const para =
     "Showcasing Creativity and Craft: A Portfolio of Innovative Design and Thoughtful Solutions";
 
@@ -134,18 +129,41 @@ const Page = () => {
         </div>
       </motion.div>
 
-      <motion.div>
+      <motion.div ref={mediaRef}>
         <div className="">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {fileObjects.map((file, index) => (
-              <div key={index} className="w-full  aspect-[3/4]">
-                {fileObjects[0].fileName.split("/").pop() === "mp4" ? (
-                  <></>
-                ) : (
-                  <></>
-                )}
-              </div>
-            ))}
+            {fileObjects.map((file, index) => {
+              const fileExtension = file.fileName
+                .split("/")
+                .pop()
+                ?.split(".")
+                .pop();
+
+              return (
+                <motion.div key={index} className="w-full aspect-[3/4]">
+                  {fileExtension === "mp4" ? (
+                    <video
+                      muted
+                      loop
+                      autoPlay
+                      className="w-full h-full object-cover"
+                    >
+                      <source src={file.fileName} type="video/mp4" />
+                    </video>
+                  ) : fileExtension === "jpg" ||
+                    fileExtension === "jpeg" ||
+                    fileExtension === "png" ? (
+                    <img
+                      src={file.fileName}
+                      alt={file.fileName}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <p>{file.fileName}</p>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </motion.div>
