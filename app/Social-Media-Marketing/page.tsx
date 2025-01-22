@@ -1,0 +1,391 @@
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import BreadCrumb from "../App chunks/components/BreadCrumb";
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionItem,
+  AccordionPanel,
+} from "../App chunks/components/Accordion";
+import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
+import { Circle, Plus } from "@phosphor-icons/react";
+
+const Page = () => {
+  const [height, setHeight] = React.useState(0);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const rect = document
+      .getElementsByClassName("HeadNavigation")[0]
+      .getBoundingClientRect();
+    setHeight(rect.height);
+  }, []);
+  const faqData = [
+    {
+      question: "Which social media platforms should my business be on?",
+      answer:
+        "The best platforms depend on your business goals and target audience. We analyze your business and decide on which platforms you must target.",
+    },
+    {
+      question: "How often should I post on social media?",
+      answer:
+        "Consistency is key. The optimal posting frequency depends on the platform and your audience’s preferences.",
+    },
+    {
+      question: "Do I need a big budget for social media marketing?",
+      answer:
+        "Not necessarily! Organic strategies can be highly effective with creativity and time. You can start small and scale for paid campaigns as you see results.",
+    },
+    {
+      question:
+        "Can I handle my social media marketing, or do I need a professional?",
+      answer:
+        "You can manage it yourself, but hiring professionals ensures expert strategy development and high-quality content creation.",
+    },
+    {
+      question:
+        "How long does it take to see results from social media marketing?",
+      answer:
+        "Results vary based on your goals. Organic growth may take a few months, while paid ads can show results within days. Consistent effort and strategy deliver long-term success.",
+    },
+  ];
+
+  const marketingServices = [
+    {
+      category: "Social Media Advertising",
+      description:
+        "We help campaigns create ad campaigns to promote products, services, events, or brands across social media platforms like Facebook, Instagram, Twitter, LinkedIn, TikTok, etc. These pieces of content are designed to engage users, build awareness, drive conversions, or encourage actions such as purchasing, subscribing, or sharing.",
+      subcategories: [
+        {
+          type: "Behavioral Targeting",
+          description:
+            "Content is often designed with a specific target audience in mind. This includes targeting the message and visuals to resonate with the interests, age, location, or behaviors of the audience.",
+        },
+        {
+          type: "Ad Format",
+          description:
+            "The content may be done in different formats like: Image ads, Video ads, Carousel ads, Stories ads, Sponsored posts, Influencer partnerships.",
+        },
+        {
+          type: "Text/Copy",
+          description:
+            "Short, engaging, and clear copy that conveys the message. Includes catchy headlines, product descriptions, CTAs like 'Shop Now,' 'Learn More,' 'Sign Up,' etc.",
+        },
+        {
+          type: "Hashtags",
+          description:
+            "Hashtags are used to categorize the content and increase discoverability. This includes trending or branded hashtags.",
+        },
+        {
+          type: "Visual Elements",
+          description:
+            "High-quality images, videos, and graphics that catch the audience's attention. This includes product photos, behind-the-scenes footage, or creative animations.",
+        },
+      ],
+    },
+    {
+      category: "Lead Generation",
+      description:
+        "We help businesses generate high-quality leads that convert into loyal customers. From targeted advertising to compelling content, our proven strategies deliver measurable results.",
+      subcategories: [
+        {
+          type: "Targeted Lead Generation",
+          description:
+            "Reaching the right audience through Facebook Ads, Google Ads, and LinkedIn.",
+        },
+        {
+          type: "Landing Pages That Convert",
+          description:
+            "Beautiful, user-friendly pages designed to capture attention and increase conversions.",
+        },
+        {
+          type: "Lead Nurturing",
+          description:
+            "Automated email sequences to nurture prospects and guide them through your sales funnel.",
+        },
+        {
+          type: "Comprehensive Analytics",
+          description:
+            "Detailed tracking and reports to optimize your campaigns and maximize ROI.",
+        },
+      ],
+    },
+    {
+      category: "Influencer Marketing",
+      description:
+        "Influencer marketing is the key to connecting your brand with the right people at the right time. We specialize in creating powerful influencer campaigns that drive authentic engagement and sales.",
+      subcategories: [
+        {
+          type: "Identify the Perfect Influencers",
+          description:
+            "We match your brand with influencers who truly resonate with your target audience.",
+        },
+        {
+          type: "Craft Custom Campaigns",
+          description:
+            "Tailored strategies to promote your products or services organically and authentically.",
+        },
+        {
+          type: "Maximize ROI",
+          description:
+            "We track results in real time to optimize campaigns for the best performance.",
+        },
+        {
+          type: "Build Long-Term Partnerships",
+          description:
+            "We focus on nurturing meaningful relationships with influencers that go beyond just one campaign.",
+        },
+      ],
+    },
+    {
+      category: "Affiliate Marketing",
+      description:
+        "Looking for a way to generate consistent revenue without the hassle of creating your product? Affiliate marketing is the solution! We help businesses and individuals tap into the power of affiliate marketing to boost income and grow their online presence.",
+      subcategories: [
+        {
+          type: "Affiliate Program Setup",
+          description:
+            "We help you create and manage a successful affiliate program that attracts top-performing affiliates.",
+        },
+        {
+          type: "Targeted Affiliate Recruitment",
+          description:
+            "Find the right affiliates who align with your brand and audience.",
+        },
+        {
+          type: "Ongoing Affiliate Support",
+          description:
+            "From onboarding to training, we ensure your affiliates are set up for success.",
+        },
+        {
+          type: "Analytics & Optimization",
+          description:
+            "Track performance and optimize campaigns to maximize commissions and conversions.",
+        },
+      ],
+    },
+    {
+      category: "Community Management",
+      description:
+        "In today’s digital world, your community is everything. Community management is key to creating genuine relationships with your audience and creating a loyal customer base. We specialize in growing, engaging, and nurturing online communities that turn followers into brand advocates.",
+      subcategories: [
+        {
+          type: "Community Engagement",
+          description:
+            "Actively respond to comments, messages, and mentions to keep the conversation going.",
+        },
+        {
+          type: "Content Moderation",
+          description:
+            "Ensure your community stays positive, supportive, and aligned with your brand values.",
+        },
+        {
+          type: "Brand Advocacy",
+          description:
+            "Turn your most loyal fans into brand ambassadors to organically promote your business.",
+        },
+        {
+          type: "Community Building Strategies",
+          description:
+            "Develop strategies to keep your community engaged, growing, and thriving through meaningful interactions.",
+        },
+      ],
+    },
+  ];
+
+  const para =
+    "Social media isn't just a trend—it's the heartbeat of your brand. Let your voice be heard!";
+
+  return (
+    <motion.div className="  bg-white" ref={containerRef}>
+      <motion.div>
+        <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
+          <div className="w-full h-full flex relative">
+            <div className="absolute top-0 left-0 w-full h-full">
+              <BackgroundGradientAnimation
+                gradientBackgroundStart="orange"
+                gradientBackgroundEnd="white"
+              />
+            </div>
+            <div
+              style={{ marginTop: `${height + 50}px` }}
+              className="container relative z-[99]"
+            >
+              <BreadCrumb />
+              <div
+                style={{ height: `calc(100vh - ${height + 200}px)` }}
+                className="flex flex-col container items-center text-slate-100 justify-center"
+              >
+                <motion.h1 className="text-center font-[600]  flex-wrap lg:text-3xl xl:text-6xl font-Grostek relative">
+                  {para.split(" ").map((item, index) => (
+                    <motion.span
+                      key={index}
+                      className="xl:mr-2 xxl:mr-4 overflow-hidden h-[80px]"
+                      style={{
+                        display: "inline-block", // Ensure words are treated as block elements
+                      }}
+                    >
+                      <motion.span
+                        initial={{ y: 300, opacity: 0, rotate: 20, x: -10 }} // Start from below
+                        animate={{
+                          y: 0, // Move to original position
+                          opacity: 1,
+                          rotate: 0,
+                          x: 0,
+                        }}
+                        style={{
+                          display: "inline-block", // Ensure words are treated as block elements
+                        }}
+                        transition={{
+                          ease: [0, 0, 0.2, 1],
+                          duration: 1,
+                          delay: index * 0.1, // Increased delay to prevent overlap
+                        }}
+                        className="origin-top-right"
+                      >
+                        {item}
+                      </motion.span>
+                      {"  "}
+                    </motion.span>
+                  ))}
+                </motion.h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+      <div className="my-16">
+        <div className="container">
+          <motion.article className="flex justify-center lg:justify-start items-center text-slate-950 gap-3">
+            {["Our", "Services"].map((text, index) => (
+              <motion.h1
+                key={index}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  ease: [0.22, 0.61, 0.36, 1],
+                }}
+                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+              >
+                {text}
+              </motion.h1>
+            ))}
+          </motion.article>
+        </div>
+        <div className="mx-auto container mt-12 grid grid-cols-1 gap-4">
+          {marketingServices.map((service, index) => (
+            <div key={index} className={`p-6 bg-purple-50 rounded-xl`}>
+              <h2 className="text-3xl font-bold text-gray-800">
+                {service.category}
+              </h2>
+              <p className="text-lg text-gray-600 mt-2">
+                {service.description}
+              </p>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-3">
+                <div className="grid grid-cols-1 gap-2">
+                  {service.subcategories.map((subcategory, subIndex) => (
+                    <div
+                      key={subIndex}
+                      className="bg-purple-100 flex items-start gap-3 p-4 rounded-lg"
+                    >
+                      <div className="mt-1">
+                        <Circle weight="fill" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-700">
+                          {subcategory.type}
+                        </h3>
+                        <p className="text-md text-gray-500 mt-1">
+                          {subcategory.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="w-full h-full bg-slate-300 shadow-md border border-slate-400 rounded-lg overflow-hidden"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="py-16 bg-[#121316]">
+        <div className="container">
+          <div>
+            {" "}
+            <motion.article className="flex justify-center lg:justify-start items-center text-slate-100 gap-3">
+              {["Frequently", "Asked", "Questions"].map((text, index) => (
+                <motion.h1
+                  key={index}
+                  transition={{
+                    delay: index * 0.1,
+                    duration: 0.6,
+                    ease: [0.22, 0.61, 0.36, 1],
+                  }}
+                  viewport={{ once: true }}
+                  initial={{ opacity: 0, y: 100 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+                >
+                  {text}
+                </motion.h1>
+              ))}
+            </motion.article>
+          </div>
+          <div className="mt-10 grid gap-x-12 grid-cols-1 lg:grid-cols-[1fr_2fr]">
+            <div>
+              <p className="text-slate-400 text-md font-Grostek">
+                Can&apos;t find what you are looking for?
+              </p>
+              <h3 className="text-slate-100 text-2xl font-Grostek font-[500]">
+                We would like to chat with you.
+              </h3>
+              <div className="mt-3">
+                <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
+                  Contact us
+                </button>
+              </div>
+            </div>
+            <div>
+              <Accordion defaultValue={["item-0"]}>
+                {faqData.map((faq, index) => (
+                  <AccordionItem key={index} value={`item-${index}`}>
+                    <AccordionHeader icon={<Plus className="text-xl" />}>
+                      {faq.question}
+                    </AccordionHeader>
+                    <AccordionPanel>{faq.answer}</AccordionPanel>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="py-16 container">
+        <div className=" ">
+          <div className=" p-7  w-full bg-[#3F51B5] text-slate-100 rounded-xl">
+            <h2 className="text-3xl font-SplineSans font-[500]">
+              Are You Ready to Grow Your Business Online?
+            </h2>
+            <p className="mt-3 font-Synonym font-[400] text-lg">
+              We have a proven track record of helping businesses like yours
+              grow online. We focus on a results-driven approach to generating
+              real ROI.
+            </p>
+
+            <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
+              Get a Free consultation today!
+            </button>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+export default Page;

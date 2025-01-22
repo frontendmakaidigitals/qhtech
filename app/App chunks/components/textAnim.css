@@ -1,0 +1,26 @@
+.textContainer {
+  transform-style: preserve-3d;
+  transition: transform 0.4s;
+}
+.textContainer p {
+  transition: all 0.4s;
+}
+.textContainer .secondary {
+  transform: rotateX(-90deg);
+  transform-origin: bottom center;
+  opacity: 0;
+}
+
+.textContainer:hover {
+  transform: rotateX(90deg);
+}
+
+.textContainer:hover .secondary {
+  opacity: 1;
+  transform: rotateX(-0deg);
+}
+
+.textContainer:hover .primary {
+  transform: translateY(-100%);
+  opacity: 0;
+}
