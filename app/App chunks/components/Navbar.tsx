@@ -5,13 +5,13 @@ import Menu from "./Menu";
 import Button from "./SecondaryButton";
 import MobileMenu from "./MobileMenu";
 import { motion } from "framer-motion";
-
+import Link from "next/link";
 const menu = [
   { title: "home", link: "/" },
   { title: "about", link: "/About" },
   { title: "services", link: "/service" },
   { title: "Portfolio", link: "/Portfolio" },
-  { title: "contact", link: "/contact" },
+  { title: "Blogs", link: "/Blogs" },
 ];
 const NavBar = () => {
   return (
@@ -49,9 +49,9 @@ const NavBar = () => {
             duration: 1,
           }}
         >
-          <div className="hidden lg:block">
+          <Link href={"/contact"} className="hidden lg:block">
             <Button>Contact us</Button>
-          </div>
+          </Link>
         </motion.div>
         <MobileMenu menu={menu} />
       </div>

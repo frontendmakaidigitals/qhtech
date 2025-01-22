@@ -238,7 +238,7 @@ const Section2 = ({
     {
       name: "App Development",
       img: "media/serviceImages/app.png",
-      color: "#D7CCC8",
+      color: "#A1887F",
     },
     {
       name: "Social Media Marketing",

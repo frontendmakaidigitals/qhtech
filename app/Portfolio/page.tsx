@@ -3,12 +3,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
- 
+
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
   const mediaRef = React.useRef<HTMLDivElement>(null);
-  
+
   React.useEffect(() => {
     const rect = document
       .getElementsByClassName("HeadNavigation")[0]
@@ -17,7 +17,6 @@ const Page = () => {
   }, []);
 
   const fileNames = [
-    "0-Ndu9wl-9Iutftonybbcb6rcsj8jkod3pudyulwpqachg1cyg98sjsy5xbfgyesr-7TpzaaknmRuncmAmyhhnzlofevi.mp4",
     "20241130_130756.jpg",
     "20241227_120804.jpg",
     "2024_11_30_12_51_IMG_5750.jpg",
@@ -62,6 +61,7 @@ const Page = () => {
     "VideoAqn7jjcxg9lkhhudemt786wfsqbltb8znkop-Jwb2a3dr1cp6phasUqbwdi6wzhjxfy-Qe6cf5v5tzqwmk4qwqkgccvdscoonf8f8u.mp4",
     "VideoAqpydmz4gaz6cei5gx981kf1mkwq9ra6mogax3oweuwdvxt-V79qw-Tqgs2oslplsmlv7ar2wpkp7lx Wxi-Siiafvncldmotaqxv4y.mp4",
     "Xzvqxcpbauq8-Fcutlt9srzx8mcolf5uqas00c4gwsecbu3uoaztlmslf3udkaz7qnutrrufmj2qkkvggvnlh7y.mp4",
+    "0-Ndu9wl-9Iutftonybbcb6rcsj8jkod3pudyulwpqachg1cyg98sjsy5xbfgyesr-7TpzaaknmRuncmAmyhhnzlofevi.mp4",
   ];
 
   const fileObjects = fileNames.map((name) => ({
