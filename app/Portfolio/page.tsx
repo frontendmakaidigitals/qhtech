@@ -7,26 +7,13 @@ import VideoPortfolio from "../App chunks/components/videoScroll";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
-  const container = React.useRef<HTMLDivElement>(null);
+ 
   React.useEffect(() => {
     const rect = document
       .getElementsByClassName("HeadNavigation")[0]
       .getBoundingClientRect();
     setHeight(rect.height);
   }, []);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end end"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["50%", "-50%"]);
-
-  // Apply spring for smooth transitions
-  const springY = useSpring(y, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
 
   const fileNames = [
     "20241130_130756.jpg",
