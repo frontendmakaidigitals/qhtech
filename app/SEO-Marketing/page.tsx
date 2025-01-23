@@ -9,7 +9,7 @@ import {
   AccordionPanel,
 } from "../App chunks/components/Accordion";
 import { Circle, Plus } from "@phosphor-icons/react";
-import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
+import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 
 const Page = () => {
   const [height, setHeight] = React.useState(0);
@@ -246,8 +246,7 @@ const Page = () => {
                               key={i}
                               className="flex  bg-[#c5edff] text-blue-950 rounded-lg px-3 items-start gap-2 py-2"
                             >
-                              <div className="mt-[6px]"
-                              >
+                              <div className="mt-[6px]">
                                 <Circle weight="fill" />
                               </div>
                               <p

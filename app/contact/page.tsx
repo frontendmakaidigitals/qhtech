@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 
-import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
+import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import {
   FacebookLogo,
   InstagramLogo,
@@ -62,10 +62,10 @@ const Page = () => {
                       ))}
                     </motion.article>
                     <p className="mt-3">
-                      At Insight Vision, we&apos;re here to help you elevate your
-                      brand and reach your business goals. Whether you&apos;re
-                      looking for a marketing strategy or just need expert
-                      advice, our team is ready to assist.
+                      At Insight Vision, we&apos;re here to help you elevate
+                      your brand and reach your business goals. Whether
+                      you&apos;re looking for a marketing strategy or just need
+                      expert advice, our team is ready to assist.
                       <br /> <br /> Have a project idea, or just want to discuss
                       how we can help you reach your marketing goals? Drop us a
                       message, and one of our team members will be in touch

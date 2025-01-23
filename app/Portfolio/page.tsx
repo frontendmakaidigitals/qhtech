@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
-import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
+import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 
 const Page = () => {
   const [height, setHeight] = React.useState(0);

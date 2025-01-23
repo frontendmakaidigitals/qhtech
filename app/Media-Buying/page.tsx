@@ -8,7 +8,7 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "../App chunks/components/Accordion";
-import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
+import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import { Circle, Plus } from "@phosphor-icons/react";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
@@ -370,30 +370,30 @@ const Page = () => {
         <div className="grid grid-cols-1 gap-5 container mt-6">
           <h3 className="text-2xl font-Synonym font-[500]">TV Advertising</h3>
           {tvdvertising.map((category, index) => (
-           <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
-           <h2 className="text-xl font-semibold text-gray-800 mb-2">
-             {category.title}
-           </h2>
-           <p className="">{category.description}</p>
+            <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                {category.title}
+              </h2>
+              <p className="">{category.description}</p>
 
-           {category.types.length > 0 && (
-             <div className="grid grid-cols-1 mt-5 lg:grid-cols-2 gap-4">
-               <ul className=" flex flex-col gap-2">
-                 {category.types.map((type, idx) => (
-                   <li key={idx} className="p-3 bg-purple-100 rounded-lg">
-                     <div className={"flex items-start gap-2"}>
-                       <div className={"mt-1"}>
-                         <Circle weight="fill" />
-                       </div>
-                       {type}
-                     </div>
-                   </li>
-                 ))}
-               </ul>
-               <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
-             </div>
-           )}
-         </div>
+              {category.types.length > 0 && (
+                <div className="grid grid-cols-1 mt-5 lg:grid-cols-2 gap-4">
+                  <ul className=" flex flex-col gap-2">
+                    {category.types.map((type, idx) => (
+                      <li key={idx} className="p-3 bg-purple-100 rounded-lg">
+                        <div className={"flex items-start gap-2"}>
+                          <div className={"mt-1"}>
+                            <Circle weight="fill" />
+                          </div>
+                          {type}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
+                </div>
+              )}
+            </div>
           ))}
         </div>
         <div className="grid grid-cols-1 gap-5 container mt-6">
@@ -402,29 +402,29 @@ const Page = () => {
           </h3>
           {radioAdvertising.map((category, index) => (
             <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
-            <h2 className="text-xl font-semibold text-gray-800 mb-2">
-              {category.title}
-            </h2>
-            <p className="">{category.description}</p>
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                {category.title}
+              </h2>
+              <p className="">{category.description}</p>
 
-            {category.types.length > 0 && (
-              <div className="grid grid-cols-1 mt-5 lg:grid-cols-2 gap-4">
-                <ul className=" flex flex-col gap-2">
-                  {category.types.map((type, idx) => (
-                    <li key={idx} className="p-3 bg-purple-100 rounded-lg">
-                      <div className={"flex items-start gap-2"}>
-                        <div className={"mt-1"}>
-                          <Circle weight="fill" />
+              {category.types.length > 0 && (
+                <div className="grid grid-cols-1 mt-5 lg:grid-cols-2 gap-4">
+                  <ul className=" flex flex-col gap-2">
+                    {category.types.map((type, idx) => (
+                      <li key={idx} className="p-3 bg-purple-100 rounded-lg">
+                        <div className={"flex items-start gap-2"}>
+                          <div className={"mt-1"}>
+                            <Circle weight="fill" />
+                          </div>
+                          {type}
                         </div>
-                        {type}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-                <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
-              </div>
-            )}
-          </div>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
+                </div>
+              )}
+            </div>
           ))}
         </div>
         <div className="grid grid-cols-1 gap-5 container mt-6">
@@ -432,30 +432,30 @@ const Page = () => {
             Newspaper Advertising
           </h3>
           {newsPaperAdvertising.map((category, index) => (
-           <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
-           <h2 className="text-xl font-semibold text-gray-800 mb-2">
-             {category.title}
-           </h2>
-           <p className="">{category.description}</p>
+            <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                {category.title}
+              </h2>
+              <p className="">{category.description}</p>
 
-           {category.types.length > 0 && (
-             <div className="grid grid-cols-1 mt-5 lg:grid-cols-2 gap-4">
-               <ul className=" flex flex-col gap-2">
-                 {category.types.map((type, idx) => (
-                   <li key={idx} className="p-3 bg-purple-100 rounded-lg">
-                     <div className={"flex items-start gap-2"}>
-                       <div className={"mt-1"}>
-                         <Circle weight="fill" />
-                       </div>
-                       {type}
-                     </div>
-                   </li>
-                 ))}
-               </ul>
-               <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
-             </div>
-           )}
-         </div>
+              {category.types.length > 0 && (
+                <div className="grid grid-cols-1 mt-5 lg:grid-cols-2 gap-4">
+                  <ul className=" flex flex-col gap-2">
+                    {category.types.map((type, idx) => (
+                      <li key={idx} className="p-3 bg-purple-100 rounded-lg">
+                        <div className={"flex items-start gap-2"}>
+                          <div className={"mt-1"}>
+                            <Circle weight="fill" />
+                          </div>
+                          {type}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
+                </div>
+              )}
+            </div>
           ))}
         </div>
         <div className="grid grid-cols-1 gap-5 container mt-6">
@@ -463,30 +463,30 @@ const Page = () => {
             Digital Media Buying
           </h3>
           {digiatalMediaBuying.map((category, index) => (
-          <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">
-            {category.title}
-          </h2>
-          <p className="">{category.description}</p>
+            <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                {category.title}
+              </h2>
+              <p className="">{category.description}</p>
 
-          {category.types.length > 0 && (
-            <div className="grid grid-cols-1 mt-5 lg:grid-cols-2 gap-4">
-              <ul className=" flex flex-col gap-2">
-                {category.types.map((type, idx) => (
-                  <li key={idx} className="p-3 bg-purple-100 rounded-lg">
-                    <div className={"flex items-start gap-2"}>
-                      <div className={"mt-1"}>
-                        <Circle weight="fill" />
-                      </div>
-                      {type}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-              <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
+              {category.types.length > 0 && (
+                <div className="grid grid-cols-1 mt-5 lg:grid-cols-2 gap-4">
+                  <ul className=" flex flex-col gap-2">
+                    {category.types.map((type, idx) => (
+                      <li key={idx} className="p-3 bg-purple-100 rounded-lg">
+                        <div className={"flex items-start gap-2"}>
+                          <div className={"mt-1"}>
+                            <Circle weight="fill" />
+                          </div>
+                          {type}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
+                </div>
+              )}
             </div>
-          )}
-        </div>
           ))}
         </div>
       </div>

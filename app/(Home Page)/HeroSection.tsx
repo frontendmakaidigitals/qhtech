@@ -1,13 +1,8 @@
 "use client";
 import React from "react";
-import {
-  useScroll,
-  useTransform,
-  motion,
-  MotionValue,
-} from "framer-motion";
+import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { BackgroundGradientAnimation } from "./HeroGradient";
+import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import { ArrowUpRight } from "@phosphor-icons/react";
 import "../App chunks/components/textAnim.css";
 import { useKeenSlider } from "keen-slider/react";
@@ -351,7 +346,7 @@ const Section2 = ({
       window.removeEventListener("resize", updateContainerHeight);
     };
   }, []);
-  
+
   useEffect(() => {
     if (hoverId !== null && btnRefs.current[hoverId] && containerRef.current) {
       const rect = btnRefs.current[hoverId].getBoundingClientRect();
@@ -372,7 +367,6 @@ const Section2 = ({
       instanceRef.current.moveToIdx(hoverId);
     }
   }, [hoverId, instanceRef]);
-
 
   useEffect(() => {
     if (containerHeight > 0 && instanceRef.current) {

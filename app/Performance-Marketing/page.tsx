@@ -8,7 +8,7 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "../App chunks/components/Accordion";
-import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
+import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import { ArrowUpRight, Circle, Plus } from "@phosphor-icons/react";
 const Page = () => {
   const [height, setHeight] = React.useState(0);

@@ -1,7 +1,8 @@
+"use client";
 import React, { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-
+import { usePathname } from "next/navigation";
 const Menu = ({
   menu = [{ title: "Home", link: "/" }],
   className,
@@ -29,6 +30,8 @@ const SlideTabs = ({
     opacity: 0,
   });
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
+  const path = usePathname();
+
   return (
     <ul
       onMouseLeave={() => {
@@ -37,7 +40,9 @@ const SlideTabs = ({
           opacity: 0,
         }));
       }}
-      className={`relative mx-auto font-Grostek flex w-fit border border-slate-50/30 mix-blend-difference bg-white/20 backdrop-filter backdrop-blur-lg rounded-full p-1 ${className}`}
+      className={`relative mx-auto font-[500] ${
+        path === "/contact" ? "text-black" : "text-white"
+      } font-Grostek flex w-fit border border-slate-50/30 mix-blend-difference bg-white/20 backdrop-filter backdrop-blur-lg rounded-full p-1 ${className}`}
     >
       {menu.map((item, index) => (
         <Tab
@@ -290,7 +295,7 @@ const ShowPopup = () => {
       transition={{ ease: [0.25, 0.46, 0.45, 0.94] }}
       className="absolute w-[500px] left-1/2 z-[999] cursor-default top-full origin-top transform -translate-x-1/2 rounded-lg"
     >
-      <div className="mt-2 realtive grid grid-cols-1 gap-3 lg:grid-cols-2 p-4 rounded-lg bg-white">
+      <div className="mt-2 realtive grid grid-cols-1 gap-3 lg:grid-cols-2 p-4 rounded-lg bg-white text-black">
         {menui.map((menu, index) => (
           <Link href={`/${menu.route}`} className="relative" key={index}>
             <div>

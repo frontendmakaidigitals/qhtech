@@ -8,7 +8,7 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "../App chunks/components/Accordion";
-import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
+import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import { Circle, Plus } from "@phosphor-icons/react";
 
 const Page = () => {
@@ -247,10 +247,7 @@ const Page = () => {
         </div>
         <div className="mx-auto container mt-12 grid grid-cols-1 gap-4">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-purple-50 mt-4 rounded-lg p-6 "
-            >
+            <div key={index} className="bg-purple-50 mt-4 rounded-lg p-6 ">
               <h2 className="text-xl font-semibold text-gray-700 mb-2">
                 {service.title}
               </h2>
@@ -265,7 +262,10 @@ const Page = () => {
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
                         <ul className="flex flex-col gap-3  text-gray-600">
                           {value.map((item, j) => (
-                            <li key={j} className="bg-purple-100 rounded-lg p-3">
+                            <li
+                              key={j}
+                              className="bg-purple-100 rounded-lg p-3"
+                            >
                               <div className="flex items-start gap-2">
                                 <div className="mt-[6px]">
                                   <Circle weight="fill" className="text-sm" />
