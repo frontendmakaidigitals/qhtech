@@ -101,6 +101,7 @@ const Page = () => {
       ],
       conclusion:
         "Whether native or cross-platform, our mobile app development services help you connect with your audience effectively and grow your business.",
+      img: "services/AppDevelopment.jpg",
     },
     {
       title: "Web Application Development",
@@ -114,6 +115,7 @@ const Page = () => {
       ],
       conclusion:
         "Our web application development services help your business achieve operational efficiency and deliver value to your customers.",
+        img: "services/webDevelopment.jpg",
     },
     {
       title: "UI/UX Design",
@@ -127,6 +129,7 @@ const Page = () => {
       ],
       conclusion:
         "Our UI/UX designs ensure your digital solutions are both functional and visually engaging, enhancing user satisfaction and brand loyalty.",
+        img: "services/uiUx.jpg",
     },
     {
       title: "App Maintenance & Support",
@@ -140,6 +143,7 @@ const Page = () => {
       ],
       conclusion:
         "Our maintenance and support services keep your app running smoothly, ensuring long-term success and user satisfaction.",
+        img: "services/service.jpg",
     },
     {
       title: "Progressive Web Applications (PWA)",
@@ -313,7 +317,9 @@ const Page = () => {
                         </div>
                       ))}
                     </div>
-                    <div className="w-full min-h-[500px] bg-purple-200 h-full"></div>
+                    <div className="w-full h-[500px] overflow-hidden">
+                    <img src={service.img} className="w-full h-full object-cover" />
+                    </div>
                   </div>
                   {service.conclusion ? (
                     <p className="mt-3">{service.conclusion}</p>

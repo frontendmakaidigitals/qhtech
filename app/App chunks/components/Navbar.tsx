@@ -34,7 +34,7 @@ const NavBar = () => {
           initial={{ y: -200 }}
           animate={{ y: 0 }}
           transition={{ type: "linear", ease: "easeInOut", duration: 1 }}
-          className="hidden md:flex relative"
+          className="hidden lg:flex"
         >
           <Menu menu={menu} />
         </motion.div>

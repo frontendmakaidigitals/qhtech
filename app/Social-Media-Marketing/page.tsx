@@ -83,6 +83,7 @@ const Page = () => {
             "High-quality images, videos, and graphics that catch the audience's attention. This includes product photos, behind-the-scenes footage, or creative animations.",
         },
       ],
+      img: "services/socialmedia.jpg",
     },
     {
       category: "Lead Generation",
@@ -110,6 +111,7 @@ const Page = () => {
             "Detailed tracking and reports to optimize your campaigns and maximize ROI.",
         },
       ],
+      img: "services/lead.jpg",
     },
     {
       category: "Influencer Marketing",
@@ -137,6 +139,7 @@ const Page = () => {
             "We focus on nurturing meaningful relationships with influencers that go beyond just one campaign.",
         },
       ],
+      img: "services/influencerMarketing.jpg",
     },
     {
       category: "Affiliate Marketing",
@@ -164,6 +167,7 @@ const Page = () => {
             "Track performance and optimize campaigns to maximize commissions and conversions.",
         },
       ],
+      img: "services/Affiliate.webp",
     },
     {
       category: "Community Management",
@@ -191,6 +195,7 @@ const Page = () => {
             "Develop strategies to keep your community engaged, growing, and thriving through meaningful interactions.",
         },
       ],
+      img: "services/communityManagement.webp",
     },
   ];
 
@@ -307,7 +312,12 @@ const Page = () => {
                     </div>
                   ))}
                 </div>
-                <div className="w-full h-full bg-slate-300 shadow-md border border-slate-400 rounded-lg overflow-hidden"></div>
+                <div className="w-full max-h-[650px] bg-slate-300 shadow-md border border-slate-400 rounded-lg overflow-hidden">
+                  <img
+                    src={service.img}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           ))}

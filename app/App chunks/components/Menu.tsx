@@ -40,9 +40,9 @@ const SlideTabs = ({
           opacity: 0,
         }));
       }}
-      className={`relative mx-auto font-[500] ${
+      className={`relative mx-auto font-[500] z-[999] ${
         path === "/contact" ? "text-black" : "text-white"
-      } font-Grostek flex w-fit border border-slate-50/30 mix-blend-difference bg-white/20 backdrop-filter backdrop-blur-lg rounded-full p-1 ${className}`}
+      } font-Grostek flex w-fit border border-slate-50/30  bg-white/20 backdrop-filter backdrop-blur-lg rounded-full p-1 ${className}`}
     >
       {menu.map((item, index) => (
         <Tab

@@ -7,6 +7,8 @@ import { ArrowUpRight } from "@phosphor-icons/react";
 import "../App chunks/components/textAnim.css";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import SliderForm from "../App chunks/components/SliderForm";
+
 export default function HeroSection() {
   const container = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -45,12 +47,15 @@ const Section1 = ({
       });
     }
   };
-
+ 
+  const [isFormOpen, setIsFormOpen] = React.useState<boolean>(false);
+ 
   return (
     <motion.section
       style={{ scale, rotate }}
       className="sticky bg-black overflow-hidden top-0 h-screen"
     >
+      <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
       <div className="absolute top-0 left-0 h-full w-full -z-[1]">
         <BackgroundGradientAnimation />
       </div>
@@ -191,7 +196,10 @@ const Section1 = ({
           ))}
         </div>
         <div className="mt-6">
-          <button className="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-tr from-purple-100 to-purple-300  font-medium text-purple-950   transition-all duration-300 hover:w-40">
+          <button
+            onClick={() => setIsFormOpen(true)}
+            className="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-tr from-purple-100 to-purple-300  font-medium text-purple-950   transition-all duration-300 hover:w-40"
+          >
             <div className="inline-flex whitespace-nowrap opacity-0 transition-all duration-200 group-hover:-translate-x-3 group-hover:opacity-100">
               Get in Touch
             </div>

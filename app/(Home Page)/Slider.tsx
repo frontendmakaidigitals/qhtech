@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
-import { ArrowArcLeft, ArrowArcRight } from "@phosphor-icons/react";
+import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
 import ReactCardFlip from "react-card-flip";
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 const Slider = () => {
@@ -128,20 +128,16 @@ const Slider = () => {
       <div className=" px-10 relative">
         {loaded && (
           <>
-            <ArrowArcLeft
-              className="absolute cursor-pointer size-10 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))]
-
-from-blue-500
-via-lime-50
-to-green-400 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 left-0"
+            <ArrowLeft
+              className="absolute cursor-pointer size-10 bg-gradient-to-tr from-green-300 to-blue-300 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 left-0"
               onClick={(e) => {
                 e.stopPropagation();
                 instanceRef.current?.prev();
               }}
             />
 
-            <ArrowArcRight
-              className="absolute cursor-pointer size-10 bg-slate-50/70 hover:bg-slate-50 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 right-0 rotate-360"
+            <ArrowRight
+              className="absolute cursor-pointer size-10 bg-gradient-to-tr from-green-300 to-blue-300 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 right-0"
               onClick={(e) => {
                 e.stopPropagation();
                 instanceRef.current?.next();
@@ -186,7 +182,7 @@ to-green-400 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 left-0"
                       </div>
 
                       <div className="absolute top-1/2 left-1/2 flex justify-center w-full -translate-x-1/2 -translate-y-1/2 text-slate-50">
-                        <p className="font-[600] font-Grostek text-xl p-3 bg-white/30 rounded-lg">
+                        <p className="font-[600] font-Grostek text-xl p-3 bg-white/50 text-slate-950 shadow-lg rounded-lg">
                           {image.name}
                         </p>
                       </div>
@@ -198,17 +194,18 @@ to-green-400 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 left-0"
                       >
                         <div className="w-full h-full absolute top-0 left-0">
                           <BackgroundGradientAnimation
+                            gradientBackgroundEnd="white"
                             gradientBackgroundStart="white"
                             id={"instance2"}
                             className="h-full"
                           />
                         </div>
-                        <div className="relative z-[1]">
+                        <div className="relative z-[1] mix-blend-difference ">
                           <h2 className="font-Grostek text-start text-3xl font-[600]">
                             {image.name}
                           </h2>
                           <motion.div className=" mt-2">
-                            <p className="font-Grostek text-justify text-xl">
+                            <p className="font-Grostek font-[300] text-justify text-xl">
                               {image.text}
                             </p>
                           </motion.div>

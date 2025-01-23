@@ -92,6 +92,7 @@ const Page = () => {
       ],
       conclusion:
         "Whether you're a startup or an established enterprise, our custom web development services give you the competitive edge to succeed online.",
+      img: "services/web.jpg",
     },
     {
       title: "E-commerce Solutions",
@@ -106,6 +107,7 @@ const Page = () => {
       ],
       conclusion:
         "Whether you're launching your first store or upgrading an existing one, we provide the tools and expertise to help you succeed in the digital marketplace.",
+      img: "services/ecom.jpg",
     },
     {
       title: "Content Management Systems (CMS)",
@@ -120,6 +122,7 @@ const Page = () => {
       ],
       conclusion:
         "With our CMS solutions, you’ll have complete control over your digital presence, enabling you to keep your website fresh, relevant, and engaging.",
+      img: "services/cms.jpg",
     },
     {
       title: "Responsive Web Design",
@@ -134,6 +137,7 @@ const Page = () => {
       ],
       conclusion:
         "We ensure that your website provides a seamless experience across all devices, enhancing your audience's engagement and satisfaction.",
+      img: "services/responsive.webp",
     },
     {
       title: "Web Application Development",
@@ -147,6 +151,7 @@ const Page = () => {
       ],
       conclusion:
         "Our web application development services empower your business with custom, scalable, and secure web apps that optimize efficiency and deliver a seamless user experience.",
+      img: "services/webDevelopment.jpg",
     },
   ];
   const para = "Build Your Digital Presence with Insight Vision";
@@ -266,7 +271,12 @@ const Page = () => {
                         </div>
                       ))}
                     </div>
-                    <div className="w-full min-h-[500px] h-full bg-purple-200"></div>
+                    <div className="w-full h-[500px]">
+                      <img
+                        src={service.img}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   </div>
                   {service.conclusion ? (
                     <p className="mt-3">{service.conclusion}</p>
