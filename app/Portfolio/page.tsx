@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
-
+import SliderForm from "../App chunks/components/SliderForm";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -69,9 +69,10 @@ const Page = () => {
   }));
   const para =
     "Showcasing Creativity and Craft: A Portfolio of Innovative Design and Thoughtful Solutions";
-
+  const [isFormOpen, setIsFormOpen] = React.useState(false);
   return (
     <motion.div className="  bg-white" ref={containerRef}>
+      <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
       <motion.div>
         <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
           <div className="w-full h-full flex relative">
@@ -123,6 +124,12 @@ const Page = () => {
                     </motion.span>
                   ))}
                 </motion.h1>
+                <button
+                  onClick={() => setIsFormOpen(true)}
+                  className="mt-1 px-4 py-2 bg-slate-950 text-white font-SplineSans rounded-full font-[400]"
+                >
+                  Get Expert help
+                </button>
               </div>
             </div>
           </div>

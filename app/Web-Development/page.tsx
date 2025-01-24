@@ -9,8 +9,10 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "../App chunks/components/Accordion";
-import { Plus } from "@phosphor-icons/react";
+import { ArrowUpRight, Plus } from "@phosphor-icons/react";
 import { Circle } from "@phosphor-icons/react";
+import SliderForm from "../App chunks/components/SliderForm";
+
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -154,11 +156,13 @@ const Page = () => {
       img: "services/webDevelopment.jpg",
     },
   ];
+  const [isFormOpen, setIsFormOpen] = React.useState(false);
   const para = "Build Your Digital Presence with Insight Vision";
   const selfPrasiseContainer = React.useRef<HTMLDivElement>(null);
   const boxInView = useInView(selfPrasiseContainer, { once: true });
   return (
     <motion.div className="  bg-white" ref={containerRef}>
+      <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
       <motion.div>
         <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-fuchsia-100 from-10% to-indigo-700 relative">
           <div className="w-full h-full flex relative">
@@ -210,6 +214,19 @@ const Page = () => {
                     </motion.span>
                   ))}
                 </motion.h1>
+                 <button
+                                  onClick={() => setIsFormOpen(true)}
+                                  className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
+                                >
+                                  <span className="relative inline-flex overflow-hidden">
+                                    <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[130%] group-hover:skew-y-12 flex items-center gap-2">
+                                      Get Expert Help <ArrowUpRight />
+                                    </div>
+                                    <div className="absolute  translate-y-[134%] flex items-center gap-2 skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                                      Get Expert Help <ArrowUpRight />
+                                    </div>
+                                  </span>
+                                </button>
               </div>
             </div>
           </div>
