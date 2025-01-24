@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { X } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "framer-motion";
 interface SliderFormProps {
   isFormOpen: boolean;
-  setIsFormOpen: (isOpen: boolean) => void;
+  setIsFormOpen: (isFormOpen: boolean) => void;
 }
 import { useLenis } from "lenis/react";
 const SliderForm: React.FC<SliderFormProps> = ({
@@ -17,7 +17,7 @@ const SliderForm: React.FC<SliderFormProps> = ({
       document.body.style.overflow = "hidden";
       (
         document.getElementsByClassName("HeadNavigation")[0] as HTMLElement
-      ).style.zIndex = "-99";
+      ).style.zIndex = "9999";
       lenis?.stop();
     } else {
       document.body.style.overflow = "auto";
@@ -34,6 +34,23 @@ const SliderForm: React.FC<SliderFormProps> = ({
       (
         document.getElementsByClassName("HeadNavigation")[0] as HTMLElement
       ).style.zIndex = "initial";
+    };
+  }, [isFormOpen]);
+  const form = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (form.current && !form.current.contains(event.target as Node)) {
+        setIsFormOpen(false);
+      }
+    };
+
+    if (isFormOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isFormOpen]);
 
@@ -54,7 +71,8 @@ const SliderForm: React.FC<SliderFormProps> = ({
               animate={{ x: "0%" }}
               exit={{ x: "100%" }}
               transition={{ ease: [0.19, 1, 0.22, 1], duration: 0.7 }}
-              className="w-[500px] p-6 bg-slate-50 rounded-lg"
+              className="w-[500px] p-6 bg-white rounded-xl"
+              ref={form}
             >
               <div className="flex justify-end text-slate-950">
                 <button
@@ -103,7 +121,7 @@ const SliderForm: React.FC<SliderFormProps> = ({
                   />
                 </div>
                 <div className="w-full flex justify-start  ">
-                  <button className="px-5 py-2 bg-black text-slate-50 rounded-full">
+                  <button className="px-5 py-2 bg-[#2196F3] text-slate-50 rounded-full">
                     Submit
                   </button>
                 </div>

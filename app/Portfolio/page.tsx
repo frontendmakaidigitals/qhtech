@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import SliderForm from "../App chunks/components/SliderForm";
+import { ArrowUpRight } from "@phosphor-icons/react";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -126,9 +127,16 @@ const Page = () => {
                 </motion.h1>
                 <button
                   onClick={() => setIsFormOpen(true)}
-                  className="mt-1 px-4 py-2 bg-slate-950 text-white font-SplineSans rounded-full font-[400]"
+                  className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
                 >
-                  Get Expert help
+                  <span className="relative inline-flex overflow-hidden">
+                    <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[130%] group-hover:skew-y-12 flex items-center gap-2">
+                      Get Expert Help <ArrowUpRight />
+                    </div>
+                    <div className="absolute  translate-y-[134%] flex items-center gap-2 skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                      Get Expert Help <ArrowUpRight />
+                    </div>
+                  </span>
                 </button>
               </div>
             </div>

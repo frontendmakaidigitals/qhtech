@@ -15,11 +15,13 @@ export default function HeroSection() {
     target: container,
     offset: ["start start", "end end"],
   });
+  const [isFormOpen, setIsFormOpen] = React.useState<boolean>(false);
 
   return (
     <>
       <main ref={container} className="relative ">
-        <Section1 scrollYProgress={scrollYProgress} />
+        <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
+        <Section1 scrollYProgress={scrollYProgress} setIsFormOpen={setIsFormOpen} />
         <Section2 scrollYProgress={scrollYProgress} />
       </main>
     </>
@@ -28,8 +30,11 @@ export default function HeroSection() {
 
 const Section1 = ({
   scrollYProgress,
+  setIsFormOpen
 }: {
   scrollYProgress: MotionValue<number>;
+  setIsFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  
 }) => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, -10]);
@@ -47,15 +52,12 @@ const Section1 = ({
       });
     }
   };
- 
-  const [isFormOpen, setIsFormOpen] = React.useState<boolean>(false);
- 
+
   return (
     <motion.section
       style={{ scale, rotate }}
       className="sticky bg-black overflow-hidden top-0 h-screen"
     >
-      <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
       <div className="absolute top-0 left-0 h-full w-full -z-[1]">
         <BackgroundGradientAnimation />
       </div>

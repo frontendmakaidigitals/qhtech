@@ -100,7 +100,7 @@ const Tab = ({
         ref={ref}
         className={`relative group  z-10 block cursor-pointer px-3 py-1.5 text-xs  md:px-5 md:py-3 md:text-base`}
       >
-        <button className="group relative rounded-full uppercase  group-hover:text-white">
+        <button className="group relative rounded-full capitalize  group-hover:text-white">
           <span className="relative inline-flex overflow-hidden">
             <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
               {children}
@@ -134,7 +134,7 @@ const Tab = ({
       ref={ref}
       className={`relative group  z-10 block cursor-pointer  px-3 py-1.5 text-xs md:px-5 md:py-3 md:text-base`}
     >
-      <button className="group relative rounded-full uppercase   group-hover:text-white ">
+      <button className="group relative rounded-full capitalize  group-hover:text-white ">
         <span className="relative inline-flex overflow-hidden">
           <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[110%] group-hover:skew-y-12">
             {children}
