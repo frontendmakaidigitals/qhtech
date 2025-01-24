@@ -1,15 +1,5 @@
 "use client";
 import React from "react";
-<<<<<<< HEAD
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import BreadCrumb from "../App chunks/components/BreadCrumb";
-import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
-import VideoPortfolio from "../App chunks/components/videoScroll";
-const Page = () => {
-  const [height, setHeight] = React.useState(0);
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const container = React.useRef<HTMLDivElement>(null);
-=======
 import { motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
@@ -19,33 +9,12 @@ const Page = () => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const mediaRef = React.useRef<HTMLDivElement>(null);
 
->>>>>>> main
   React.useEffect(() => {
     const rect = document
       .getElementsByClassName("HeadNavigation")[0]
       .getBoundingClientRect();
     setHeight(rect.height);
   }, []);
-<<<<<<< HEAD
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end end"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["50%", "-50%"]);
-
-  // Apply spring for smooth transitions
-  const springY = useSpring(y, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-  const para =
-    "Showcasing Creativity and Craft: A Portfolio of Innovative Design and Thoughtful Solutions";
-
-  return (
-    <motion.div className="  bg-white" ref={containerRef}>
-=======
 
   const fileNames = [
     "20241130_130756.jpg",
@@ -104,7 +73,6 @@ const Page = () => {
   return (
     <motion.div className="  bg-white" ref={containerRef}>
       <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
->>>>>>> main
       <motion.div>
         <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
           <div className="w-full h-full flex relative">
@@ -156,91 +124,18 @@ const Page = () => {
                     </motion.span>
                   ))}
                 </motion.h1>
-<<<<<<< HEAD
-=======
                 <button
                   onClick={() => setIsFormOpen(true)}
                   className="mt-1 px-4 py-2 bg-slate-950 text-white font-SplineSans rounded-full font-[400]"
                 >
                   Get Expert help
                 </button>
->>>>>>> main
               </div>
             </div>
           </div>
         </div>
       </motion.div>
 
-<<<<<<< HEAD
-      <motion.div ref={container} className="py-24 bg-orange-50">
-        <div className="container relative flex justify-center items-center h-[180vh]">
-          <motion.div className="realative z-[10]">
-            <h3 className="text-8xl text-yellow-950 font-Grostek font-[700]">
-              Photography
-            </h3>
-          </motion.div>
-          <motion.div
-            style={{ translateY: springY, scale: 1.1 }}
-            transition={{
-              ease: [0.42, 0, 0.58, 1], // Custom easing for smooth motion
-              duration: 5, // Duration of the scroll-based image transformation
-            }}
-            className="w-[400px]  absolute top-0 left-0 bg-slate-50 aspect-[3/4]"
-          >
-            <img
-              className="w-full h-full object-cover"
-              src={
-                "media/photographyImages/Snapinsta.app_462791529_1088018526665104_5505518182070144394_n_1080.jpg"
-              }
-            />
-          </motion.div>
-          <motion.div
-            style={{ translateY: springY, scale: 1.1 }}
-            transition={{
-              ease: [0.42, 0, 0.58, 1], // Custom easing for smooth motion
-              duration: 5, // Duration of the scroll-based image transformation
-            }}
-            className="w-[400px]  absolute top-24 right-0 bg-red-400 aspect-[3/4]"
-          >
-            <img
-              className="w-full h-full object-cover"
-              src={
-                "media/photographyImages/Snapinsta.app_471757945_1006467234854614_4548150390414566411_n_1080.jpg"
-              }
-            />
-          </motion.div>
-          <motion.div
-            style={{ translateY: springY, scale: 1.1 }}
-            transition={{
-              ease: [0.42, 0, 0.58, 1], // Custom easing for smooth motion
-              duration: 5, // Duration of the scroll-based image transformation
-            }}
-            className="w-[400px]  absolute bottom-0 left-0 bg-red-400 aspect-[3/4]"
-          >
-            <img
-              className="w-full h-full object-cover"
-              src={"media/photographyImages/2024_11_30_12_59_IMG_5791.jpg"}
-            />
-          </motion.div>
-          <motion.div
-            style={{ translateY: springY, scale: 1.1 }}
-            transition={{
-              ease: [0.42, 0, 0.58, 1], // Custom easing for smooth motion
-              duration: 5, // Duration of the scroll-based image transformation
-            }}
-            className="w-[400px]  absolute -bottom-20 right-0 bg-green-400 aspect-[3/4]"
-          >
-            <img
-              className="w-full h-full object-cover"
-              src={"media/photographyImages/20241130_130756.jpg"}
-            />
-          </motion.div>
-        </div>
-      </motion.div>
-
-      <motion.div>
-        <VideoPortfolio />
-=======
       <motion.div ref={mediaRef}>
         <div className="">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -278,7 +173,6 @@ const Page = () => {
             })}
           </div>
         </div>
->>>>>>> main
       </motion.div>
 
       <div className="py-16 container">
