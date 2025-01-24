@@ -16,13 +16,23 @@ export default function HeroSection() {
     offset: ["start start", "end end"],
   });
   const [isFormOpen, setIsFormOpen] = React.useState<boolean>(false);
+  const [isAnimationEnabled, setIsAnimationEnabled] =
+    React.useState<boolean>(true);
 
   return (
     <>
       <main ref={container} className="relative ">
         <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
-        <Section1 scrollYProgress={scrollYProgress} setIsFormOpen={setIsFormOpen} />
-        <Section2 scrollYProgress={scrollYProgress} />
+        <Section1
+          scrollYProgress={scrollYProgress}
+          setIsFormOpen={setIsFormOpen}
+          setIsAnimationEnabled={setIsAnimationEnabled}
+          isAnimationEnabled={isAnimationEnabled}
+        />
+        <Section2
+          scrollYProgress={scrollYProgress}
+          setIsAnimationEnabled={setIsAnimationEnabled}
+        />
       </main>
     </>
   );
@@ -30,11 +40,14 @@ export default function HeroSection() {
 
 const Section1 = ({
   scrollYProgress,
-  setIsFormOpen
+  setIsFormOpen,
+  setIsAnimationEnabled,
+  isAnimationEnabled,
 }: {
   scrollYProgress: MotionValue<number>;
   setIsFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  
+  setIsAnimationEnabled: React.Dispatch<React.SetStateAction<boolean>>;
+  isAnimationEnabled?: boolean;
 }) => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, -10]);
@@ -52,14 +65,14 @@ const Section1 = ({
       });
     }
   };
-
+  console.log(isAnimationEnabled)
   return (
     <motion.section
       style={{ scale, rotate }}
       className="sticky bg-black overflow-hidden top-0 h-screen"
     >
       <div className="absolute top-0 left-0 h-full w-full -z-[1]">
-        <BackgroundGradientAnimation />
+        <BackgroundGradientAnimation animationsEnabled={isAnimationEnabled} />
       </div>
 
       <div className="container relative flex flex-col items-center   justify-center  py-28 w-full h-full">
@@ -231,8 +244,10 @@ const Section1 = ({
 
 const Section2 = ({
   scrollYProgress,
+  setIsAnimationEnabled,
 }: {
   scrollYProgress: MotionValue<number>;
+  setIsAnimationEnabled: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const services = [
     {
@@ -308,6 +323,27 @@ const Section2 = ({
     };
   }, []);
   const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        // Check if the top of the element is at the top of the viewport
+        if (rect.top <= 0) {
+          setIsAnimationEnabled(false);
+        } else {
+          setIsAnimationEnabled(true);
+        }
+      }
+    };
+  
+    // Attach scroll event listener
+    window.addEventListener("scroll", handleScroll);
+  
+    // Cleanup on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const [sliderRef, instanceRef] = useKeenSlider({
     vertical: true,
   });
