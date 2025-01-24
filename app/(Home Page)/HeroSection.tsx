@@ -26,7 +26,7 @@ export default function HeroSection() {
         <Section1
           scrollYProgress={scrollYProgress}
           setIsFormOpen={setIsFormOpen}
-          setIsAnimationEnabled={setIsAnimationEnabled}
+           
           isAnimationEnabled={isAnimationEnabled}
         />
         <Section2
@@ -41,12 +41,10 @@ export default function HeroSection() {
 const Section1 = ({
   scrollYProgress,
   setIsFormOpen,
-  setIsAnimationEnabled,
   isAnimationEnabled,
 }: {
   scrollYProgress: MotionValue<number>;
   setIsFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setIsAnimationEnabled: React.Dispatch<React.SetStateAction<boolean>>;
   isAnimationEnabled?: boolean;
 }) => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
