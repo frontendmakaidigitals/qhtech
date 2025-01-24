@@ -388,7 +388,7 @@ const Page = () => {
                   <img
                     className="w-full h-full object-cover"
                     src={
-                      "/media/photographyImages/Snapinsta.app_462791529_1088018526665104_5505518182070144394_n_1080.jpg"
+                      "/media/photographyImages/app_462791529_1088018526665104_5505518182070144394_n_1080.jpg"
                     }
                   />
                 </div>
@@ -401,7 +401,7 @@ const Page = () => {
                   <img
                     className="w-full h-full object-cover"
                     src={
-                      "/media/photographyImages/Snapinsta.app_471757945_1006467234854614_4548150390414566411_n_1080.jpg"
+                      "/media/photographyImages/app_471757945_1006467234854614_4548150390414566411_n_1080.jpg"
                     }
                   />
                 </div>
