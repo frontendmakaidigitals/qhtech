@@ -26,7 +26,6 @@ export default function HeroSection() {
         <Section1
           scrollYProgress={scrollYProgress}
           setIsFormOpen={setIsFormOpen}
-           
           isAnimationEnabled={isAnimationEnabled}
         />
         <Section2
@@ -63,7 +62,7 @@ const Section1 = ({
       });
     }
   };
-  console.log(isAnimationEnabled)
+  console.log(isAnimationEnabled);
   return (
     <motion.section
       style={{ scale, rotate }}
@@ -250,54 +249,63 @@ const Section2 = ({
   const services = [
     {
       name: "Web Development",
-      img: "media/serviceImages/web.jpg",
-      color: "#E0E0E0 ",
+      img: "media/serviceImages/newImages/web development.png",
+      gradient: "bg-gradient-to-r from-[#fde68a] to-[#f59e0b] ",
     },
     {
       name: "App Development",
-      img: "media/serviceImages/app.png",
-      color: "#A1887F",
+      img: "media/serviceImages/newImages/app development.png",
+      gradient: "bg-gradient-to-r from-[#fef08a] via-[#84cc16] to-[#16a34a]",
     },
     {
       name: "Social Media Marketing",
-      img: "media/serviceImages/socialMedia.jpg",
-      color: "#BBDEFB",
+      img: "media/serviceImages/newImages/social media marketing.png",
+      gradient: "bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-[#f72464] via-[#ff858a] to-[#fff3a7]",
     },
     {
       name: "SEO Marketing",
-      img: "media/serviceImages/seo.jpg",
+      img: "media/serviceImages/newImages/SEO marketing.png",
+      gradient: "bg-gradient-to-bl from-[#edd2f3] via-[#fffcdc] to-[#84dfff]",
     },
     {
       name: "Photography & Videography",
-      img: "media/serviceImages/photography.jpeg",
+      img: "media/serviceImages/newImages/af528271-419c-493e-9ba4-5c37207c93ff.jpg",
+      gradient: "bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-[#6366f1] via-[#a5b4fc] to-[#e0e7ff] ",
     },
     {
       name: "Media Buying",
-      img: "media/serviceImages/media.jpg",
+      img: "media/serviceImages/newImages/media buying.png",
+      gradient: "bg-gradient-to-bl from-[#84cc16] via-[#16a34a] to-[#0f766e] ",
     },
     {
       name: "Performance Marketing",
-      img: "media/serviceImages/marketing.jpg",
+      img: "media/serviceImages/newImages/performance marketing.png",
+      gradient: "bg-gradient-to-tl from-[#f6fbf4] via-[#f5df99] to-[#5fd068] ",
     },
     {
       name: "Content Marketing",
-      img: "media/serviceImages/content.jpg",
+      img: "media/serviceImages/newImages/content marketing.jpg",
+      gradient: "bg-gradient-to-b from-[#06b6d4] via-[#2563eb] to-[#6366f1]",
     },
     {
       name: "Public Relation",
-      img: "media/serviceImages/publicRelation.jpg",
+      img: "media/serviceImages/newImages/48c53d51-7570-4e79-91a2-b9be78cc4eba.jpg",
+      gradient: "bg-gradient-to-br from-[#f59e0b] via-[#ea580c] to-[#b91c1c] ",
     },
     {
       name: "Branding & Advertising",
-      img: "media/serviceImages/branding.jpg",
+      img: "media/serviceImages/newImages/branding and advertising.png",
+      gradient: "bg-gradient-to-bl from-[#84cc16] via-[#22c55e] to-[#16a34a]",
     },
     {
       name: "IT Consulting & Advisory",
-      img: "media/serviceImages/it.jpg",
+      img: "media/serviceImages/newImages/1294c914-397f-424b-8c6f-86beef2bdd82.jpg",
+      gradient: "bg-gradient-to-b from-[#8d8daa] via-[#dfdfde] to-[#f7f5f2] ",
     },
     {
       name: "Cyber Security",
-      img: "media/serviceImages/security.jpg",
+      img: "media/serviceImages/newImages/a18f809c-a654-4186-b3c7-f1f7ac623403.jpg",
+      gradient: "bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-[#ff4d4d] via-[#ff8364] to-[#fdb87d]",
     },
   ];
   useEffect(() => {
@@ -333,10 +341,10 @@ const Section2 = ({
         }
       }
     };
-  
+
     // Attach scroll event listener
     window.addEventListener("scroll", handleScroll);
-  
+
     // Cleanup on unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -419,8 +427,8 @@ const Section2 = ({
 
   return (
     <motion.section
-      style={{ scale, rotate, backgroundColor: services[hoverId].color }}
-      className="relative py-24 bg-slate-100  text-gray-950"
+      style={{ scale, rotate }}
+      className={`relative py-24 bg-slate-100 ${services[hoverId].gradient}  text-gray-950`}
       ref={ref}
     >
       <motion.article
@@ -492,7 +500,7 @@ const Section2 = ({
         <div
           ref={sliderRef}
           style={{ height: `${containerHeight}px` }}
-          className={`w-full keen-slider overflow-hidden bg-red-400`}
+          className={`w-full keen-slider overflow-hidden `}
         >
           {services.map((service, idx) => (
             <div key={idx} className={`keen-slider__slide h-full`}>
@@ -500,7 +508,7 @@ const Section2 = ({
                 src={service.img}
                 key={hoverId}
                 transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
           ))}
