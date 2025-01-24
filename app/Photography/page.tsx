@@ -8,16 +8,10 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "../App chunks/components/Accordion";
-<<<<<<< HEAD
-import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
-import { Circle, Plus } from "@phosphor-icons/react";
-
-=======
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import { Circle, Plus } from "@phosphor-icons/react";
 import SliderForm from "../App chunks/components/SliderForm";
 import { ArrowUpRight } from "@phosphor-icons/react";
->>>>>>> main
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -56,11 +50,7 @@ const Page = () => {
         "Yes! Before every shoot, we offer a consultation to discuss your objectives, the look and feel you want to achieve, and any specific details you want to include.",
     },
   ];
-<<<<<<< HEAD
-
-=======
   const [isFormOpen, setIsFormOpen] = React.useState(false);
->>>>>>> main
   const photographyServices = [
     {
       category: "Product Photography",
@@ -369,10 +359,7 @@ const Page = () => {
 
   return (
     <motion.div className="  bg-white" ref={containerRef}>
-<<<<<<< HEAD
-=======
       <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
->>>>>>> main
       <motion.div>
         <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
           <div className="w-full h-full flex relative">
@@ -401,11 +388,7 @@ const Page = () => {
                   <img
                     className="w-full h-full object-cover"
                     src={
-<<<<<<< HEAD
-                      "/media/photographyImages/Snapinsta.app_462791529_1088018526665104_5505518182070144394_n_1080.jpg"
-=======
                       "/media/photographyImages/app_462791529_1088018526665104_5505518182070144394_n_1080.jpg"
->>>>>>> main
                     }
                   />
                 </div>
@@ -418,11 +401,7 @@ const Page = () => {
                   <img
                     className="w-full h-full object-cover"
                     src={
-<<<<<<< HEAD
-                      "/media/photographyImages/Snapinsta.app_471757945_1006467234854614_4548150390414566411_n_1080.jpg"
-=======
                       "/media/photographyImages/app_471757945_1006467234854614_4548150390414566411_n_1080.jpg"
->>>>>>> main
                     }
                   />
                 </div>
@@ -471,8 +450,6 @@ const Page = () => {
                     </motion.span>
                   ))}
                 </motion.h1>
-<<<<<<< HEAD
-=======
                 <button
                   onClick={() => setIsFormOpen(true)}
                   className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
@@ -486,7 +463,6 @@ const Page = () => {
                     </div>
                   </span>
                 </button>
->>>>>>> main
               </div>
             </div>
           </div>

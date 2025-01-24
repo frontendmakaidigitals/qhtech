@@ -8,15 +8,10 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "../App chunks/components/Accordion";
-<<<<<<< HEAD
-import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
-import { Circle, Plus } from "@phosphor-icons/react";
-=======
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import { Circle, Plus } from "@phosphor-icons/react";
 import { ArrowUpRight } from "@phosphor-icons/react";
 import SliderForm from "../App chunks/components/SliderForm";
->>>>>>> main
 
 const Page = () => {
   const [height, setHeight] = React.useState(0);
@@ -57,10 +52,7 @@ const Page = () => {
         "Results vary based on your goals. Organic growth may take a few months, while paid ads can show results within days. Consistent effort and strategy deliver long-term success.",
     },
   ];
-<<<<<<< HEAD
-=======
   const [isFormOpen, setIsFormOpen] = React.useState(false);
->>>>>>> main
 
   const marketingServices = [
     {
@@ -94,10 +86,7 @@ const Page = () => {
             "High-quality images, videos, and graphics that catch the audience's attention. This includes product photos, behind-the-scenes footage, or creative animations.",
         },
       ],
-<<<<<<< HEAD
-=======
       img: "services/socialmedia.jpg",
->>>>>>> main
     },
     {
       category: "Lead Generation",
@@ -125,10 +114,7 @@ const Page = () => {
             "Detailed tracking and reports to optimize your campaigns and maximize ROI.",
         },
       ],
-<<<<<<< HEAD
-=======
       img: "services/lead.jpg",
->>>>>>> main
     },
     {
       category: "Influencer Marketing",
@@ -156,10 +142,7 @@ const Page = () => {
             "We focus on nurturing meaningful relationships with influencers that go beyond just one campaign.",
         },
       ],
-<<<<<<< HEAD
-=======
       img: "services/influencerMarketing.jpg",
->>>>>>> main
     },
     {
       category: "Affiliate Marketing",
@@ -187,10 +170,7 @@ const Page = () => {
             "Track performance and optimize campaigns to maximize commissions and conversions.",
         },
       ],
-<<<<<<< HEAD
-=======
       img: "services/Affiliate.webp",
->>>>>>> main
     },
     {
       category: "Community Management",
@@ -218,10 +198,7 @@ const Page = () => {
             "Develop strategies to keep your community engaged, growing, and thriving through meaningful interactions.",
         },
       ],
-<<<<<<< HEAD
-=======
       img: "services/communityManagement.webp",
->>>>>>> main
     },
   ];
 
@@ -230,10 +207,7 @@ const Page = () => {
 
   return (
     <motion.div className="  bg-white" ref={containerRef}>
-<<<<<<< HEAD
-=======
       <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
->>>>>>> main
       <motion.div>
         <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
           <div className="w-full h-full flex relative">
@@ -285,8 +259,6 @@ const Page = () => {
                     </motion.span>
                   ))}
                 </motion.h1>
-<<<<<<< HEAD
-=======
                 <button
                   onClick={() => setIsFormOpen(true)}
                   className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
@@ -300,7 +272,6 @@ const Page = () => {
                     </div>
                   </span>
                 </button>
->>>>>>> main
               </div>
             </div>
           </div>
@@ -358,16 +329,12 @@ const Page = () => {
                     </div>
                   ))}
                 </div>
-<<<<<<< HEAD
-                <div className="w-full h-full bg-slate-300 shadow-md border border-slate-400 rounded-lg overflow-hidden"></div>
-=======
                 <div className="w-full max-h-[650px] bg-slate-300 shadow-md border border-slate-400 rounded-lg overflow-hidden">
                   <img
                     src={service.img}
                     className="w-full h-full object-cover"
                   />
                 </div>
->>>>>>> main
               </div>
             </div>
           ))}

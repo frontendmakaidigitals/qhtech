@@ -8,15 +8,10 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "../App chunks/components/Accordion";
-<<<<<<< HEAD
-import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
-import { Circle, Plus } from "@phosphor-icons/react";
-=======
 import { ArrowUpRight } from "@phosphor-icons/react";
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import { Circle, Plus } from "@phosphor-icons/react";
 import SliderForm from "../App chunks/components/SliderForm";
->>>>>>> main
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -96,10 +91,7 @@ const Page = () => {
       types: [],
     },
   ];
-<<<<<<< HEAD
-=======
   const [isFormOpen, setIsFormOpen] = React.useState(false);
->>>>>>> main
   const tvdvertising = [
     {
       title: "1. National TV Advertising",
@@ -270,10 +262,7 @@ const Page = () => {
     "Media buying is more than just purchasing ad space; it's about getting your message into the right hands at the right time.";
   return (
     <motion.div className="  bg-white" ref={containerRef}>
-<<<<<<< HEAD
-=======
       <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
->>>>>>> main
       <motion.div>
         <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
           <div className="w-full h-full flex relative">
@@ -325,8 +314,6 @@ const Page = () => {
                     </motion.span>
                   ))}
                 </motion.h1>
-<<<<<<< HEAD
-=======
                 <button
                   onClick={() => setIsFormOpen(true)}
                   className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
@@ -340,7 +327,6 @@ const Page = () => {
                     </div>
                   </span>
                 </button>
->>>>>>> main
               </div>
             </div>
           </div>
@@ -401,32 +387,6 @@ const Page = () => {
         <div className="grid grid-cols-1 gap-5 container mt-6">
           <h3 className="text-2xl font-Synonym font-[500]">TV Advertising</h3>
           {tvdvertising.map((category, index) => (
-<<<<<<< HEAD
-           <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
-           <h2 className="text-xl font-semibold text-gray-800 mb-2">
-             {category.title}
-           </h2>
-           <p className="">{category.description}</p>
-
-           {category.types.length > 0 && (
-             <div className="grid grid-cols-1 mt-5 lg:grid-cols-2 gap-4">
-               <ul className=" flex flex-col gap-2">
-                 {category.types.map((type, idx) => (
-                   <li key={idx} className="p-3 bg-purple-100 rounded-lg">
-                     <div className={"flex items-start gap-2"}>
-                       <div className={"mt-1"}>
-                         <Circle weight="fill" />
-                       </div>
-                       {type}
-                     </div>
-                   </li>
-                 ))}
-               </ul>
-               <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
-             </div>
-           )}
-         </div>
-=======
             <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">
                 {category.title}
@@ -451,7 +411,6 @@ const Page = () => {
                 </div>
               )}
             </div>
->>>>>>> main
           ))}
         </div>
         <div className="grid grid-cols-1 gap-5 container mt-6">
@@ -460,31 +419,6 @@ const Page = () => {
           </h3>
           {radioAdvertising.map((category, index) => (
             <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
-<<<<<<< HEAD
-            <h2 className="text-xl font-semibold text-gray-800 mb-2">
-              {category.title}
-            </h2>
-            <p className="">{category.description}</p>
-
-            {category.types.length > 0 && (
-              <div className="grid grid-cols-1 mt-5 lg:grid-cols-2 gap-4">
-                <ul className=" flex flex-col gap-2">
-                  {category.types.map((type, idx) => (
-                    <li key={idx} className="p-3 bg-purple-100 rounded-lg">
-                      <div className={"flex items-start gap-2"}>
-                        <div className={"mt-1"}>
-                          <Circle weight="fill" />
-                        </div>
-                        {type}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-                <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
-              </div>
-            )}
-          </div>
-=======
               <h2 className="text-xl font-semibold text-gray-800 mb-2">
                 {category.title}
               </h2>
@@ -508,7 +442,6 @@ const Page = () => {
                 </div>
               )}
             </div>
->>>>>>> main
           ))}
         </div>
         <div className="grid grid-cols-1 gap-5 container mt-6">
@@ -516,32 +449,6 @@ const Page = () => {
             Newspaper Advertising
           </h3>
           {newsPaperAdvertising.map((category, index) => (
-<<<<<<< HEAD
-           <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
-           <h2 className="text-xl font-semibold text-gray-800 mb-2">
-             {category.title}
-           </h2>
-           <p className="">{category.description}</p>
-
-           {category.types.length > 0 && (
-             <div className="grid grid-cols-1 mt-5 lg:grid-cols-2 gap-4">
-               <ul className=" flex flex-col gap-2">
-                 {category.types.map((type, idx) => (
-                   <li key={idx} className="p-3 bg-purple-100 rounded-lg">
-                     <div className={"flex items-start gap-2"}>
-                       <div className={"mt-1"}>
-                         <Circle weight="fill" />
-                       </div>
-                       {type}
-                     </div>
-                   </li>
-                 ))}
-               </ul>
-               <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
-             </div>
-           )}
-         </div>
-=======
             <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">
                 {category.title}
@@ -566,7 +473,6 @@ const Page = () => {
                 </div>
               )}
             </div>
->>>>>>> main
           ))}
         </div>
         <div className="grid grid-cols-1 gap-5 container mt-6">
@@ -574,32 +480,6 @@ const Page = () => {
             Digital Media Buying
           </h3>
           {digiatalMediaBuying.map((category, index) => (
-<<<<<<< HEAD
-          <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">
-            {category.title}
-          </h2>
-          <p className="">{category.description}</p>
-
-          {category.types.length > 0 && (
-            <div className="grid grid-cols-1 mt-5 lg:grid-cols-2 gap-4">
-              <ul className=" flex flex-col gap-2">
-                {category.types.map((type, idx) => (
-                  <li key={idx} className="p-3 bg-purple-100 rounded-lg">
-                    <div className={"flex items-start gap-2"}>
-                      <div className={"mt-1"}>
-                        <Circle weight="fill" />
-                      </div>
-                      {type}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-              <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
-            </div>
-          )}
-        </div>
-=======
             <div key={index} className="bg-purple-50 rounded-lg p-4 bg-purple">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">
                 {category.title}
@@ -624,7 +504,6 @@ const Page = () => {
                 </div>
               )}
             </div>
->>>>>>> main
           ))}
         </div>
       </div>

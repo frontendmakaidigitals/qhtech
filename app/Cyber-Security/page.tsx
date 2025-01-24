@@ -8,16 +8,10 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "../App chunks/components/Accordion";
-<<<<<<< HEAD
-import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
-import { Plus } from "@phosphor-icons/react";
-
-=======
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import { Plus } from "@phosphor-icons/react";
 import SliderForm from "../App chunks/components/SliderForm";
 import { ArrowUpRight } from "@phosphor-icons/react";
->>>>>>> main
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -157,20 +151,13 @@ const Page = () => {
       ],
     },
   ];
-<<<<<<< HEAD
-
-=======
   const [isFormOpen, setIsFormOpen] = React.useState(false);
->>>>>>> main
   const para =
     "Cybersecurity is not just a technology problem—it’s a business risk.";
 
   return (
     <motion.div className="  bg-white" ref={containerRef}>
-<<<<<<< HEAD
-=======
       <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
->>>>>>> main
       <motion.div>
         <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
           <div className="w-full h-full flex relative">
@@ -222,8 +209,6 @@ const Page = () => {
                     </motion.span>
                   ))}
                 </motion.h1>
-<<<<<<< HEAD
-=======
                 <button
                   onClick={() => setIsFormOpen(true)}
                   className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
@@ -237,7 +222,6 @@ const Page = () => {
                     </div>
                   </span>
                 </button>
->>>>>>> main
               </div>
             </div>
           </div>
