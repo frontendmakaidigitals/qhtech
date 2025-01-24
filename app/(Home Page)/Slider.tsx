@@ -3,18 +3,9 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
-<<<<<<< HEAD
-import {
-  ArrowArcLeft,
-  ArrowArcRight,
-  ArrowUpRight,
-} from "@phosphor-icons/react";
-import ReactCardFlip from "react-card-flip";
-=======
 import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
 import ReactCardFlip from "react-card-flip";
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
->>>>>>> main
 const Slider = () => {
   const containerRef = useRef(null);
   const images = [
@@ -104,21 +95,12 @@ const Slider = () => {
   useEffect(() => {
     // Only run if the refs are populated
     if (cardRef.current.length > 0) {
-<<<<<<< HEAD
-      const heights = cardRef.current.map(
-        (ref) => (ref ? ref.clientHeight : 0)
-=======
       const heights = cardRef.current.map((ref) =>
         ref ? ref.clientHeight : 0
->>>>>>> main
       );
       setCardHeight(Math.max(...heights)); // Set the highest height
     }
   }, [images]);
-<<<<<<< HEAD
-  console.log(cardHeight)
-=======
->>>>>>> main
   return (
     <div
       ref={containerRef}
@@ -143,9 +125,6 @@ const Slider = () => {
         ))}
       </motion.article>
 
-<<<<<<< HEAD
-      <div>
-=======
       <div className=" px-10 relative">
         {loaded && (
           <>
@@ -166,35 +145,12 @@ const Slider = () => {
             />
           </>
         )}
->>>>>>> main
         <motion.div
           animate={{ x: inView ? "0%" : "100%" }}
           transition={{ ease: [0.29, 1.08, 0.67, 0.98], duration: 1.4 }}
           ref={ref}
           className="keen-slider overflow-hidden w-full mt-7"
         >
-<<<<<<< HEAD
-          {loaded && (
-            <>
-              <ArrowArcLeft
-                className="absolute size-10 bg-slate-50/70 hover:bg-slate-50 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 left-0"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  instanceRef.current?.prev();
-                }}
-              />
-
-              <ArrowArcRight
-                className="absolute size-10 bg-slate-50/70 hover:bg-slate-50 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 right-0 rotate-360"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  instanceRef.current?.next();
-                }}
-              />
-            </>
-          )}
-=======
->>>>>>> main
           {images.map(
             (image: { name: string; image: string; text: string }, index) => {
               return (
@@ -209,22 +165,14 @@ const Slider = () => {
                     isFlipped={hoverId === index}
                     flipDirection="horizontal"
                   >
-<<<<<<< HEAD
-                    <div>
-=======
                     <div className="relative">
->>>>>>> main
                       <div className="">
                         <motion.div className="relative overflow-hidden w-full aspect-[3/4] ">
                           <motion.img
                             src={image.image}
-<<<<<<< HEAD
-                            ref={(el) => { cardRef.current[index] = el; }}
-=======
                             ref={(el) => {
                               cardRef.current[index] = el;
                             }}
->>>>>>> main
                             alt={`slide-${index}`}
                             transition={{ duration: 0.5 }}
                             className="w-full top-0 left-0  h-full object-cover absolute "
@@ -233,31 +181,14 @@ const Slider = () => {
                         </motion.div>
                       </div>
 
-<<<<<<< HEAD
-                      <div className="mt-2">
-                        <p className="font-[600] font-Grostek text-xl">
-=======
                       <div className="absolute top-1/2 left-1/2 flex justify-center w-full -translate-x-1/2 -translate-y-1/2 text-slate-50">
                         <p className="font-[600] font-Grostek text-xl p-3 bg-white/50 text-slate-950 shadow-lg rounded-lg">
->>>>>>> main
                           {image.name}
                         </p>
                       </div>
                     </div>
                     <div className="w-full">
                       <div
-<<<<<<< HEAD
-                        className="bg-gray-800 relative  px-5 py-6 text-slate-50"
-                        style={{ height: `${cardHeight}px` }}
-                      >
-                        <h2 className="font-Grostek text-3xl font-[600]">
-                          {image.name}
-                        </h2>
-                        <motion.div className=" mt-2 w-full h-full">
-                          <p className="font-Grostek text-xl">{image.text}</p>
-                        </motion.div>
-                        
-=======
                         className=" flex flex-col justify-center items-center relative  px-5 py-6 text-slate-50"
                         style={{ height: `${cardHeight}px` }}
                       >
@@ -279,7 +210,6 @@ const Slider = () => {
                             </p>
                           </motion.div>
                         </div>
->>>>>>> main
                       </div>
                     </div>
                   </ReactCardFlip>

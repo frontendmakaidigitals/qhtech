@@ -2,11 +2,7 @@
 import React from "react";
 import { motion, useMotionValue, useTransform, useInView } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
-<<<<<<< HEAD
-import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
-=======
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
->>>>>>> main
 import SparklesText from "../App chunks/components/SparklesText";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
