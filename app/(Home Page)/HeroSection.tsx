@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+<<<<<<< HEAD
 import {
   useScroll,
   useTransform,
@@ -9,10 +10,20 @@ import {
 } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { BackgroundGradientAnimation } from "./HeroGradient";
+=======
+import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
+>>>>>>> main
 import { ArrowUpRight } from "@phosphor-icons/react";
 import "../App chunks/components/textAnim.css";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+<<<<<<< HEAD
+=======
+import SliderForm from "../App chunks/components/SliderForm";
+
+>>>>>>> main
 export default function HeroSection() {
   const container = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -51,12 +62,22 @@ const Section1 = ({
       });
     }
   };
+<<<<<<< HEAD
 
+=======
+ 
+  const [isFormOpen, setIsFormOpen] = React.useState<boolean>(false);
+ 
+>>>>>>> main
   return (
     <motion.section
       style={{ scale, rotate }}
       className="sticky bg-black overflow-hidden top-0 h-screen"
     >
+<<<<<<< HEAD
+=======
+      <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
+>>>>>>> main
       <div className="absolute top-0 left-0 h-full w-full -z-[1]">
         <BackgroundGradientAnimation />
       </div>
@@ -197,7 +218,14 @@ const Section1 = ({
           ))}
         </div>
         <div className="mt-6">
+<<<<<<< HEAD
           <button className="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-tr from-purple-100 to-purple-300  font-medium text-purple-950   transition-all duration-300 hover:w-40">
+=======
+          <button
+            onClick={() => setIsFormOpen(true)}
+            className="group relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-tr from-purple-100 to-purple-300  font-medium text-purple-950   transition-all duration-300 hover:w-40"
+          >
+>>>>>>> main
             <div className="inline-flex whitespace-nowrap opacity-0 transition-all duration-200 group-hover:-translate-x-3 group-hover:opacity-100">
               Get in Touch
             </div>
@@ -239,7 +267,11 @@ const Section2 = ({
     {
       name: "App Development",
       img: "media/serviceImages/app.png",
+<<<<<<< HEAD
       color: "#D7CCC8",
+=======
+      color: "#A1887F",
+>>>>>>> main
     },
     {
       name: "Social Media Marketing",
@@ -337,7 +369,11 @@ const Section2 = ({
   useEffect(() => {
     const updateContainerHeight = () => {
       if (containerRef.current) {
+<<<<<<< HEAD
         setContainerHeight(containerRef.current.getBoundingClientRect().height); // Get the height of the container
+=======
+        setContainerHeight(containerRef.current.clientHeight); // Get the height of the container
+>>>>>>> main
       }
     };
 
@@ -352,7 +388,11 @@ const Section2 = ({
       window.removeEventListener("resize", updateContainerHeight);
     };
   }, []);
+<<<<<<< HEAD
   console.log(containerHeight);
+=======
+
+>>>>>>> main
   useEffect(() => {
     if (hoverId !== null && btnRefs.current[hoverId] && containerRef.current) {
       const rect = btnRefs.current[hoverId].getBoundingClientRect();
@@ -374,6 +414,15 @@ const Section2 = ({
     }
   }, [hoverId, instanceRef]);
 
+<<<<<<< HEAD
+=======
+  useEffect(() => {
+    if (containerHeight > 0 && instanceRef.current) {
+      instanceRef.current.update();
+    }
+  }, [containerHeight]);
+
+>>>>>>> main
   return (
     <motion.section
       style={{ scale, rotate, backgroundColor: services[hoverId].color }}
@@ -449,7 +498,11 @@ const Section2 = ({
         <div
           ref={sliderRef}
           style={{ height: `${containerHeight}px` }}
+<<<<<<< HEAD
           className={`w-full keen-slider overflow-hidden `}
+=======
+          className={`w-full keen-slider overflow-hidden bg-red-400`}
+>>>>>>> main
         >
           {services.map((service, idx) => (
             <div key={idx} className={`keen-slider__slide h-full`}>

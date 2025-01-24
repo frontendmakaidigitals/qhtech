@@ -8,9 +8,16 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "../App chunks/components/Accordion";
+<<<<<<< HEAD
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
 import { Circle, Plus } from "@phosphor-icons/react";
 
+=======
+import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
+import { Circle, Plus } from "@phosphor-icons/react";
+import SliderForm from "../App chunks/components/SliderForm";
+import { ArrowUpRight } from "@phosphor-icons/react";
+>>>>>>> main
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -49,6 +56,10 @@ const Page = () => {
         "There are many types of content used in content marketing, including Blogs & Articles, Videos, Podcasts, E-books & Whitepapers.",
     },
   ];
+<<<<<<< HEAD
+=======
+  const [isFormOpen, setIsFormOpen] = React.useState(false);
+>>>>>>> main
 
   const services = [
     {
@@ -74,6 +85,15 @@ const Page = () => {
         ],
         contentCalendarManagement:
           "We plan and schedule posts to ensure consistency and timely delivery, aligning with your overall marketing goals. Content calendar management involves planning, scheduling, and coordinating content across platforms to achieve marketing objectives.",
+<<<<<<< HEAD
+=======
+        img: [
+          "services/content-formats.webp",
+          "services/Calender.jpg",
+          "services/content-formats.webp",
+          "",
+        ],
+>>>>>>> main
       },
     },
     {
@@ -164,9 +184,15 @@ const Page = () => {
   ];
 
   const para = "Great content is the best sales tool in the world";
+<<<<<<< HEAD
 
   return (
     <motion.div className="  bg-white" ref={containerRef}>
+=======
+  return (
+    <motion.div className="  bg-white" ref={containerRef}>
+      <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
+>>>>>>> main
       <motion.div>
         <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
           <div className="w-full h-full flex relative">
@@ -218,6 +244,22 @@ const Page = () => {
                     </motion.span>
                   ))}
                 </motion.h1>
+<<<<<<< HEAD
+=======
+                <button
+                  onClick={() => setIsFormOpen(true)}
+                  className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
+                >
+                  <span className="relative inline-flex overflow-hidden">
+                    <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[130%] group-hover:skew-y-12 flex items-center gap-2">
+                      Get Expert Help <ArrowUpRight />
+                    </div>
+                    <div className="absolute  translate-y-[134%] flex items-center gap-2 skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                      Get Expert Help <ArrowUpRight />
+                    </div>
+                  </span>
+                </button>
+>>>>>>> main
               </div>
             </div>
           </div>
@@ -247,10 +289,14 @@ const Page = () => {
         </div>
         <div className="mx-auto container mt-12 grid grid-cols-1 gap-4">
           {services.map((service, index) => (
+<<<<<<< HEAD
             <div
               key={index}
               className="bg-purple-50 mt-4 rounded-lg p-6 "
             >
+=======
+            <div key={index} className="bg-purple-50 mt-4 rounded-lg p-6 ">
+>>>>>>> main
               <h2 className="text-xl font-semibold text-gray-700 mb-2">
                 {service.title}
               </h2>
@@ -265,7 +311,14 @@ const Page = () => {
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
                         <ul className="flex flex-col gap-3  text-gray-600">
                           {value.map((item, j) => (
+<<<<<<< HEAD
                             <li key={j} className="bg-purple-100 rounded-lg p-3">
+=======
+                            <li
+                              key={j}
+                              className="bg-purple-100 rounded-lg p-3"
+                            >
+>>>>>>> main
                               <div className="flex items-start gap-2">
                                 <div className="mt-[6px]">
                                   <Circle weight="fill" className="text-sm" />

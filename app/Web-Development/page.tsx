@@ -2,15 +2,26 @@
 import React from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
+<<<<<<< HEAD
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
+=======
+import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
+>>>>>>> main
 import {
   Accordion,
   AccordionHeader,
   AccordionItem,
   AccordionPanel,
 } from "../App chunks/components/Accordion";
+<<<<<<< HEAD
 import { Plus } from "@phosphor-icons/react";
 import { Circle } from "@phosphor-icons/react";
+=======
+import { ArrowUpRight, Plus } from "@phosphor-icons/react";
+import { Circle } from "@phosphor-icons/react";
+import SliderForm from "../App chunks/components/SliderForm";
+
+>>>>>>> main
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -92,6 +103,10 @@ const Page = () => {
       ],
       conclusion:
         "Whether you're a startup or an established enterprise, our custom web development services give you the competitive edge to succeed online.",
+<<<<<<< HEAD
+=======
+      img: "services/web.jpg",
+>>>>>>> main
     },
     {
       title: "E-commerce Solutions",
@@ -106,6 +121,10 @@ const Page = () => {
       ],
       conclusion:
         "Whether you're launching your first store or upgrading an existing one, we provide the tools and expertise to help you succeed in the digital marketplace.",
+<<<<<<< HEAD
+=======
+      img: "services/ecom.jpg",
+>>>>>>> main
     },
     {
       title: "Content Management Systems (CMS)",
@@ -120,6 +139,10 @@ const Page = () => {
       ],
       conclusion:
         "With our CMS solutions, you’ll have complete control over your digital presence, enabling you to keep your website fresh, relevant, and engaging.",
+<<<<<<< HEAD
+=======
+      img: "services/cms.jpg",
+>>>>>>> main
     },
     {
       title: "Responsive Web Design",
@@ -134,6 +157,10 @@ const Page = () => {
       ],
       conclusion:
         "We ensure that your website provides a seamless experience across all devices, enhancing your audience's engagement and satisfaction.",
+<<<<<<< HEAD
+=======
+      img: "services/responsive.webp",
+>>>>>>> main
     },
     {
       title: "Web Application Development",
@@ -147,13 +174,24 @@ const Page = () => {
       ],
       conclusion:
         "Our web application development services empower your business with custom, scalable, and secure web apps that optimize efficiency and deliver a seamless user experience.",
+<<<<<<< HEAD
     },
   ];
+=======
+      img: "services/webDevelopment.jpg",
+    },
+  ];
+  const [isFormOpen, setIsFormOpen] = React.useState(false);
+>>>>>>> main
   const para = "Build Your Digital Presence with Insight Vision";
   const selfPrasiseContainer = React.useRef<HTMLDivElement>(null);
   const boxInView = useInView(selfPrasiseContainer, { once: true });
   return (
     <motion.div className="  bg-white" ref={containerRef}>
+<<<<<<< HEAD
+=======
+      <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
+>>>>>>> main
       <motion.div>
         <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-fuchsia-100 from-10% to-indigo-700 relative">
           <div className="w-full h-full flex relative">
@@ -205,6 +243,22 @@ const Page = () => {
                     </motion.span>
                   ))}
                 </motion.h1>
+<<<<<<< HEAD
+=======
+                 <button
+                                  onClick={() => setIsFormOpen(true)}
+                                  className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
+                                >
+                                  <span className="relative inline-flex overflow-hidden">
+                                    <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[130%] group-hover:skew-y-12 flex items-center gap-2">
+                                      Get Expert Help <ArrowUpRight />
+                                    </div>
+                                    <div className="absolute  translate-y-[134%] flex items-center gap-2 skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                                      Get Expert Help <ArrowUpRight />
+                                    </div>
+                                  </span>
+                                </button>
+>>>>>>> main
               </div>
             </div>
           </div>
@@ -266,7 +320,16 @@ const Page = () => {
                         </div>
                       ))}
                     </div>
+<<<<<<< HEAD
                     <div className="w-full min-h-[500px] h-full bg-purple-200"></div>
+=======
+                    <div className="w-full h-[500px]">
+                      <img
+                        src={service.img}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+>>>>>>> main
                   </div>
                   {service.conclusion ? (
                     <p className="mt-3">{service.conclusion}</p>

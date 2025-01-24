@@ -5,13 +5,21 @@ import Menu from "./Menu";
 import Button from "./SecondaryButton";
 import MobileMenu from "./MobileMenu";
 import { motion } from "framer-motion";
+<<<<<<< HEAD
 
+=======
+import Link from "next/link";
+>>>>>>> main
 const menu = [
   { title: "home", link: "/" },
   { title: "about", link: "/About" },
   { title: "services", link: "/service" },
   { title: "Portfolio", link: "/Portfolio" },
+<<<<<<< HEAD
   { title: "contact", link: "/contact" },
+=======
+  { title: "Blogs", link: "/Blogs" },
+>>>>>>> main
 ];
 const NavBar = () => {
   return (
@@ -34,7 +42,11 @@ const NavBar = () => {
           initial={{ y: -200 }}
           animate={{ y: 0 }}
           transition={{ type: "linear", ease: "easeInOut", duration: 1 }}
+<<<<<<< HEAD
           className="hidden md:flex relative"
+=======
+          className="hidden lg:flex"
+>>>>>>> main
         >
           <Menu menu={menu} />
         </motion.div>
@@ -49,9 +61,15 @@ const NavBar = () => {
             duration: 1,
           }}
         >
+<<<<<<< HEAD
           <div className="hidden lg:block">
             <Button>Contact us</Button>
           </div>
+=======
+          <Link href={"/contact"} className="hidden lg:block">
+            <Button>Contact us</Button>
+          </Link>
+>>>>>>> main
         </motion.div>
         <MobileMenu menu={menu} />
       </div>

@@ -8,12 +8,22 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "../App chunks/components/Accordion";
+<<<<<<< HEAD
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
 import { ArrowUpRight, Circle, Plus } from "@phosphor-icons/react";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
 
+=======
+import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
+import { ArrowUpRight, Circle, Plus } from "@phosphor-icons/react";
+import SliderForm from "../App chunks/components/SliderForm";
+const Page = () => {
+  const [height, setHeight] = React.useState(0);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const [isFormOpen, setIsFormOpen] = React.useState(false);
+>>>>>>> main
   React.useEffect(() => {
     const rect = document
       .getElementsByClassName("HeadNavigation")[0]
@@ -168,6 +178,10 @@ const Page = () => {
 
   return (
     <motion.div className="  bg-white" ref={containerRef}>
+<<<<<<< HEAD
+=======
+      <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
+>>>>>>> main
       <motion.div>
         <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
           <div className="w-full h-full flex relative">
@@ -219,7 +233,14 @@ const Page = () => {
                     </motion.span>
                   ))}
                 </motion.div>
+<<<<<<< HEAD
                 <button className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50">
+=======
+                <button
+                  onClick={() => setIsFormOpen(true)}
+                  className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
+                >
+>>>>>>> main
                   <span className="relative inline-flex overflow-hidden">
                     <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[130%] group-hover:skew-y-12 flex items-center gap-2">
                       Get Expert Help <ArrowUpRight />

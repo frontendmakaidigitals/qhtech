@@ -8,9 +8,16 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "../App chunks/components/Accordion";
+<<<<<<< HEAD
 import { Circle, Plus } from "@phosphor-icons/react";
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
 
+=======
+import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+import { Circle, Plus } from "@phosphor-icons/react";
+import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
+import SliderForm from "../App chunks/components/SliderForm";
+>>>>>>> main
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -136,12 +143,20 @@ const Page = () => {
       ],
     },
   ];
+<<<<<<< HEAD
 
+=======
+  const [isFormOpen, setIsFormOpen] = React.useState(false);
+>>>>>>> main
   const para =
     "Welcome to Insight Vision - Elevate Your Online Presence through SEO ";
 
   return (
     <motion.div className="  bg-white" ref={containerRef}>
+<<<<<<< HEAD
+=======
+      <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
+>>>>>>> main
       <motion.div>
         <div className="w-full h-screen overflow-hidden relative">
           <div className="w-full h-full flex relative">
@@ -193,6 +208,22 @@ const Page = () => {
                     </motion.span>
                   ))}
                 </motion.h1>
+<<<<<<< HEAD
+=======
+                <button
+                  onClick={() => setIsFormOpen(true)}
+                  className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
+                >
+                  <span className="relative inline-flex overflow-hidden">
+                    <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[130%] group-hover:skew-y-12 flex items-center gap-2">
+                      Get Expert Help <ArrowUpRight />
+                    </div>
+                    <div className="absolute  translate-y-[134%] flex items-center gap-2 skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                      Get Expert Help <ArrowUpRight />
+                    </div>
+                  </span>
+                </button>
+>>>>>>> main
               </div>
             </div>
           </div>
@@ -246,8 +277,12 @@ const Page = () => {
                               key={i}
                               className="flex  bg-[#c5edff] text-blue-950 rounded-lg px-3 items-start gap-2 py-2"
                             >
+<<<<<<< HEAD
                               <div className="mt-[6px]"
                               >
+=======
+                              <div className="mt-[6px]">
+>>>>>>> main
                                 <Circle weight="fill" />
                               </div>
                               <p

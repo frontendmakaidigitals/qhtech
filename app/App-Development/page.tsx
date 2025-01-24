@@ -8,10 +8,19 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "../App chunks/components/Accordion";
+<<<<<<< HEAD
 import { BackgroundGradientAnimation } from "../(Home Page)/HeroGradient";
 import { Circle, Plus } from "@phosphor-icons/react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+=======
+import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
+import { Circle, Plus } from "@phosphor-icons/react";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
+import SliderForm from "../App chunks/components/SliderForm";
+import { ArrowUpRight } from "@phosphor-icons/react";
+>>>>>>> main
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -101,6 +110,10 @@ const Page = () => {
       ],
       conclusion:
         "Whether native or cross-platform, our mobile app development services help you connect with your audience effectively and grow your business.",
+<<<<<<< HEAD
+=======
+      img: "services/AppDevelopment.jpg",
+>>>>>>> main
     },
     {
       title: "Web Application Development",
@@ -114,6 +127,10 @@ const Page = () => {
       ],
       conclusion:
         "Our web application development services help your business achieve operational efficiency and deliver value to your customers.",
+<<<<<<< HEAD
+=======
+      img: "services/webDevelopment.jpg",
+>>>>>>> main
     },
     {
       title: "UI/UX Design",
@@ -127,6 +144,10 @@ const Page = () => {
       ],
       conclusion:
         "Our UI/UX designs ensure your digital solutions are both functional and visually engaging, enhancing user satisfaction and brand loyalty.",
+<<<<<<< HEAD
+=======
+      img: "services/uiUx.jpg",
+>>>>>>> main
     },
     {
       title: "App Maintenance & Support",
@@ -140,6 +161,10 @@ const Page = () => {
       ],
       conclusion:
         "Our maintenance and support services keep your app running smoothly, ensuring long-term success and user satisfaction.",
+<<<<<<< HEAD
+=======
+      img: "services/service.jpg",
+>>>>>>> main
     },
     {
       title: "Progressive Web Applications (PWA)",
@@ -199,8 +224,15 @@ const Page = () => {
   const para = "Transform Your Vision Into Powerful Mobile & Web Application";
   const selfPrasiseContainer = React.useRef<HTMLDivElement>(null);
   const boxInView = useInView(selfPrasiseContainer, { once: true });
+<<<<<<< HEAD
   return (
     <motion.div className="  bg-white" ref={containerRef}>
+=======
+  const [isFormOpen, setIsFormOpen] = React.useState(false);
+  return (
+    <motion.div className="  bg-white" ref={containerRef}>
+      <SliderForm setIsFormOpen={setIsFormOpen} isFormOpen={isFormOpen} />
+>>>>>>> main
       <motion.div>
         <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
           <div className="w-full h-full flex relative">
@@ -252,6 +284,22 @@ const Page = () => {
                     </motion.span>
                   ))}
                 </motion.h1>
+<<<<<<< HEAD
+=======
+                <button
+                  onClick={() => setIsFormOpen(true)}
+                  className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
+                >
+                  <span className="relative inline-flex overflow-hidden">
+                    <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[130%] group-hover:skew-y-12 flex items-center gap-2">
+                      Get Expert Help <ArrowUpRight />
+                    </div>
+                    <div className="absolute  translate-y-[134%] flex items-center gap-2 skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                      Get Expert Help <ArrowUpRight />
+                    </div>
+                  </span>
+                </button>
+>>>>>>> main
               </div>
             </div>
           </div>
@@ -313,7 +361,16 @@ const Page = () => {
                         </div>
                       ))}
                     </div>
+<<<<<<< HEAD
                     <div className="w-full min-h-[500px] bg-purple-200 h-full"></div>
+=======
+                    <div className="w-full h-[500px] overflow-hidden">
+                      <img
+                        src={service.img}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+>>>>>>> main
                   </div>
                   {service.conclusion ? (
                     <p className="mt-3">{service.conclusion}</p>
