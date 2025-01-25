@@ -129,7 +129,7 @@ const Slider = () => {
         {loaded && (
           <>
             <ArrowLeft
-              className="absolute cursor-pointer size-10 bg-gradient-to-tr from-green-300 to-blue-300 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 left-0"
+              className="absolute cursor-pointer size-10 bg-gradient-to-tr border-2 border-purple-300 from-green-300 to-blue-300 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 left-0"
               onClick={(e) => {
                 e.stopPropagation();
                 instanceRef.current?.prev();

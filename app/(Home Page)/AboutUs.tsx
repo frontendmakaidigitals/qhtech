@@ -28,8 +28,8 @@ const AboutUs = () => {
     gsap.to(refs.current, {
       scrollTrigger: {
         trigger: container.current,
-        start: "10%",
-        end: "40%",
+        start: "center bottom",
+        end: "center top",
         scrub: true,
       },
       opacity: 1, // Fade in the elements
@@ -98,7 +98,7 @@ const AboutUs = () => {
     }
   }, [container]);
   return (
-    <div ref={container} className="w-full overflow-hidden relative py-32">
+    <div ref={container} className="w-full overflow-hidden  relative py-32">
       <div className="absolute -z-10 w-full h-full top-1/2 -translate-y-1/2 left-0">
         <motion.svg
           width={window ? window.innerWidth : 0}
