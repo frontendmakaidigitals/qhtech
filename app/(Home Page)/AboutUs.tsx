@@ -71,7 +71,7 @@ const AboutUs = () => {
 
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start start", "end end"],
+    offset: ["start center", "end end"],
   });
 
   const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
@@ -88,38 +88,49 @@ const AboutUs = () => {
 
   const inView = useInView(container, { once: false });
   const strokeDashoffset = useTransform(pathLength, [0, 1], [1000, 0]);
+  const [containerRECT, setContainerRECT] = React.useState<DOMRect | null>(
+    null
+  );
+
+  useEffect(() => {
+    if (container.current) {
+      setContainerRECT(container.current.getBoundingClientRect());
+    }
+  }, [container]);
   return (
     <div ref={container} className="w-full overflow-hidden relative py-32">
       <div className="absolute -z-10 w-full h-full top-1/2 -translate-y-1/2 left-0">
         <motion.svg
-          width="100%"
-          height="100%"
-          viewBox="0 0 1616 817"
+          width={window ? window.innerWidth : 0}
+          height={containerRECT?.height}
+          viewBox={`0 0 ${window ? window.innerWidth : 0} ${
+            containerRECT?.height
+          }`}
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <motion.path
-            d="M15.5625 27C195.774 33.1937 594.291 154.477 539.593 424.002C471.22 760.908 170.209 479.26 328.932 297.849C455.911 152.72 991.662 505.013 1243.67 699.3C1480.11 881.589 1826.42 846.322 1740.64 589.924C1645.24 304.757 1139.5 356 769 669.5C660.171 761.586 1609.5 1050 1729.5 1094.5"
+            d="M-92.5 26.5C86.5803 32.6563 596.095 145.706 541.74 413.6C473.796 748.468 147.273 511.314 305 331C431.181 186.749 1056.56 461.602 1302.34 660.594C1649.15 941.385 1892.11 391.73 1494.63 369.865C1347.57 361.776 443.65 590.826 1016.15 855.906C1210.42 945.859 188.418 1079.24 -62 1118"
             stroke="url(#paint0_linear_1546_83)"
             strokeWidth="51"
-            strokeLinecap="square"
+            strokeLinecap="round"
             style={{
-              pathLength, // The path length animates from 0 to 1
-              strokeDashoffset, // The dash offset animates from 1000 to 0
+              pathLength,
+              strokeDashoffset,
             }}
             strokeDasharray="1000"
           />
           <defs>
             <linearGradient
               id="paint0_linear_1546_83"
-              x1="879.64"
-              y1="27.0001"
-              x2="1087.75"
-              y2="413.378"
+              x1="883.984"
+              y1="19.0005"
+              x2="1106.47"
+              y2="431.847"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="#52FF00" />
-              <stop offset="1" stopColor="#47D007" />
+              <stop stopColor="#9147FF" />
+              <stop offset="1" stopColor="#D5B9FF" />
             </linearGradient>
           </defs>
         </motion.svg>

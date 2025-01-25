@@ -269,7 +269,7 @@ const Section2 = ({
     },
     {
       name: "Photography & Videography",
-      img: "media/serviceImages/newImages/af528271-419c-493e-9ba4-5c37207c93ff.jpg",
+      img: "media/serviceImages/newImages/Photography and Videography copy.png",
       gradient: "bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-[#6366f1] via-[#a5b4fc] to-[#e0e7ff] ",
     },
     {
@@ -289,7 +289,7 @@ const Section2 = ({
     },
     {
       name: "Public Relation",
-      img: "media/serviceImages/newImages/48c53d51-7570-4e79-91a2-b9be78cc4eba.jpg",
+      img: "media/serviceImages/newImages/public relation copy.png",
       gradient: "bg-gradient-to-br from-[#f59e0b] via-[#ea580c] to-[#b91c1c] ",
     },
     {
@@ -299,12 +299,12 @@ const Section2 = ({
     },
     {
       name: "IT Consulting & Advisory",
-      img: "media/serviceImages/newImages/1294c914-397f-424b-8c6f-86beef2bdd82.jpg",
+      img: "media/serviceImages/newImages/IT consulting and advisory copy.png",
       gradient: "bg-gradient-to-b from-[#8d8daa] via-[#dfdfde] to-[#f7f5f2] ",
     },
     {
       name: "Cyber Security",
-      img: "media/serviceImages/newImages/a18f809c-a654-4186-b3c7-f1f7ac623403.jpg",
+      img: "media/serviceImages/newImages/cyber security copy.png",
       gradient: "bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-[#ff4d4d] via-[#ff8364] to-[#fdb87d]",
     },
   ];
@@ -463,8 +463,8 @@ const Section2 = ({
       <motion.div
         id="sticky-section"
         className="mt-10 relative z-20 container grid grid-cols-1 lg:grid-cols-2 gap-10"
-        initial={{ opacity: 1 }} // Initially, the parent container is invisible
-        whileInView={{ opacity: 1 }} // Make the parent visible when in view
+        initial={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }} 
         transition={{ duration: 0.5 }}
       >
         <div ref={containerRef} className="relative">
