@@ -69,7 +69,7 @@ const Page = () => {
             <div className="absolute top-0 left-0 w-full h-full">
               <BackgroundGradientAnimation
                 gradientBackgroundStart="black"
-                gradientBackgroundEnd="white"
+                gradientBackgroundEnd="teal"
               />
             </div>
             <div
@@ -82,22 +82,22 @@ const Page = () => {
                 className="flex flex-col items-center justify-center "
               >
                 <div className="relative w-full">
-                  <div className="absolute -top-4 left-0">
+                  <div className="absolute -top-9 lg:-top-4 left-0">
                     <img src={"aboutUsleft.svg"} />
                   </div>
-                  <div className="absolute -top-4 right-0">
+                  <div className="absolute  -top-9 lg:-top-4 right-0">
                     <img src={"aboutUsright.svg"} />
                   </div>
                   <SparklesText
-                    className="text-slate-50 text-center text-lg font-[400] font-Synonym"
+                    className="text-slate-50  text-center text-xl lg:text-lg font-[400] font-Synonym"
                     text={" Beyond Marketing"}
                   />
                 </div>
-                <motion.h1 className="text-center font-[600] text-slate-100 flex-wrap lg:text-3xl xl:text-6xl xxl:text-7xl  font-Grostek relative">
+                <motion.h1 className="text-center font-[600] text-slate-100 flex-wrap text-3xl lg:text-3xl xl:text-6xl xxl:text-7xl  font-Grostek relative">
                   {para.split(" ").map((item, index) => (
                     <motion.span
                       key={index}
-                      className="xl:mr-2 xxl:mr-5 overflow-hidden h-[80px]"
+                      className="mr-2 xl:mr-2 xxl:mr-5 overflow-hidden h-[35px] lg:h-[80px]"
                       style={{
                         display: "inline-block", // Ensure words are treated as block elements
                       }}
@@ -127,7 +127,7 @@ const Page = () => {
                   ))}
                 </motion.h1>
                 <div className="grid grid-cols-1 lg:grid-cols-2 w-full lg:w-1/2 gap-10 mt-10">
-                  <div className="bg-white/30  backdrop-filter backdrop-blur-lg p-3 rounded-xl">
+                  <div className="bg-white/40  backdrop-filter backdrop-blur-lg p-3 rounded-xl">
                     <h2 className="text-6xl text-orange-600 font-[600] font-Grostek ">
                       10+
                     </h2>
@@ -135,7 +135,7 @@ const Page = () => {
                       Years of experience in web development.
                     </p>
                   </div>
-                  <div className="bg-white/30  backdrop-filter backdrop-blur-lg p-3 rounded-xl">
+                  <div className="bg-white/40  backdrop-filter backdrop-blur-lg p-3 rounded-xl">
                     <h2 className="text-6xl font-[600] font-Grostek text-indigo-500">
                       90+
                     </h2>
@@ -154,7 +154,7 @@ const Page = () => {
       <div className="relative">
         <motion.div style={{ backgroundColor: background }} className="py-28 ">
           <div className=" container">
-            <motion.div className="sticky top-0 left-0 w-[500px]">
+            <motion.div className="lg:sticky top-0 left-0 w-full lg:w-[500px]">
               <div className="aspect-[3/4] bg-slate-400 w-full">
                 <img
                   src={
@@ -172,8 +172,8 @@ const Page = () => {
                 creativity, innovation, and data-driven techniques.
               </p>
             </motion.div>
-            <div className="w-full flex justify-end">
-              <motion.div className="w-[500px]">
+            <div className="w-full flex justify-end mt-14 lg:mt-0">
+              <motion.div className="w-full lg:w-[500px]">
                 <div className="aspect-[3/4] bg-slate-400 w-full">
                   <img
                     src={
@@ -215,7 +215,7 @@ const Page = () => {
                 </motion.h1>
               ))}
             </motion.article>
-            <div className="grid grid-cols-2 gap-6 my-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 my-10">
               <p className="text-2xl font-Grostek">
                 At Insight Vision, every brand has a unique story waiting to be
                 told. Founded on passion, creativity, and a deep understanding

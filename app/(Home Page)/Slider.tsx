@@ -89,16 +89,14 @@ const Slider = () => {
   const inView = useInView(containerRef, { once: true });
   const hoverRef = useRef<HTMLDivElement | null>(null);
   const [hoverId, setHoverId] = useState<number | null>(null);
-
   const cardRef = useRef<(HTMLImageElement | null)[]>([]);
   const [cardHeight, setCardHeight] = React.useState(0);
   useEffect(() => {
-    // Only run if the refs are populated
     if (cardRef.current.length > 0) {
       const heights = cardRef.current.map((ref) =>
         ref ? ref.clientHeight : 0
       );
-      setCardHeight(Math.max(...heights)); // Set the highest height
+      setCardHeight(Math.max(...heights));
     }
   }, [images]);
   return (
