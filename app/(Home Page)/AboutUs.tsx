@@ -17,12 +17,12 @@ const AboutUs = () => {
   const [viewportWidth, setViewportWidth] = React.useState<number>(0);
   const para1 = `We’re more than just a marketing agency. At Insight Vision, we’re your growth partners. With a deep understanding of digital landscapes, creative strategies, and technology, we specialize in turning ideas into results.`;
   useEffect(() => {
-    // Set the initial window width after the component mounts
     const handleResize = () => {
-      setViewportWidth(window.innerWidth);
+      if (window !== undefined) {
+        setViewportWidth(window.innerWidth);
+      }
     };
 
-    // Set the initial width immediately after mounting
     handleResize();
 
     window.addEventListener("resize", handleResize);

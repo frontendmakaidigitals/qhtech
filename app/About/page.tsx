@@ -180,44 +180,46 @@ const Page = () => {
             ))}
           </motion.article>
 
-          <div className="mt-6">
-            <h3 className="font-Grostek text-3xl font-[400]">Our Vision</h3>
-            <p className="mt-1 text-lg">
-              Our vision is to be the driving force behind transformative
-              marketing that empowers brands to exist in an ever-evolving world.
-              We aspire to create meaningful connections between businesses and
-              their audiences through innovative strategies, authentic
-              storytelling, and measurable impact. We see a future where
-              marketing goes beyond campaigns – where every brand becomes a
-              trusted voice, every message creates value, and every interaction
-              leaves a lasting impression. By embracing creativity, technology,
-              and data in harmony, we aim to redefine what it means to inspire,
-              engage, and grow. Together, we’re shaping the future of marketing
-              – one bold idea at a time.
-            </p>
-          </div>
-          <div className="mt-8">
-            <h3 className="font-Grostek text-3xl font-[400]">Our Mission</h3>
-            <p className="mt-1 text-lg">
-              Our mission at Insight Vision is to empower businesses to reach
-              their full potential through innovative marketing solutions that
-              deliver measurable results. We are committed to understanding the
-              unique needs of every client, creating tailored strategies that
-              amplify their voice, connect with their audience, and drive
-              sustainable growth.
-              <br />
-              With a focus on creativity, collaboration, and cutting-edge
-              technology, we strive to deliver campaigns that don’t just meet
-              expectations but set new benchmarks for success. Our goal is to be
-              more than a service provider – we aim to be a trusted partner,
-              helping our clients navigate the complexities of the modern
-              marketplace with confidence and clarity.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+            <div className="">
+              <h3 className="font-Grostek text-3xl font-[400]">Our Vision</h3>
+              <p className="mt-1 text-lg">
+                Our vision is to be the driving force behind transformative
+                marketing that empowers brands to exist in an ever-evolving
+                world. We aspire to create meaningful connections between
+                businesses and their audiences through innovative strategies,
+                authentic storytelling, and measurable impact. We see a future
+                where marketing goes beyond campaigns – where every brand
+                becomes a trusted voice, every message creates value, and every
+                interaction leaves a lasting impression. By embracing
+                creativity, technology, and data in harmony, we aim to redefine
+                what it means to inspire, engage, and grow. Together, we’re
+                shaping the future of marketing – one bold idea at a time.
+              </p>
+            </div>
+            <div className="">
+              <h3 className="font-Grostek text-3xl font-[400]">Our Mission</h3>
+              <p className="mt-1 text-lg">
+                Our mission at Insight Vision is to empower businesses to reach
+                their full potential through innovative marketing solutions that
+                deliver measurable results. We are committed to understanding
+                the unique needs of every client, creating tailored strategies
+                that amplify their voice, connect with their audience, and drive
+                sustainable growth.
+                <br />
+                With a focus on creativity, collaboration, and cutting-edge
+                technology, we strive to deliver campaigns that don’t just meet
+                expectations but set new benchmarks for success. Our goal is to
+                be more than a service provider – we aim to be a trusted
+                partner, helping our clients navigate the complexities of the
+                modern marketplace with confidence and clarity.
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div ref={whoContainerRef} className="w-full bg-white relative mt-24">
+      <div ref={whoContainerRef} className="w-full bg-white relative mt-5">
         <div className="container ">
           <motion.article className="flex justify-center lg:justify-start items-center text-black gap-3">
             {["Who", "we", "are", "?"].map((text, index) => (
