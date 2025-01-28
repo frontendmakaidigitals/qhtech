@@ -10,12 +10,6 @@ const Page = () => {
 
   const scrollY = useMotionValue(0);
 
-  const background = useTransform(
-    scrollY,
-    [400, 800],
-    ["rgba(0,0,0,1)", "rgba(255,255,255,1)"]
-  );
-
   React.useEffect(() => {
     const handleScroll = () => {
       scrollY.set(window.scrollY); // Update scrollY with current scroll position
