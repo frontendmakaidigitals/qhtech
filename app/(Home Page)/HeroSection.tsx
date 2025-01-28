@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
-import {  useRef } from "react";
+import { useRef } from "react";
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import { ArrowUpRight } from "@phosphor-icons/react";
 import "../App chunks/components/textAnim.css";
- 
+
 import "keen-slider/keen-slider.min.css";
 import SliderForm from "../App chunks/components/SliderForm";
 
@@ -16,8 +16,6 @@ export default function HeroSection() {
     offset: ["start start", "end end"],
   });
   const [isFormOpen, setIsFormOpen] = React.useState<boolean>(false);
-  const [isAnimationEnabled, setIsAnimationEnabled] =
-    React.useState<boolean>(true);
 
   return (
     <>
@@ -26,9 +24,7 @@ export default function HeroSection() {
         <Section1
           scrollYProgress={scrollYProgress}
           setIsFormOpen={setIsFormOpen}
-          isAnimationEnabled={isAnimationEnabled}
         />
-      
       </main>
     </>
   );
@@ -235,5 +231,3 @@ const Section1 = ({
     </motion.section>
   );
 };
-
- 
