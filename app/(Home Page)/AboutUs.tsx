@@ -18,14 +18,15 @@ const AboutUs = () => {
   const para1 = `We’re more than just a marketing agency. At Insight Vision, we’re your growth partners. With a deep understanding of digital landscapes, creative strategies, and technology, we specialize in turning ideas into results.`;
   useEffect(() => {
     const handleResize = () => {
-      if (typeof window !== "undefined") {  // Check if window is defined
+      if (typeof window !== "undefined") {
+        // Check if window is defined
         setViewportWidth(window.innerWidth); // Access window only on the client-side
       }
     };
 
-    handleResize(); // Run once to set initial width
+    handleResize();
 
-    window.addEventListener("resize", handleResize); // Add resize event listener
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize); // Clean up the event listener
@@ -107,11 +108,11 @@ const AboutUs = () => {
   );
 
   useEffect(() => {
-    if (container.current) {
+    if (typeof window !== "undefined" && container.current) {
       setContainerRECT(container.current.getBoundingClientRect());
     }
   }, [container]);
-  console.log(viewportWidth);
+
   return (
     <div ref={container} className="w-full overflow-hidden  relative py-32">
       <div className="absolute -z-10 w-full h-full top-1/2 -translate-y-1/2 left-0">
