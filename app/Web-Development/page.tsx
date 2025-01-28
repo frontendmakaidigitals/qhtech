@@ -181,11 +181,11 @@ const Page = () => {
                 style={{ height: `calc(100vh - ${height + 200}px)` }}
                 className="flex flex-col container items-center text-slate-100 justify-center"
               >
-                <motion.h1 className="text-center font-[600]  flex-wrap lg:text-3xl xl:text-6xl font-Grostek relative">
+                <motion.h1 className="text-center font-[600] text-slate-100 flex-wrap text-3xl xl:text-6xl  font-Grostek relative">
                   {para.split(" ").map((item, index) => (
                     <motion.span
                       key={index}
-                      className="xl:mr-2 xxl:mr-4 overflow-hidden h-[80px]"
+                      className="mr-2 xl:mr-2 xxl:mr-5 overflow-hidden h-[35px] lg:h-[70px]"
                       style={{
                         display: "inline-block", // Ensure words are treated as block elements
                       }}
@@ -214,19 +214,19 @@ const Page = () => {
                     </motion.span>
                   ))}
                 </motion.h1>
-                 <button
-                                  onClick={() => setIsFormOpen(true)}
-                                  className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
-                                >
-                                  <span className="relative inline-flex overflow-hidden">
-                                    <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[130%] group-hover:skew-y-12 flex items-center gap-2">
-                                      Get Expert Help <ArrowUpRight />
-                                    </div>
-                                    <div className="absolute  translate-y-[134%] flex items-center gap-2 skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
-                                      Get Expert Help <ArrowUpRight />
-                                    </div>
-                                  </span>
-                                </button>
+                <button
+                  onClick={() => setIsFormOpen(true)}
+                  className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
+                >
+                  <span className="relative inline-flex overflow-hidden">
+                    <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[130%] group-hover:skew-y-12 flex items-center gap-2">
+                      Get Expert Help <ArrowUpRight />
+                    </div>
+                    <div className="absolute  translate-y-[134%] flex items-center gap-2 skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                      Get Expert Help <ArrowUpRight />
+                    </div>
+                  </span>
+                </button>
               </div>
             </div>
           </div>
@@ -257,9 +257,6 @@ const Page = () => {
           <AnimatePresence mode="wait">
             {servicesData.map((service, index) => (
               <motion.div
-                initial={{ y: "50%" }}
-                whileInView={{ y: "0%" }}
-                transition={{ ease: [0.175, 0.885, 0.32, 1.1], duration: 0.8 }}
                 key={index}
                 className={`p-6 bg-purple-50 gap-4 rounded-xl`}
               >
@@ -288,7 +285,7 @@ const Page = () => {
                         </div>
                       ))}
                     </div>
-                    <div className="w-full h-[500px]">
+                    <div className="w-full h-[470px] lg:h-[500px]">
                       <img
                         src={service.img}
                         className="w-full h-full object-cover"
@@ -333,10 +330,9 @@ const Page = () => {
                 }}
                 transition={{ duration: 1.5, ease: [0.175, 0.885, 0.32, 1] }}
                 key={index}
-                style={{ backgroundColor: item.color }}
-                className=" text-slate-950 rounded-lg p-5"
+                className=" text-slate-950 rounded-lg p-5 bg-slate-300"
               >
-                <h2 className="text-3xl pr-10 capitalize font-SplineSans font-[500]">
+                <h2 className="text-2xl pr-10 capitalize font-SplineSans font-[500]">
                   {item.title}
                 </h2>
                 <p className="mt-3 text-lg font-Grostek">{item.description}</p>
@@ -350,7 +346,7 @@ const Page = () => {
         <div className="container">
           <div>
             {" "}
-            <motion.article className="flex justify-center lg:justify-start items-center text-slate-100 gap-3">
+            <motion.article className="flex justify-center lg:justify-start items-center gap-3 mx-auto z-[50] flex-wrap">
               {["Frequently", "Asked", "Questions"].map((text, index) => (
                 <motion.h1
                   key={index}
@@ -362,7 +358,10 @@ const Page = () => {
                   viewport={{ once: true }}
                   initial={{ opacity: 0, y: 100 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+                  className={`text-5xl lg:text-6xl leading-[100%] text-purple-100 font-Grostek font-[600] tracking-tight ${
+                    text.toLowerCase() === "supercharged" &&
+                    "bg-gradient-to-r from-blue-600 to-pink-500 bg-clip-text text-transparent"
+                  }`}
                 >
                   {text}
                 </motion.h1>

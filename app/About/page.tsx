@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion, useMotionValue, useTransform, useInView } from "framer-motion";
+import { motion, useMotionValue, useInView } from "framer-motion";
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import { Circle } from "@phosphor-icons/react";
 
