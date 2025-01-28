@@ -28,7 +28,12 @@ const TechStack = () => {
     "media/azure.png",
   ];
 
-  const [viewportWidth, setViewportWidth] = useState<number>(window.innerWidth);
+  const [viewportWidth, setViewportWidth] = useState<number>(0);
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      setViewportWidth(window.innerWidth);
+    }
+  }, []);
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
   const [id, setId] = React.useState<number | null>(null);

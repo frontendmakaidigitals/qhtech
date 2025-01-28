@@ -109,7 +109,7 @@ const AboutUs = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined" && container.current) {
-      setContainerRECT(container.current.getBoundingClientRect());
+      setContainerRECT(container?.current.getBoundingClientRect());
     }
   }, [container]);
 
