@@ -381,7 +381,7 @@ const Page = () => {
                 </button>
               </div>
             </div>
-            <div>
+            <div className="mt-5">
               <Accordion defaultValue={["item-0"]}>
                 {faqData.map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`}>

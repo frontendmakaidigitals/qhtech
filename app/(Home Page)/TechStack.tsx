@@ -37,7 +37,9 @@ const TechStack = () => {
   // Update viewportWidth on window resize
   useEffect(() => {
     const handleResize = () => {
-      setViewportWidth(window.innerWidth);
+      if (window !== undefined) {
+        setViewportWidth(window.innerWidth);
+      }
     };
 
     window.addEventListener("resize", handleResize);

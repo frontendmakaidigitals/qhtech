@@ -18,7 +18,7 @@ const AboutUs = () => {
   const para1 = `We’re more than just a marketing agency. At Insight Vision, we’re your growth partners. With a deep understanding of digital landscapes, creative strategies, and technology, we specialize in turning ideas into results.`;
   useEffect(() => {
     const handleResize = () => {
-      if (window !== undefined) {
+      if (typeof window !== undefined) {
         setViewportWidth(window.innerWidth);
       }
     };
@@ -116,11 +116,9 @@ const AboutUs = () => {
     <div ref={container} className="w-full overflow-hidden  relative py-32">
       <div className="absolute -z-10 w-full h-full top-1/2 -translate-y-1/2 left-0">
         <motion.svg
-          width={window ? window.innerWidth : 0}
+          width={viewportWidth}
           height={containerRECT?.height}
-          viewBox={`0 0 ${window ? window.innerWidth : 0} ${
-            containerRECT?.height
-          }`}
+          viewBox={`0 0 ${viewportWidth} ${containerRECT?.height}`}
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
