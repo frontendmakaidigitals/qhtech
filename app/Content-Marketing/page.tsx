@@ -59,29 +59,33 @@ const Page = () => {
         "Social media is where conversations happen, trends are set, and brands come to life. At Insight Vision, we create scroll-stopping, share-worthy content that connects with your audience and grows your online presence.",
       details: {
         platformSpecificContent: [
-          "Facebook: Engaging posts, carousel ads, and videos designed to spark conversations and drive traffic.",
-          "Instagram: Visually stunning posts, Reels, and Stories that captivate and grow your followers.",
-          "LinkedIn: Thought leadership articles, professional updates, and customized B2B content to establish authority.",
-          "Twitter (X): Concise, impactful tweets that provide engagement and real-time interaction.",
-          "TikTok: Creative, trending short-form videos that capture attention and go viral.",
-          "Pinterest: Eye-catching pins that drive traffic and inspire action.",
+          {
+            text: [
+              "Facebook: Engaging posts, carousel ads, and videos designed to spark conversations and drive traffic.",
+              "Instagram: Visually stunning posts, Reels, and Stories that captivate and grow your followers.",
+              "LinkedIn: Thought leadership articles, professional updates, and customized B2B content to establish authority.",
+              "Twitter (X): Concise, impactful tweets that provide engagement and real-time interaction.",
+              "TikTok: Creative, trending short-form videos that capture attention and go viral.",
+              "Pinterest: Eye-catching pins that drive traffic and inspire action.",
+            ],
+            img: "services/socialmedia.jpg",
+          },
         ],
         contentFormats: [
-          "Posts & Captions: Compelling copy and visuals that reflect your brand’s personality.",
-          "Stories & Reels: Short, impactful content optimized for virality and engagement.",
-          "Infographics: Shareable, informative graphics that simplify complex ideas.",
-          "Live Streams: Real-time interaction to build a deeper connection with your audience.",
-          "Polls, Quizzes & Contests: Interactive content to boost participation and engagement.",
-          "User-Generated Content (UGC): Campaigns to leverage your audience’s voice and enhance authenticity.",
+          {
+            text: [
+              "Posts & Captions: Compelling copy and visuals that reflect your brand’s personality.",
+              "Stories & Reels: Short, impactful content optimized for virality and engagement.",
+              "Infographics: Shareable, informative graphics that simplify complex ideas.",
+              "Live Streams: Real-time interaction to build a deeper connection with your audience.",
+              "Polls, Quizzes & Contests: Interactive content to boost participation and engagement.",
+              "User-Generated Content (UGC): Campaigns to leverage your audience’s voice and enhance authenticity.",
+            ],
+            img: "services/ContentTypes.webp",
+          },
         ],
         contentCalendarManagement:
           "We plan and schedule posts to ensure consistency and timely delivery, aligning with your overall marketing goals. Content calendar management involves planning, scheduling, and coordinating content across platforms to achieve marketing objectives.",
-        img: [
-          "services/content-formats.webp",
-          "services/Calender.jpg",
-          "services/content-formats.webp",
-          "",
-        ],
       },
     },
     {
@@ -90,24 +94,39 @@ const Page = () => {
         "Blogs are the cornerstone of content marketing, driving traffic, building authority, and nurturing customer trust. We create high-quality, value-driven blog content that informs, engages, and converts. From topic ideation to performance tracking, we handle every step of the process so you can focus on your business.",
       details: {
         blogContentCreation: [
-          "Informative Articles: In-depth pieces that position you as an expert in your industry.",
-          "How-To Guides: Step-by-step instructions that provide actionable value to readers.",
-          "Thought Leadership: Insightful blogs that showcase your unique perspective and innovations.",
-          "Trend Spotlights: Timely content that keeps your audience informed about industry developments.",
-          "Product & Service Highlights: Engaging blogs that promote your offerings without feeling salesy.",
+          {
+            text: [
+              "Informative Articles: In-depth pieces that position you as an expert in your industry.",
+              "How-To Guides: Step-by-step instructions that provide actionable value to readers.",
+              "Thought Leadership: Insightful blogs that showcase your unique perspective and innovations.",
+              "Trend Spotlights: Timely content that keeps your audience informed about industry developments.",
+              "Product & Service Highlights: Engaging blogs that promote your offerings without feeling salesy.",
+            ],
+            img: "services/Blogs.jpg",
+          },
         ],
         seoOptimization: [
-          "Keyword Research: Identifying high-impact keywords that align with your audience’s search intent.",
-          "On-Page SEO: Crafting meta titles, descriptions, and headings to enhance visibility.",
-          "Internal & External Linking: Structuring content to boost authority and drive organic traffic.",
-          "Content Refreshing: Regularly updating old blogs to maintain relevance and search rankings.",
+          {
+            text: [
+              "Keyword Research: Identifying high-impact keywords that align with your audience’s search intent.",
+              "On-Page SEO: Crafting meta titles, descriptions, and headings to enhance visibility.",
+              "Internal & External Linking: Structuring content to boost authority and drive organic traffic.",
+              "Content Refreshing: Regularly updating old blogs to maintain relevance and search rankings.",
+            ],
+            img: "services/SEO.png",
+          },
         ],
         topicIdeation:
           "We identify the topics your audience cares about, including audience pain points, seasonal trends, and evergreen content.",
         visualEnhancements: [
-          "Custom graphics and infographics.",
-          "Embedded videos and rich media.",
-          "Optimized images for readability and SEO.",
+          {
+            text: [
+              "Custom graphics and infographics.",
+              "Embedded videos and rich media.",
+              "Optimized images for readability and SEO.",
+            ],
+            img: "services/Graphic.jpg",
+          },
         ],
       },
     },
@@ -117,24 +136,39 @@ const Page = () => {
         "Video is one of the most powerful tools in digital marketing. It’s dynamic, engaging, and capable of delivering your message in a way that resonates with your audience. We specialize in creating impactful video marketing strategies that bring your brand’s story to life and drive measurable results.",
       details: {
         videoStrategyDevelopment: [
-          "Identifying target audiences and platforms (YouTube, social media, website, etc.).",
-          "Aligning video goals with broader marketing campaigns.",
-          "Creating a content roadmap to ensure consistent messaging.",
+          {
+            text: [
+              "Identifying target audiences and platforms (YouTube, social media, website, etc.).",
+              "Aligning video goals with broader marketing campaigns.",
+              "Creating a content roadmap to ensure consistent messaging.",
+            ],
+            img: "services/video_Marketing.jpg",
+          },
         ],
         videoProduction: [
-          "Concept Development: Crafting unique ideas that align with your brand’s vision.",
-          "Scripting & Storyboarding: Writing engaging scripts and visualizing scenes for impactful storytelling.",
-          "Filming & Editing: Professional shooting, audio recording, and post-production editing.",
-          "Animation & Motion Graphics: Dynamic visual effects and animations to elevate your videos.",
+          {
+            text: [
+              "Concept Development: Crafting unique ideas that align with your brand’s vision.",
+              "Scripting & Storyboarding: Writing engaging scripts and visualizing scenes for impactful storytelling.",
+              "Filming & Editing: Professional shooting, audio recording, and post-production editing.",
+              "Animation & Motion Graphics: Dynamic visual effects and animations to elevate your videos.",
+            ],
+            img: "services/video_Production.png",
+          },
         ],
         videoFormats: [
-          "Brand Story Videos: Showcase your company’s mission, values, and culture.",
-          "Product Demonstrations: Highlight features and benefits with clear, engaging demos.",
-          "Explainer Videos: Simplify complex ideas with animations or live-action content.",
-          "Testimonial Videos: Build trust with real customer stories.",
-          "How-To Videos: Provide actionable value to your audience with step-by-step guides.",
-          "Social Media Videos: Create short, engaging content designed for platforms like Instagram, TikTok, and Facebook.",
-          "Corporate Videos: Professional content for internal communication, events, or B2B audiences.",
+          {
+            text: [
+              "Brand Story Videos: Showcase your company’s mission, values, and culture.",
+              "Product Demonstrations: Highlight features and benefits with clear, engaging demos.",
+              "Explainer Videos: Simplify complex ideas with animations or live-action content.",
+              "Testimonial Videos: Build trust with real customer stories.",
+              "How-To Videos: Provide actionable value to your audience with step-by-step guides.",
+              "Social Media Videos: Create short, engaging content designed for platforms like Instagram, TikTok, and Facebook.",
+              "Corporate Videos: Professional content for internal communication, events, or B2B audiences.",
+            ],
+            img: "services/video_formats.jpeg",
+          },
         ],
       },
     },
@@ -144,28 +178,48 @@ const Page = () => {
         "Podcasts are one of the fastest-growing forms of content, providing businesses with a unique opportunity to connect with their audience in a highly personal and engaging way. We specialize in creating and executing podcast strategies that amplify your brand’s message, build authority, and create deeper connections with your listeners.",
       details: {
         podcastStrategyDevelopment: [
-          "Target Audience: Understanding who you're speaking to and what topics interest them.",
-          "Podcast Goals: Setting clear objectives (e.g., brand awareness, lead generation, thought leadership).",
-          "Format & Structure: Deciding on the podcast’s format (interviews, solo episodes, storytelling, etc.) and the episode length.",
-          "Content Planning: Developing a content calendar with episode ideas, themes, and guest appearances.",
+          {
+            text: [
+              "Target Audience: Understanding who you're speaking to and what topics interest them.",
+              "Podcast Goals: Setting clear objectives (e.g., brand awareness, lead generation, thought leadership).",
+              "Format & Structure: Deciding on the podcast’s format (interviews, solo episodes, storytelling, etc.) and the episode length.",
+              "Content Planning: Developing a content calendar with episode ideas, themes, and guest appearances.",
+            ],
+            img: "services/Podcast.webp",
+          },
         ],
         podcastProduction: [
-          "Recording: We guide you on equipment choices, microphone setup, and recording tips for clear, high-quality audio.",
-          "Editing: Our team edits your episodes to remove any errors, enhance audio quality, and incorporate music or sound effects.",
-          "Intro/Outro Creation: We create custom intros and outros to reinforce your brand and give your podcast a polished feel.",
-          "Guest Management: We coordinate with interviewees or industry experts, ensuring smooth scheduling and communication.",
+          {
+            text: [
+              "Recording: We guide you on equipment choices, microphone setup, and recording tips for clear, high-quality audio.",
+              "Editing: Our team edits your episodes to remove any errors, enhance audio quality, and incorporate music or sound effects.",
+              "Intro/Outro Creation: We create custom intros and outros to reinforce your brand and give your podcast a polished feel.",
+              "Guest Management: We coordinate with interviewees or industry experts, ensuring smooth scheduling and communication.",
+            ],
+            img: "services/Podcast.webp",
+          },
         ],
         podcastBranding: [
-          "Cover Art: Custom podcast artwork that stands out and aligns with your brand’s aesthetics.",
-          "Logo & Branding Guidelines: Creating a logo and consistent branding elements that reflect your podcast’s identity.",
-          "Theme Music & Sound: Custom music selection or original compositions to enhance your podcast’s atmosphere.",
+          {
+            text: [
+              "Cover Art: Custom podcast artwork that stands out and aligns with your brand’s aesthetics.",
+              "Logo & Branding Guidelines: Creating a logo and consistent branding elements that reflect your podcast’s identity.",
+              "Theme Music & Sound: Custom music selection or original compositions to enhance your podcast’s atmosphere.",
+            ],
+            img: "services/podcast_branding.jpg",
+          },
         ],
         podcastFormats: [
-          "Interview-Style Podcasts",
-          "Solo Podcasts",
-          "Storytelling & Narrative Podcasts",
-          "Panel Discussions",
-          "Educational & How-To Podcasts",
+          {
+            text: [
+              "Interview-Style Podcasts",
+              "Solo Podcasts",
+              "Storytelling & Narrative Podcasts",
+              "Panel Discussions",
+              "Educational & How-To Podcasts",
+            ],
+            img: "services/podcast_format.jpeg",
+          },
         ],
       },
     },
@@ -280,23 +334,39 @@ const Page = () => {
                       {key.replace(/([A-Z])/g, " $1")}
                     </h3>
                     {Array.isArray(value) ? (
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-                        <ul className="flex flex-col gap-3  text-gray-600">
+                      <div className="">
+                        <ul className="  text-gray-600">
                           {value.map((item, j) => (
-                            <li
+                            <div
                               key={j}
-                              className="bg-purple-100 rounded-lg p-3"
+                              className="grid grid-cols-1 lg:grid-cols-2 gap-5"
                             >
-                              <div className="flex items-start gap-2">
-                                <div className="mt-[6px]">
-                                  <Circle weight="fill" className="text-sm" />
-                                </div>
-                                {item}
+                              <li className=" ">
+                                {item.text.map((text: string, k: number) => (
+                                  <div
+                                    key={k}
+                                    className="bg-purple-100 rounded-lg p-3 mb-2 flex items-start gap-3"
+                                  >
+                                    {/* Circle icon before text */}
+                                    <div className="mt-[6px]">
+                                      <Circle
+                                        weight="fill"
+                                        className="text-sm"
+                                      />
+                                    </div>
+                                    <span>{text}</span>
+                                  </div>
+                                ))}
+                              </li>
+                              <div className="w-full min-h-[450px] max-h-[500px] h-full bg-purple-200">
+                                <img
+                                  src={item.img}
+                                  className="w-full h-full object-cover"
+                                />
                               </div>
-                            </li>
+                            </div>
                           ))}
                         </ul>
-                        <div className="w-full min-h-[500px] h-full bg-purple-200"></div>
                       </div>
                     ) : (
                       <p className="text-gray-600 ">{value}</p>
