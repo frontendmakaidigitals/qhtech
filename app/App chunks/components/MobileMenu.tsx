@@ -1,15 +1,66 @@
-"use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionHeader,
+  AccordionPanel,
+} from "./Accordion";
+import { useLenis } from "lenis/react";
 
-interface MobileMenuProps {
-  menu: { title: string; link: string }[]; // You can replace `any` with a more specific type depending on your `menu` structure
-}
-
-const MobileMenu: React.FC<MobileMenuProps> = ({ menu }) => {
+const MobileMenu = ({}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const menu = [
+    { title: "Home", link: "/" },
+    { title: "About", link: "/about" },
+    {
+      title: "Services",
+      subMenu: [
+        { title: "App Development", link: "/services/web-development" },
+        { title: "Web Development", link: "/services/app-development" },
+        {
+          title: "Social Media Marketing",
+          link: "/services/Social-Media-Marketing",
+        },
+        { title: "Content Marketing", link: "/services/Content-Marketing" },
+        { title: "SEO Marketing", link: "/services/SEO-Marketing" },
+        { title: "Media Buying", link: "/services/Media-Buying" },
+        {
+          title: "Performance Marketing",
+          link: "/services/Performance-Marketing",
+        },
+        { title: "IT Consulting & Advisory", link: "/services/IT-Consulting" },
+        { title: "Cyber Security", link: "/services/Cyber-Security" },
+        { title: "Public Relations", link: "/services/Public-Relations" },
+        { title: "Branding & Designing", link: "/services/Branding" },
+        { title: "Photography & Videography", link: "/services/Photography" },
+      ],
+    },
+    { title: "Blog", link: "/" },
+    { title: "Contact", link: "/contact" },
+  ];
+  const [height, setHeight] = useState<number | undefined>(undefined);
+  const lenis = useLenis();
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      lenis?.stop();
+    } else {
+      document.body.style.overflow = "auto";
+      lenis?.start();
+    }
+  }, [isOpen]);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Accessing element by class name
+      const element = document.getElementsByClassName("HeadNavigation")[0]; // Use [0] to get the first element
+      if (element) {
+        setHeight(element.clientHeight); // Set height to state
+      }
+    }
+  }, []);
   return (
     <div className="block lg:hidden">
       <AnimatePresence mode="wait">
@@ -24,7 +75,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menu }) => {
               delay: 0.1,
               ease: [0.79, 0.14, 0.15, 0.86],
             }}
-            className="w-full h-screen absolute top-0 right-0 bg-black"
+            className="w-full h-screen fixed top-0 right-0 bg-black"
           >
             <motion.div
               initial={{
@@ -36,7 +87,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menu }) => {
                 scale: 1.3,
               }}
               transition={{ delay: 0.1, duration: 2 }}
-              className="absolute top-0 right-0"
+              className="absolute top-0 right-0 pointer-events-none"
             >
               <svg
                 width="806"
@@ -83,7 +134,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menu }) => {
             </motion.div>
             {/* Parent container with staggerChildren */}
             <motion.div
-              className="flex flex-col text-slate-50 gap-5 justify-start items-start py-40  px-8 w-full h-full"
+              style={{
+                height: `calc(100vh - ${height}px)`,
+                marginTop: `${height ? height + 55 : 0}px`,
+              }}
+              className="flex flex-col text-slate-50 gap-5 justify-start items-start px-8 w-full overflow-y-scroll"
               initial="hidden"
               animate="visible"
               variants={{
@@ -92,28 +147,69 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menu }) => {
               }}
             >
               {menu.map((item, index) => (
-                <Link
-                  href={item.link}
-                  className="h-12  overflow-hidden"
-                  key={index}
-                >
-                  {/* Child motion.p elements with staggered animation */}
-                  <motion.p
-                    variants={{
-                      hidden: { opacity: 0, y: 700 },
-                      visible: { opacity: 1, y: 0 },
-                    }}
-                    transition={{
-                      stiffness: 100,
-                      damping: 25,
-                      type: "spring",
-                      delay: index * 0.1,
-                    }}
-                    className="font-medium font-Grostek text-5xl capitalize"
-                  >
-                    {item.title}
-                  </motion.p>
-                </Link>
+                <div key={index} className="w-full">
+                  {item.subMenu ? (
+                    <Accordion defaultValue="services" multiple>
+                      <AccordionItem value="services">
+                        {/* Accordion Header for "Services" */}
+                        <AccordionHeader className="px-0 py-0">
+                          <motion.p
+                            variants={{
+                              hidden: { opacity: 0, y: 700 },
+                              visible: { opacity: 1, y: 0 },
+                            }}
+                            transition={{
+                              stiffness: 100,
+                              damping: 25,
+                              type: "spring",
+                              delay: index * 0.1,
+                            }}
+                            className="font-medium font-Grostek text-5xl capitalize"
+                          >
+                            {item.title}
+                          </motion.p>
+                        </AccordionHeader>
+
+                        {/* Accordion Panel for Sub-Menu Items */}
+                        <AccordionPanel>
+                          <div className="pl-3">
+                            {item.subMenu.map((subItem, subIndex) => (
+                              <Link
+                                href={subItem.link}
+                                key={subIndex}
+                                className="block mt-2 text-2xl capitalize font-Grostek font-medium"
+                              >
+                                {subItem.title}
+                              </Link>
+                            ))}
+                          </div>
+                        </AccordionPanel>
+                      </AccordionItem>
+                    </Accordion>
+                  ) : (
+                    // Regular Menu Item without Submenu
+                    <Link
+                      href={item.link}
+                      className="h-12 overflow-hidden w-full"
+                    >
+                      <motion.p
+                        variants={{
+                          hidden: { opacity: 0, y: 700 },
+                          visible: { opacity: 1, y: 0 },
+                        }}
+                        transition={{
+                          stiffness: 100,
+                          damping: 25,
+                          type: "spring",
+                          delay: index * 0.1,
+                        }}
+                        className="font-medium font-Grostek text-5xl capitalize"
+                      >
+                        {item.title}
+                      </motion.p>
+                    </Link>
+                  )}
+                </div>
               ))}
             </motion.div>
           </motion.div>
@@ -121,7 +217,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menu }) => {
       </AnimatePresence>
 
       <Icon setIsOpen={setIsOpen} isOpen={isOpen} />
-      {/* You can add rendering of the `menu` here if needed */}
     </div>
   );
 };
@@ -138,7 +233,7 @@ const Icon: React.FC<IconProps> = ({ setIsOpen, isOpen }) => {
   return (
     <button
       onClick={() => setIsOpen(!isOpen)}
-      className="size-10 relative z-10 rounded-full "
+      className="size-10 relative z-10 rounded-full"
     >
       <div className="flex hover flex-col justify-center items-center transition-all gap-1">
         <motion.div

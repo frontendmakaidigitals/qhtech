@@ -10,7 +10,9 @@ interface AccordionContextType {
   onChangeIndex: (value: string) => void;
 }
 
-const AccordionContext = React.createContext<AccordionContextType | undefined>(undefined);
+const AccordionContext = React.createContext<AccordionContextType | undefined>(
+  undefined
+);
 
 const useAccordion = () => {
   const context = React.useContext(AccordionContext);
@@ -25,8 +27,13 @@ interface AccordionContainerProps {
   className?: string;
 }
 
-export function AccordionContainer({ children, className }: AccordionContainerProps) {
-  return <div className={cn("grid grid-cols-2 gap-1", className)}>{children}</div>;
+export function AccordionContainer({
+  children,
+  className,
+}: AccordionContainerProps) {
+  return (
+    <div className={cn("grid grid-cols-2 gap-1", className)}>{children}</div>
+  );
 }
 
 interface AccordionWrapperProps {
@@ -43,10 +50,14 @@ interface AccordionProps {
   defaultValue?: string | string[];
 }
 
-export function Accordion({ children, multiple, defaultValue }: AccordionProps) {
-  const [activeIndex, setActiveIndex] = React.useState<string | string[] | null>(
-    multiple ? (defaultValue || []) : (defaultValue || null)
-  );
+export function Accordion({
+  children,
+  multiple,
+  defaultValue,
+}: AccordionProps) {
+  const [activeIndex, setActiveIndex] = React.useState<
+    string | string[] | null
+  >(multiple ? defaultValue || [] : defaultValue || null);
 
   function onChangeIndex(value: string) {
     setActiveIndex((currentActiveIndex) => {
@@ -92,8 +103,9 @@ export function AccordionItem({ children }: AccordionItemProps) {
 
   return (
     <div
-      className={`border-b border-slate-600/40 overflow-hidden mb-2 ${isActive ? "active bg-transparent" : "bg-transparent"}`}
-       
+      className={`border-b border-slate-600/40 overflow-hidden mb-2 ${
+        isActive ? "active bg-transparent" : "bg-transparent"
+      }`}
     >
       {children}
     </div>
@@ -102,15 +114,22 @@ export function AccordionItem({ children }: AccordionItemProps) {
 
 interface AccordionHeaderProps {
   children: ReactNode;
+
   icon?: ReactNode;
+
+  className?: string;
 }
 
-export function AccordionHeader({ children, icon }: AccordionHeaderProps) {
+export function AccordionHeader({
+  children,
+  icon,
+  className,
+}: AccordionHeaderProps) {
   const { isActive, value, onChangeIndex } = useAccordion();
 
   return (
     <motion.div
-      className={`py-5 px-2 cursor-pointer transition-all rounded-lg text-xl font-semibold hover:bg-slate-100/10 hover:text-slate-100 flex justify-between items-center ${
+      className={`py-5 px-2 cursor-pointer ${className} transition-all rounded-lg text-xl font-semibold hover:bg-slate-100/10 hover:text-slate-100 flex justify-between items-center ${
         isActive ? "active text-slate-200" : "bg-transparent text-slate-50"
       }`}
       onClick={() => onChangeIndex(value)}
@@ -128,7 +147,9 @@ export function AccordionHeader({ children, icon }: AccordionHeaderProps) {
         </div>
       ) : (
         <ChevronDown
-          className={`${isActive ? "rotate-180" : "rotate-0"} transition-transform`}
+          className={`${
+            isActive ? "rotate-180" : "rotate-0"
+          } transition-transform ml-3 `}
         />
       )}
     </motion.div>

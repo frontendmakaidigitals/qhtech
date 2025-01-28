@@ -53,7 +53,7 @@ const NavBar = () => {
             <Button>Contact us</Button>
           </Link>
         </motion.div>
-        <MobileMenu menu={menu} />
+        <MobileMenu  />
       </div>
     </div>
   );
