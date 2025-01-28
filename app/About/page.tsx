@@ -12,7 +12,9 @@ const Page = () => {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      scrollY.set(window.scrollY); // Update scrollY with current scroll position
+      if (typeof window !== undefined) {
+        scrollY.set(window.scrollY);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
