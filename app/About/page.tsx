@@ -2,6 +2,7 @@
 import React from "react";
 import { motion, useMotionValue, useTransform, useInView } from "framer-motion";
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
+import { Circle } from "@phosphor-icons/react";
 
 const Page = () => {
   const [height, setHeight] = React.useState(0);
@@ -53,6 +54,24 @@ const Page = () => {
       content:
         " Our track record speaks for itself, with satisfied clients across various industries.",
       color: "#FFEE58",
+    },
+  ];
+  const points = [
+    {
+      title: "Innovators",
+      desc: " who embrace emerging trends and cutting-edge technology.",
+    },
+    {
+      title: "Storytellers",
+      desc: "who craft compelling narratives to spark emotional connections.",
+    },
+    {
+      title: "Problem-solvers",
+      desc: "who thrive on turning challenges into opportunities.",
+    },
+    {
+      title: "Collaborators",
+      desc: "who believe the best ideas are born through partnership.",
     },
   ];
   const selfPrasiseContainer = React.useRef<HTMLDivElement>(null);
@@ -141,93 +160,122 @@ const Page = () => {
       </motion.div>
 
       <div className="relative">
-        <motion.div style={{ backgroundColor: background }} className="py-28 ">
-          <div className=" container">
-            <motion.div className="lg:sticky top-0 left-0 w-full lg:w-[500px]">
-              <div className="aspect-[3/4] bg-slate-400 w-full">
-                <img
-                  src={
-                    "https://images.pexels.com/photos/355952/pexels-photo-355952.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  }
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h2 className="text-4xl mt-3 font-Grostek font-[600]">
-                Our Vision
-              </h2>
-              <p className="text-lg font-Synonym font-[400]">
-                Our Vision is to be a leading marketing agency that transforms
-                businesses into impactful brands using our expert team’s
-                creativity, innovation, and data-driven techniques.
-              </p>
-            </motion.div>
-            <div className="w-full flex justify-end mt-14 lg:mt-0">
-              <motion.div className="w-full lg:w-[500px]">
-                <div className="aspect-[3/4] bg-slate-400 w-full">
-                  <img
-                    src={
-                      "https://images.pexels.com/photos/6147381/pexels-photo-6147381.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    }
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h2 className="text-4xl mt-3 font-Grostek font-[600]">
-                  Our Mission
-                </h2>
-                <p className="text-lg font-Synonym font-[400]">
-                  Our Vision is to be a leading marketing agency that transforms
-                  businesses into impactful brands using our expert team’s
-                  creativity, innovation, and data-driven techniques.
-                </p>
-              </motion.div>
-            </div>
-          </div>
-        </motion.div>
+        <div className="container py-20">
+          <motion.article className="flex justify-center lg:justify-start items-center text-black gap-3">
+            {["About", "us"].map((text, index) => (
+              <motion.h1
+                key={index}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  ease: [0.22, 0.61, 0.36, 1],
+                }}
+                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+              >
+                {text}
+              </motion.h1>
+            ))}
+          </motion.article>
 
-        <div ref={whoContainerRef} className="w-full bg-white relative">
-          <div className="container ">
-            <motion.article className="flex justify-center lg:justify-start items-center text-black gap-3">
-              {["Who", "we", "are", "?"].map((text, index) => (
-                <motion.h1
-                  key={index}
-                  transition={{
-                    delay: index * 0.1,
-                    duration: 0.6,
-                    ease: [0.22, 0.61, 0.36, 1],
-                  }}
-                  viewport={{ once: true }}
-                  initial={{ opacity: 0, y: 100 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
-                >
-                  {text}
-                </motion.h1>
-              ))}
-            </motion.article>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 my-10">
-              <p className="text-2xl font-Grostek">
+          <div className="mt-6">
+            <h3 className="font-Grostek text-3xl font-[400]">Our Vision</h3>
+            <p className="mt-1 text-lg">
+              Our vision is to be the driving force behind transformative
+              marketing that empowers brands to exist in an ever-evolving world.
+              We aspire to create meaningful connections between businesses and
+              their audiences through innovative strategies, authentic
+              storytelling, and measurable impact. We see a future where
+              marketing goes beyond campaigns – where every brand becomes a
+              trusted voice, every message creates value, and every interaction
+              leaves a lasting impression. By embracing creativity, technology,
+              and data in harmony, we aim to redefine what it means to inspire,
+              engage, and grow. Together, we’re shaping the future of marketing
+              – one bold idea at a time.
+            </p>
+          </div>
+          <div className="mt-8">
+            <h3 className="font-Grostek text-3xl font-[400]">Our Mission</h3>
+            <p className="mt-1 text-lg">
+              Our mission at Insight Vision is to empower businesses to reach
+              their full potential through innovative marketing solutions that
+              deliver measurable results. We are committed to understanding the
+              unique needs of every client, creating tailored strategies that
+              amplify their voice, connect with their audience, and drive
+              sustainable growth.
+              <br />
+              With a focus on creativity, collaboration, and cutting-edge
+              technology, we strive to deliver campaigns that don’t just meet
+              expectations but set new benchmarks for success. Our goal is to be
+              more than a service provider – we aim to be a trusted partner,
+              helping our clients navigate the complexities of the modern
+              marketplace with confidence and clarity.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div ref={whoContainerRef} className="w-full bg-white relative mt-24">
+        <div className="container ">
+          <motion.article className="flex justify-center lg:justify-start items-center text-black gap-3">
+            {["Who", "we", "are", "?"].map((text, index) => (
+              <motion.h1
+                key={index}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  ease: [0.22, 0.61, 0.36, 1],
+                }}
+                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+              >
+                {text}
+              </motion.h1>
+            ))}
+          </motion.article>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 my-10">
+            <div>
+              <p className="text-[1.4rem] font-Satoshi">
                 At Insight Vision, every brand has a unique story waiting to be
                 told. Founded on passion, creativity, and a deep understanding
                 of marketing trends, we specialize in delivering solutions that
                 gives measurable results. Our mission is simple: to help you
                 grow, connect, and stand out in a crowded marketplace.{" "}
               </p>
-              <div className="w-full relative overflow-hidden">
-                <motion.div
-                  animate={{ y: whoInView ? "-100%" : "0%" }}
-                  transition={{
-                    delay: 0.2,
-                    duration: 0.6,
-                    ease: "easeOut",
-                  }}
-                  className="w-full h-full absolute z-[10] top-0 left-0 bg-purple-100"
-                />
-                <img
-                  src={
-                    "https://londonsba.org.uk/wp-content/uploads/2023/09/digital_marketing_11.jpg"
-                  }
-                />
+              <div className="mt-3">
+                {points.map((point, idx) => (
+                  <div key={idx} className="flex items-start gap-2">
+                    <div>
+                      <Circle weight="fill" className="text-sm mt-[14px]" />
+                    </div>
+                    <p className=" mt-2">
+                      <span className="text-xl font-Grostek font-[600] ">
+                        {point.title}:{" "}
+                      </span>
+                      <span className="text-lg font-Satoshi">{point.desc}</span>
+                    </p>
+                  </div>
+                ))}
               </div>
+            </div>
+            <div className="w-full relative overflow-hidden">
+              <motion.div
+                animate={{ y: whoInView ? "-100%" : "0%" }}
+                transition={{
+                  delay: 0.2,
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
+                className="w-full min-h-[500px] max-h-[500px] absolute z-[10] top-0 left-0 bg-purple-100"
+              />
+              <img
+                src={"media/we_are_image.jpg"}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
