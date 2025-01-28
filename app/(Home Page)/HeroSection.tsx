@@ -260,7 +260,8 @@ const Section2 = ({
     {
       name: "Social Media Marketing",
       img: "media/serviceImages/newImages/social media marketing.png",
-      gradient: "bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-[#f72464] via-[#ff858a] to-[#fff3a7]",
+      gradient:
+        "bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-[#f72464] via-[#ff858a] to-[#fff3a7]",
     },
     {
       name: "SEO Marketing",
@@ -270,7 +271,8 @@ const Section2 = ({
     {
       name: "Photography & Videography",
       img: "media/serviceImages/newImages/Photography and Videography copy.png",
-      gradient: "bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-[#6366f1] via-[#a5b4fc] to-[#e0e7ff] ",
+      gradient:
+        "bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-[#6366f1] via-[#a5b4fc] to-[#e0e7ff] ",
     },
     {
       name: "Media Buying",
@@ -305,7 +307,8 @@ const Section2 = ({
     {
       name: "Cyber Security",
       img: "media/serviceImages/newImages/cyber security copy.png",
-      gradient: "bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-[#ff4d4d] via-[#ff8364] to-[#fdb87d]",
+      gradient:
+        "bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-[#ff4d4d] via-[#ff8364] to-[#fdb87d]",
     },
   ];
   useEffect(() => {
@@ -328,6 +331,7 @@ const Section2 = ({
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const [viewportWidth, setViewportWidth] = React.useState(0);
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const handleScroll = () => {
@@ -351,9 +355,9 @@ const Section2 = ({
     };
   }, []);
   const [sliderRef, instanceRef] = useKeenSlider({
-    vertical: true,
+    vertical: viewportWidth > 450 ? true : false,
   });
-  const [viewportWidth, setViewportWidth] = React.useState(0);
+
   useEffect(() => {
     const handleResize = () => {
       setViewportWidth(window.innerWidth);
@@ -402,10 +406,13 @@ const Section2 = ({
     if (hoverId !== null && btnRefs.current[hoverId] && containerRef.current) {
       const rect = btnRefs.current[hoverId].getBoundingClientRect();
       const containerElement = containerRef.current;
+
       setHoverStyle({
         width: `${rect.width}px`,
         height: `${rect.height}px`,
-        transform: `translate(${0}px, ${
+        transform: `translateX(${
+          rect.x - containerElement.getBoundingClientRect().left
+        }px) translateY(${
           rect.y - containerElement.getBoundingClientRect().top
         }px)`,
         transition: "all .7s cubic-bezier(0.165, 0.84, 0.44, 1)",
@@ -464,12 +471,15 @@ const Section2 = ({
         id="sticky-section"
         className="mt-10 relative z-20 container grid grid-cols-1 lg:grid-cols-2 gap-10"
         initial={{ opacity: 1 }}
-        whileInView={{ opacity: 1 }} 
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div ref={containerRef} className="relative">
+        <div
+          ref={containerRef}
+          className="relative overflow-x-auto w-full flex flex-row justify-start items-center gap-3 lg:block"
+        >
           <div
-            className={`bg-black origin-left`}
+            className={`bg-black hidden lg:block origin-left black-Tab`}
             style={{
               position: "absolute",
               zIndex: 1,
@@ -482,25 +492,30 @@ const Section2 = ({
             <motion.div
               key={idx}
               onMouseEnter={() => setHoverId(idx)}
-              className="w-full relative"
+              className="relative"
             >
               <button
                 ref={(el) => {
                   btnRefs.current[idx] = el;
                 }}
                 className={`font-Grostek py-2 transition-colors duration-[.3] delay-[.2] relative z-10 px-4 w-full ${
-                  hoverId === idx ? "text-slate-50" : "text-slate-950"
-                } text-start font-[600] text-2xl`}
+                  hoverId === idx
+                    ? "text-slate-50 bg-black lg:bg-transparent rounded-lg"
+                    : "text-slate-950"
+                } text-start font-[600] text-2xl whitespace-nowrap`}
               >
                 {service.name}
               </button>
             </motion.div>
           ))}
         </div>
+
         <div
           ref={sliderRef}
-          style={{ height: `${containerHeight}px` }}
-          className={`w-full keen-slider overflow-hidden `}
+          style={{
+            height: `${viewportWidth > 450 ? containerHeight : 550}px`, // Adjust height based on viewportWidth
+          }}
+          className={`w-full keen-slider  overflow-hidden `}
         >
           {services.map((service, idx) => (
             <div key={idx} className={`keen-slider__slide h-full`}>

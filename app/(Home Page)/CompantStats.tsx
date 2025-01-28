@@ -21,12 +21,14 @@ export const CompantStats = () => {
         className="absolute top-0 left-0 w-full h-full object-cover"
       />
       <div className="grid container ">
-        <div className="grid lg:grid-cols-4 gap-5 p-6 bg-slate-50/50 border border=slate-400 rounded-xl bg-opacity-60 backdrop-filter backdrop-blur-lg">
+        <div className="grid lg:grid-cols-4 gap-5 p-6 bg-slate-50/50 border border-slate-400 rounded-xl bg-opacity-60 backdrop-filter backdrop-blur-lg">
           {stats.map((stat, index) => (
             <div
               key={index}
               className={`flex justify-center items-center ${
-                index === stats.length - 1 ? "" : "border-r border-black"
+                index === stats.length - 1
+                  ? ""
+                  : "border-b lg:border-r py-5 lg:py-0 border-slate-400"
               }  flex-col`}
             >
               <div className="flex text-[#25193a] items-center gap-3">

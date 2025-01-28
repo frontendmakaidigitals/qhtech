@@ -76,28 +76,15 @@ const Page = () => {
               style={{ marginTop: `${height + 50}px` }}
               className="container relative z-[99]"
             >
-              <BreadCrumb />
               <div
                 style={{ height: `calc(100vh - ${height + 150}px)` }}
                 className="flex flex-col items-center justify-center "
               >
-                <div className="relative w-full">
-                  <div className="absolute -top-9 lg:-top-4 left-0">
-                    <img src={"aboutUsleft.svg"} />
-                  </div>
-                  <div className="absolute  -top-9 lg:-top-4 right-0">
-                    <img src={"aboutUsright.svg"} />
-                  </div>
-                  <SparklesText
-                    className="text-slate-50  text-center text-xl lg:text-lg font-[400] font-Synonym"
-                    text={" Beyond Marketing"}
-                  />
-                </div>
                 <motion.h1 className="text-center font-[600] text-slate-100 flex-wrap text-3xl lg:text-3xl xl:text-6xl xxl:text-7xl  font-Grostek relative">
                   {para.split(" ").map((item, index) => (
                     <motion.span
                       key={index}
-                      className="mr-2 xl:mr-2 xxl:mr-5 overflow-hidden h-[35px] lg:h-[80px]"
+                      className="mr-2 xl:mr-2 xxl:mr-5 overflow-hidden h-[35px] lg:h-[70px]"
                       style={{
                         display: "inline-block", // Ensure words are treated as block elements
                       }}
@@ -126,6 +113,9 @@ const Page = () => {
                     </motion.span>
                   ))}
                 </motion.h1>
+                <p className="text-slate-50 text-center text-xl lg:text-2xl font-[500] font-SplineSans">
+                  Beyond Marketing
+                </p>
                 <div className="grid grid-cols-1 lg:grid-cols-2 w-full lg:w-1/2 gap-10 mt-10">
                   <div className="bg-white/40  backdrop-filter backdrop-blur-lg p-3 rounded-xl">
                     <h2 className="text-6xl text-orange-600 font-[600] font-Grostek ">
@@ -273,13 +263,14 @@ const Page = () => {
                 }}
                 transition={{ duration: 1.5, ease: [0.175, 0.885, 0.32, 1] }}
                 key={index}
-                style={{ backgroundColor: item.color }}
-                className=" text-slate-950 rounded-lg p-5"
+                className=" text-slate-950 rounded-lg p-5 bg-gradient-to-tr from-[#59B546]  to-[#0F298A]"
               >
-                <h2 className="text-3xl pr-10 capitalize font-SplineSans font-[500]">
+                <h2 className="text-3xl pr-10 capitalize font-SplineSans font-[500] text-slate-50">
                   {item.title}
                 </h2>
-                <p className="mt-3 text-lg font-Grostek">{item.content}</p>
+                <p className="mt-3 text-lg font-Grostek text-slate-50">
+                  {item.content}
+                </p>
               </motion.div>
             ))}
           </div>

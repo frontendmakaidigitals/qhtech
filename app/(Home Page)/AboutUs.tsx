@@ -14,9 +14,23 @@ const AboutUs = () => {
   const container = useRef<HTMLDivElement>(null);
   const body = useRef(null);
   const refs = useRef<(HTMLSpanElement | null)[]>([]); // To store refs for each span
-
+  const [viewportWidth, setViewportWidth] = React.useState<number>(0);
   const para1 = `We’re more than just a marketing agency. At Insight Vision, we’re your growth partners. With a deep understanding of digital landscapes, creative strategies, and technology, we specialize in turning ideas into results.`;
+  useEffect(() => {
+    // Set the initial window width after the component mounts
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth);
+    };
 
+    // Set the initial width immediately after mounting
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     if (refs.current.length > 0) {
@@ -97,6 +111,7 @@ const AboutUs = () => {
       setContainerRECT(container.current.getBoundingClientRect());
     }
   }, [container]);
+  console.log(viewportWidth);
   return (
     <div ref={container} className="w-full overflow-hidden  relative py-32">
       <div className="absolute -z-10 w-full h-full top-1/2 -translate-y-1/2 left-0">
@@ -136,21 +151,24 @@ const AboutUs = () => {
         </motion.svg>
       </div>
       <div className="container">
-        <div className="text-slate-950 leading-[.99] w-full font-Grostek lg:text-[6rem] xl:text-[8rem] font-[400]">
+        <div className="text-slate-950 leading-[.99] w-full font-Grostek text-[10.5vw] lg:text-[6rem] xl:text-[8rem] font-[400]">
           <motion.div
-            animate={{ paddingLeft: inView ? "170px" : "0px" }}
+            animate={{
+              paddingLeft:
+                viewportWidth > 450 ? (inView ? "170px" : "0px") : "0px",
+            }}
             transition={{
               delay: 1,
               duration: 0.8,
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
-            className="inline-block overflow-hidden"
+            className="flex items-center lg:inline-block "
           >
             {"Shape Imagination".split(" ").map((word, idx) => (
               <motion.h1
                 animate={{ y: inView ? "0%" : "100%" }}
                 transition={{ duration: 1, delay: 0.3 * idx }}
-                className="inline-block ml-5"
+                className="inline-block ml-2 lg:ml-5"
                 key={idx}
               >
                 {word}
@@ -184,7 +202,7 @@ const AboutUs = () => {
           {/* Image section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <div></div>
-            <motion.div className="w-full h-[500px] rounded-lg relative overflow-hidden">
+            <motion.div className="w-full h-[400px] lg:h-[500px] rounded-lg relative overflow-hidden">
               <motion.div
                 animate={{ y: inView ? "-100%" : "0%" }}
                 transition={{

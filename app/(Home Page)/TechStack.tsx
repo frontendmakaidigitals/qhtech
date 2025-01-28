@@ -1,6 +1,7 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
+
 const TechStack = () => {
   const image1 = [
     "media/electron.png",
@@ -14,6 +15,7 @@ const TechStack = () => {
     "media/aws.png",
     "media/kotlin.svg",
   ];
+
   const image2 = [
     "media/bash.png",
     "media/analytics.png",
@@ -25,14 +27,33 @@ const TechStack = () => {
     "media/wordpress.svg",
     "media/azure.png",
   ];
+
+  const [viewportWidth, setViewportWidth] = useState<number>(window.innerWidth);
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
   const [id, setId] = React.useState<number | null>(null);
   const [id2, setId2] = React.useState<number | null>(null);
+
+  // Update viewportWidth on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  // Determine how many images to show based on the viewportWidth
+  const image1ToShow = viewportWidth < 450 ? image1.slice(0, 6) : image1;
+  const image2ToShow = viewportWidth < 450 ? image2.slice(0, 5) : image2;
+
   return (
     <div ref={ref} className="w-full overflow-hidden py-16 bg-black ">
       <div className="container">
-        <motion.article className=" flex justify-center lg:justify-start items-center gap-3  mx-auto z-[50] flex-wrap">
+        <motion.article className="flex justify-center lg:justify-start items-center gap-3 mx-auto z-[50] flex-wrap">
           {["Supercharged", "by", "the", "Right", "Tools"].map(
             (text, index) => (
               <motion.h1
@@ -58,8 +79,8 @@ const TechStack = () => {
 
         <div className="mt-14 w-full flex justify-center items-center">
           {/* Grid Container */}
-          <motion.div className="grid grid-cols-10 h-32 w-full gap-4">
-            {image1.map((src, index) => (
+          <motion.div className="grid grid-cols-6 lg:grid-cols-10 h-[32px] lg:h-32 w-full gap-4">
+            {image1ToShow.map((src, index) => (
               <motion.div
                 onMouseEnter={() => setId(index)}
                 onMouseLeave={() => setId(null)}
@@ -75,10 +96,10 @@ const TechStack = () => {
                 key={index}
                 className="w-full relative bg-purple-100 rounded-xl"
               >
-                <div className="w-full h-full bg-purple-100 relative p-3 rounded-xl z-10">
+                <div className="w-full h-full bg-purple-100 relative p-1 lg:p-3 rounded-xl z-10">
                   <img
                     src={src}
-                    className={`w-full bg-purple-100 h-full object-contain `}
+                    className={`w-full bg-purple-100 h-full object-contain`}
                   />
                 </div>
                 <AnimatePresence mode="wait">
@@ -101,15 +122,16 @@ const TechStack = () => {
             ))}
           </motion.div>
         </div>
-        <div className="px-10 mt-4 flex justify-center">
-          <div className="flex justify-center h-32 gap-4">
-            {image2.map((src, index) => (
+
+        <div className="px-10 mt-10 lg:mt-4 flex justify-center">
+          <div className="grid grid-cols-5 lg:grid-cols-9 h-[32px] lg:h-32 gap-4">
+            {image2ToShow.map((src, index) => (
               <motion.div
                 onMouseEnter={() => setId2(index)}
                 onMouseLeave={() => setId2(null)}
                 animate={{
-                  y: isInView ? 0 : 150,  
-                  opacity: isInView ? 1 : 0,  
+                  y: isInView ? 0 : 150,
+                  opacity: isInView ? 1 : 0,
                 }}
                 transition={{
                   delay: index * 0.07,
@@ -119,7 +141,7 @@ const TechStack = () => {
                 key={index}
                 className="w-full relative bg-purple-100 rounded-xl"
               >
-                <div className="w-full h-full bg-purple-100 relative p-3 rounded-xl z-10">
+                <div className="w-full h-full bg-purple-100 relative p-1 lg:p-3 rounded-xl z-10">
                   <img
                     src={src}
                     className="w-full bg-purple-100 h-full object-contain"

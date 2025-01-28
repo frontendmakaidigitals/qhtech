@@ -60,13 +60,13 @@ const Page = () => {
               <BreadCrumb />
               <div
                 style={{ height: `calc(100vh - ${height + 200}px)` }}
-                className="flex flex-col container items-center text-slate-100 justify-center"
+                className="w-full flex flex-col  items-center text-slate-100 justify-center"
               >
-                <motion.h1 className="text-center font-[600]  flex-wrap lg:text-3xl xl:text-6xl font-Grostek relative">
+                <motion.h1 className="text-4xl lg:text-6xl lg:w-[90%] text-center leading-[100%] font-Grostek font-[600] tracking-tight break-words">
                   {para.split(" ").map((item, index) => (
                     <motion.span
                       key={index}
-                      className="xl:mr-2 xxl:mr-4 overflow-hidden h-[80px]"
+                      className="mr-2 xl:mr-2 xxl:mr-4 overflow-hidden h-[35px] lg:h-[70px]"
                       style={{
                         display: "inline-block", // Ensure words are treated as block elements
                       }}
@@ -97,7 +97,7 @@ const Page = () => {
                 </motion.h1>
                 <button
                   onClick={() => setIsFormOpen(true)}
-                  className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
+                  className="group mt-5 relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
                 >
                   <span className="relative inline-flex overflow-hidden">
                     <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[130%] group-hover:skew-y-12 flex items-center gap-2">
