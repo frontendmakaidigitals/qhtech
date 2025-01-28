@@ -64,6 +64,7 @@ const Page = () => {
             "Long-Tail Keyword Integration: By incorporating niche-specific, long-tail keywords, we help your site rank for less competitive and highly targeted search terms.",
             "Regular Updates: Search trends evolve, and so do we. We continuously refine your keyword strategy based on real-time data and algorithm updates.",
           ],
+          img: "services/keyword-research-tools-1200x900.webp",
         },
         {
           category: "Technical SEO Audits",
@@ -73,6 +74,7 @@ const Page = () => {
             "Structured Data Implementation: Add schema markup to improve search engine understanding and boost rich snippet visibility.",
             "Indexing and Accessibility: Ensure that all vital pages are indexed properly and accessible to search engines.",
           ],
+          img: "services/SEO_Audit.png",
         },
         {
           category: "On-Page and Off-Page Optimization",
@@ -81,6 +83,7 @@ const Page = () => {
             "Off-Page: Build high-quality backlinks through outreach, partnerships, and guest blogging to boost your domain authority.",
             "Competitor Analysis: Identify and replicate winning strategies from your industry peers.",
           ],
+          img: "services/on-page-seo.svg",
         },
         {
           category: "Content Creation and Optimization",
@@ -90,6 +93,7 @@ const Page = () => {
             "Multimedia Integration: Enhance user engagement with videos, infographics, and interactive elements.",
             "Topic Clusters: Organize your content into strategic clusters to signal authority on specific subjects.",
           ],
+          img: "services/content_Creation.jpeg",
         },
         {
           category: "Local SEO Strategies",
@@ -99,6 +103,7 @@ const Page = () => {
             "Geo-Targeted Keywords: Use location-specific keywords to attract customers in your service area.",
             "Reviews and Ratings: Encourage and manage customer reviews to build trust and credibility.",
           ],
+          img: "services/seo-strategy.jpg",
         },
       ],
     },
@@ -115,6 +120,7 @@ const Page = () => {
             "Ad Group Structuring: Create tightly themed ad groups for optimal relevance and performance.",
             "Bid Management: Implement strategic bidding tactics to maximize results within your budget.",
           ],
+          img: "services/google-ads-setup.jpg",
         },
         {
           category: "Optimize Ad Spend for Maximum ROI",
@@ -124,6 +130,7 @@ const Page = () => {
             "A/B Testing: Test multiple ad variations to identify the most effective copy, visuals, and CTAs.",
             "Negative Keyword Lists: Eliminate irrelevant clicks by refining your negative keyword strategy.",
           ],
+          img: "services/optimizing-an-advertising-campaign.jpg",
         },
         {
           category: "Craft Compelling Ad Copy and Visuals",
@@ -133,6 +140,7 @@ const Page = () => {
             "Visual Appeal: Design high-quality, visually appealing banners and images that resonate with your target audience.",
             "Ad Extensions: Enhance ads with extensions like site links, callouts, and structured snippets to increase click-through rates.",
           ],
+          img: "services/google-ad-copywriting-strategies.png",
         },
       ],
     },
@@ -272,7 +280,12 @@ const Page = () => {
                             </div>
                           ))}
                         </div>
-                        <div className="min-h-[550px] w-full h-auto bg-blue-200"></div>
+                        <div className="min-h-[450px] max-h-[550px] w-full h-auto bg-blue-200">
+                          <img
+                            src={detail.img}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
                       </div>
                     </div>
                   ))}
