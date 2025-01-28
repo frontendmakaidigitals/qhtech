@@ -190,30 +190,13 @@ const Page = () => {
               <BreadCrumb />
               <div
                 style={{ height: `calc(100vh - ${height + 200}px)` }}
-                className="flex relative flex-col container items-center text-slate-100 justify-center"
+                className="flex relative flex-col items-center text-slate-100 justify-center"
               >
-                <div className="absolute bottom-0 px-3 py-2 rotate-6  bg-slate-50 text-slate-950 left-3/4">
-                  <p className="text-xl font-Grostek  font-bold">Publicity</p>
-                </div>
-                <div className="absolute -bottom-3 px-3 py-2 rotate-2  bg-indigo-200 text-slate-950 left-5">
-                  <p className="text-xl font-Grostek  font-bold">Blogging</p>
-                </div>
-                <div className="absolute top-3 px-3 py-2 rotate-2  bg-pink-200 text-slate-950 left-1/2 -translate-x-1/2">
-                  <p className="text-xl font-Grostek  font-bold">Events</p>
-                </div>
-                <div className="absolute bottom-0 px-3 py-2 rotate-2  bg-blue-100 text-slate-950 left-1/4">
-                  <p className="text-xl font-Grostek  font-bold">
-                    Social Media
-                  </p>
-                </div>
-                <div className="absolute bottom-0 px-3 py-2 -rotate-2  bg-blue-100 text-slate-950 left-2/4">
-                  <p className="text-xl font-Grostek  font-bold">Network</p>
-                </div>
-                <motion.h1 className="text-center font-[600]  flex-wrap lg:text-3xl xl:text-6xl font-Grostek relative">
+                <motion.h1 className="text-center font-[600] text-slate-100 flex-wrap text-3xl xl:text-5xl  font-Grostek relative">
                   {para.split(" ").map((item, index) => (
                     <motion.span
                       key={index}
-                      className="xl:mr-2 xxl:mr-4 overflow-hidden h-[70px]"
+                      className="mr-2 xl:mr-2 xxl:mr-4 overflow-hidden h-[35px] lg:h-[70px]"
                       style={{
                         display: "inline-block", // Ensure words are treated as block elements
                       }}
@@ -347,8 +330,7 @@ const Page = () => {
       <div className="py-16 bg-[#121316]">
         <div className="container">
           <div>
-            {" "}
-            <motion.article className="flex justify-center lg:justify-start items-center text-slate-100 gap-3">
+            <motion.article className="flex justify-center lg:justify-start items-center gap-3 mx-auto z-[50] flex-wrap">
               {["Frequently", "Asked", "Questions"].map((text, index) => (
                 <motion.h1
                   key={index}
@@ -360,7 +342,10 @@ const Page = () => {
                   viewport={{ once: true }}
                   initial={{ opacity: 0, y: 100 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+                  className={`text-5xl lg:text-6xl leading-[100%] text-purple-100 font-Grostek font-[600] tracking-tight ${
+                    text.toLowerCase() === "supercharged" &&
+                    "bg-gradient-to-r from-blue-600 to-pink-500 bg-clip-text text-transparent"
+                  }`}
                 >
                   {text}
                 </motion.h1>
@@ -381,7 +366,7 @@ const Page = () => {
                 </button>
               </div>
             </div>
-            <div>
+            <div className="mt-5">
               <Accordion defaultValue={["item-0"]}>
                 {faqData.map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`}>

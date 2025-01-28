@@ -359,42 +359,11 @@ const Page = () => {
                 style={{ height: `calc(100vh - ${height + 200}px)` }}
                 className="flex flex-col container relative items-center text-slate-100 justify-center"
               >
-                <div className="absolute bottom-[10px] -translate-y-2/5 left-20 -rotate-12 w-[200px]">
-                  <img
-                    className="w-full h-full object-cover"
-                    src={"/media/milestone.png"}
-                  />
-                </div>
-                <div className="absolute bottom-[10px] -translate-y-2/5 left-20 -rotate-12 w-[200px]">
-                  <img
-                    className="w-full h-full object-cover"
-                    src={"/media/milestone.png"}
-                  />
-                </div>
-                <div className="absolute -bottom-[26px] right-10 rotate-6  w-[200px] ">
-                  <img
-                    className="w-full h-full object-cover"
-                    src={"/media/menlocloud.png"}
-                  />
-                </div>
-                <div className="absolute -bottom-[60px] left-1/2  -translate-x-1/3 rotate-2 bg-white  w-[140px] p-3">
-                  <img
-                    className="w-full h-full object-cover"
-                    src={"/media/TeaVillaCafe.png"}
-                  />
-                </div>
-
-                <div className="absolute -top-10 bg-white left-1/2 -translate-x-1/2  w-[100px] p-1">
-                  <img
-                    className="w-full h-full object-cover"
-                    src={"/media/Roofsol1.png"}
-                  />
-                </div>
-                <motion.h1 className="text-center font-[600]  flex-wrap lg:text-3xl xl:text-6xl font-Grostek relative">
+                <motion.h1 className="text-center font-[600] text-slate-100 flex-wrap text-3xl xl:text-5xl  font-Grostek relative">
                   {para.split(" ").map((item, index) => (
                     <motion.span
                       key={index}
-                      className="xl:mr-2 xxl:mr-4 overflow-hidden h-[70px]"
+                      className="mr-2 xl:mr-2 xxl:mr-4 overflow-hidden h-[35px] lg:h-[70px]"
                       style={{
                         display: "inline-block", // Ensure words are treated as block elements
                       }}
@@ -443,7 +412,7 @@ const Page = () => {
       </motion.div>
 
       <div className="my-20">
-        <motion.article className="flex container justify-center lg:justify-start items-center text-slate-950 gap-3">
+        <motion.article className="flex container justify-center lg:justify-start items-center gap-3 mx-auto z-[50] flex-wrap">
           {["Our", "Branding", "and", "Design", "Services", "includes"].map(
             (text, index) => (
               <motion.h1
@@ -456,7 +425,10 @@ const Page = () => {
                 viewport={{ once: true }}
                 initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+                className={`text-5xl lg:text-6xl leading-[100%] text-black font-Grostek font-[600] tracking-tight ${
+                  text.toLowerCase() === "supercharged" &&
+                  "bg-gradient-to-r from-blue-600 to-pink-500 bg-clip-text text-transparent"
+                }`}
               >
                 {text}
               </motion.h1>
@@ -495,8 +467,7 @@ const Page = () => {
       <div className="py-16 bg-[#121316]">
         <div className="container">
           <div>
-            {" "}
-            <motion.article className="flex justify-center lg:justify-start items-center text-slate-100 gap-3">
+            <motion.article className="flex justify-center lg:justify-start items-center gap-3 mx-auto z-[50] flex-wrap">
               {["Frequently", "Asked", "Questions"].map((text, index) => (
                 <motion.h1
                   key={index}
@@ -508,7 +479,10 @@ const Page = () => {
                   viewport={{ once: true }}
                   initial={{ opacity: 0, y: 100 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+                  className={`text-5xl lg:text-6xl leading-[100%] text-purple-100 font-Grostek font-[600] tracking-tight ${
+                    text.toLowerCase() === "supercharged" &&
+                    "bg-gradient-to-r from-blue-600 to-pink-500 bg-clip-text text-transparent"
+                  }`}
                 >
                   {text}
                 </motion.h1>
@@ -529,7 +503,7 @@ const Page = () => {
                 </button>
               </div>
             </div>
-            <div>
+            <div className="mt-5">
               <Accordion defaultValue={["item-0"]}>
                 {faqData.map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`}>

@@ -153,7 +153,7 @@ const Page = () => {
     <motion.div className="  bg-white" ref={containerRef}>
       <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
       <motion.div>
-        <div className="w-full h-screen overflow-hidden relative">
+        <div className="w-full h-screen overflow-hidden bg-gradient-to-tr from-blue-200 from-10% to-[#81C784] relative">
           <div className="w-full h-full flex relative">
             <div className="absolute top-0 left-0 w-full h-full">
               <BackgroundGradientAnimation
@@ -167,14 +167,14 @@ const Page = () => {
             >
               <BreadCrumb />
               <div
-                style={{ height: `calc(100vh - ${height + 100}px)` }}
-                className="flex flex-col container items-center text-slate-100 justify-center"
+                style={{ height: `calc(100vh - ${height + 200}px)` }}
+                className="flex flex-col  items-center text-slate-100 justify-center"
               >
-                <motion.h1 className="text-center font-[600]  flex-wrap lg:text-3xl xl:text-6xl font-Grostek relative">
+                <motion.h1 className="text-center font-[600] text-slate-100 flex-wrap text-3xl xl:text-6xl  font-Grostek relative">
                   {para.split(" ").map((item, index) => (
                     <motion.span
                       key={index}
-                      className="xl:mr-2 xxl:mr-4 overflow-hidden h-[80px]"
+                      className="mr-2 xl:mr-2 xxl:mr-5 overflow-hidden h-[35px] lg:h-[70px]"
                       style={{
                         display: "inline-block", // Ensure words are treated as block elements
                       }}
@@ -205,7 +205,7 @@ const Page = () => {
                 </motion.h1>
                 <button
                   onClick={() => setIsFormOpen(true)}
-                  className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
+                  className="group relative h-12 rounded-full bg-black mt-3 px-5 font-Synonym font-[500]  text-neutral-50"
                 >
                   <span className="relative inline-flex overflow-hidden">
                     <div className="translate-y-0 skew-y-0 transition duration-500 group-hover:-translate-y-[130%] group-hover:skew-y-12 flex items-center gap-2">
@@ -299,8 +299,7 @@ const Page = () => {
       <div className="py-16 bg-[#121316]">
         <div className="container">
           <div>
-            {" "}
-            <motion.article className="flex justify-center lg:justify-start items-center text-slate-100 gap-3">
+            <motion.article className="flex justify-center lg:justify-start items-center gap-3 mx-auto z-[50] flex-wrap">
               {["Frequently", "Asked", "Questions"].map((text, index) => (
                 <motion.h1
                   key={index}
@@ -312,7 +311,10 @@ const Page = () => {
                   viewport={{ once: true }}
                   initial={{ opacity: 0, y: 100 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  className="text-5xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+                  className={`text-5xl lg:text-6xl leading-[100%] text-purple-100 font-Grostek font-[600] tracking-tight ${
+                    text.toLowerCase() === "supercharged" &&
+                    "bg-gradient-to-r from-blue-600 to-pink-500 bg-clip-text text-transparent"
+                  }`}
                 >
                   {text}
                 </motion.h1>

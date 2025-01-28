@@ -186,13 +186,13 @@ const Page = () => {
               <BreadCrumb />
               <div
                 style={{ height: `calc(100vh - ${height + 200}px)` }}
-                className="flex flex-col container items-center text-slate-100 justify-center"
+                className="flex flex-col  items-center text-slate-100 justify-center"
               >
-                <motion.div className="text-center font-[600]  flex-wrap text-3xl xl:text-6xl font-Grostek relative">
+                <motion.h1 className="text-center font-[600] text-slate-100 flex-wrap text-3xl xl:text-5xl lg:px-14 font-Grostek relative">
                   {para.split(" ").map((item, index) => (
                     <motion.span
                       key={index}
-                      className="mr-2 xl:mr-2 xxl:mr-4 overflow-hidden h-[40px] lg:h-[80px]"
+                      className="mr-2 xl:mr-2 xxl:mr-3 overflow-hidden h-[35px] lg:h-[70px]"
                       style={{
                         display: "inline-block", // Ensure words are treated as block elements
                       }}
@@ -220,7 +220,7 @@ const Page = () => {
                       {"  "}
                     </motion.span>
                   ))}
-                </motion.div>
+                </motion.h1>
                 <button
                   onClick={() => setIsFormOpen(true)}
                   className="group relative h-12 rounded-full bg-black px-5 font-Synonym font-[500]  text-neutral-50"
@@ -301,8 +301,7 @@ const Page = () => {
       <div className="py-16 bg-[#121316]">
         <div className="container">
           <div>
-            {" "}
-            <motion.article className="flex justify-center flex-wrap lg:justify-start items-center text-slate-100 gap-3">
+            <motion.article className="flex justify-center lg:justify-start items-center gap-3 mx-auto z-[50] flex-wrap">
               {["Frequently", "Asked", "Questions"].map((text, index) => (
                 <motion.h1
                   key={index}
@@ -314,7 +313,10 @@ const Page = () => {
                   viewport={{ once: true }}
                   initial={{ opacity: 0, y: 100 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  className="text-4xl lg:text-6xl leading-[100%] font-Grostek font-[600] tracking-tight break-words"
+                  className={`text-5xl lg:text-6xl leading-[100%] text-purple-100 font-Grostek font-[600] tracking-tight ${
+                    text.toLowerCase() === "supercharged" &&
+                    "bg-gradient-to-r from-blue-600 to-pink-500 bg-clip-text text-transparent"
+                  }`}
                 >
                   {text}
                 </motion.h1>
@@ -322,7 +324,7 @@ const Page = () => {
             </motion.article>
           </div>
           <div className="mt-10 grid gap-x-12 grid-cols-1 lg:grid-cols-[1fr_2fr]">
-            <div className="mt-6 lg:mt-0 order-1 lg:order-2">
+            <div>
               <p className="text-slate-400 text-md font-Grostek">
                 Can&apos;t find what you are looking for?
               </p>
@@ -335,17 +337,11 @@ const Page = () => {
                 </button>
               </div>
             </div>
-            <div className="order-1 lg:order-2">
+            <div>
               <Accordion defaultValue={["item-0"]}>
                 {faqData.map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionHeader
-                      icon={
-                        <div className="size-6 flex justify-center items-center rounded-full">
-                          <Plus className="text-xl" />
-                        </div>
-                      }
-                    >
+                    <AccordionHeader icon={<Plus className="text-xl" />}>
                       {faq.question}
                     </AccordionHeader>
                     <AccordionPanel>{faq.answer}</AccordionPanel>
