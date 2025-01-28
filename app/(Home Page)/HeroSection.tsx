@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
-import { useEffect, useRef } from "react";
+import {  useRef } from "react";
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import { ArrowUpRight } from "@phosphor-icons/react";
 import "../App chunks/components/textAnim.css";
-import { useKeenSlider } from "keen-slider/react";
+ 
 import "keen-slider/keen-slider.min.css";
 import SliderForm from "../App chunks/components/SliderForm";
 
