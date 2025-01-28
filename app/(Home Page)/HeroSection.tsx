@@ -62,7 +62,7 @@ const Section1 = ({
       });
     }
   };
-  console.log(isAnimationEnabled);
+
   return (
     <motion.section
       style={{ scale, rotate }}
@@ -360,7 +360,9 @@ const Section2 = ({
 
   useEffect(() => {
     const handleResize = () => {
-      setViewportWidth(window.innerWidth);
+      if (typeof window !== undefined) {
+        setViewportWidth(window.innerWidth);
+      }
     };
     window.addEventListener("resize", handleResize);
     return () => {
@@ -390,14 +392,9 @@ const Section2 = ({
         setContainerHeight(containerRef.current.clientHeight); // Get the height of the container
       }
     };
-
-    // Initial height calculation
     updateContainerHeight();
-
-    // Add resize event listener to update height dynamically
     window.addEventListener("resize", updateContainerHeight);
 
-    // Cleanup the event listener
     return () => {
       window.removeEventListener("resize", updateContainerHeight);
     };
