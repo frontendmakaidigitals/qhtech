@@ -17,24 +17,24 @@ const MobileMenu = ({}) => {
     {
       title: "Services",
       subMenu: [
-        { title: "App Development", link: "/services/web-development" },
-        { title: "Web Development", link: "/services/app-development" },
+        { title: "App Development", link: "/App-Development" },
+        { title: "Web Development", link: "/Web-Development" },
         {
           title: "Social Media Marketing",
-          link: "/services/Social-Media-Marketing",
+          link: "/Social-Media-Marketing",
         },
-        { title: "Content Marketing", link: "/services/Content-Marketing" },
-        { title: "SEO Marketing", link: "/services/SEO-Marketing" },
-        { title: "Media Buying", link: "/services/Media-Buying" },
+        { title: "Content Marketing", link: "/Content-Marketing" },
+        { title: "SEO Marketing", link: "/SEO-Marketing" },
+        { title: "Media Buying", link: "/Media-Buying" },
         {
           title: "Performance Marketing",
-          link: "/services/Performance-Marketing",
+          link: "/Performance-Marketing",
         },
-        { title: "IT Consulting & Advisory", link: "/services/IT-Consulting" },
-        { title: "Cyber Security", link: "/services/Cyber-Security" },
-        { title: "Public Relations", link: "/services/Public-Relations" },
-        { title: "Branding & Designing", link: "/services/Branding" },
-        { title: "Photography & Videography", link: "/services/Photography" },
+        { title: "IT Consulting & Advisory", link: "/IT-Consulting" },
+        { title: "Cyber Security", link: "/Cyber-Security" },
+        { title: "Public Relations", link: "/Public-Relations" },
+        { title: "Branding & Designing", link: "/Branding" },
+        { title: "Photography & Videography", link: "/Photography" },
       ],
     },
     { title: "Blog", link: "/" },
@@ -54,13 +54,15 @@ const MobileMenu = ({}) => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Accessing element by class name
       const element = document.getElementsByClassName("HeadNavigation")[0]; // Use [0] to get the first element
       if (element) {
         setHeight(element.clientHeight); // Set height to state
       }
     }
   }, []);
+  const handleLinkClick = () => {
+    setIsOpen(false); // Close the menu when a link is clicked
+  };
   return (
     <div className="block lg:hidden">
       <AnimatePresence mode="wait">
@@ -111,23 +113,23 @@ const MobileMenu = ({}) => {
                     gradientUnits="userSpaceOnUse"
                     gradientTransform="translate(403 399) rotate(90) scale(401.5)"
                   >
-                    <stop stop-color="#0066FF" />
+                    <stop stopColor="#0066FF" />
                     <stop
                       offset="0.299"
-                      stop-color="#2077FA"
-                      stop-opacity="0.71"
+                      stopColor="#2077FA"
+                      stopOpacity="0.71"
                     />
                     <stop
                       offset="0.549"
-                      stop-color="#1975FF"
-                      stop-opacity="0.42"
+                      stopColor="#1975FF"
+                      stopOpacity="0.42"
                     />
                     <stop
                       offset="0.764"
-                      stop-color="#2D81FF"
-                      stop-opacity="0.23"
+                      stopColor="#2D81FF"
+                      stopOpacity="0.23"
                     />
-                    <stop offset="1" stop-color="#A7CAFF" stop-opacity="0" />
+                    <stop offset="1" stopColor="#A7CAFF" stopOpacity="0" />
                   </radialGradient>
                 </defs>
               </svg>
@@ -177,6 +179,7 @@ const MobileMenu = ({}) => {
                               <Link
                                 href={subItem.link}
                                 key={subIndex}
+                                onClick={handleLinkClick}
                                 className="block mt-2 text-2xl capitalize font-Grostek font-medium"
                               >
                                 {subItem.title}
@@ -191,6 +194,7 @@ const MobileMenu = ({}) => {
                     <Link
                       href={item.link}
                       className="h-12 overflow-hidden w-full"
+                      onClick={handleLinkClick}
                     >
                       <motion.p
                         variants={{

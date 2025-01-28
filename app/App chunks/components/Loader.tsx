@@ -17,7 +17,7 @@ const Loader = () => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [viewportWidth, setViewPortWidth] = React.useState(0);
   const pathname = usePathname();
-  console.log(pathname);
+ 
   React.useEffect(() => {
     setIsLoading(true);
     if (typeof window !== undefined) {
