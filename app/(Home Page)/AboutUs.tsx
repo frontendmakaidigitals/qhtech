@@ -18,17 +18,17 @@ const AboutUs = () => {
   const para1 = `We’re more than just a marketing agency. At Insight Vision, we’re your growth partners. With a deep understanding of digital landscapes, creative strategies, and technology, we specialize in turning ideas into results.`;
   useEffect(() => {
     const handleResize = () => {
-      if (typeof window !== undefined) {
-        setViewportWidth(window.innerWidth);
+      if (typeof window !== "undefined") {  // Check if window is defined
+        setViewportWidth(window.innerWidth); // Access window only on the client-side
       }
     };
 
-    handleResize();
+    handleResize(); // Run once to set initial width
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize); // Add resize event listener
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleResize); // Clean up the event listener
     };
   }, []);
   useEffect(() => {
