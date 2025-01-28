@@ -286,7 +286,7 @@ const Section2 = ({
     },
     {
       name: "Content Marketing",
-      img: "media/serviceImages/newImages/content marketing.jpg",
+      img: "media/serviceImages/newImages/Content Marketing copy.png",
       gradient: "bg-gradient-to-b from-[#06b6d4] via-[#2563eb] to-[#6366f1]",
     },
     {
@@ -311,26 +311,7 @@ const Section2 = ({
         "bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-[#ff4d4d] via-[#ff8364] to-[#fdb87d]",
     },
   ];
-  useEffect(() => {
-    const handleScroll = () => {
-      const element = document.getElementById("sticky-section");
-      if (element) {
-        const rect = element.getBoundingClientRect();
-
-        if (rect.top <= 0) {
-          setIsSticky(true);
-        } else {
-          setIsSticky(false);
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+ 
   const [viewportWidth, setViewportWidth] = React.useState(0);
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -383,7 +364,7 @@ const Section2 = ({
     [viewportWidth > 450 ? 1 : 0.25, 0]
   );
 
-  const [isSticky, setIsSticky] = React.useState<boolean>(false);
+  
   const [hoverId, setHoverId] = React.useState<number>(0);
   const [hoverStyle, setHoverStyle] = React.useState({});
   const [containerHeight, setContainerHeight] = React.useState(0);
@@ -439,14 +420,8 @@ const Section2 = ({
       ref={ref}
     >
       <motion.article
-        animate={{
-          backgroundColor: isSticky
-            ? "rgba(255, 255, 255, 0.1)"
-            : "transparent",
-          backdropFilter: isSticky ? "blur(10px)" : "none",
-          color: isSticky ? "gray" : "black",
-        }}
-        className="container flex justify-center lg:justify-start items-center gap-3 sticky top-0 left-0 mx-auto z-[50] flex-wrap" // Added flex-wrap here
+       
+        className="container flex justify-center lg:justify-start items-center gap-3 mx-auto z-[50] flex-wrap" // Added flex-wrap here
       >
         {["Services", "Designed", "to", "Drive", "Growth"].map(
           (text, index) => (
@@ -468,7 +443,6 @@ const Section2 = ({
         )}
       </motion.article>
       <motion.div
-        id="sticky-section"
         className="mt-10 relative z-20 container grid grid-cols-1 lg:grid-cols-2 gap-10"
         initial={{ opacity: 1 }}
         whileInView={{ opacity: 1 }}
