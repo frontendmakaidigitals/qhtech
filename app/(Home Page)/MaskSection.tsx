@@ -31,7 +31,11 @@ export default function MaskSection() {
   };
 
   const getScrollProgress = () => {
-    if (typeof window !== 'undefined' && stickyMask.current && container.current) {
+    if (
+      typeof window !== "undefined" &&
+      stickyMask.current &&
+      container.current
+    ) {
       const scrollProgress =
         stickyMask.current.offsetTop /
         (container.current.getBoundingClientRect().height - window.innerHeight);
@@ -41,7 +45,7 @@ export default function MaskSection() {
     }
     return 0; // In case the refs are null, or window is not available, return a default value
   };
- 
+
   return (
     <main className={"main bg-purple-100"}>
       <div ref={container} className={"contaner h-[300vh] lg:h-[600vh]"}>
@@ -49,12 +53,9 @@ export default function MaskSection() {
         {/* Increased the height of the container */}
         <div ref={stickyMask} className={"stickyMask"}>
           <div className="relative h-screen w-screen">
-          <video className="object-cover " autoPlay muted loop>
-          <source
-            src="media/About-Us.mp4"
-            type="video/mp4"
-          />
-        </video>
+            <video className="object-cover " autoPlay muted loop>
+              <source src="media/Aboutus.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>
