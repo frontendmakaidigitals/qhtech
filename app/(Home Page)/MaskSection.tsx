@@ -51,7 +51,7 @@ export default function MaskSection() {
           <div className="relative h-screen w-screen">
           <video className="object-cover " autoPlay muted loop>
           <source
-            src="About-Us.mp4"
+            src="media/About-Us.mp4"
             type="video/mp4"
           />
         </video>
