@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@number-flow/react": "^0.4.4",
     "@phosphor-icons/react": "^2.1.7",
     "class-variance-authority": "^0.7.1",
