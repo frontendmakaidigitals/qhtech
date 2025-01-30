@@ -18,13 +18,13 @@ const SliderForm: React.FC<SliderFormProps> = ({
   const lenis = useLenis();
   const [formData, setFormData] = useState({
     fullName: "",
-    contactNumber: "",
+    phone: "",
     email: "",
     message: "",
   });
   const [errors, setErrors] = useState({
     fullName: "",
-    contactNumber: "",
+    phone: "",
     email: "",
     message: "",
   });
@@ -90,8 +90,8 @@ const SliderForm: React.FC<SliderFormProps> = ({
       isValid = false;
     }
 
-    if (!formData.contactNumber) {
-      newErrors.contactNumber = "Contact Number is required";
+    if (!formData.phone) {
+      newErrors.phone = "Contact Number is required";
       isValid = false;
     }
 
@@ -197,15 +197,15 @@ const SliderForm: React.FC<SliderFormProps> = ({
                 <div className="w-full">
                   <label>Contact Number</label>
                   <input
-                    name="contactNumber"
+                    name="phone"
                     placeholder="Enter Contact number"
                     className="w-full font-[500] placeholder:text-slate-600 font-Grostek bg-slate-300 rounded-xl px-5 py-3"
-                    value={formData.contactNumber}
+                    value={formData.phone}
                     onChange={handleChange}
                   />
-                  {errors.contactNumber && (
+                  {errors.phone && (
                     <p className="text-red-500 text-sm">
-                      {errors.contactNumber}
+                      {errors.phone}
                     </p>
                   )}
                 </div>

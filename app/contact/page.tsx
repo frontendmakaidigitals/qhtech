@@ -22,8 +22,9 @@ const Page = () => {
     setHeight(rect.height);
   }, []);
 
+  
   return (
-    <motion.div className="  bg-white" ref={containerRef}>
+    <motion.div className=" bg-white" ref={containerRef}>
       <motion.div>
         <div className="w-full overflow-hidden relative">
           <div className="w-full  flex relative">
