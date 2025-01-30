@@ -460,10 +460,10 @@ const Section2 = ({
       >
         <div
           ref={containerRef}
-          className="relative overflow-x-auto w-full flex flex-row justify-start items-center gap-3 lg:block"
+          className="relative w-full"
         >
           <div
-            className={`bg-black hidden lg:block origin-left black-Tab`}
+            className={`bg-black origin-left black-Tab`}
             style={{
               position: "absolute",
               zIndex: 1,
@@ -500,7 +500,7 @@ const Section2 = ({
           style={{
             height: `${viewportWidth > 450 ? containerHeight : 550}px`, // Adjust height based on viewportWidth
           }}
-          className={`w-full keen-slider  overflow-hidden `}
+          className={`w-full keen-slider hidden lg:block  overflow-hidden `}
         >
           {services.map((service, idx) => (
             <div key={idx} className={`keen-slider__slide h-full`}>
