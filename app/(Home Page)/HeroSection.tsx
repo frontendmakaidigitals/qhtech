@@ -8,7 +8,7 @@ import "../App chunks/components/textAnim.css";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import SliderForm from "../App chunks/components/SliderForm";
-
+import Link from "next/link";
 export default function HeroSection() {
   const container = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -251,68 +251,79 @@ const Section2 = ({
       name: "Web Development",
       img: "media/serviceImages/newImages/web development.png",
       gradient: "bg-gradient-to-r from-[#fde68a] to-[#f59e0b] ",
-      link:'',
+      link: "Web-Development",
     },
     {
       name: "App Development",
       img: "media/serviceImages/newImages/app development.png",
       gradient: "bg-gradient-to-r from-[#fef08a] via-[#84cc16] to-[#16a34a]",
+      link: "App-Development",
     },
     {
       name: "Social Media Marketing",
       img: "media/serviceImages/newImages/social media marketing.png",
       gradient:
         "bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-[#f72464] via-[#ff858a] to-[#fff3a7]",
+      link: "Social-Media-Marketing",
     },
     {
       name: "SEO Marketing",
       img: "media/serviceImages/newImages/SEO marketing.png",
       gradient: "bg-gradient-to-bl from-[#edd2f3] via-[#fffcdc] to-[#84dfff]",
+      link: "SEO-Marketing",
     },
     {
       name: "Photography & Videography",
       img: "media/serviceImages/newImages/Photography and Videography copy.png",
       gradient:
         "bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-[#6366f1] via-[#a5b4fc] to-[#e0e7ff] ",
+      link: "Photography",
     },
     {
       name: "Media Buying",
       img: "media/serviceImages/newImages/media buying.png",
       gradient: "bg-gradient-to-bl from-[#84cc16] via-[#16a34a] to-[#0f766e] ",
+      link: "Media-Buying",
     },
     {
       name: "Performance Marketing",
       img: "media/serviceImages/newImages/performance marketing.png",
       gradient: "bg-gradient-to-tl from-[#f6fbf4] via-[#f5df99] to-[#5fd068] ",
+      link: "Performance-Marketing",
     },
     {
       name: "Content Marketing",
       img: "media/serviceImages/newImages/Content Marketing copy.png",
       gradient: "bg-gradient-to-b from-[#06b6d4] via-[#2563eb] to-[#6366f1]",
+      link: "Content-Marketing",
     },
     {
       name: "Public Relation",
       img: "media/serviceImages/newImages/public relation copy.png",
       gradient: "bg-gradient-to-br from-[#f59e0b] via-[#ea580c] to-[#b91c1c] ",
+      link: "Public-Relations",
     },
     {
       name: "Branding & Advertising",
       img: "media/serviceImages/newImages/branding and advertising.png",
       gradient: "bg-gradient-to-bl from-[#84cc16] via-[#22c55e] to-[#16a34a]",
+      link: "Branding",
     },
     {
       name: "IT Consulting & Advisory",
       img: "media/serviceImages/newImages/IT consulting and advisory copy.png",
       gradient: "bg-gradient-to-b from-[#8d8daa] via-[#dfdfde] to-[#f7f5f2] ",
+      link: "IT-Consulting",
     },
     {
       name: "Cyber Security",
       img: "media/serviceImages/newImages/cyber security copy.png",
       gradient:
         "bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-[#ff4d4d] via-[#ff8364] to-[#fdb87d]",
+      link: "Cyber-Security",
     },
   ];
- 
+
   const [viewportWidth, setViewportWidth] = React.useState(0);
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -365,7 +376,6 @@ const Section2 = ({
     [viewportWidth > 450 ? 1 : 0.25, 0]
   );
 
-  
   const [hoverId, setHoverId] = React.useState<number>(0);
   const [hoverStyle, setHoverStyle] = React.useState({});
   const [containerHeight, setContainerHeight] = React.useState(0);
@@ -421,7 +431,6 @@ const Section2 = ({
       ref={ref}
     >
       <motion.article
-       
         className="container flex justify-center lg:justify-start items-center gap-3 mx-auto z-[50] flex-wrap" // Added flex-wrap here
       >
         {["Services", "Designed", "to", "Drive", "Growth"].map(
@@ -464,8 +473,9 @@ const Section2 = ({
           />
 
           {services.map((service, idx) => (
-            <motion.div
+            <Link
               key={idx}
+              href={`/${service.link}`}
               onMouseEnter={() => setHoverId(idx)}
               className="relative"
             >
@@ -481,7 +491,7 @@ const Section2 = ({
               >
                 {service.name}
               </button>
-            </motion.div>
+            </Link>
           ))}
         </div>
 
