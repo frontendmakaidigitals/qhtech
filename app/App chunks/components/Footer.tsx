@@ -16,7 +16,9 @@ const Footer = () => {
   const menu = [
     { title: "home", link: "/" },
     { title: "about", link: "/About" },
-    { title: "services", link: "/" },
+    { title: "Social Media Marketing", link: "/Social Media Marketing" },
+    { title: "Performance Marketing", link: "/Performace-Marketing" },
+    { title: "Branding & Designing", link: "/Branding" },
     { title: "blogs", link: "/" },
     { title: "contact", link: "/contact" },
   ];
