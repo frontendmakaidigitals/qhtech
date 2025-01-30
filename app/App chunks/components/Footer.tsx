@@ -15,10 +15,10 @@ import Link from "next/link";
 const Footer = () => {
   const menu = [
     { title: "home", link: "/" },
-    { title: "about", link: "/" },
+    { title: "about", link: "/About" },
     { title: "services", link: "/" },
-    { title: "work process", link: "/" },
-    { title: "contact", link: "/" },
+    { title: "blogs", link: "/" },
+    { title: "contact", link: "/contact" },
   ];
   const legal = [
     { title: "Privacy policy", link: "/" },
