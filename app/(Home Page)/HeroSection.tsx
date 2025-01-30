@@ -500,7 +500,7 @@ const Section2 = ({
           style={{
             height: `${viewportWidth > 450 ? containerHeight : 550}px`, // Adjust height based on viewportWidth
           }}
-          className={`w-full lg:keen-slider hidden overflow-hidden `}
+          className={`w-full lg:keen-slider hidden lg:block overflow-hidden `}
         >
           {services.map((service, idx) => (
             <div key={idx} className={` keen-slider__slide h-full`}>
