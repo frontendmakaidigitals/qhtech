@@ -5,7 +5,7 @@ import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
 import ReactCardFlip from "react-card-flip";
-import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 const Slider = () => {
   const containerRef = useRef(null);
   const images = [
@@ -185,29 +185,24 @@ const Slider = () => {
                         </p>
                       </div>
                     </div>
+
                     <div className="w-full">
                       <div
-                        className=" flex flex-col justify-center items-center relative  px-5 py-6 text-slate-50"
+                        className=" flex flex-col justify-center items-center "
                         style={{ height: `${cardHeight}px` }}
                       >
-                        <div className="w-full h-full absolute top-0 left-0">
-                          <BackgroundGradientAnimation
-                            gradientBackgroundEnd="white"
-                            gradientBackgroundStart="white"
-                            id={"instance2"}
-                            className="h-full"
-                          />
-                        </div>
-                        <div className="relative z-[1] mix-blend-difference ">
-                          <h2 className="font-Grostek text-start text-3xl font-[600]">
-                            {image.name}
-                          </h2>
-                          <motion.div className=" mt-2">
-                            <p className="font-Grostek font-[300] text-justify text-xl">
-                              {image.text}
-                            </p>
-                          </motion.div>
-                        </div>
+                        <AuroraBackground>
+                          <div className="relative px-5 py-6">
+                            <h2 className="font-Grostek text-slate-950 text-start text-3xl font-[600]">
+                              {image.name}
+                            </h2>
+                            <motion.div className=" mt-2">
+                              <p className="font-[300] font-Synonym text-black text-xl">
+                                {image.text}
+                              </p>
+                            </motion.div>
+                          </div>
+                        </AuroraBackground>
                       </div>
                     </div>
                   </ReactCardFlip>

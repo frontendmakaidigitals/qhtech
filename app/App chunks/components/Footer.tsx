@@ -11,7 +11,7 @@ import {
   LinkedinLogo,
   ArrowUpRight,
 } from "@phosphor-icons/react";
-
+import Link from "next/link";
 const Footer = () => {
   const menu = [
     { title: "home", link: "/" },
@@ -26,10 +26,19 @@ const Footer = () => {
     { title: "Cookie policy", link: "/" },
   ];
   const socialIcons = [
-    { icon: <FacebookLogo />, link: "" },
-    { icon: <InstagramLogo />, link: "" },
+    {
+      icon: <FacebookLogo />,
+      link: "https://www.facebook.com/share/1B8MhGwsoX/?mibextid=wwXIfr",
+    },
+    {
+      icon: <InstagramLogo />,
+      link: "https://www.instagram.com/insightvision.marketing?igsh=enp5bGcxc255MmJr",
+    },
     { icon: <XLogo />, link: "" },
-    { icon: <LinkedinLogo />, link: "" },
+    {
+      icon: <LinkedinLogo />,
+      link: "https://www.linkedin.com/company/insight-vision-marketing/",
+    },
   ];
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
@@ -63,11 +72,14 @@ const Footer = () => {
                   ease: [0.22, 0.61, 0.36, 1],
                   duration: 0.7,
                 }}
-                className=" flex overflow-hidden justify-center text-4xl text-slate-600 items-center size-14 rounded-full bg-slate-100/10 border border-gray-800"
+                className="group overflow-hidden grid grid-cols-1 place-items-center text-4xl text-slate-600 size-14 rounded-full bg-slate-100/10 border border-gray-800"
               >
-                <motion.button whileHover={{ scale: 1.3 }}>
+                <Link
+                  className="group-hover:scale-[1.2] transition-all duration-300"
+                  href={elem.link}
+                >
                   {elem.icon}
-                </motion.button>
+                </Link>
               </motion.div>
             ))}
           </motion.div>

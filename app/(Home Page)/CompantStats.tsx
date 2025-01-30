@@ -5,7 +5,7 @@ import NumberFlow from "@number-flow/react";
 export const CompantStats = () => {
   const stats = [
     { data: 14, title: "worldwide awards" },
-    { data: 22, title: "Yeards in Business" },
+    { data: 22, title: "Years in Business" },
     { data: 10, title: "Happy clients" },
     { data: 1, title: "projects completed" },
   ];
@@ -28,7 +28,7 @@ export const CompantStats = () => {
               className={`flex justify-center items-center ${
                 index === stats.length - 1
                   ? ""
-                  : "border-b lg:border-r py-5 lg:py-0 border-slate-400"
+                  : "border-b lg:border-b-0 lg:border-r py-5 lg:py-0 border-slate-400"
               }  flex-col`}
             >
               <div className="flex text-[#25193a] items-center gap-3">

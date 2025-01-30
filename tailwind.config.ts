@@ -1,4 +1,5 @@
 import { Config } from "tailwindcss";
+const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette");
 
 const config: Config = {
   darkMode: ["class"],
@@ -89,30 +90,19 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), addVariablesForColors],
+  plugins: [
+    require("tailwindcss-animate"),
+    addVariablesForColors
+  ],
 };
 
 function addVariablesForColors({ addBase, theme }: any) {
   const colors = theme("colors");
-  const flattenedColors: Record<string, string> = {};
-
-  // Flatten the color palette
-  const flatten = (obj: Record<string, any>, prefix = ""): void => {
-    Object.keys(obj).forEach((key) => {
-      const value = obj[key];
-      if (typeof value === "string") {
-        flattenedColors[prefix + key] = value;
-      } else if (typeof value === "object" && value !== null) {
-        flatten(value, `${prefix + key}-`);
-      }
-    });
-  };
-
-  flatten(colors);
+  const flattenedColors = flattenColorPalette(colors);
 
   const cssVars = Object.entries(flattenedColors).reduce(
     (vars, [key, value]) => {
-      vars[`--${key}`] = value;
+      vars[`--${key}`] = value as string;
       return vars;
     },
     {} as Record<string, string>

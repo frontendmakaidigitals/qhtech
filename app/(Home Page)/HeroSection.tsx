@@ -187,7 +187,7 @@ const Section1 = ({
             </motion.div>
           ))}
         </div>
-        <div className="flex text-[.7rem] lg:text-md justify-between items-center font-[500] font-Synonym mt-3 text-purple-100 gap-2 overflow-hidden h-[25px] ">
+        <div className="flex text-[.7rem] lg:text-lg justify-between items-center font-[500] font-Synonym mt-3 text-purple-100 gap-2 overflow-hidden h-[50px] ">
           {tags.map((tag, index) => (
             <motion.p
               key={index}
@@ -251,6 +251,7 @@ const Section2 = ({
       name: "Web Development",
       img: "media/serviceImages/newImages/web development.png",
       gradient: "bg-gradient-to-r from-[#fde68a] to-[#f59e0b] ",
+      link:'',
     },
     {
       name: "App Development",

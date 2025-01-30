@@ -59,7 +59,7 @@ const AboutUs = () => {
       return (
         <p
           key={word + "_" + i}
-          className="font-Synonym mr-[1.1vw] font-[500] text-xl lg:text-3xl"
+          className="font-Synonym mr-[1.4vw] lg:mr-[1.1vw]  font-[500] text-xl lg:text-3xl"
         >
           {letters}
         </p>
@@ -201,7 +201,7 @@ const AboutUs = () => {
           {/* Image section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <div></div>
-            <motion.div className="w-full h-[400px] lg:h-[500px] rounded-lg relative overflow-hidden">
+            <motion.div className="w-full h-[350px] lg:h-[500px] rounded-lg relative overflow-hidden">
               <motion.div
                 animate={{ y: inView ? "-100%" : "0%" }}
                 transition={{
