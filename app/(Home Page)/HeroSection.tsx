@@ -458,10 +458,7 @@ const Section2 = ({
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div
-          ref={containerRef}
-          className="relative"
-        >
+        <div ref={containerRef} className="relative">
           <div
             className={`bg-black hidden lg:block origin-left black-Tab`}
             style={{
@@ -495,23 +492,25 @@ const Section2 = ({
           ))}
         </div>
 
-        <div
-          ref={sliderRef}
-          style={{
-            height: `${viewportWidth > 450 ? containerHeight : 550}px`, // Adjust height based on viewportWidth
-          }}
-          className={`w-full lg:keen-slider hidden lg:block overflow-hidden `}
-        >
-          {services.map((service, idx) => (
-            <div key={idx} className={` keen-slider__slide h-full`}>
-              <motion.img
-                src={service.img}
-                key={hoverId}
-                transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
-                className="w-full h-full object-contain"
-              />
-            </div>
-          ))}
+        <div className="hidden lg:block">
+          <div
+            ref={sliderRef}
+            style={{
+              height: `${viewportWidth > 450 ? containerHeight : 550}px`, // Adjust height based on viewportWidth
+            }}
+            className={`w-full keen-slider overflow-hidden `}
+          >
+            {services.map((service, idx) => (
+              <div key={idx} className={` keen-slider__slide h-full`}>
+                <motion.img
+                  src={service.img}
+                  key={hoverId}
+                  transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </motion.div>
     </motion.section>
