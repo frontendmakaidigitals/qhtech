@@ -133,7 +133,10 @@ const Page = () => {
                       autoPlay
                       className="w-full h-full object-cover"
                     >
-                      <source src={file.fileName} type="video/mp4" />
+                      <source
+                        src={`https://github.com/frontendmakaidigitals/InsightVision/raw/refs/heads/master/public/${file.fileName}`}
+                        type="video/mp4"
+                      />
                     </video>
                   ) : fileExtension === "jpg" ||
                     fileExtension === "jpeg" ||
