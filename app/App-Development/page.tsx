@@ -200,17 +200,11 @@ const Page = () => {
       spacing: 15,
     },
     breakpoints: {
-      1200: {
-        slides: { perView: 4 }, // Show 4 slides on screens wider than 1200px
+      "(min-width: 400px)": {
+        slides: { perView: 1,spacing: 15, },
       },
-      992: {
-        slides: { perView: 3 }, // Show 3 slides on screens wider than 992px
-      },
-      768: {
-        slides: { perView: 2 }, // Show 2 slides on screens wider than 768px
-      },
-      480: {
-        slides: { perView: 1.5 }, // Show 1 slide on screens wider than 480px
+      "(min-width: 1200px)": {
+        slides: { perView: 4, spacing: 15, },
       },
     },
   });
@@ -401,7 +395,7 @@ const Page = () => {
       <div className="my-20">
         <div>
           {" "}
-          <motion.article className="flex justify-center lg:justify-start items-center gap-3 mx-auto z-[50] flex-wrap">
+          <motion.article className="flex container justify-center lg:justify-start items-center gap-3 mx-auto z-[50] flex-wrap">
             {["Our", "App", "Development", "Process"].map((text, index) => (
               <motion.h1
                 key={index}

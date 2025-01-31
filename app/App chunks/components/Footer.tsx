@@ -15,10 +15,12 @@ import Link from "next/link";
 const Footer = () => {
   const menu = [
     { title: "home", link: "/" },
-    { title: "about", link: "/" },
-    { title: "services", link: "/" },
-    { title: "work process", link: "/" },
-    { title: "contact", link: "/" },
+    { title: "about", link: "/About" },
+    { title: "Social Media Marketing", link: "/Social Media Marketing" },
+    { title: "Performance Marketing", link: "/Performace-Marketing" },
+    { title: "Branding & Designing", link: "/Branding" },
+    { title: "blogs", link: "/" },
+    { title: "contact", link: "/contact" },
   ];
   const legal = [
     { title: "Privacy policy", link: "/" },
@@ -47,7 +49,7 @@ const Footer = () => {
       ref={ref}
       className="h-full overflow-hidden py-10 flex  flex-col justify-around  w-full bg-gradient-to-t from-purple-400 to-purple-100 "
     >
-      <div className="container  grid grid-cols-1 lg:grid-cols-3">
+      <div className="container  grid grid-cols-1 lg:grid-cols-[0.8fr_1.6fr] gap-10">
         <div className="">
           <motion.div
             transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
@@ -84,8 +86,8 @@ const Footer = () => {
             ))}
           </motion.div>
         </div>
-        <div></div>
-        <div className="flex items-start mt-6 justify-end gap-20">
+        
+        <div className="flex items-start mt-6 justify-end gap-20 c">
           <motion.ul whileInView={"animate"} className="">
             <motion.p className="text-indigo-950 mb-2 font-Synonym font-[500] text-2xl lg:text-3xl">
               Menu
@@ -111,7 +113,7 @@ const Footer = () => {
             </motion.p>
             {legal.map((item, index) => (
               <motion.li
-                className="font-Satoshi mb-1 text-md lg:text-lg text-purple-950 flex items-center gap-1 "
+                className="font-Satoshi mb-1 text-md lg:text-lg text-purple-950 flex items-start gap-1 "
                 key={index}
                 animate={{ y: inView ? 0 : 130 }}
                 transition={{
@@ -120,10 +122,24 @@ const Footer = () => {
                   duration: 0.7,
                 }}
               >
-                {item.title} <ArrowUpRight className="mt-1" />
+                {item.title} <ArrowUpRight className="mt-2" />
               </motion.li>
             ))}
           </motion.ul>
+          <motion.div className="">
+            <motion.p className="text-indigo-950 mb-2 font-Synonym font-[500] text-2xl lg:text-3xl">
+              Address
+            </motion.p>
+            <p className="">
+            <span>Office</span> - 3307, Churchill Towers, Business Bay, Dubai, UAE
+            </p>
+            <p className="mt-2"><span>Phone</span>- +971 50 865 4179
+            </p>
+            <p className="mt-2">
+            <span>Email</span> - info@insightvision.marketing
+            </p>
+           
+          </motion.div>
         </div>
       </div>
       <div className="grid mt-3 lg:mt-6 grid-cols-1 lg:grid-cols-3 lg:items-end container">

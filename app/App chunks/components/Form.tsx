@@ -228,7 +228,7 @@ const Form = () => {
                   )}
                 </div>
 
-                <div className="mt-5">
+                <div className="mt-5 flex justify-start w-full">
                   <Button
                     type="submit"
                     className="bg-indigo-300 active:shadow-none hover:bg-indigo-200 text-blue-950"

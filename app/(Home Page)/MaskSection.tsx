@@ -54,7 +54,7 @@ export default function MaskSection() {
         <div ref={stickyMask} className={"stickyMask"}>
           <div className="relative h-screen w-screen">
             <video className="object-cover " autoPlay muted loop>
-              <source src="media/Aboutus.mp4" type="video/mp4" />
+              <source src="https://github.com/frontendmakaidigitals/InsightVision/raw/refs/heads/master/public/media/ISVWebsite.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
