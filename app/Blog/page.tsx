@@ -29,11 +29,39 @@ const Page = () => {
       </div>
 
       <div className="w-full aspect-video lg:aspect-[2/1] bg-green-300 mt-8"></div>
-      <div className="mt-5 my-16">
+      <div className="mt-5">
         Blog Content
       </div>
+
+      <div>
+        <h2 className="text-4xl mt-10 font-Grostek font-[600]">
+        Popular Blogs
+        </h2>
+      </div>
+
+      <div className="mt-7 mb-20 w-full grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 xxl:grid-cols-5 gap-4">
+          <Articles />
+          <Articles />
+          <Articles />
+          <Articles />
+          <Articles />
+        </div>
     </div>
   );
 };
 
 export default Page
+
+
+const Articles = () => {
+    return (
+      <div className="">
+        <div className="w-full aspect-square bg-red-300"></div>
+        <p className="text-sm mt-1">02 Feb 2025</p>
+        <h4 className="text-[1.5rem] leading-2 mt-1">Heading</h4>
+        <p className="text-md leading-3 mt-1">Description</p>
+       
+      </div>
+    );
+  };
+  
