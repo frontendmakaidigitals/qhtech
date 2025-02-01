@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-const page = () => {
+const Page = () => {
   const [NavHeight, setNavheight] = useState(0);
   useEffect(() => {
     setNavheight(
@@ -43,7 +43,7 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
 
 const MainBlog = () => {
   return (
