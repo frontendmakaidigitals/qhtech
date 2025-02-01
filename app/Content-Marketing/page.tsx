@@ -196,7 +196,7 @@ const Page = () => {
               "Intro/Outro Creation: We create custom intros and outros to reinforce your brand and give your podcast a polished feel.",
               "Guest Management: We coordinate with interviewees or industry experts, ensuring smooth scheduling and communication.",
             ],
-            img: "services/Podcast.webp",
+            img: "services/Podacst_Production.jpg",
           },
         ],
         podcastBranding: [

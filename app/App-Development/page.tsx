@@ -157,6 +157,7 @@ const Page = () => {
         "Cross-Platform Compatibility: Provide a seamless experience across browsers and devices without needing app store downloads.",
         "Improved Performance: Deliver fast loading times and responsive experiences to enhance user engagement.",
       ],
+      img:'services/Progressive Web Application.jpg',
       conclusion:
         "With PWAs, you can reach your audience efficiently while providing a superior user experience without the need for native app development.",
     },
