@@ -78,6 +78,7 @@ const Page = () => {
             "Provide training and support to ensure your team adapts smoothly to new systems and practices.",
         },
       ],
+      img: "services/Digital Transformation.jpg",
     },
     {
       category: "Cloud Consulting",
@@ -110,6 +111,7 @@ const Page = () => {
             "Ensure your cloud environment adheres to industry regulations and standards, safeguarding sensitive data.",
         },
       ],
+      img: "services/cloud-consultants.webp",
     },
     {
       category: "Cybersecurity Solutions",
@@ -142,6 +144,7 @@ const Page = () => {
             "Ensure adherence to regulations like GDPR, HIPAA, and ISO standards.",
         },
       ],
+      img: "services/Cyber&ITSecurity.png",
     },
     {
       category: "IT Infrastructure Optimization",
@@ -174,6 +177,7 @@ const Page = () => {
             "Incorporate eco-friendly solutions to reduce your carbon footprint while maintaining efficiency.",
         },
       ],
+      img: "services/IT-Infrastructure.jpg",
     },
     {
       category: "Data Analytics & Business Intelligence",
@@ -206,6 +210,7 @@ const Page = () => {
             "Ensure data accuracy, security, and compliance with regulatory requirements.",
         },
       ],
+      img: "services/Data_Analytics.jpeg",
     },
     {
       category: "CCTV Installation Services",
@@ -238,6 +243,7 @@ const Page = () => {
             "Enable real-time monitoring through secure online access for enhanced peace of mind.",
         },
       ],
+      img: "services/CCTV_installation.webp",
     },
   ];
 
@@ -396,7 +402,12 @@ const Page = () => {
                     </div>
                   ))}
                 </div>
-                <div className="min-h-[500px] h-auto bg-purple-300"></div>
+                <div className="max-h-[500px] h-[500px] bg-purple-300">
+                  <img
+                    className="w-full h-full object-cover"
+                    src={service.img}
+                  />
+                </div>
               </div>
             </div>
           ))}

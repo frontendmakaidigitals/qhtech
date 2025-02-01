@@ -76,6 +76,7 @@ const Page = () => {
             "If you're looking to update your current logo, we’ll work with you to refresh it while maintaining continuity and relevance.",
         },
       ],
+      img: "services/Logo_Design.jpg",
     },
     {
       service: "Brand Identity Development",
@@ -101,6 +102,7 @@ const Page = () => {
             "We create a comprehensive brand guideline document to ensure your brand identity is consistent across all media and platforms.",
         },
       ],
+      img: "services/Brand Identity Development.jpg",
     },
     {
       service: "Packaging Design",
@@ -131,6 +133,7 @@ const Page = () => {
             "We provide 3D packaging mockups so you can visualize how your packaging will look in real life before production.",
         },
       ],
+      img: "services/Package_Design.webp",
     },
     {
       service: "Marketing Collateral Design",
@@ -166,6 +169,7 @@ const Page = () => {
             "From trade show booths to promotional giveaways, we design materials that help elevate your brand presence at events and expos.",
         },
       ],
+      img: "services/Marketing-Collateral-Design.jpg",
     },
     {
       service: "Brand Strategy Development",
@@ -191,6 +195,7 @@ const Page = () => {
             "We design the structure of your brand’s various products and services, ensuring clarity and coherence across the entire brand portfolio.",
         },
       ],
+      img: "services/Brand Strategy development.jpg",
     },
     {
       service: "Brand Naming",
@@ -216,6 +221,7 @@ const Page = () => {
             "We perform trademark checks to ensure your brand name is legally available and protected.",
         },
       ],
+      img: "services/Brand_Name.jpg",
     },
     {
       service: "Content Creation & Copywriting",
@@ -241,6 +247,7 @@ const Page = () => {
             "We provide high-quality blog posts and articles to engage your audience and establish your brand as an industry leader.",
         },
       ],
+      img: "services/Content Creation.jpg",
     },
     {
       service: "Print Design & Materials",
@@ -266,6 +273,7 @@ const Page = () => {
             "We design annual reports, corporate brochures, and other important print materials that maintain a professional tone while showcasing your brand’s accomplishments.",
         },
       ],
+      img: "services/Print Design & Materials.jpg",
     },
     {
       service: "Event Branding & Design",
@@ -291,6 +299,7 @@ const Page = () => {
             "We design event-specific marketing materials like brochures, giveaways, and swag that carry your brand’s identity and leave a lasting impression.",
         },
       ],
+      img: "services/Event-Branding & Designing.jpeg",
     },
     {
       service: "Digital & Interactive Design",
@@ -316,6 +325,7 @@ const Page = () => {
             "Our digital ad designs, including Google Ads, Facebook Ads, and banner ads, are created to grab attention and drive traffic while staying true to your brand.",
         },
       ],
+      img: "services/Interactive-Digital.jpg",
     },
     {
       service: "Custom Illustrations & Iconography",
@@ -331,6 +341,7 @@ const Page = () => {
             "Our team designs a set of custom icons and graphics to represent your services, products, or concepts, enhancing your digital and print materials with a personal touch.",
         },
       ],
+      img: "services/Custom_Illustration.jpg",
     },
   ];
   const [isFormOpen, setIsFormOpen] = React.useState(false);
@@ -457,7 +468,12 @@ const Page = () => {
                     </div>
                   ))}
                 </div>
-                <div className="w-full bg-purple-300 min-h-[500px] h-full"></div>
+                <div className="w-full bg-purple-300 h-[500px] max-h-[500px]">
+                  <img
+                    src={service.img}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           ))}

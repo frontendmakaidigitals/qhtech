@@ -73,6 +73,7 @@ const Page = () => {
             "During challenging times, we act swiftly to protect your brand’s reputation. Our crisis communication experts provide strategic guidance to address issues, control the narrative, and maintain public trust.",
         },
       ],
+      img: "services/Media_Relation.jpg",
     },
     {
       category: "Brand Storytelling",
@@ -95,6 +96,7 @@ const Page = () => {
             "We leverage the power of social media to amplify your brand’s voice. By creating and sharing meaningful content, we increase your reach, build community connections, and enhance audience engagement.",
         },
       ],
+      img: "services/Brand Story Telling.jpeg",
     },
     {
       category: "Event PR",
@@ -117,6 +119,7 @@ const Page = () => {
             "During your events, our team provides hands-on PR support to manage media interactions, address any challenges, and ensure a seamless experience for all participants.",
         },
       ],
+      img: "services/events_pr.jpg",
     },
     {
       category: "Thought Leadership",
@@ -139,6 +142,7 @@ const Page = () => {
             "We identify opportunities for awards and accolades that highlight your achievements. By earning recognition in your field, we boost your brand’s reputation and credibility.",
         },
       ],
+      img: "services/Though_Relationship.jpg",
     },
   ];
   const selfPraise = [
@@ -279,7 +283,9 @@ const Page = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="w-full bg-purple-300 min-h-[500px] h-full"></div>
+                <div className="w-full bg-purple-300 max-h-[500px] h-[500px]">
+                  <img src={serviceCategory.img} className="w-full h-full object-cover" />
+                </div>
               </div>
             </div>
           ))}

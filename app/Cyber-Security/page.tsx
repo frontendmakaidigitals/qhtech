@@ -89,6 +89,7 @@ const Page = () => {
         "Providing detailed, actionable recommendations for risk mitigation.",
         "Regularly reviewing and updating compliance protocols to align with new regulations.",
       ],
+      img: "services/Risk Assessment.jpg",
     },
     {
       service: "Network Security",
@@ -101,6 +102,7 @@ const Page = () => {
         "Monitoring network traffic for suspicious activity in real-time.",
         "Applying patches and updates to network devices and software.",
       ],
+      img: "services/Network_security.webp",
     },
     {
       service: "Data Protection",
@@ -113,6 +115,7 @@ const Page = () => {
         "Conducting data access audits to ensure appropriate permissions.",
         "Supporting compliance with data protection laws and regulations.",
       ],
+      img: "services/Data_protection.avif",
     },
     {
       service: "Cloud Security",
@@ -125,6 +128,7 @@ const Page = () => {
         "Conducting regular cloud security assessments.",
         "Providing multi-factor authentication (MFA) for enhanced user access control.",
       ],
+      img: "services/Cloud-Security.webp",
     },
     {
       service: "Incident Response",
@@ -137,6 +141,7 @@ const Page = () => {
         "Restoring systems and data to operational status efficiently.",
         "Conducting lessons-learned reviews to improve future response capabilities.",
       ],
+      img: "services/Incident-Response.jpg",
     },
     {
       service: "Employee Training",
@@ -149,6 +154,7 @@ const Page = () => {
         "Providing resources and tools for continuous learning.",
         "Cultivating a company-wide culture of cybersecurity awareness.",
       ],
+      img: "services/employees_Training.webp",
     },
   ];
   const [isFormOpen, setIsFormOpen] = React.useState(false);
@@ -265,7 +271,12 @@ const Page = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="bg-purple-200 w-full h-full min-h-[500px]"></div>
+                <div className="bg-purple-200 w-full h-[500px] max-h-[500px]">
+                  <img
+                    src={service.img}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           ))}

@@ -61,6 +61,7 @@ const Page = () => {
         "Digital Billboards: High-tech, digitally updated billboards that can rotate multiple ads or change messages in real-time.",
         "Posters & Bulletins: Smaller, more targeted versions of billboards typically placed on local streets or in neighborhoods.",
       ],
+      img: "services/BillBoards.jpg",
     },
     {
       title: "2. Transit Advertising",
@@ -70,6 +71,7 @@ const Page = () => {
         "Station & Shelter Ads: Ads displayed in train stations, bus shelters, or subway tunnels.",
         "Airport Advertising: Ads placed in airports, including on walls, floors, baggage claim areas, and even on airport shuttles.",
       ],
+      img: "services/Transit_Advertising.jpg",
     },
     {
       title: "3. Digital Outdoor Advertising",
@@ -79,6 +81,7 @@ const Page = () => {
         "Interactive Kiosks: Digital screens placed in malls, airports, or other public spaces where users can interact with the ad content.",
         "LED Displays: Dynamic and customizable ads, often found in urban settings, where the message can change throughout the day.",
       ],
+      img: "services/Digital_Outdoor_Advertising.jpg",
     },
     {
       title: "4. Street Furniture Advertising",
@@ -101,6 +104,7 @@ const Page = () => {
         "Daytime Ads: These are typically aired during the day, often targeting a more specific audience, such as stay-at-home parents or retirees.",
         "Cable TV Ads: These ads air on cable networks and can be more affordable than national broadcast TV. Cable networks can offer targeted demographic reach based on the content type.",
       ],
+      img: "services/national_Tv_Advertising.jpg",
     },
     {
       title: "2. Local TV Advertising",
@@ -109,6 +113,7 @@ const Page = () => {
         "Regional Network Ads: These ads appear on regional TV stations and may be part of a larger broadcast network, giving you localized exposure while still benefiting from the reach of a big network.",
         "Local Station Ads: These are broadcast on local TV stations in a specific city or market, often focusing on local news or community events.",
       ],
+      img: "services/Local TV Advertising.jpg",
     },
     {
       title: "5. TV Sponsorships",
@@ -117,9 +122,10 @@ const Page = () => {
         "Event Sponsorship: A brand sponsors a high-profile event, such as a major sporting event, awards show, or reality TV program.",
         "Program Sponsorship: A brand can sponsor a particular TV program, receiving a branded segment or mention within the show.",
       ],
+      img: "services/TV Sponsorship.png",
     },
   ];
-  const newsPaperAdvertising = [
+  const radioAdvertising = [
     {
       title: "1. Traditional Radio Spots",
       description:
@@ -129,6 +135,7 @@ const Page = () => {
         "60-Second Spot: Allows more time for storytelling, giving your ad the ability to include music, sound effects, and calls to action.",
         "15-Second Spot: A shorter, punchier ad that’s great for quick messages or limited-time offers.",
       ],
+      img: "services/Traditional Radio.jpeg",
     },
     {
       title: "2. Sponsorship and Co-Branding",
@@ -139,6 +146,7 @@ const Page = () => {
         "Event Sponsorship: Sponsor live events or competitions aired on the radio, such as music festivals, charity drives, or sports broadcasts.",
         "Co-Branding: Collaborate with the radio station to co-create promotional content or special offers that are shared with listeners.",
       ],
+      img: "services/Sponsorship & Co-Branding.jpeg",
     },
     {
       title: "3. Jingles & Audio Branding",
@@ -165,7 +173,7 @@ const Page = () => {
       types: [],
     },
   ];
-  const radioAdvertising = [
+  const  newsPaperAdvertising = [
     {
       title: "1. Newspaper Advertising",
       description:
@@ -176,6 +184,7 @@ const Page = () => {
         "Public Notices: Legal notices or announcements that need to be made public.",
         "Insertions: Printed materials, such as coupons or brochures, placed inside the newspaper.",
       ],
+      img:'services/newspaper.jpg'
     },
     {
       title: "2. Magazine Advertising",
@@ -187,6 +196,7 @@ const Page = () => {
         "Quarter-Page Ads: Even more concise ads, ideal for small promotions or announcements.",
         "Advertorials: These are paid advertisements designed to look like editorial content, often blending seamlessly with the magazine’s regular articles.",
       ],
+      img:'services/Magazine.jpg'
     },
     {
       title: "3. Direct Mail Advertising",
@@ -198,6 +208,7 @@ const Page = () => {
         "Catalogs: Large, comprehensive mailings featuring a brand’s entire product lineup or services.",
         "Letters: Personalized communication often used for special offers, sales, or direct appeals.",
       ],
+      img:'services/Mall_Advertising.jpg'
     },
     {
       title: "4. Brochures & Flyers",
@@ -208,6 +219,7 @@ const Page = () => {
         "Flyers: Single-page promotional materials that are short and to the point.",
         "Product Catalogs: Larger brochures showcasing your product line in detail.",
       ],
+      img:'services/Brochure.jpg'
     },
   ];
   const digiatalMediaBuying = [
@@ -225,6 +237,7 @@ const Page = () => {
         "Services: Ad creation, audience segmentation, bidding strategies, campaign optimization, and reporting",
         "Ad Types: Carousel ads, video ads, display ads, story ads, lead generation ads, etc.",
       ],
+      img:'services/socialmedia.jpg'
     },
     {
       title: "Search Engine Marketing (SEM)",
@@ -234,6 +247,7 @@ const Page = () => {
         "Services: Keyword research, ad copy creation, bidding strategies, landing page optimization, and continuous performance tracking",
         "Ad Types: Text ads, shopping ads, display ads, retargeting ads",
       ],
+      img:'services/Search_Engine_Marketing.jpg'
     },
     {
       title: "Display Advertising",
@@ -249,6 +263,7 @@ const Page = () => {
         "Services: Video creation, targeting the right audience, and optimizing video ad placements for higher engagement and conversions.",
         "Ad Types: Skippable ads, non-skippable ads, bumper ads, pre-roll, and in-stream ads.",
       ],
+      img:'services/Video_Ads.jpg'
     },
     {
       title: "Programmatic Advertising",
@@ -378,7 +393,9 @@ const Page = () => {
                       </li>
                     ))}
                   </ul>
-                  <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
+                  <div className="w-full max-h-[500px] bg-purple-200 h-[500px]">
+                    <img src={category.img} className="w-full h-full object-cover" />
+                  </div>
                 </div>
               )}
             </div>
@@ -407,7 +424,9 @@ const Page = () => {
                       </li>
                     ))}
                   </ul>
-                  <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
+                  <div className="w-full max-h-[500px] bg-purple-200 h-[500px]">
+                    <img src={category.img} className="w-full h-full object-cover" />
+                  </div>
                 </div>
               )}
             </div>
@@ -438,7 +457,9 @@ const Page = () => {
                       </li>
                     ))}
                   </ul>
-                  <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
+                  <div className="w-full max-h-[500px] bg-purple-200 h-[500px]">
+                    <img src={category.img} className="w-full h-full object-cover" />
+                  </div>
                 </div>
               )}
             </div>
@@ -469,7 +490,9 @@ const Page = () => {
                       </li>
                     ))}
                   </ul>
-                  <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
+                  <div className="w-full max-h-[500px] bg-purple-200 h-[500px]">
+                    <img src={category.img} className="w-full h-full object-cover" />
+                  </div>
                 </div>
               )}
             </div>
@@ -500,7 +523,9 @@ const Page = () => {
                       </li>
                     ))}
                   </ul>
-                  <div className="w-full min-h-[500px] bg-purple-200 h-auto"></div>
+                  <div className="w-full max-h-[500px] bg-purple-200 h-[500px]">
+                    <img src={category.img} className="w-full h-full object-cover" />
+                  </div>
                 </div>
               )}
             </div>

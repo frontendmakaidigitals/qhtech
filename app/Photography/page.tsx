@@ -78,6 +78,7 @@ const Page = () => {
             "Showcase your products in real-world settings, allowing customers to see how they fit into their daily lives.",
         },
       ],
+      img: "services/product-photography.jpg",
     },
     {
       category: "Brand Photography",
@@ -100,6 +101,7 @@ const Page = () => {
             "Depict your products and services in use, capturing the way your customers interact with your brand in real-life situations.",
         },
       ],
+      img: "services/Brand_Photography.jpg",
     },
     {
       category: "Event Photography",
@@ -122,6 +124,7 @@ const Page = () => {
             "Our team offers a relaxed, candid approach to wedding and event photography, capturing those special moments as they unfold naturally.",
         },
       ],
+      img: "services/Event_Photography.webp",
     },
     {
       category: "Lifestyle Photography",
@@ -144,6 +147,7 @@ const Page = () => {
             "Show your products being used in everyday scenarios, making them more relatable and desirable to your target audience.",
         },
       ],
+      img: "services/LifeStyle_Photography.jpg",
     },
     {
       category: "Real Estate Photography",
@@ -166,6 +170,7 @@ const Page = () => {
             "Enhance your real estate listings with virtual staging to help potential buyers envision the property in its best possible light.",
         },
       ],
+      img: "services/real_estate.jpg",
     },
     {
       category: "Headshot Photography",
@@ -183,6 +188,7 @@ const Page = () => {
             "We offer creative, personalized headshot sessions that reflect your personality or career field, ideal for actors, models, or creatives looking to stand out.",
         },
       ],
+      img: "services/Headshot_Photography.jpg",
     },
     {
       category: "Fashion & Editorial Photography",
@@ -200,6 +206,7 @@ const Page = () => {
             "We produce high-impact editorial images designed for magazines, blogs, and promotional materials, focusing on creativity, styling, and composition.",
         },
       ],
+      img: "services/Fashion_Editing.jpg",
     },
   ];
   const videographyServices = [
@@ -224,6 +231,7 @@ const Page = () => {
             "Show the personality behind your brand by highlighting your workplace environment, employees, and culture, giving potential clients and talent an inside look into your business.",
         },
       ],
+      img: "services/Corporate_Videos.jpg",
     },
     {
       category: "Promotional Videos",
@@ -246,28 +254,7 @@ const Page = () => {
             "Enhance your marketing campaigns with powerful promotional videos that capture the essence of the campaign and drive action.",
         },
       ],
-    },
-    {
-      category: "Event Videography",
-      description:
-        "Events are a huge part of business networking, celebrations, and community engagement. Our event videography services ensure every important moment is captured in high quality, from conferences and trade shows to weddings and parties.",
-      services: [
-        {
-          name: "Corporate Events",
-          description:
-            "We cover conferences, seminars, product launches, and trade shows, capturing key moments and behind-the-scenes content that reflects the energy and significance of your event.",
-        },
-        {
-          name: "Conferences & Webinars",
-          description:
-            "From live streams to highlight reels, we create professional videos that document the key sessions, presentations, and discussions at your corporate events.",
-        },
-        {
-          name: "Weddings & Celebrations",
-          description:
-            "Our team captures weddings, parties, and special occasions with cinematic flair, documenting the emotional highs and unique moments of your event.",
-        },
-      ],
+      img: "services/Promotional_Videos.jpg",
     },
     {
       category: "Social Media & Digital Content",
@@ -290,6 +277,7 @@ const Page = () => {
             "Capture the voice of your customers and clients through testimonials, unboxing videos, or reviews that can be shared on your social media to build trust and credibility.",
         },
       ],
+      img: "services/Social_Media_Image.webp",
     },
     {
       category: "Explainer Videos",
@@ -312,6 +300,7 @@ const Page = () => {
             "For more complex subjects, we create dynamic animated videos that break down information in a visually compelling and easy-to-digest way.",
         },
       ],
+      img: "services/video_tutorial.jpg",
     },
     {
       category: "Music Videos",
@@ -329,6 +318,7 @@ const Page = () => {
             "From performance shots to concept-driven narratives, we tailor the video style to your music and artistic vision.",
         },
       ],
+      img: "services/Music_Videos.jpeg",
     },
     {
       category: "Drone Videography",
@@ -351,6 +341,7 @@ const Page = () => {
             "Perfect for tourism, outdoor brands, or nature-focused campaigns, drone videography provides stunning, wide-angle shots of landscapes.",
         },
       ],
+      img: "services/Drone_Videography.jpg",
     },
   ];
 
@@ -477,9 +468,12 @@ const Page = () => {
                     </li>
                   ))}
                 </ul>
-                <div
-                  className={"w-full min-h-[500px] h-full bg-purple-200"}
-                ></div>
+                <div className={"w-full max-h-[500px] h-[500px] bg-purple-200"}>
+                  <img
+                    className="w-full h-full object-cover"
+                    src={category.img}
+                  />
+                </div>
               </div>
             </div>
           ))}
@@ -510,9 +504,13 @@ const Page = () => {
                     </li>
                   ))}
                 </ul>
-                <div
-                  className={"w-full min-h-[500px] h-full bg-purple-200"}
-                ></div>
+                <div className={"w-full max-h-[500px] h-[500px] bg-purple-200"}>
+                  {" "}
+                  <img
+                    className="w-full h-full object-cover"
+                    src={category.img}
+                  />
+                </div>
               </div>
             </div>
           ))}
