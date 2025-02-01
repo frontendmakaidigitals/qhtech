@@ -6,6 +6,7 @@ import Button from "./SecondaryButton";
 import MobileMenu from "./MobileMenu";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 const menu = [
   { title: "home", link: "/" },
   { title: "about", link: "/About" },
@@ -14,6 +15,7 @@ const menu = [
   { title: "Blogs", link: "/Blogs" },
 ];
 const NavBar = () => {
+  const path = usePathname();
   return (
     <div className="HeadNavigation py-4 w-full absolute  top-0 left-0 z-[99999] ">
       <div className="flex justify-between items-center container ">
@@ -28,7 +30,12 @@ const NavBar = () => {
           }}
           className=" relative z-10"
         >
-          <Logo source="/Logo-white.png" className="!w-[110px]" />
+          <Logo
+           source={
+            path !== "/Blogs" && path !== "/Blog" ? "/Logo-white.png" : "/Logo.png"
+          }
+            className="!w-[110px]"
+          />
         </motion.div>
         <motion.div
           initial={{ y: -200 }}
@@ -53,7 +60,7 @@ const NavBar = () => {
             <Button>Contact us</Button>
           </Link>
         </motion.div>
-        <MobileMenu  />
+        <MobileMenu />
       </div>
     </div>
   );

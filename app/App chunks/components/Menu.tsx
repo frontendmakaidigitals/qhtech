@@ -41,8 +41,8 @@ const SlideTabs = ({
         }));
       }}
       className={`relative mx-auto font-[500] z-[999] ${
-        path === "/contact" ? "text-black" : "text-white"
-      } font-Grostek flex w-fit border border-slate-50/30  bg-white/20 backdrop-filter backdrop-blur-lg rounded-full p-1 ${className}`}
+        path === "/contact" || path === '/Blogs' || path === '/Blog'  ? "text-black border-slate-500/10" : "text-white border-slate-50/30"
+      } font-Grostek flex w-fit border   bg-white/20 backdrop-filter backdrop-blur-lg rounded-full p-1 ${className}`}
     >
       {menu.map((item, index) => (
         <Tab

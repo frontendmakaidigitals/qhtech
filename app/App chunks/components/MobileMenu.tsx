@@ -8,7 +8,7 @@ import {
   AccordionPanel,
 } from "./Accordion";
 import { useLenis } from "lenis/react";
-
+import { usePathname } from "next/navigation";
 const MobileMenu = ({}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const menu = [
@@ -51,6 +51,7 @@ const MobileMenu = ({}) => {
       lenis?.start();
     }
   }, [isOpen]);
+  const path = usePathname();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -220,7 +221,7 @@ const MobileMenu = ({}) => {
         )}
       </AnimatePresence>
 
-      <Icon setIsOpen={setIsOpen} isOpen={isOpen} />
+      <Icon setIsOpen={setIsOpen} isOpen={isOpen} path={path} />
     </div>
   );
 };
@@ -231,9 +232,10 @@ export default MobileMenu;
 interface IconProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>; // Type for the state setter function
   isOpen: boolean; // Type for the boolean state
+  path: string;
 }
 
-const Icon: React.FC<IconProps> = ({ setIsOpen, isOpen }) => {
+const Icon: React.FC<IconProps> = ({ setIsOpen, isOpen, path }) => {
   return (
     <button
       onClick={() => setIsOpen(!isOpen)}
@@ -246,7 +248,9 @@ const Icon: React.FC<IconProps> = ({ setIsOpen, isOpen }) => {
             rotate: isOpen ? [0, 45] : 0,
           }}
           transition={{ type: "linear", ease: "easeOut", duration: 0.2 }}
-          className="w-6 transition-all duration-300 h-[2px] bg-white"
+          className={`w-6 transition-all duration-300 h-[2px]  ${
+            path === "/Blog" || path === "/Blogs" && !isOpen ? "bg-black" : "bg-white"
+          }`}
         />
         <motion.div
           animate={{
@@ -254,7 +258,9 @@ const Icon: React.FC<IconProps> = ({ setIsOpen, isOpen }) => {
             rotate: isOpen ? [0, -45] : 0,
           }}
           transition={{ type: "linear", ease: "easeOut", duration: 0.2 }}
-          className="w-6 transition-all duration-300 h-[2px] bg-white"
+          className={`w-6 transition-all duration-300 h-[2px]  ${
+            path === "/Blog" || path === "/Blogs" && !isOpen ? "bg-black" : "bg-white"
+          }`}
         />
       </div>
     </button>
