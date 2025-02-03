@@ -4,7 +4,7 @@ import AboutUs from "./(Home Page)/AboutUs";
 import TechStack from "./(Home Page)/TechStack";
 import { CompantStats } from "./(Home Page)/CompantStats";
 import MaskSection from "./(Home Page)/MaskSection";
-
+import InstaVideos from "./(Home Page)/InstaVideos";
 import Slider from "./(Home Page)/Slider";
 import Form from "./App chunks/components/Form";
 import { AnimatePresence, motion } from "framer-motion";
@@ -33,6 +33,7 @@ export default function Home() {
         <Slider />
         <Form />
         <MarqueeLogo />
+        <InstaVideos />
       </motion.div>
     </AnimatePresence>
   );
