@@ -4,7 +4,11 @@ import React, { useEffect } from "react";
 // Declare the instgrm property on the window object
 declare global {
   interface Window {
-    instgrm: string;
+    instgrm: {
+      Embeds: {
+        process: () => void;
+      };
+    };
   }
 }
 
