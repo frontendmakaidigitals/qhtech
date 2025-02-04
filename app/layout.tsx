@@ -7,8 +7,8 @@ import Footer from "./App chunks/components/Footer";
 import Template from "./Template";
 import Loading from "./App chunks/components/Loader";
 export const metadata: Metadata = {
-  title: "Insight Vision",
-  description: "A Digital Marketing Company",
+  title: " Insight Vision | Result-Driven Marketing Agency in Dubai",
+  description: "Elevate your brand with Insight Vision, a data-driven marketing agency specializing in SEO, PPC, social media, and content marketing. Get measurable results today!",
 };
 
 export default function RootLayout({

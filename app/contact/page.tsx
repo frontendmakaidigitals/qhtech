@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import BreadCrumb from "../App chunks/components/BreadCrumb";
-
+import Head from "next/head";
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import {
   FacebookLogo,
@@ -24,7 +24,14 @@ const Page = () => {
 
   
   return (
+  <>
+    <Head>
+        <title>Contact Us - Your Company</title>
+        <meta name="description" content="Get in touch with us for any inquiries, support, or feedback. We are here to help you!" />
+        <meta name="robots" content="index, follow" />
+      </Head>
     <motion.div className=" bg-white" ref={containerRef}>
+      
       <motion.div>
         <div className="w-full overflow-hidden relative">
           <div className="w-full  flex relative">
@@ -199,6 +206,7 @@ const Page = () => {
         </div>
       </motion.div>
     </motion.div>
+  </>
   );
 };
 

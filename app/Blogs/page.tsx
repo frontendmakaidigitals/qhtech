@@ -31,7 +31,7 @@ const Page = () => {
         <div className="flex mt-7 items-center gap-4">
           <div className="p-3 bg-black text-slate-50">Text</div>
         </div>
-        <div className="mt-7 w-full grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 xxl:grid-cols-5 gap-4">
+        <div className="mt-7 w-full grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 xxl:grid-cols-5 gap-x-4 gap-y-10">
           <Articles />
           <Articles />
           <Articles />
