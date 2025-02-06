@@ -8,7 +8,7 @@ declare global {
       Embeds: {
         process: () => void;
       };
-    };
+    };  
   }
 }
 
