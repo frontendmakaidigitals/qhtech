@@ -1,15 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
 import React from "react";
-
-import { HiMiniEye } from "react-icons/hi2";
-import { RiCloseLargeLine } from "react-icons/ri";
+import { Trash, X, Eye } from "@phosphor-icons/react";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import axios from "axios";
-import Dropdown from "@/components/dropdown";
 import { useRouter } from "next/navigation";
-import { IoMdClose } from "react-icons/io";
 import {
   Select,
   SelectContent,
@@ -49,10 +45,14 @@ const industries = [
   "Resource and Wealth",
 ];
 const Priority = ["1", "2", "3", "4", "Default"];
-const Page = ({ params }) => {
-  const EditorComp = dynamic(() => import("@/components/MDXEditor"), {
+const EditorComp = dynamic(
+  () => import("@/app/App chunks/components/MDXEditor"),
+  {
     ssr: false,
-  });
+  }
+);
+const Page = ({ params }) => {
+ 
   const id = params.id[0];
   return (
     <div className="relative">
@@ -219,7 +219,7 @@ const Blogform = ({ id, EditorComp }) => {
         ) : null}
         {imageOpen ? (
           <div className="w-full h-screen max-h-screen fixed bg-gray-800/20 p-10 top-0 flex justify-center items-center left-0 z-[9999]">
-            <RiCloseLargeLine
+            <X
               onClick={() => setimageOpen(false)}
               className="text-4xl absolute p-1 top-4 right-4 bg-black rounded-md cursor-pointer hover:bg-red-500 text-gray-50"
             />
@@ -326,7 +326,7 @@ const Blogform = ({ id, EditorComp }) => {
                     : "text-gray-600 bg-gray-200 cursor-not-allowed"
                 }`}
               >
-                <HiMiniEye className={`text-xl `} />
+                <Eye className={`text-xl `} />
               </div>
             </div>
           </div>
@@ -502,7 +502,7 @@ const DeletePopUp = ({ setIsPopUpOpen, blog }) => {
             onClick={() => setIsPopUpOpen(false)}
             className="text-red-500 text-xl"
           >
-            <IoMdClose />
+            <X />
           </button>
         </div>
         <p className="font-Satoshi mt-2 py-2">
