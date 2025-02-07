@@ -32,7 +32,7 @@ const InstaVideos = () => {
   }, []);
 
   return (
-    <div className="container grid grid-cols-2 grid-rows-2 place-items-top gap-5 py-14">
+    <div className="container grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 place-items-top gap-5 py-14">
       {/* Instagram Video 1 */}
       <div className="instagram-video-container">
         <blockquote

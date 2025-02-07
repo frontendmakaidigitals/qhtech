@@ -11,3 +11,32 @@ body {
     --radius: 0.5rem;
   }
 }
+
+.mdxeditor-popup-container {
+  z-index: 99999 !important;
+}
+
+.editor-container {
+  width: 100%; 
+}
+
+.mdx-editor {
+  width: 100%;
+  box-sizing: border-box;
+ 
+}
+
+.prose {
+  width: 100%;
+  max-width: none;
+  
+}
+
+.prose :where(ul > li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  padding-inline-start: 1.375em; /* Adjust the left padding for list items */
+}
+
+._listItemUnchecked_1tncs_74:before, ._listItemChecked_1tncs_73:before {
+  top:'50%';
+  transform:translateY(50%)
+}

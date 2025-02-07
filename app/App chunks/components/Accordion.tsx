@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-
+ 
 // Define a context type
 interface AccordionContextType {
   isActive: boolean;
