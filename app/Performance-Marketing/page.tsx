@@ -11,6 +11,7 @@ import {
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import { ArrowUpRight, Circle, Plus } from "@phosphor-icons/react";
 import SliderForm from "../App chunks/components/SliderForm";
+import Link from "next/link";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -268,8 +269,8 @@ const Page = () => {
               className="bg-purple-50 p-6 rounded-lg  transition-shadow"
             >
               <div>
-                <h2 className="text-2xl underline underline-offset-4 font-bold text-gray-800">
-                  0{index + 1} {service.title}
+                <h2 className="text-2xl  font-bold text-gray-800">
+                  {service.title}
                 </h2>
                 <p className="text-gray-600 my-4">{service.description}</p>
                 <ul className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -285,7 +286,7 @@ const Page = () => {
                       </li>
                     ))}
                   </div>
-                  <div className="w-full h-[400px] bg-slate-300 shadow-md border border-slate-400 rounded-lg overflow-hidden">
+                  <div className="w-full h-[300px] lg:h-[500px] bg-slate-300 shadow-md border border-slate-400 rounded-lg overflow-hidden">
                     <img
                       src={service.img}
                       className="w-full h-full object-cover"
@@ -332,9 +333,11 @@ const Page = () => {
                 We would like to chat with you.
               </h3>
               <div className="mt-3">
-                <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
+               <Link href={'/contact'}>
+               <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
                   Contact us
                 </button>
+               </Link>
               </div>
             </div>
             <div>
@@ -365,9 +368,10 @@ const Page = () => {
               expertise to get you there.
             </p>
 
+            <Link href={'/contact'}>
             <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
               Contact us
-            </button>
+            </button></Link>
           </div>
         </div>
       </div>

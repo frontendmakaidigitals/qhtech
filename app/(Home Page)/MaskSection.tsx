@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import "@/app/App chunks/components/MaskSection.css";
 export default function MaskSection() {
   const container = useRef<HTMLDivElement | null>(null);
@@ -45,20 +46,26 @@ export default function MaskSection() {
     }
     return 0; // In case the refs are null, or window is not available, return a default value
   };
-
+  const path = usePathname();
+  const renderPath = "/admin";
   return (
-    <main className={"main bg-purple-100"}>
-      <div ref={container} className={"contaner h-[300vh] lg:h-[600vh]"}>
-        {" "}
-        {/* Increased the height of the container */}
-        <div ref={stickyMask} className={"stickyMask"}>
-          <div className="relative h-screen w-screen">
-            <video className="object-cover " autoPlay muted loop>
-              <source src="https://github.com/frontendmakaidigitals/InsightVision/raw/refs/heads/master/public/media/ISVWebsite.mp4" type="video/mp4" />
-            </video>
+    !path.includes(renderPath) ? (
+      <main className={"main bg-purple-100"}>
+        <div ref={container} className={"contaner h-[300vh] lg:h-[600vh]"}>
+          {" "}
+          {/* Increased the height of the container */}
+          <div ref={stickyMask} className={"stickyMask"}>
+            <div className="relative h-screen w-screen">
+              <video className="object-cover " autoPlay muted loop>
+                <source
+                  src="https://github.com/frontendmakaidigitals/InsightVision/raw/refs/heads/master/public/media/ISVWebsite.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    ): null
   );
 }

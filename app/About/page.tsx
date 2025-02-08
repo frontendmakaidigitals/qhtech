@@ -184,13 +184,7 @@ const Page = () => {
                 marketing that empowers brands to exist in an ever-evolving
                 world. We aspire to create meaningful connections between
                 businesses and their audiences through innovative strategies,
-                authentic storytelling, and measurable impact. We see a future
-                where marketing goes beyond campaigns – where every brand
-                becomes a trusted voice, every message creates value, and every
-                interaction leaves a lasting impression. By embracing
-                creativity, technology, and data in harmony, we aim to redefine
-                what it means to inspire, engage, and grow. Together, we’re
-                shaping the future of marketing – one bold idea at a time.
+                authentic storytelling, and measurable impact 
               </p>
             </div>
             <div className="">
@@ -202,13 +196,7 @@ const Page = () => {
                 the unique needs of every client, creating tailored strategies
                 that amplify their voice, connect with their audience, and drive
                 sustainable growth.
-                <br />
-                With a focus on creativity, collaboration, and cutting-edge
-                technology, we strive to deliver campaigns that don’t just meet
-                expectations but set new benchmarks for success. Our goal is to
-                be more than a service provider – we aim to be a trusted
-                partner, helping our clients navigate the complexities of the
-                modern marketplace with confidence and clarity.
+               
               </p>
             </div>
           </div>

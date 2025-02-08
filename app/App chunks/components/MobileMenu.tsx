@@ -13,7 +13,7 @@ const MobileMenu = ({}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const menu = [
     { title: "Home", link: "/" },
-    { title: "About", link: "/about" },
+    { title: "About", link: "/About" },
     {
       title: "Services",
       subMenu: [
@@ -167,7 +167,7 @@ const MobileMenu = ({}) => {
                               type: "spring",
                               delay: index * 0.1,
                             }}
-                            className="font-medium font-Grostek text-5xl capitalize"
+                            className="font-medium font-Grostek text-4xl capitalize"
                           >
                             {item.title}
                           </motion.p>
@@ -208,7 +208,7 @@ const MobileMenu = ({}) => {
                           type: "spring",
                           delay: index * 0.1,
                         }}
-                        className="font-medium font-Grostek text-5xl capitalize"
+                        className="font-medium font-Grostek text-4xl capitalize"
                       >
                         {item.title}
                       </motion.p>

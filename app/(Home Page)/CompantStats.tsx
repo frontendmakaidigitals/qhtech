@@ -31,13 +31,11 @@ export const CompantStats = () => {
                   : "border-b lg:border-b-0 lg:border-r py-5 lg:py-0 border-slate-400"
               }  flex-col`}
             >
-              <div className="flex text-[#25193a] items-center gap-3">
-                <NumberFlow
-                  className="text-7xl font-SplineSans font-[700]"
-                  value={isInView ? stat.data : -5000}
-                />
+              <div className="flex text-[#25193a] items-center gap-0">
+               
+                <h2 className="text-7xl font-SplineSans font-[700]">{stat.data}</h2>
 
-                <p className="text-7xl font-SplineSans font-[500]">
+                <p className="text-6xl font-SplineSans font-[500]">
                   {index === 3 && "K"}+
                 </p>
               </div>

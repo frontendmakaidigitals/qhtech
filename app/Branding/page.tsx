@@ -12,6 +12,7 @@ import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradie
 import { Circle, Plus } from "@phosphor-icons/react";
 import { ArrowUpRight } from "@phosphor-icons/react";
 import SliderForm from "../App chunks/components/SliderForm";
+import Link from "next/link";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -468,7 +469,7 @@ const Page = () => {
                     </div>
                   ))}
                 </div>
-                <div className="w-full bg-purple-300 h-[500px] max-h-[500px]">
+                <div className="w-full bg-purple-300 h-[300px] lg:h-[500px]">
                   <img
                     src={service.img}
                     className="w-full h-full object-cover"
@@ -514,9 +515,11 @@ const Page = () => {
                 We would like to chat with you.
               </h3>
               <div className="mt-3">
-                <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
+               <Link href={'/contact'}>
+               
+               <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
                   Contact us
-                </button>
+                </button></Link>
               </div>
             </div>
             <div className="mt-5">
@@ -547,9 +550,11 @@ const Page = () => {
               Insight Vision is here to help you shine.
             </p>
 
+            <Link href={'/contact'}>
             <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
               Contact Us
             </button>
+            </Link>
           </div>
         </div>
       </div>

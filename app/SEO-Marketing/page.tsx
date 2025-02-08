@@ -12,6 +12,7 @@ import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import { Circle, Plus } from "@phosphor-icons/react";
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import SliderForm from "../App chunks/components/SliderForm";
+import Link from "next/link";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -245,7 +246,7 @@ const Page = () => {
         <div className="container grid grid-cols-1 mt-7 gap-4 lg:grid-cols-1">
           <AnimatePresence mode="wait">
             {servicesData.map((service, index) => (
-              <motion.div key={index} className={`p-6 bg-[#e0f5ff] rounded-xl`}>
+              <motion.div key={index} className={`p-6 bg-[#e0f5ff] rounded-xl `}>
                 <h3 className="text-3xl font-Grostek font-[500]">
                   {service.title}
                 </h3>
@@ -255,7 +256,7 @@ const Page = () => {
 
                 <div className="">
                   {service.services.map((detail, id) => (
-                    <div key={id} className="mt-6">
+                    <div key={id} className="mt-6 ">
                       <div className="">
                         <p className="font-Synonym text-lg font-[500]">
                           {detail.category}
@@ -280,7 +281,7 @@ const Page = () => {
                             </div>
                           ))}
                         </div>
-                        <div className="min-h-[450px] max-h-[550px] w-full h-auto bg-blue-200">
+                        <div className="h-[300px] lg:h-[550px] w-full  bg-blue-200">
                           <img
                             src={detail.img}
                             className="w-full h-full object-cover"
@@ -330,9 +331,10 @@ const Page = () => {
                 We would like to chat with you.
               </h3>
               <div className="mt-3">
-                <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
+              <Link href={'/contact'}>
+              <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
                   Contact us
-                </button>
+                </button></Link>
               </div>
             </div>
             <div>
@@ -361,10 +363,11 @@ const Page = () => {
               with Insight Vision and watch your business soar. Contact us today
               for a free consultation!
             </p>
-
-            <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
-              Get a Free consultation today!
-            </button>
+            <Link href={"/contact"}>
+              <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
+                Get a Free consultation today!
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -11,6 +11,7 @@ import {
 import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradient";
 import { ArrowUpRight, Plus } from "@phosphor-icons/react";
 import SliderForm from "../App chunks/components/SliderForm";
+import Link from "next/link";
 
 const Page = () => {
   const [height, setHeight] = React.useState(0);
@@ -283,7 +284,7 @@ const Page = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="w-full bg-purple-300 max-h-[500px] h-[500px]">
+                <div className="w-full bg-purple-300 lg:h-[500px] min-h-[300px]">
                   <img src={serviceCategory.img} className="w-full h-full object-cover" />
                 </div>
               </div>
@@ -320,7 +321,7 @@ const Page = () => {
                 }}
                 transition={{ duration: 1.5, ease: [0.175, 0.885, 0.32, 1] }}
                 key={index}
-                style={{ backgroundColor: item.color }}
+               
                 className=" text-slate-950 rounded-lg p-5"
               >
                 <h2 className="text-2xl pr-10 capitalize font-SplineSans font-[500]">
@@ -367,9 +368,11 @@ const Page = () => {
                 We would like to chat with you.
               </h3>
               <div className="mt-3">
-                <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
+               <Link href={'/contact'}>
+               <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
                   Contact us
                 </button>
+               </Link>
               </div>
             </div>
             <div className="mt-5">
@@ -400,9 +403,11 @@ const Page = () => {
               success.
             </p>
 
-            <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
+           <Link href={'/contact'}>
+           <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
               Contact Us
             </button>
+           </Link>
           </div>
         </div>
       </div>

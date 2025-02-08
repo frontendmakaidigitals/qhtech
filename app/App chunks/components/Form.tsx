@@ -141,7 +141,7 @@ const Form = () => {
             </motion.h1>
           ))}
         </motion.article>
-        <div className="grid bg-purple-200 rounded-lg p-5 grid-cols-1 lg:grid-cols-2 mt-14 gap-10">
+        <div className="grid bg-purple-200 rounded-lg p-1 lg:p-5 grid-cols-1 lg:grid-cols-2 mt-14 gap-10">
           <div>
             <img
               src={
@@ -152,7 +152,7 @@ const Form = () => {
           </div>
 
           <div className="w-full mt-5 rounded-lg bg-purple-100">
-            <div className="w-full p-6">
+            <div className="w-full p-5 lg:p-6">
               <form
                 onSubmit={handleSubmit}
                 className="w-full flex flex-col items-center justify-start gap-5"

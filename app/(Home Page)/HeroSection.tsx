@@ -484,7 +484,7 @@ const Section2 = ({
                   hoverId === idx
                     ? "text-slate-50 bg-black lg:bg-transparent rounded-lg"
                     : "text-slate-950"
-                } text-start font-[600] text-2xl whitespace-nowrap`}
+                } text-start font-[600] text-xl lg:text-2xl whitespace-nowrap`}
               >
                 {service.name}
               </button>

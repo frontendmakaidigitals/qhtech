@@ -27,42 +27,43 @@ const Slider = () => {
     {
       name: "Corporate Services",
       image: "industries/corporateServices.jpg",
-      text: "we support corporate service providers by refining their digital presence, building trust through targeted messaging, and driving meaningful engagement with their ideal clients.",
+      text: "We support corporate service providers by refining their digital presence, building trust through targeted messaging, and driving meaningful engagement with their ideal clients.",
     },
     {
       name: "F&B",
       image: "industries/F&B.jpg",
-      text: "we help F&B businesses stand out by creating appetizing content, leveraging social media, and implementing data-driven campaigns to attract loyal customers",
+      text: "We help F&B businesses stand out by creating appetizing content, leveraging social media, and implementing data-driven campaigns to attract loyal customers",
     },
     {
       name: "Events & Shows",
       image: "industries/shows.jpg",
-      text: "we elevate events and shows by crafting visually stunning campaigns, engaging audiences through creative content, and maximizing ticket sales with targeted marketing.",
+      text: "We elevate events and shows by crafting visually stunning campaigns, engaging audiences through creative content, and maximizing ticket sales with targeted marketing.",
     },
     {
       name: "Hospitality",
       image: "industries/hospitality.jpg",
-      text: "we help hospitality brands attract guests by showcasing their unique experiences, building trust online, and driving bookings through data-driven strategies.",
+      text: "We help hospitality brands attract guests by showcasing their unique experiences, building trust online, and driving bookings through data-driven strategies.",
     },
     {
       name: "Retail",
       image: "industries/retail.jpg",
-      text: "we boost retail businesses by enhancing e-commerce platforms, driving foot traffic, and creating compelling campaigns to reach shoppers both online and offline.",
+      text: "We boost retail businesses by enhancing e-commerce platforms, driving foot traffic, and creating compelling campaigns to reach shoppers both online and offline.",
     },
     {
       name: "Entertainment & Media",
       image: "industries/media.jpg",
-      text: "we amplify entertainment and media brands by creating captivating content, engaging audiences across platforms, and driving awareness for shows, films, and more.",
+      text: "We amplify entertainment and media brands by creating captivating content, engaging audiences across platforms, and driving awareness for shows, films, and more.",
     },
     {
       name: "Automotive",
       image: "industries/automative.jpg",
-      text: "we drive success for automotive brands by creating compelling campaigns, showcasing vehicles through stunning visuals, and connecting with the right buyers through precision targeting.",
+      text: "We drive success for automotive brands by creating compelling campaigns, showcasing vehicles through stunning visuals, and connecting with the right buyers through precision targeting.",
     },
   ];
 
   const [viewportWidth, setViewportWidth] = React.useState(0);
   const [loaded, setLoaded] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0); 
   useEffect(() => {
     const handleResize = () => {
       setViewportWidth(window.innerWidth);
@@ -80,10 +81,14 @@ const Slider = () => {
   }, []);
   const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
     slides: {
-      perView: viewportWidth > 450 ? 4 : 1.2,
+      perView: viewportWidth > 450 ? 4 : 1,
       spacing: 45,
+      
     },
     created: () => setLoaded(true),
+    slideChanged: (slider) => {
+      setCurrentSlide(slider.track.details.rel); // Update current slide index
+    },
   });
 
   const inView = useInView(containerRef, { once: true });
@@ -126,8 +131,13 @@ const Slider = () => {
       <div className=" px-10 relative">
         {loaded && (
           <>
+            
             <ArrowLeft
-              className="absolute cursor-pointer size-10 bg-gradient-to-tr border-2 border-purple-300 from-green-300 to-blue-300 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 left-0"
+              className={`absolute cursor-pointer size-10 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 left-0 ${
+                currentSlide === 0
+                  ? "bg-gray-300 border-gray-400" // Gray when at the first slide
+                  : "bg-gradient-to-tr border-2 border-purple-300 from-green-300 to-blue-300" // Default style
+              }`}
               onClick={(e) => {
                 e.stopPropagation();
                 instanceRef.current?.prev();
@@ -135,7 +145,11 @@ const Slider = () => {
             />
 
             <ArrowRight
-              className="absolute cursor-pointer size-10 bg-gradient-to-tr from-green-300 to-blue-300 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 right-0"
+              className={`absolute cursor-pointer size-10 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 right-0 ${
+                currentSlide === images.length - 1
+                  ? "bg-gray-300 border-gray-400" // Gray when at the last slide
+                  : "bg-gradient-to-tr from-green-300 to-blue-300" // Default style
+              }`}
               onClick={(e) => {
                 e.stopPropagation();
                 instanceRef.current?.next();
@@ -180,7 +194,7 @@ const Slider = () => {
                       </div>
 
                       <div className="absolute top-1/2 left-1/2 flex justify-center w-full -translate-x-1/2 -translate-y-1/2 text-slate-50">
-                        <p className="font-[600] font-Grostek text-xl p-3 bg-white/50 text-slate-950 shadow-lg rounded-lg">
+                        <p className="font-[600] font-Grostek text-md lg:text-xl p-3 bg-white/50 text-slate-950 shadow-lg rounded-lg">
                           {image.name}
                         </p>
                       </div>
@@ -193,11 +207,11 @@ const Slider = () => {
                       >
                         <AuroraBackground>
                           <div className="relative px-5 py-6">
-                            <h2 className="font-Grostek text-slate-950 text-start text-3xl font-[600]">
+                            <h2 className="font-Grostek text-slate-950 text-start text-2xl lg:text-3xl font-[600]">
                               {image.name}
                             </h2>
                             <motion.div className=" mt-2">
-                              <p className="font-[300] font-Synonym text-black text-xl">
+                              <p className="font-[300] font-Synonym text-black text-lg lg:text-xl">
                                 {image.text}
                               </p>
                             </motion.div>

@@ -12,6 +12,7 @@ import { BackgroundGradientAnimation } from "../App chunks/components/HeroGradie
 import { Circle, Plus } from "@phosphor-icons/react";
 import SliderForm from "../App chunks/components/SliderForm";
 import { ArrowUpRight } from "@phosphor-icons/react";
+import Link from "next/link";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -446,7 +447,7 @@ const Page = () => {
           {photographyServices.map((category, index) => (
             <div
               key={index}
-              className="bg-purple-50  grid grid-cols-1  gap-5 p-6 "
+              className="bg-purple-50 mt-3 grid grid-cols-1  gap-5 p-6 "
             >
               <h2 className="text-2xl font-semibold font-Grostek text-gray-950">
                 {category.category}
@@ -468,7 +469,7 @@ const Page = () => {
                     </li>
                   ))}
                 </ul>
-                <div className={"w-full max-h-[500px] h-[500px] bg-purple-200"}>
+                <div className={"w-full lg:h-[500px] h-[300px] bg-purple-200"}>
                   <img
                     className="w-full h-full object-cover"
                     src={category.img}
@@ -478,18 +479,18 @@ const Page = () => {
             </div>
           ))}
         </div>
-        <div className="  container">
+        <div className="  container mt-8">
           {videographyServices.map((category, index) => (
             <div
               key={index}
-              className="bg-purple-50  grid grid-cols-1  gap-5 p-6 "
+              className="grid grid-cols-1 mt-3 bg-purple-50 gap-5 p-6 "
             >
-              <h2 className="text-2xl underline underline-offset-8 font-semibold font-Grostek text-gray-950">
+              <h2 className="text-2xl font-semibold font-Grostek text-gray-950">
                 0{index + 1} {category.category}
               </h2>
               <p className="text-gray-800 mt-2">{category.description}</p>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-                <ul className="flex flex-col gap-5">
+              <div className="grid grid-cols-1  lg:grid-cols-2 gap-3">
+                <ul className="flex flex-col  gap-5 ">
                   {category.services.map((service, idx) => (
                     <li key={idx} className=" bg-purple-100 p-3 rounded-md">
                       <div className="flex items-start gap-2">
@@ -504,7 +505,7 @@ const Page = () => {
                     </li>
                   ))}
                 </ul>
-                <div className={"w-full max-h-[500px] h-[500px] bg-purple-200"}>
+                <div className={"w-full lg:h-[500px] h-[300px] bg-purple-200"}>
                   {" "}
                   <img
                     className="w-full h-full object-cover"
@@ -551,9 +552,10 @@ const Page = () => {
                 We would like to chat with you.
               </h3>
               <div className="mt-3">
-                <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
+               <Link href={'/contact'}>
+               <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
                   Contact us
-                </button>
+                </button></Link>
               </div>
             </div>
             <div className="mt-5">
@@ -584,9 +586,10 @@ const Page = () => {
               audience.
             </p>
 
+            <Link href={'/contact'}>
             <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
               Contact us
-            </button>
+            </button></Link>
           </div>
         </div>
       </div>

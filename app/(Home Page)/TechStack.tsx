@@ -59,8 +59,8 @@ const TechStack = () => {
 
   return (
     <div ref={ref} className="w-full overflow-hidden py-16 bg-black ">
-      <div className="container">
-        <motion.article className="flex justify-center lg:justify-start items-center gap-3 mx-auto z-[50] flex-wrap">
+      <div className="">
+        <motion.article className="container flex justify-center lg:justify-start items-center gap-3 mx-auto z-[50] flex-wrap">
           {["Supercharged", "by", "the", "Right", "Tools"].map(
             (text, index) => (
               <motion.h1
@@ -84,9 +84,9 @@ const TechStack = () => {
           )}
         </motion.article>
 
-        <div className="mt-14 w-full flex justify-center items-center">
+        <div className="mt-14 w-full flex justify-center items-center px-2 lg:container">
           {/* Grid Container */}
-          <motion.div className="grid grid-cols-6 lg:grid-cols-10 h-[32px] lg:h-32 w-full gap-4">
+          <motion.div className="grid grid-cols-6 lg:grid-cols-10 h-[50px] lg:h-32 w-full gap-2 lg:gap-4">
             {image1ToShow.map((src, index) => (
               <motion.div
                 onMouseEnter={() => setId(index)}
@@ -130,8 +130,8 @@ const TechStack = () => {
           </motion.div>
         </div>
 
-        <div className="px-10 mt-10 lg:mt-4 flex justify-center">
-          <div className="grid grid-cols-5 lg:grid-cols-9 h-[32px] lg:h-32 gap-4">
+        <div className="px-11 lg:px-10 mt-10 lg:mt-4 flex justify-center ">
+          <div className="grid grid-cols-5 lg:grid-cols-9 h-[50px] lg:h-32 w-full gap-2 lg:gap-4">
             {image2ToShow.map((src, index) => (
               <motion.div
                 onMouseEnter={() => setId2(index)}

@@ -37,7 +37,6 @@ const Footer = () => {
       icon: <InstagramLogo />,
       link: "https://www.instagram.com/insightvision.marketing?igsh=enp5bGcxc255MmJr",
     },
-    { icon: <XLogo />, link: "" },
     {
       icon: <LinkedinLogo />,
       link: "https://www.linkedin.com/company/insight-vision-marketing/",
@@ -45,10 +44,9 @@ const Footer = () => {
   ];
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
-  
 
   const path = usePathname();
-    const renderPath = '/admin'
+  const renderPath = '/admin';
      
   return (
     !path.includes(renderPath) ? <div
@@ -65,7 +63,7 @@ const Footer = () => {
         </motion.div>
         <motion.p
           animate={{ y: inView ? 0 : 200 }}
-          className={`text-indigo-950 text-md lg:text-lg  font-Satoshi mt-2 lg:mt-4`}
+          className={`text-indigo-950 text-md lg:text-md  font-Satoshi mt-2 lg:mt-4`}
         >
           We create possibilities for the connected world.
         </motion.p>
@@ -80,7 +78,7 @@ const Footer = () => {
                 ease: [0.22, 0.61, 0.36, 1],
                 duration: 0.7,
               }}
-              className="group overflow-hidden grid grid-cols-1 place-items-center text-4xl text-slate-600 size-14 rounded-full bg-slate-100/10 border border-gray-800"
+              className="group overflow-hidden grid grid-cols-1 place-items-center text-4xl text-slate-600 size-12 lg:size-14 rounded-full bg-slate-100/10 border border-gray-800"
             >
               <Link
                 className="group-hover:scale-[1.2] transition-all duration-300"
@@ -109,7 +107,7 @@ const Footer = () => {
                 duration: 0.7,
               }}
             >
-              {item.title} <ArrowUpRight className="mt-1" />
+              {item.title}  
             </motion.li>
           ))}
         </motion.ul>
@@ -119,7 +117,7 @@ const Footer = () => {
           </motion.p>
           {legal.map((item, index) => (
             <motion.li
-              className="font-Satoshi mb-1 text-sm text-md lg:text-lg text-purple-950 flex items-start gap-1 "
+              className="font-Satoshi mb-1 text-sm lg:text-lg text-purple-950 flex items-start gap-1 "
               key={index}
               animate={{ y: inView ? 0 : 130 }}
               transition={{
@@ -128,7 +126,7 @@ const Footer = () => {
                 duration: 0.7,
               }}
             >
-              {item.title} <ArrowUpRight className="mt-2" />
+              {item.title}  
             </motion.li>
           ))}
         </motion.ul>
@@ -136,12 +134,12 @@ const Footer = () => {
           <motion.p className="text-indigo-950 mb-2 font-Synonym font-[500] text-2xl lg:text-3xl">
             Address
           </motion.p>
-          <p className="text-sm">
+          <p className="text-sm lg:text-lg">
           <span>Office</span> - 3307, Churchill Towers, Business Bay, Dubai, UAE
           </p>
-          <p className="mt-2 text-sm"><span>Phone</span>- +971 50 865 4179
+          <p className="mt-2 text-sm lg:text-lg"><span>Phone</span>- +971 50 865 4179
           </p>
-          <p className="mt-2 text-sm">
+          <p className="mt-2 text-sm lg:text-lg">
           <span>Email</span> - info@insightvision.marketing
           </p>
          

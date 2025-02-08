@@ -8,7 +8,8 @@ import Template from "./Template";
 import Loading from "./App chunks/components/Loader";
 export const metadata: Metadata = {
   title: " Insight Vision | Result-Driven Marketing Agency in Dubai",
-  description: "Elevate your brand with Insight Vision, a data-driven marketing agency specializing in SEO, PPC, social media, and content marketing. Get measurable results today!",
+  description:
+    "Elevate your brand with Insight Vision, a data-driven marketing agency specializing in SEO, PPC, social media, and content marketing. Get measurable results today!",
 };
 
 export default function RootLayout({
@@ -41,16 +42,7 @@ export default function RootLayout({
           </div>
           <ToTop />
           <Template>{children}</Template>
-          <div
-            className="relative h-screen "
-            style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
-          >
-            <div className="relative h-[calc(100vh+100vh)] -top-[100vh] ">
-              <div className="h-screen sticky top-[calc(100vh-100vh)] ">
-                <Footer />
-              </div>
-            </div>
-          </div>
+          <Footer />
         </ReactLenis>
       </body>
     </html>
