@@ -17,6 +17,7 @@ export default function MaskSection() {
   useEffect(() => {
     requestAnimationFrame(animate);
   }, []);
+  console.log(maskSize)
 
   const animate = () => {
     if (stickyMask.current && container.current) {

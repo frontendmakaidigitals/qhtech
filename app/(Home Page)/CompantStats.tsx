@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef } from "react";
-import { useInView } from "framer-motion";
-import NumberFlow from "@number-flow/react";
+
+
 export const CompantStats = () => {
   const stats = [
     { data: 14, title: "worldwide awards" },
@@ -10,7 +10,7 @@ export const CompantStats = () => {
     { data: 1, title: "projects completed" },
   ];
   const ref = useRef(null);
-  const isInView = useInView(ref);
+
   return (
     <div
       ref={ref}

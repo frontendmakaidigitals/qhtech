@@ -5,7 +5,6 @@ import Ribbon from "./Ribbon";
 import { motion, useInView } from "framer-motion";
 import {
   FacebookLogo,
-  XLogo,
   InstagramLogo,
   Circle,
   LinkedinLogo,
