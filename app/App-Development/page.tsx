@@ -450,7 +450,7 @@ const Page = () => {
             />
           </>
         )}
-        <div ref={sliderRef} className="keen-slider">
+        <div ref={sliderRef} className="keen-slider px-11">
           {processSteps.map((slide, index) => (
             <div
               key={index}
