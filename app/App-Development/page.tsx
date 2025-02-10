@@ -421,7 +421,7 @@ const Page = () => {
             ))}
           </motion.article>
         </div>
-       <div className="mt-4 relative">
+       <div className="mt-4 relative px-11">
        {loaded && (
           <>
             
@@ -450,7 +450,7 @@ const Page = () => {
             />
           </>
         )}
-        <div ref={sliderRef} className="keen-slider px-11">
+        <div ref={sliderRef} className="keen-slider">
           {processSteps.map((slide, index) => (
             <div
               key={index}
