@@ -139,7 +139,7 @@ const MobileMenu = ({}) => {
             {/* Parent container with staggerChildren */}
             <motion.div
               style={{
-                height: `calc(100vh - ${height}px)`,
+                height: `calc(100vh - ${height ? height + 55 : 0}px)`,
                 marginTop: `${height ? height + 55 : 0}px`,
               }}
               className="flex flex-col text-slate-50 gap-5 justify-start items-start px-8 w-full overflow-y-scroll"
