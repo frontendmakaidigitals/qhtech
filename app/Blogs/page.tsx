@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Page = () => {
   const [NavHeight, setNavheight] = useState(0);
@@ -8,6 +9,16 @@ const Page = () => {
       document.getElementsByClassName("HeadNavigation")[0].clientHeight
     );
   }, []);
+  const [blogData, setBlogData] = useState([])
+  const getBlogData = async () => { 
+    const resp = await axios.get('/')
+    setBlogData(resp.data)
+  }
+
+  useEffect(()=>{
+    getBlogData()
+  }, [])
+  
   return (
     <div className="container">
       <div style={{ height: `${NavHeight}px` }}></div>
@@ -48,14 +59,14 @@ export default Page;
 const MainBlog = () => {
   return (
     <div className="w-full">
-      <div className="w-full h-[300px] lg:h-[500px] bg-red-100">
+      <div className="w-full h-[300px] lg:h-[500px] bg-slate-200">
         <img className="w-full h-full object-cover" />
       </div>
       <div className="mt-2">
         <h3 className="text-3xl line-clamp-2">
           Unlocking the Power of Next.js: Building Modern Web Applications
         </h3>
-        <p className="line-clamp-3 text-slate-600 text-lg mt-1">
+        <p className="line-clamp-3 text-slate-600 text-md mt-1">
           Discover how to bring your web applications to life with Framer
           Motion. Learn the basics of animations, transitions, and gestures to
           create stunning user experiences.
@@ -69,7 +80,7 @@ const MainBlog = () => {
 const RightBlogs = () => {
   return (
     <div className="w-full grid grid-cols-1 lg:grid-cols-[.5fr_1.5fr] gap-3">
-      <div className="w-full lg:w-[150px] aspect-video lg:aspect-auto bg-red-300">
+      <div className="w-full lg:w-[150px] aspect-video lg:aspect-auto bg-slate-300">
         <img className="w-full h-full object-cover" />
       </div>
       <div className="">
@@ -89,7 +100,7 @@ const RightBlogs = () => {
 const Articles = () => {
   return (
     <div className="">
-      <div className="w-full aspect-square bg-red-300"></div>
+      <div className="w-full aspect-square bg-slate-200"></div>
       <p className="text-sm mt-1">02 Feb 2025</p>
       <h4 className="text-[1.5rem] leading-2 mt-1">Heading</h4>
       <p className="text-md leading-3 mt-1">Description</p>

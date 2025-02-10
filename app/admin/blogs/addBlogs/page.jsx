@@ -3,7 +3,7 @@ import { useState, useCallback } from "react";
 import React from "react";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
-import { Trash, X, Eye } from "@phosphor-icons/react";
+import { X, Eye } from "@phosphor-icons/react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import {
