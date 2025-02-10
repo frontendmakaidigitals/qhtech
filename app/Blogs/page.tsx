@@ -10,6 +10,7 @@ const Page = () => {
     );
   }, []);
   const [blogData, setBlogData] = useState([])
+  console.log(blogData)
   const getBlogData = async () => { 
     const resp = await axios.get('/')
     setBlogData(resp.data)
