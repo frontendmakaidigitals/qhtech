@@ -17,10 +17,10 @@ const Footer = () => {
   const menu = [
     { title: "home", link: "/" },
     { title: "about", link: "/About" },
-    { title: "Social Media Marketing", link: "/Social Media Marketing" },
+    { title: "Social Media Marketing", link: "/Social-Media-Marketing" },
     { title: "Performance Marketing", link: "/Performace-Marketing" },
-    { title: "Branding & Designing", link: "/Branding" },
-    { title: "blogs", link: "/" },
+    { title: "Branding & Designing", link: "/Branding-&-Designing" },
+    { title: "blogs", link: "/Blogs" },
     { title: "contact", link: "/contact" },
   ];
   const legal = [
@@ -53,7 +53,7 @@ const Footer = () => {
     ref={ref}
     className="h-full overflow-hidden py-10 flex  flex-col justify-around  w-full bg-gradient-to-t from-purple-400 to-purple-100 "
   >
-    <div className="container  grid grid-cols-1 lg:grid-cols-[0.8fr_1.6fr] gap-10">
+    <div className="container  grid grid-cols-1 lg:grid-cols-[0.7fr_1.3fr] gap-10">
       <div className="">
         <motion.div
           transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
@@ -91,7 +91,7 @@ const Footer = () => {
         </motion.div>
       </div>
       
-      <div className="grid grid-cols-2 gap-5 lg:flex lg:items-start lg:mt-6 lg:justify-end lg:gap-20 ">
+      <div className="grid grid-cols-2 gap-5 lg:flex lg:items-start lg:mt-6 lg:justify-end lg:gap-5 ">
         <motion.ul whileInView={"animate"} className="">
           <motion.p className="text-indigo-950 mb-2 font-Synonym font-[500] text-2xl lg:text-3xl">
             Menu
@@ -107,7 +107,8 @@ const Footer = () => {
                 duration: 0.7,
               }}
             >
-              {item.title}  
+              <Link href={item.link}>
+              {item.title}  </Link>
             </motion.li>
           ))}
         </motion.ul>
@@ -215,7 +216,7 @@ const Footer = () => {
       <motion.p className="text-purple-950 w-full text-center lg:w-auto">
         Designed and Developed by{" "}
         <span className="underline  font-Synonym text-black font-[600] underline-offset-4">
-          Faheem
+          Insight Vision
         </span>
       </motion.p>
     </div>

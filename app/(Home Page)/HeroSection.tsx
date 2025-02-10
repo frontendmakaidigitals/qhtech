@@ -298,7 +298,7 @@ const Section2 = ({
       link: "Content-Marketing",
     },
     {
-      name: "Public Relation",
+      name: "Public Relations",
       img: "media/serviceImages/newImages/public relation copy.png",
       gradient: "bg-gradient-to-br from-[#f59e0b] via-[#ea580c] to-[#b91c1c] ",
       link: "Public-Relations",

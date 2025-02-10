@@ -160,7 +160,7 @@ const Page = () => {
   ];
   const [isFormOpen, setIsFormOpen] = React.useState(false);
   const para =
-    "Cybersecurity is not just a technology problem—it’s a business risk.";
+    "Cybersecurity is Not Just a Technology Problem—It’s a Business Risk.";
 
   return (
     <motion.div className="  bg-white" ref={containerRef}>
@@ -313,8 +313,8 @@ const Page = () => {
                 }}
                 transition={{ duration: 1.5, ease: [0.175, 0.885, 0.32, 1] }}
                 key={index}
-                style={{ backgroundColor: item.color }}
-                className=" text-slate-950 rounded-lg p-5"
+
+                className=" text-slate-950 rounded-lg p-5 bg-slate-200"
               >
                 <h2 className="text-2xl pr-10 capitalize font-SplineSans font-[500]">
                   {item.title}

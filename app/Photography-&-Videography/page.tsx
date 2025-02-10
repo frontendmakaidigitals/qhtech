@@ -347,7 +347,7 @@ const Page = () => {
   ];
 
   const para =
-    "From concept to screen—We create engaging videos that captivate your audience";
+    "From Concept to Screen—We Create Engaging Videos that Captivate Your Audience";
 
   return (
     <motion.div className="  bg-white" ref={containerRef}>

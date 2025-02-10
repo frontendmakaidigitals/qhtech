@@ -275,7 +275,7 @@ const Page = () => {
   ];
 
   const para =
-    "Media buying is more than just purchasing ad space; it's about getting your message into the right hands at the right time.";
+    "Media buying is More than Just Purchasing AD Space; It's About Getting Your Message Into the Right Hands At the Right Time.";
   return (
     <motion.div className=" bg-white" ref={containerRef}>
       <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />

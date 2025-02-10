@@ -148,7 +148,7 @@ const Page = () => {
   ];
   const [isFormOpen, setIsFormOpen] = React.useState(false);
   const para =
-    "Welcome to Insight Vision - Elevate Your Online Presence through SEO ";
+    "Welcome to Insight Vision - Elevate Your Online Presence Through SEO ";
 
   return (
     <motion.div className="  bg-white" ref={containerRef}>

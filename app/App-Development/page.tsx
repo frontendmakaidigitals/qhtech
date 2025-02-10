@@ -158,7 +158,7 @@ const Page = () => {
         "Cross-Platform Compatibility: Provide a seamless experience across browsers and devices without needing app store downloads.",
         "Improved Performance: Deliver fast loading times and responsive experiences to enhance user engagement.",
       ],
-      img:'services/Progressive Web Application.jpg',
+      img: "services/Progressive Web Application.jpg",
       conclusion:
         "With PWAs, you can reach your audience efficiently while providing a superior user experience without the need for native app development.",
     },
@@ -203,10 +203,10 @@ const Page = () => {
     },
     breakpoints: {
       "(min-width: 400px)": {
-        slides: { perView: 1,spacing: 15, },
+        slides: { perView: 1, spacing: 15 },
       },
       "(min-width: 1200px)": {
-        slides: { perView: 4, spacing: 15, },
+        slides: { perView: 4, spacing: 15 },
       },
     },
   });
@@ -468,10 +468,11 @@ const Page = () => {
                 We would like to chat with you.
               </h3>
               <div className="mt-3">
-               <Link href={'/contact'}>
-               <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
-                  Contact us
-                </button></Link>
+                <Link href={"/contact"}>
+                  <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
+                    Contact us
+                  </button>
+                </Link>
               </div>
             </div>
             <div className="mt-5">
@@ -499,12 +500,11 @@ const Page = () => {
               Let us bring your ideas to life with our expert app development
               services.
             </p>
-                <Link href={'/contact'}>
-                <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
-              Contact us
-            </button>
-                </Link>
-           
+            <Link href={"/contact"}>
+              <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
+                Contact us
+              </button>
+            </Link>
           </div>
         </div>
       </div>

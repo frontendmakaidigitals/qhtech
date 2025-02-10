@@ -226,7 +226,7 @@ const Page = () => {
     },
   ];
 
-  const para = "Great content is the best sales tool in the world";
+  const para = "Great Content is the Best Sales Tool in the World";
   return (
     <motion.div className="  bg-white" ref={containerRef}>
       <SliderForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />

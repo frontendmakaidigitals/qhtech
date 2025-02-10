@@ -347,7 +347,7 @@ const Page = () => {
   ];
   const [isFormOpen, setIsFormOpen] = React.useState(false);
   const para =
-    "Great branding is about creating trust and forming lasting connections with customers";
+    "Great Branding is About Creating Trust and Forming Lasting Connections with Customers";
 
   return (
     <motion.div className="  bg-white" ref={containerRef}>

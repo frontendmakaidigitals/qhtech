@@ -86,7 +86,7 @@ const TechStack = () => {
 
         <div className="mt-14 w-full flex justify-center items-center px-2 lg:container">
           {/* Grid Container */}
-          <motion.div className="grid grid-cols-6 lg:grid-cols-10 h-[50px] lg:h-32 w-full gap-2 lg:gap-4">
+          <motion.div className="grid grid-cols-6 lg:grid-cols-10 h-[50px] lg:h-32 w-full gap-1 lg:gap-4">
             {image1ToShow.map((src, index) => (
               <motion.div
                 onMouseEnter={() => setId(index)}
@@ -130,8 +130,8 @@ const TechStack = () => {
           </motion.div>
         </div>
 
-        <div className="px-11 lg:px-10 mt-10 lg:mt-4 flex justify-center ">
-          <div className="grid grid-cols-5 lg:grid-cols-9 h-[50px] lg:h-32 w-full gap-2 lg:gap-4">
+        <div className="px-11 lg:px-40 mt-10 lg:mt-4 flex justify-center">
+          <div className="grid grid-cols-5 lg:flex h-[32px] lg:h-32 gap-4">
             {image2ToShow.map((src, index) => (
               <motion.div
                 onMouseEnter={() => setId2(index)}

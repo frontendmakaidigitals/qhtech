@@ -30,11 +30,11 @@ const MobileMenu = ({}) => {
           title: "Performance Marketing",
           link: "/Performance-Marketing",
         },
-        { title: "IT Consulting & Advisory", link: "/IT-Consulting" },
+        { title: "IT Consulting & Advisory", link: "/IT-Consulting-&-Advisory" },
         { title: "Cyber Security", link: "/Cyber-Security" },
         { title: "Public Relations", link: "/Public-Relations" },
-        { title: "Branding & Designing", link: "/Branding" },
-        { title: "Photography & Videography", link: "/Photography" },
+        { title: "Branding & Designing", link: "/Branding-&-Advisory" },
+        { title: "Photography & Videography", link: "/Photography-&-Videography" },
       ],
     },
     { title: "Blog", link: "/" },
@@ -249,7 +249,9 @@ const Icon: React.FC<IconProps> = ({ setIsOpen, isOpen, path }) => {
           }}
           transition={{ type: "linear", ease: "easeOut", duration: 0.2 }}
           className={`w-6 transition-all duration-300 h-[2px]  ${
-            path === "/Blog" || path === "/Blogs" && !isOpen ? "bg-black" : "bg-white"
+            path === "/Blog" || (path === "/Blogs" && !isOpen)
+              ? "bg-black"
+              : "bg-white"
           }`}
         />
         <motion.div
@@ -259,7 +261,9 @@ const Icon: React.FC<IconProps> = ({ setIsOpen, isOpen, path }) => {
           }}
           transition={{ type: "linear", ease: "easeOut", duration: 0.2 }}
           className={`w-6 transition-all duration-300 h-[2px]  ${
-            path === "/Blog" || path === "/Blogs" && !isOpen ? "bg-black" : "bg-white"
+            path === "/Blog" || (path === "/Blogs" && !isOpen)
+              ? "bg-black"
+              : "bg-white"
           }`}
         />
       </div>

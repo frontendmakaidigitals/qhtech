@@ -74,7 +74,7 @@ const Page = () => {
   const boxInView = useInView(selfPrasiseContainer, { once: true });
   const whoContainerRef = React.useRef<HTMLDivElement>(null);
   const whoInView = useInView(whoContainerRef, { once: true });
-  const para = ` Transforming brands with digital excellence`;
+  const para = ` Transforming Brands with Digital Excellence`;
   return (
     <motion.div className="  bg-white" ref={containerRef}>
       <motion.div>
@@ -131,16 +131,16 @@ const Page = () => {
                   Beyond Marketing
                 </p>
                 <div className="grid grid-cols-1 lg:grid-cols-2 w-full lg:w-1/2 gap-10 mt-10">
-                  <div className="bg-white/40  backdrop-filter backdrop-blur-lg p-3 rounded-xl">
-                    <h2 className="text-6xl text-orange-600 font-[600] font-Grostek ">
+                  <div className=" p-3 rounded-xl">
+                    <h2 className="text-6xl text-lime-300 font-[600] font-Grostek ">
                       10+
                     </h2>
                     <p className="text-lg text-slate-100 font-Satoshi">
                       Years of experience in web development.
                     </p>
                   </div>
-                  <div className="bg-white/40  backdrop-filter backdrop-blur-lg p-3 rounded-xl">
-                    <h2 className="text-6xl font-[600] font-Grostek text-indigo-500">
+                  <div className=" p-3 rounded-xl">
+                    <h2 className="text-6xl font-[600] font-Grostek text-lime-300">
                       90+
                     </h2>
                     <p className="text-slate-100 text-lg font-Satoshi">

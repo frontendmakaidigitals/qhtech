@@ -239,7 +239,7 @@ const ShowPopup = () => {
       rounded: 60,
       top: 50,
       left: 17,
-      route: "IT-Consulting",
+      route: "IT-Consulting-&-Advisory",
     },
     {
       title: "Cyber Security",
@@ -272,7 +272,7 @@ const ShowPopup = () => {
       rounded: 60,
       top: 30,
       left: 12,
-      route: "Branding",
+      route: "Branding-&-Designing",
     },
     {
       title: "Photography & Videography",
@@ -282,7 +282,7 @@ const ShowPopup = () => {
       rounded: 60,
       top: 30,
       left: 12,
-      route: "Photography",
+      route: "Photography-&-Videography",
     },
   ];
   const [id, setHoverid] = useState<number | null>(null);

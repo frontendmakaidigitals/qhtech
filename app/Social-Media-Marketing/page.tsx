@@ -204,7 +204,7 @@ const Page = () => {
   ];
 
   const para =
-    "Social media isn't just a trend—it's the heartbeat of your brand. Let your voice be heard!";
+    "Social Media isn't Just a Trend—it's the Heartbeat of your Brand. Let Your Voice be Heard!";
 
   return (
     <motion.div className="  bg-white" ref={containerRef}>

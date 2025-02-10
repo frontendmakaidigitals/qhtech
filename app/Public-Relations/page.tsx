@@ -173,7 +173,7 @@ const Page = () => {
     },
   ];
   const para =
-    "Public Relations and Marketing are the art of persuasion, not the art of information";
+    "Public Relations and Marketing are the Art of Persuasion, Not the Art of Information";
   const selfPrasiseContainer = React.useRef<HTMLDivElement>(null);
   const boxInView = useInView(selfPrasiseContainer, { once: true });
   return (
@@ -322,7 +322,7 @@ const Page = () => {
                 transition={{ duration: 1.5, ease: [0.175, 0.885, 0.32, 1] }}
                 key={index}
                
-                className=" text-slate-950 rounded-lg p-5"
+                className=" text-slate-950 bg-slate-200 rounded-lg p-5"
               >
                 <h2 className="text-2xl pr-10 capitalize font-SplineSans font-[500]">
                   {item.title}
