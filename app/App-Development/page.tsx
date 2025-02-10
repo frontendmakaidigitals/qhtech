@@ -13,7 +13,7 @@ import { Circle, Plus } from "@phosphor-icons/react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import SliderForm from "../App chunks/components/SliderForm";
-import { ArrowUpRight } from "@phosphor-icons/react";
+import { ArrowUpRight, ArrowLeft, ArrowRight } from "@phosphor-icons/react";
 import Link from "next/link";
 const Page = () => {
   const [height, setHeight] = React.useState(0);
@@ -196,8 +196,9 @@ const Page = () => {
         "After the launch, we provide ongoing maintenance and updates to keep your app performing at its best.",
     },
   ];
-
-  const [sliderRef] = useKeenSlider({
+  const [loaded, setLoaded] = React.useState(false);
+  const [currentSlide, setCurrentSlide] = React.useState(0); 
+  const [sliderRef, instanceRef] = useKeenSlider({
     slides: {
       spacing: 15,
     },
@@ -208,6 +209,10 @@ const Page = () => {
       "(min-width: 1200px)": {
         slides: { perView: 4, spacing: 15 },
       },
+    },
+    created: () => setLoaded(true),
+    slideChanged: (slider) => {
+      setCurrentSlide(slider.track.details.rel); // Update current slide index
     },
   });
 
@@ -416,7 +421,36 @@ const Page = () => {
             ))}
           </motion.article>
         </div>
-        <div ref={sliderRef} className="keen-slider mt-4">
+       <div className="mt-4">
+       {loaded && (
+          <>
+            
+            <ArrowLeft
+              className={`absolute cursor-pointer size-10 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 left-0 ${
+                currentSlide === 0
+                  ? "bg-gray-300 border-gray-400" // Gray when at the first slide
+                  : "bg-gradient-to-tr border-2 border-purple-300 from-green-300 to-blue-300" // Default style
+              }`}
+              onClick={(e) => {
+                e.stopPropagation();
+                instanceRef.current?.prev();
+              }}
+            />
+
+            <ArrowRight
+              className={`absolute cursor-pointer size-10 p-2 rounded-full z-[99999] top-1/2 -translate-y-1/2 right-0 ${
+                currentSlide === processSteps.length - 1
+                  ? "bg-gray-300 border-gray-400" // Gray when at the last slide
+                  : "bg-gradient-to-tr from-green-300 to-blue-300" // Default style
+              }`}
+              onClick={(e) => {
+                e.stopPropagation();
+                instanceRef.current?.next();
+              }}
+            />
+          </>
+        )}
+        <div ref={sliderRef} className="keen-slider">
           {processSteps.map((slide, index) => (
             <div
               key={index}
@@ -432,6 +466,7 @@ const Page = () => {
             </div>
           ))}
         </div>
+       </div>
       </div>
 
       <div className="py-16 bg-[#121316]">

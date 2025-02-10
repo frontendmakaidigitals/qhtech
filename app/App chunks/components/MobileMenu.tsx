@@ -45,7 +45,6 @@ const MobileMenu = ({}) => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
-
        lenis?.scrollTo(0, { immediate: true });
     } else {
       document.body.style.overflow = "auto";
@@ -53,7 +52,6 @@ const MobileMenu = ({}) => {
     }
   }, [isOpen]);
   const path = usePathname();
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       const element = document.getElementsByClassName("HeadNavigation")[0]; // Use [0] to get the first element
@@ -63,7 +61,7 @@ const MobileMenu = ({}) => {
     }
   }, []);
   const handleLinkClick = () => {
-    setIsOpen(false); // Close the menu when a link is clicked
+    setIsOpen(false); 
   };
   return (
     <div className="block lg:hidden">
