@@ -45,7 +45,8 @@ const MobileMenu = ({}) => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
-      lenis?.stop();
+
+       lenis?.scrollTo(0, { immediate: true });
     } else {
       document.body.style.overflow = "auto";
       lenis?.start();
