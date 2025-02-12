@@ -86,21 +86,7 @@ const InstaVideos = () => {
       </div>
 
       {/* Instagram Video 4 */}
-      <div className="instagram-video-container w-full">
-        <blockquote
-          className="instagram-media"
-          data-instgrm-captioned
-          data-instgrm-permalink="https://www.instagram.com/reel/DE-JjZ9yb-r/?utm_source=ig_embed&utm_campaign=loading"
-          data-instgrm-version="14"
-          style={{
-            background: "#FFF",
-            boxShadow:
-              "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
-              width:'100%'
-            
-          }}
-        ></blockquote>
-      </div>
+     
     </div>
   );
 };
