@@ -1,5 +1,5 @@
 "use client";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import React from "react";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
@@ -82,7 +82,7 @@ const BlogForm = () => {
     inputValue: "",
     metaDescription: "",
     focusKeyword: "",
-    url:''
+    url: "",
   });
 
   // Handle Image Upload
@@ -107,7 +107,7 @@ const BlogForm = () => {
       }));
     }
   };
-
+  //Handle deleting Tags
   const deleteTag = (index) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -119,16 +119,44 @@ const BlogForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Send formData to API
+    const formDataToSend = new FormData();
+    formDataToSend.append("service", formData.selectedService);
+    formDataToSend.append("industry", formData.selectedIndustry);
+    formDataToSend.append("priority", "high");
+    formDataToSend.append("description", formData.blogDetail);
+    formDataToSend.append("tags", formData.tags.join(","));
+    formDataToSend.append("focus_keyword", formData.focusKeyword);
+    formDataToSend.append("meta_description", formData.metaDescription);
+    formDataToSend.append("title", formData.title);
+    formDataToSend.append("topic", formData.selectedTopic);
+    formDataToSend.append("url_keyword", formData.url);
+
+    if (formData.image?.length > 0) {
+      formDataToSend.append("image", formData.image[0]); // Only send the first image
+    }
+
     try {
-      const response = await axios.post("/api/blogs", formData);
+      const response = await axios.post(
+        "https://blogo-z0bx.onrender.com/blog",
+        formDataToSend
+      );
+
       if (response.status === 200) {
-        router.push("/blogs"); // Redirect after successful submission
+        router.push("/blogs");
       }
     } catch (error) {
       console.error("Error submitting the form:", error);
     }
   };
+  const [blogData, setBlogData] = useState([]);
+  useEffect(() => {
+    try {
+      axios
+        .get("https://blogo-z0bx.onrender.com/blogs")
+        .then((res) => setBlogData(res));
+    } catch (error) {}
+  }, []);
+  console.log(blogData)
 
   return (
     <form className="w-full relative" onSubmit={handleSubmit}>
@@ -195,9 +223,7 @@ const BlogForm = () => {
           <p className="font-Satoshi font-medium">Url Keyword</p>
           <input
             placeholder="Url keyword"
-            onChange={(e) =>
-              setFormData({ ...formData, url: e.target.value })
-            }
+            onChange={(e) => setFormData({ ...formData, url: e.target.value })}
             value={formData.url}
             className="px-3 w-full py-2 block mt-1 bg-transparent border border-gray-600 placeholder:text-gray-400 rounded-md"
             required
