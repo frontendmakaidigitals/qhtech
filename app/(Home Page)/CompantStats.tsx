@@ -35,7 +35,7 @@ export const CompantStats = () => {
                
                 <h2 className="text-7xl font-SplineSans font-[700]">{stat.data}</h2>
 
-                <p className="text-6xl font-SplineSans font-[500]">
+                <p className="text-6xl font-SplineSans font-[700]">
                   {index === 3 && "K"}+
                 </p>
               </div>
