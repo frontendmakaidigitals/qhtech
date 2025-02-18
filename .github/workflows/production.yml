@@ -61,7 +61,7 @@ jobs:
             npm install -g pm2 next &&
             npm i sharp &&
             pm2 delete insightvision || true &&
-            pm2 start npm --name 'insightvision' -- start -- --port 3000 &&
+            pm2 start npm --name 'insightvision' -- start -- --port ${{ secrets.APP_PORT }} &&
             pm2 save &&
             pm2 list | grep -q 'insightvision.*online' && echo 'App started successfully' || (pm2 logs insightvision --lines 50 && exit 1)
           "
