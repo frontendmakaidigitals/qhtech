@@ -53,7 +53,7 @@ jobs:
             # Try to stop existing PM2 process first
             pm2 describe insightvision > /dev/null && pm2 stop insightvision && pm2 delete insightvision || true
             
-            # Check if port is in use and kill process (using netstat instead of lsof)
+            # Check if port is in use and kill process
             PORT=${{ secrets.APP_PORT }}
             PID=\$(netstat -tlpn 2>/dev/null | grep \":\$PORT\" | awk '{print \$7}' | cut -d'/' -f1) || true
             if [ ! -z \"\$PID\" ]; then
@@ -65,10 +65,15 @@ jobs:
             npm ci --omit=dev &&
             npm i sharp &&
             
-            # Start the application with PM2
-            export PORT=${{ secrets.APP_PORT }} &&
-            pm2 start npm --name 'insightvision' -- start &&
+            # Create a custom start script with the correct port
+            echo '{\"script\": \"next\", \"name\": \"insightvision\", \"args\": \"start -- -p '${{ secrets.APP_PORT }}'\"}' > ecosystem.config.json &&
+            
+            # Start the application with PM2 using the config file
+            pm2 start ecosystem.config.json &&
             pm2 save &&
+            
+            # Remove the temporary config file
+            rm ecosystem.config.json &&
             
             # Check if the app started successfully
             sleep 5 &&
