@@ -54,7 +54,7 @@ jobs:
             pm2 describe insightvision > /dev/null && pm2 stop insightvision && pm2 delete insightvision || true
             
             # Check if port is in use and kill process
-            PORT=${{ secrets.APP_PORT }}
+            PORT=3000
             PID=\$(netstat -tlpn 2>/dev/null | grep \":\$PORT\" | awk '{print \$7}' | cut -d'/' -f1) || true
             if [ ! -z \"\$PID\" ]; then
               echo \"Found process \$PID using port \$PORT\"
@@ -66,7 +66,7 @@ jobs:
             npm i sharp &&
             
             # Create a custom start script with the correct port
-            echo '{\"script\": \"next\", \"name\": \"insightvision\", \"args\": \"start -- -p '${{ secrets.APP_PORT }}'\"}' > ecosystem.config.json &&
+            echo '{\"script\": \"next\", \"name\": \"insightvision\", \"args\": \"start -- -p '3000'\"}' > ecosystem.config.json &&
             
             # Start the application with PM2 using the config file
             pm2 start ecosystem.config.json &&
