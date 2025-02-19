@@ -54,7 +54,7 @@ jobs:
             pm2 describe insightvision > /dev/null && pm2 stop insightvision && pm2 delete insightvision || true
             
             # Check if port is in use and kill process
-            PORT=3000
+            PORT=3002
             PID=\$(netstat -tlpn 2>/dev/null | grep \":\$PORT\" | awk '{print \$7}' | cut -d'/' -f1) || true
             if [ ! -z \"\$PID\" ]; then
               echo \"Found process \$PID using port \$PORT\"
@@ -67,7 +67,7 @@ jobs:
             
             
             # Start the application with PM2 using the config file
-            pm2 start npm --name 'insightvision' -- start --env production --PORT 3000
+            pm2 start npm --name 'insightvision' -- start --env production --PORT 3002
             pm2 save &&
             
             # Remove the temporary config file
