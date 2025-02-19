@@ -49,49 +49,28 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
             cd ~/insightvision &&
-            # Create a script to handle process management
-            echo '#!/bin/bash
             
-            # Function to find and kill process by port
-            kill_port_process() {
-                PORT=$1
-                PID=$(sudo lsof -t -i:$PORT)
-                if [ ! -z \"$PID\" ]; then
-                    echo \"Killing process $PID using port $PORT\"
-                    sudo kill -9 $PID
-                fi
-            }
+            # Try to stop existing PM2 process first
+            pm2 describe insightvision > /dev/null && pm2 stop insightvision && pm2 delete insightvision || true
             
-            # Kill process using the specified port
-            kill_port_process ${{ secrets.APP_PORT }}
-            ' > manage_process.sh &&
-            
-            # Make the script executable
-            chmod +x manage_process.sh &&
-            
-            # Run the process management script with sudo
-            sudo ./manage_process.sh &&
-            
-            # Stop PM2 process if it exists
-            pm2 delete insightvision || true &&
-            
-            # Install global dependencies with sudo
-            sudo npm install -g pm2 next &&
+            # Check if port is in use and kill process (using netstat instead of lsof)
+            PORT=${{ secrets.APP_PORT }}
+            PID=\$(netstat -tlpn 2>/dev/null | grep \":\$PORT\" | awk '{print \$7}' | cut -d'/' -f1) || true
+            if [ ! -z \"\$PID\" ]; then
+              echo \"Found process \$PID using port \$PORT\"
+              pm2 describe \$PID > /dev/null && pm2 stop \$PID && pm2 delete \$PID || true
+            fi
             
             # Install project dependencies
             npm ci --omit=dev &&
             npm i sharp &&
             
-            # Set proper ownership
-            sudo chown -R $USER:$USER ~/insightvision &&
-            
             # Start the application with PM2
-            pm2 start npm --name 'insightvision' -- start -- --port ${{ secrets.APP_PORT }} &&
+            export PORT=${{ secrets.APP_PORT }} &&
+            pm2 start npm --name 'insightvision' -- start &&
             pm2 save &&
             
-            # Clean up
-            rm manage_process.sh &&
-            
             # Check if the app started successfully
+            sleep 5 &&
             pm2 list | grep -q 'insightvision.*online' && echo 'App started successfully' || (pm2 logs insightvision --lines 50 && exit 1)
           "
