@@ -39,14 +39,6 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
 
-      - name: Debug SSH connection
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          eval $(ssh-agent -s)
-          ssh -v -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "echo 'SSH connection successful'"
-
       - name: Upload project files via rsync
         run: |
           rsync -avz --delete --exclude '.git' --exclude 'node_modules' \
@@ -57,16 +49,49 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
             cd ~/insightvision &&
-            # Kill any existing process using the port
-            lsof -i :${{ secrets.APP_PORT }} | awk 'NR!=1 {print $2}' | xargs -r kill -9 || true &&
+            # Create a script to handle process management
+            echo '#!/bin/bash
+            
+            # Function to find and kill process by port
+            kill_port_process() {
+                PORT=$1
+                PID=$(sudo lsof -t -i:$PORT)
+                if [ ! -z \"$PID\" ]; then
+                    echo \"Killing process $PID using port $PORT\"
+                    sudo kill -9 $PID
+                fi
+            }
+            
+            # Kill process using the specified port
+            kill_port_process ${{ secrets.APP_PORT }}
+            ' > manage_process.sh &&
+            
+            # Make the script executable
+            chmod +x manage_process.sh &&
+            
+            # Run the process management script with sudo
+            sudo ./manage_process.sh &&
+            
             # Stop PM2 process if it exists
             pm2 delete insightvision || true &&
-            # Install dependencies and start the app
+            
+            # Install global dependencies with sudo
+            sudo npm install -g pm2 next &&
+            
+            # Install project dependencies
             npm ci --omit=dev &&
-            npm install -g pm2 next &&
             npm i sharp &&
+            
+            # Set proper ownership
+            sudo chown -R $USER:$USER ~/insightvision &&
+            
+            # Start the application with PM2
             pm2 start npm --name 'insightvision' -- start -- --port ${{ secrets.APP_PORT }} &&
             pm2 save &&
+            
+            # Clean up
+            rm manage_process.sh &&
+            
             # Check if the app started successfully
             pm2 list | grep -q 'insightvision.*online' && echo 'App started successfully' || (pm2 logs insightvision --lines 50 && exit 1)
           "
