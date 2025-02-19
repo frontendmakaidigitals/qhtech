@@ -50,30 +50,26 @@ jobs:
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
             cd ~/insightvision &&
             
-            # Try to stop existing PM2 process first
-            pm2 describe insightvision > /dev/null && pm2 stop insightvision && pm2 delete insightvision || true
+            # Stop and delete existing PM2 process if it exists
+            pm2 delete insightvision || true
             
-            # Check if port is in use and kill process
+            # Check if port 3002 is in use and kill the process
             PORT=3002
-            PID=\$(netstat -tlpn 2>/dev/null | grep \":\$PORT\" | awk '{print \$7}' | cut -d'/' -f1) || true
-            if [ ! -z \"\$PID\" ]; then
-              echo \"Found process \$PID using port \$PORT\"
-              pm2 describe \$PID > /dev/null && pm2 stop \$PID && pm2 delete \$PID || true
-            fi
+            PID=\$(lsof -t -i:\$PORT) || true
+            [ ! -z \"\$PID\" ] && kill -9 \$PID || true
             
-            # Install project dependencies
+            # Install dependencies
             npm ci --omit=dev &&
             npm i sharp &&
             
+            # Start the application with PM2
+            pm2 start npm --name insightvision -- start
             
-            # Start the application with PM2 using the config file
-            pm2 start npm --name 'insightvision' -- start --env production --PORT 3002
-            pm2 save &&
+            # Enable timestamp logging and save the PM2 process
+            pm2 save
+            pm2 set pm2:logs:timestamp true
             
-            # Remove the temporary config file
-            rm ecosystem.config.json &&
-            
-            # Check if the app started successfully
-            sleep 5 &&
+            # Verify app is running
+            sleep 5
             pm2 list | grep -q 'insightvision.*online' && echo 'App started successfully' || (pm2 logs insightvision --lines 50 && exit 1)
           "
