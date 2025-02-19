@@ -57,11 +57,16 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
             cd ~/insightvision &&
+            # Kill any existing process using the port
+            lsof -i :${{ secrets.APP_PORT }} | awk 'NR!=1 {print $2}' | xargs -r kill -9 || true &&
+            # Stop PM2 process if it exists
+            pm2 delete insightvision || true &&
+            # Install dependencies and start the app
             npm ci --omit=dev &&
             npm install -g pm2 next &&
             npm i sharp &&
-            pm2 delete insightvision || true &&
             pm2 start npm --name 'insightvision' -- start -- --port ${{ secrets.APP_PORT }} &&
             pm2 save &&
+            # Check if the app started successfully
             pm2 list | grep -q 'insightvision.*online' && echo 'App started successfully' || (pm2 logs insightvision --lines 50 && exit 1)
           "
