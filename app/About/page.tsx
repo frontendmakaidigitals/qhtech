@@ -94,11 +94,11 @@ const Page = () => {
                 style={{ height: `calc(100vh - ${height + 150}px)` }}
                 className="flex flex-col items-center justify-center "
               >
-                <motion.h1 className="text-center font-[600] text-slate-100 flex-wrap text-3xl lg:text-3xl xl:text-6xl xxl:text-7xl  font-Grostek relative">
+                 <motion.h1 className="text-center font-[600] text-slate-100 flex-wrap text-3xl md:text-3xl lg:text-4xl xl:text-6xl xxl:text-7xl  font-Grostek relative">
                   {para.split(" ").map((item, index) => (
                     <motion.span
                       key={index}
-                      className="mr-2 xl:mr-2 xxl:mr-5 overflow-hidden h-[35px] lg:h-[70px]"
+                      className="mr-2 xl:mr-2 xxl:mr-5 overflow-hidden h-[35px] lg:h-[46px] xl:h-[70px]"
                       style={{
                         display: "inline-block", // Ensure words are treated as block elements
                       }}
@@ -132,18 +132,18 @@ const Page = () => {
                 </p>
                 <div className="grid grid-cols-1 lg:grid-cols-2 w-full lg:w-1/2 gap-10 mt-10">
                   <div className=" p-3 rounded-xl">
-                    <h2 className="text-6xl text-lime-300 font-[600] font-Grostek ">
+                    <h2 className="text-6xl text-lime-300 text-center font-[600] font-Grostek ">
                       10+
                     </h2>
-                    <p className="text-lg text-slate-100 font-Satoshi">
+                    <p className="text-lg text-slate-100 text-center font-Satoshi">
                       Years of experience in web development.
                     </p>
                   </div>
                   <div className=" p-3 rounded-xl">
-                    <h2 className="text-6xl font-[600] font-Grostek text-lime-300">
+                    <h2 className="text-6xl font-[600] font-Grostek text-center text-lime-300">
                       90+
                     </h2>
-                    <p className="text-slate-100 text-lg font-Satoshi">
+                    <p className="text-slate-100 text-lg font-Satoshi text-center">
                       {" "}
                       Clients across various Industries
                     </p>
