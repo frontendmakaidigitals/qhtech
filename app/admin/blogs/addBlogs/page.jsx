@@ -137,7 +137,7 @@ const BlogForm = () => {
 
     try {
       const response = await axios.post(
-        "https://blogo-z0bx.onrender.com/blog",
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/blog`,
         formDataToSend
       );
 
@@ -148,15 +148,8 @@ const BlogForm = () => {
       console.error("Error submitting the form:", error);
     }
   };
-  const [blogData, setBlogData] = useState([]);
-  useEffect(() => {
-    try {
-      axios
-        .get("https://blogo-z0bx.onrender.com/blogs")
-        .then((res) => setBlogData(res));
-    } catch (error) {}
-  }, []);
-  console.log(blogData)
+
+
 
   return (
     <form className="w-full relative" onSubmit={handleSubmit}>

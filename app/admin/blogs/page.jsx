@@ -20,25 +20,18 @@ const Page = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState(false);
   const [blogs, setBlogs] = useState([]);
-
-  const getBlogs = (data) => {
+console.log(blogs)
+  const getBlogs = () => {
     setIsLoading(true);
-    axios.get("https://admin.yatriclubs.com/sanctum/csrf-cookie", {
-      withCredentials: true,
-    });
-    axios
-      .get(`https://admin.yatriclubs.com/api/blog`, { withCredentials: true })
-      .then((res) => {
-        setBlogs(res.data);
-        setStatus("success");
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        setStatus("failed");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    try {
+      axios
+        .get(`${process.env.NEXT_PUBLIC_SERVER_URL}/blogs`)
+        .then((res) => setBlogs(res.data.posts))
+        .finally(() => setIsLoading(false));
+    } catch (error) {
+      setIsLoading(false);
+      console.error(error);
+    }
   };
   useEffect(() => {
     getBlogs();
@@ -67,34 +60,8 @@ export default Page;
 
 const BlogList = ({ blogs }) => {
   const router = useRouter();
-  const imageURL = "https://admin.yatriclubs.com/";
-
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
   const [blogPriority, setBlogPriority] = useState(0);
-  const deleteBlog = (id) => {
-    const blog = blogs.find((blog) => blog.id === id);
-    setBlogPriority(blog.priority);
-    if (
-      blog.priority == 1 ||
-      blog.priority == 2 ||
-      blog.priority == 3 ||
-      blog.priority == 4
-    ) {
-      setIsPopUpOpen(true);
-    } else {
-      axios.get("https://admin.yatriclubs.com/sanctum/csrf-cookie", {
-        withCredentials: true,
-      });
-      axios
-        .delete(`https://admin.yatriclubs.com/api/blog/${id}`, {
-          withCredentials: true,
-        })
-        .then((res) => {
-          window.location.reload();
-        })
-        .finally(() => console.log("finally"));
-    }
-  };
 
   return (
     <>
@@ -128,38 +95,24 @@ const BlogList = ({ blogs }) => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {blogs
-              .sort((a, b) => {
-                // Custom sorting function to prioritize 1, 2, 3, and 4 first
-                if (
-                  a.priority >= 1 &&
-                  a.priority <= 4 &&
-                  b.priority >= 1 &&
-                  b.priority <= 4
-                ) {
-                  return a.priority - b.priority; // Sort by priority if both are in 1-4 range
-                }
-                if (a.priority >= 1 && a.priority <= 4) return -1; // a comes first
-                if (b.priority >= 1 && b.priority <= 4) return 1; // b comes first
-                return 0; // Keep original order for other priorities
-              })
-              .map((invoice, index) => (
-                <TableRow key={index} className={`hover:bg-gray-100`}>
-                  <TableCell className={`pl-4 py-3`}>{index + 1}</TableCell>
+            {
+              blogs?.map((blog, idx) => (
+                <TableRow key={idx} className={`hover:bg-gray-100`}>
+                  <TableCell className={`pl-4 py-3`}>{idx + 1}</TableCell>
                   <TableCell
                     className={`font-Satoshi font-medium text-lg py-3`}
                   >
-                    <p className="">{invoice.name}</p>
+                    <p className="">{blog.title}</p>
                   </TableCell>
                   <TableCell
                     className={`font-Satoshi font-medium text-center text-lg py-3`}
                   >
-                    <p className="">{invoice.priority}</p>
+                    <p className="">{blog.priority}</p>
                   </TableCell>
                   <TableCell className={`font-Satoshi font-medium py-3`}>
                     <div className="w-32 h-[130px] flex items-center justify-center">
                       <img
-                        src={imageURL + invoice.image}
+                        src={process.env.NEXT_PUBLIC_SERVER_URL+'/'+ blog.image}
                         className="max-h-full min-h-auto"
                         alt="image"
                       />
@@ -171,7 +124,7 @@ const BlogList = ({ blogs }) => {
                         <p className="hidden group-hover:block w-auto text-nowrap z-[9999] bg-gray-300 shadow-lg rounded-full px-4 py-1 absolute bottom-full left-1/2 -translate-x-1/2">
                           Edit blog
                         </p>
-                        <Link href={`/admin/blogs/editBlogs/${invoice.id}`}>
+                        <Link href={`/admin/blogs/editBlogs/${blog.id}`}>
                           <PencilSimple className="text-xl relative" />
                         </Link>
                       </div>
@@ -180,7 +133,7 @@ const BlogList = ({ blogs }) => {
                           Delete blog
                         </p>
                         <Trash
-                          onClick={() => deleteBlog(invoice.id)}
+                          onClick={() => deleteBlog(blog.id)}
                           className="text-red-500 text-xl relative"
                         />
                       </div>
