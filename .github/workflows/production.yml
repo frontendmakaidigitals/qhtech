@@ -63,7 +63,7 @@ jobs:
             npm i sharp &&
             
             # Start the application with PM2
-            pm2 start npm --name insightvision -- start
+            PORT=3002 pm2 start npm --name insightvision -- start
             
             # Enable timestamp logging and save the PM2 process
             pm2 save
