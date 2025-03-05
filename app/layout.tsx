@@ -46,18 +46,18 @@ export default function RootLayout({
         </ReactLenis>
 
             {/* Google Analytics */}
-        <Script
+        <script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-LCZ9WDCSYP"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-LCZ9WDCSYP');
           `}
-        </Script>
+        </script>
 
       </body>
     </html>
