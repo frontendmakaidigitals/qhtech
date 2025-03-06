@@ -6,6 +6,7 @@ import ToTop from "./App chunks/components/ToTop";
 import Footer from "./App chunks/components/Footer";
 import Template from "./Template";
 import Loading from "./App chunks/components/Loader";
+import Script from 'next/script'
 export const metadata: Metadata = {
   title: " Insight Vision | Result-Driven Marketing Agency in Dubai",
   description:
@@ -46,18 +47,18 @@ export default function RootLayout({
         </ReactLenis>
 
             {/* Google Analytics */}
-        <script
+        <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-LCZ9WDCSYP"
         />
-        <script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-LCZ9WDCSYP');
           `}
-        </script>
+        </Script>
 
       </body>
     </html>
