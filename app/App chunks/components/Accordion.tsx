@@ -103,7 +103,7 @@ export function AccordionItem({ children }: AccordionItemProps) {
 
   return (
     <div
-      className={`border-b border-slate-600/40 overflow-hidden mb-2 ${
+      className={` border-slate-600/40 overflow-hidden  ${
         isActive ? "active bg-transparent" : "bg-transparent"
       }`}
     >
@@ -129,7 +129,7 @@ export function AccordionHeader({
 
   return (
     <motion.div
-      className={`py-5 px-2 cursor-pointer ${className} transition-all rounded-lg text-xl font-semibold hover:bg-slate-100/10 hover:text-slate-100 flex justify-between items-center ${
+      className={`py-5 px-2 cursor-pointer ${className} transition-all rounded-lg text-xl font-semibold flex justify-between items-center ${
         isActive ? "active text-slate-200" : "bg-transparent text-slate-50"
       }`}
       onClick={() => onChangeIndex(value)}

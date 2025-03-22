@@ -63,10 +63,6 @@ const MobileMenu = ({}) => {
   const handleLinkClick = () => {
     setIsOpen(false); 
   };
-  useEffect(() => {
-    setIsOpen(false); // Close the menu on route change
-  }, [path]); // Runs every time the route changes
-  console.log(isOpen)
   return (
     <div className="block lg:hidden">
       <AnimatePresence mode="wait">
@@ -155,12 +151,12 @@ const MobileMenu = ({}) => {
              <div key={index} className="w-full">
                {item.subMenu ? (
                  <Accordion defaultValue="services" multiple>
-                   <AccordionItem value="services">
+                   <AccordionItem value="services" >
                      {/* Accordion Header for "Services" */}
-                     <AccordionHeader className="px-0 py-0">
+                     <AccordionHeader className="!px-0 !py-1">
                        <motion.p
                          variants={{
-                           hidden: { opacity: 0, y: 700 },
+                           hidden: { opacity: 0, y: 100 },
                            visible: { opacity: 1, y: 0 },
                          }}
                          transition={{
@@ -201,7 +197,7 @@ const MobileMenu = ({}) => {
                  >
                    <motion.p
                      variants={{
-                       hidden: { opacity: 0, y: 700 },
+                       hidden: { opacity: 0, y: 100 },
                        visible: { opacity: 1, y: 0 },
                      }}
                      transition={{
