@@ -67,7 +67,7 @@ const Footer = () => {
             We create possibilities for the connected world.
           </motion.p>
 
-          <motion.div className="w-full grid grid-cols-4 gap-3 mt-8 lg:mt-12">
+          <motion.div className="w-full grid grid-cols-4 gap-3 lg:mt-12">
             {socialIcons.map((elem, index) => (
               <motion.div
                 key={index}
@@ -90,7 +90,7 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-2 gap-5 lg:flex lg:items-start lg:mt-6 lg:justify-end lg:gap-5 ">
+        <div className="grid grid-cols-2 gap-5 lg:flex lg:items-start  lg:justify-end lg:gap-5 ">
           <motion.ul whileInView={"animate"} className="">
             <motion.p className="text-indigo-950 mb-2 font-Synonym font-[500] text-2xl lg:text-3xl">
               Menu
