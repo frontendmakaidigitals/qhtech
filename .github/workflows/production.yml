@@ -43,18 +43,18 @@ jobs:
         run: |
           rsync -avz --delete --exclude '.git' --exclude 'node_modules' \
             -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" \
-            ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/insightvision/
+            ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/qhtech/
 
       - name: Deploy and run with PM2
         run: |
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
-            cd ~/insightvision &&
+            cd ~/qhtech &&
             
             # Stop and delete existing PM2 process if it exists
-            pm2 delete insightvision || true
+            pm2 delete qhtech || true
             
-            # Check if port 3002 is in use and kill the process
-            PORT=3002
+            # Check if port 3003 is in use and kill the process
+            PORT=3003
             PID=\$(lsof -t -i:\$PORT) || true
             [ ! -z \"\$PID\" ] && kill -9 \$PID || true
             
@@ -63,7 +63,7 @@ jobs:
             npm i sharp &&
             
             # Start the application with PM2
-            PORT=3002 pm2 start npm --name insightvision -- start
+            PORT=3003 pm2 start npm --name qhtech -- start
             
             # Enable timestamp logging and save the PM2 process
             pm2 save
@@ -71,5 +71,5 @@ jobs:
             
             # Verify app is running
             sleep 5
-            pm2 list | grep -q 'insightvision.*online' && echo 'App started successfully' || (pm2 logs insightvision --lines 50 && exit 1)
+            pm2 list | grep -q 'qhtech.*online' && echo 'App started successfully' || (pm2 logs qhtech --lines 50 && exit 1)
           "
