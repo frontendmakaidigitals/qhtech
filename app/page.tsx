@@ -26,14 +26,12 @@ export default function Home() {
         }}
       >
         <HeroSection />
-        <AboutUs />
-        <MaskSection />
         <TechStack />
         <CompantStats />
         <Slider />
         <Form />
         <MarqueeLogo />
-        <InstaVideos />
+
       </motion.div>
     </AnimatePresence>
   );

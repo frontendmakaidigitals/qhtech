@@ -1,20 +1,16 @@
 // This is the layout for the contact page
 export const metadata = {
-    title: 'IT Consulting & Advisory | Expert Solutions by Insight Vision',
-    description: 'Optimize your technology strategy with Insight Vision’s IT consulting and advisory services. Our experts provide tailored solutions to improve efficiency, security, and growth.',
-  };
-  
-  import { ReactNode } from 'react';
+  title: "IT Consulting & Advisory | Expert Solutions by QhTech",
+  description:
+    "Optimize your technology strategy with QhTech’s IT consulting and advisory services. Our experts provide tailored solutions to improve efficiency, security, and growth.",
+};
 
-  interface ContactLayoutProps {
-    children: ReactNode;
-  }
+import { ReactNode } from "react";
 
-  export default function ItConsulting({ children }: ContactLayoutProps) {
-    return (
-      <>
-       {children}
-      </>
-    );
-  }
-  
+interface ContactLayoutProps {
+  children: ReactNode;
+}
+
+export default function ItConsulting({ children }: ContactLayoutProps) {
+  return <>{children}</>;
+}

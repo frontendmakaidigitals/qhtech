@@ -4,8 +4,8 @@ import Link from "next/link";
 const Logo = ({ className, source = '/Logo.png' }: { className?: string, source?: string }) => {
   return (
     <Link href="/">
-      <div className={`w-[220px] ${className}`}>
-        <img src={source} alt="Logo" />
+      <div className={`w-[220px] text-slate-50 ${className}`}>
+        <p className="text-3xl">QhTech</p>
       </div>
     </Link>
   );

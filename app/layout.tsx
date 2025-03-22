@@ -6,11 +6,11 @@ import ToTop from "./App chunks/components/ToTop";
 import Footer from "./App chunks/components/Footer";
 import Template from "./Template";
 import Loading from "./App chunks/components/Loader";
-import Script from 'next/script'
+import Script from "next/script";
 export const metadata: Metadata = {
-  title: " Insight Vision | Result-Driven Marketing Agency in Dubai",
+  title: " QhTech | Result-Driven Marketing Agency in Dubai",
   description:
-    "Elevate your brand with Insight Vision, a data-driven marketing agency specializing in SEO, PPC, social media, and content marketing. Get measurable results today!",
+    "Elevate your brand with QhTech, a data-driven marketing agency specializing in SEO, PPC, social media, and content marketing. Get measurable results today!",
 };
 
 export default function RootLayout({
@@ -46,7 +46,7 @@ export default function RootLayout({
           <Footer />
         </ReactLenis>
 
-            {/* Google Analytics */}
+        {/* Google Analytics */}
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-LCZ9WDCSYP"
@@ -59,7 +59,6 @@ export default function RootLayout({
             gtag('config', 'G-LCZ9WDCSYP');
           `}
         </Script>
-
       </body>
     </html>
   );

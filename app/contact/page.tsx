@@ -188,10 +188,10 @@ const Page = () => {
                         ))}
                       </motion.article>
                       <p className="mt-3">
-                        At Insight Vision, we&apos;re here to help you elevate
-                        your brand and reach your business goals. Whether
-                        you&apos;re looking for a marketing strategy or just
-                        need expert advice, our team is ready to assist.
+                        At QhTech, we&apos;re here to help you elevate your
+                        brand and reach your business goals. Whether you&apos;re
+                        looking for a marketing strategy or just need expert
+                        advice, our team is ready to assist.
                         <br /> <br /> Have a project idea, or just want to
                         discuss how we can help you reach your marketing goals?
                         Drop us a message, and one of our team members will be
@@ -386,14 +386,14 @@ const Page = () => {
                           )}
                         </div>
                         <div>
-                        <Button
-                    type="submit"
-                    className="bg-indigo-300 active:shadow-none hover:bg-indigo-200 text-blue-950"
-                    loading={isSubmitting}
-                    loadingText="Submitting"
-                  >
-                    Submit
-                  </Button>
+                          <Button
+                            type="submit"
+                            className="bg-indigo-300 active:shadow-none hover:bg-indigo-200 text-blue-950"
+                            loading={isSubmitting}
+                            loadingText="Submitting"
+                          >
+                            Submit
+                          </Button>
                         </div>
                       </motion.div>
                     </form>

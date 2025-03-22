@@ -1,7 +1,14 @@
 "use client";
 
-import { usePathname } from "next/navigation"; 
-import { User, UserCircle, SignOut, TextB, Ranking, TrendUp } from "@phosphor-icons/react";
+import { usePathname } from "next/navigation";
+import {
+  User,
+  UserCircle,
+  SignOut,
+  TextB,
+  Ranking,
+  TrendUp,
+} from "@phosphor-icons/react";
 import Link from "next/link";
 import Logo from "../App chunks/components/Logo";
 export default function RootLayout({ children }) {
@@ -40,7 +47,7 @@ const Navbar = ({ path }) => {
             <UserCircle className="text-2xl" />
           )}
         </div>
-        <p className="font-Satoshi font-medium">Insight Vision</p>
+        <p className="font-Satoshi font-medium">QhTech</p>
       </div>
     </div>
   );
@@ -58,7 +65,7 @@ const Sidebar = ({ path }) => {
       icon: <TextB />,
       link: "/admin/blogs",
     },
-   
+
     {
       name: "Queries",
       icon: <TrendUp />,
@@ -69,11 +76,8 @@ const Sidebar = ({ path }) => {
   return (
     <div className="h-screen fixed z-[999] top-0 py-5 left-0 w-[250px] bg-black overflow-hidden">
       <div className="px-10 mt-4">
-        <div
-         
-          className="flex xl:text-lg xxl:text-xl items-center gap-1"
-        >
-        <Logo source="/Logo-white.png" className="!w-32" />
+        <div className="flex xl:text-lg xxl:text-xl items-center gap-1">
+          <Logo source="/Logo-white.png" className="!w-32" />
         </div>
       </div>
       <div className="mt-10">

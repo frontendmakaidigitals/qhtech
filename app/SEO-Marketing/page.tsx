@@ -147,8 +147,7 @@ const Page = () => {
     },
   ];
   const [isFormOpen, setIsFormOpen] = React.useState(false);
-  const para =
-    "Welcome to Insight Vision - Elevate Your Online Presence Through SEO ";
+  const para = "Welcome to QhTech - Elevate Your Online Presence Through SEO ";
 
   return (
     <motion.div className="  bg-white" ref={containerRef}>
@@ -246,7 +245,10 @@ const Page = () => {
         <div className="container grid grid-cols-1 mt-7 gap-4 lg:grid-cols-1">
           <AnimatePresence mode="wait">
             {servicesData.map((service, index) => (
-              <motion.div key={index} className={`p-6 bg-[#e0f5ff] rounded-xl `}>
+              <motion.div
+                key={index}
+                className={`p-6 bg-[#e0f5ff] rounded-xl `}
+              >
                 <h3 className="text-3xl font-Grostek font-[500]">
                   {service.title}
                 </h3>
@@ -331,10 +333,11 @@ const Page = () => {
                 We would like to chat with you.
               </h3>
               <div className="mt-3">
-              <Link href={'/contact'}>
-              <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
-                  Contact us
-                </button></Link>
+                <Link href={"/contact"}>
+                  <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
+                    Contact us
+                  </button>
+                </Link>
               </div>
             </div>
             <div>
@@ -360,8 +363,8 @@ const Page = () => {
             </h2>
             <p className="mt-3 font-Synonym font-[400] text-lg">
               Ready to take your digital marketing to the next level? Partner
-              with Insight Vision and watch your business soar. Contact us today
-              for a free consultation!
+              with QhTech and watch your business soar. Contact us today for a
+              free consultation!
             </p>
             <Link href={"/contact"}>
               <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">

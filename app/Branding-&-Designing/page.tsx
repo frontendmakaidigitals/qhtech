@@ -515,11 +515,11 @@ const Page = () => {
                 We would like to chat with you.
               </h3>
               <div className="mt-3">
-               <Link href={'/contact'}>
-               
-               <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
-                  Contact us
-                </button></Link>
+                <Link href={"/contact"}>
+                  <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
+                    Contact us
+                  </button>
+                </Link>
               </div>
             </div>
             <div className="mt-5">
@@ -547,13 +547,13 @@ const Page = () => {
               Ready to elevate your brand? Get in touch with us today and let’s
               start building a brand that connects, inspires, and delivers.
               Whether you`re launching a new brand or rebranding your business,
-              Insight Vision is here to help you shine.
+              QhTech is here to help you shine.
             </p>
 
-            <Link href={'/contact'}>
-            <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
-              Contact Us
-            </button>
+            <Link href={"/contact"}>
+              <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
+                Contact Us
+              </button>
             </Link>
           </div>
         </div>

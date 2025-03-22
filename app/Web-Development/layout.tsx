@@ -1,20 +1,16 @@
 // This is the layout for the contact page
 export const metadata = {
-    title: ' Web Development | Custom Websites & Scalable Solutions – Insight Vision',
-    description: 'Build a fast, responsive, and scalable website with Insight Vision. Our expert web development team creates custom solutions to elevate your online presence.',
-  };
-  
-  import { ReactNode } from 'react';
+  title: " Web Development | Custom Websites & Scalable Solutions – QhTech",
+  description:
+    "Build a fast, responsive, and scalable website with QhTech. Our expert web development team creates custom solutions to elevate your online presence.",
+};
 
-  interface ContactLayoutProps {
-    children: ReactNode;
-  }
+import { ReactNode } from "react";
 
-  export default function ContactLayout({ children }: ContactLayoutProps) {
-    return (
-      <>
-       {children}
-      </>
-    );
-  }
-  
+interface ContactLayoutProps {
+  children: ReactNode;
+}
+
+export default function ContactLayout({ children }: ContactLayoutProps) {
+  return <>{children}</>;
+}

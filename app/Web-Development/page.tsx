@@ -158,7 +158,7 @@ const Page = () => {
     },
   ];
   const [isFormOpen, setIsFormOpen] = React.useState(false);
-  const para = "Build Your Digital Presence with Insight Vision";
+  const para = "Build Your Digital Presence with QhTech";
   const selfPrasiseContainer = React.useRef<HTMLDivElement>(null);
   const boxInView = useInView(selfPrasiseContainer, { once: true });
   return (
@@ -378,10 +378,11 @@ const Page = () => {
                 We would like to chat with you.
               </h3>
               <div className="mt-3">
-                <Link href={'/contact'}>
-                <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
-                  Contact us
-                </button></Link>
+                <Link href={"/contact"}>
+                  <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
+                    Contact us
+                  </button>
+                </Link>
               </div>
             </div>
             <div className="mt-5">
@@ -411,11 +412,11 @@ const Page = () => {
               way. Contact us today to discuss your project, and let’s bring
               your idea to life.
             </p>
-                <Link href={'/contact'}>
-                <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
-              Contact us
-            </button></Link>
-          
+            <Link href={"/contact"}>
+              <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
+                Contact us
+              </button>
+            </Link>
           </div>
         </div>
       </div>

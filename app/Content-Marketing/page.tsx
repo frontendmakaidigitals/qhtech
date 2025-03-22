@@ -57,7 +57,7 @@ const Page = () => {
     {
       title: "Social Media Content Creation",
       description:
-        "Social media is where conversations happen, trends are set, and brands come to life. At Insight Vision, we create scroll-stopping, share-worthy content that connects with your audience and grows your online presence.",
+        "Social media is where conversations happen, trends are set, and brands come to life. At QhTech, we create scroll-stopping, share-worthy content that connects with your audience and grows your online presence.",
       details: {
         platformSpecificContent: [
           {
@@ -415,10 +415,11 @@ const Page = () => {
                 We would like to chat with you.
               </h3>
               <div className="mt-3">
-                <Link href={'/'}>
-                <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
-                  Contact us
-                </button></Link>
+                <Link href={"/"}>
+                  <button className="text-slate-950 px-5 rounded-full font-Grostek font-[500] py-2 bg-slate-200 hover:bg-slate-100">
+                    Contact us
+                  </button>
+                </Link>
               </div>
             </div>
             <div className="mt-5">
@@ -445,7 +446,7 @@ const Page = () => {
             <p className="mt-3 font-Synonym font-[400] text-lg">
               Content marketing isn`t just about creating content—it`s about
               creating connections. Ready to elevate your brand? Partner with
-              Insight Vision, where your story meets strategy.
+              QhTech, where your story meets strategy.
             </p>
             <Link href={"/contact"}>
               <button className="mt-5 px-4 py-2 bg-white text-slate-900 font-SplineSans rounded-lg font-[400]">
