@@ -17,11 +17,11 @@ const menu = [
 const NavBar = () => {
   const path = usePathname();
   const renderPath = '/admin'
-  console.log(path)
+
   return (
   
-    !path.includes(renderPath) ?  <div className="HeadNavigation py-4 w-full absolute  top-0 left-0 z-[99999] ">
-    <div className="flex justify-between items-center container ">
+    !path.includes(renderPath) ?  <div className="HeadNavigation py-4 w-full absolute top-0 left-0 z-[99999] ">
+    <div className="flex justify-between items-center container">
       <motion.div
         initial={{ y: -200 }}
         animate={{ y: 0 }}
@@ -31,11 +31,11 @@ const NavBar = () => {
           ease: "easeInOut",
           duration: 1,
         }}
-        className=" relative z-10"
+        className=" relative z-[9999999]"
       >
         <Logo
          source={
-          path !== "/Blogs" && path !== "/Blog" ? "/Logo-white.png" : "/Logo.png"
+          'QLogo.png'
         }
           className="!w-[110px]"
         />

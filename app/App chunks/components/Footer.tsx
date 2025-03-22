@@ -58,7 +58,7 @@ const Footer = () => {
             transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
             animate={{ y: inView ? 0 : 200, rotate: inView ? 0 : 10 }}
           >
-            <Logo className="!w-40 text-slate-950" />
+            <Logo source="QLogo.png" className="!w-40 text-slate-950" />
           </motion.div>
           <motion.p
             animate={{ y: inView ? 0 : 200 }}
