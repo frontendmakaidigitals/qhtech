@@ -80,7 +80,7 @@ const MobileMenu = ({}) => {
            delay: 0.1,
            ease: [0.79, 0.14, 0.15, 0.86],
          }}
-         className="w-screen h-screen fixed top-0 z-40 right-0 bg-black"
+         className="w-screen h-screen fixed top-0 z-[999] right-0 bg-black"
        >
          <motion.div
            initial={{
