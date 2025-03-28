@@ -134,11 +134,10 @@ const Footer = () => {
               Address
             </motion.p>
             <p className="text-sm lg:text-lg">
-              <span>Office</span> - 3307, Churchill Towers, Business Bay, Dubai,
-              UAE
+              <span>Office</span> - Nad Al Sheba Meydan Freezone, PO Box - 95195
             </p>
             <p className="mt-2 text-sm lg:text-lg">
-              <span>Phone</span>- +971 58 581 4359
+              <span>Phone</span>- +971 54 223 6123
             </p>
             <p className="mt-2 text-sm lg:text-lg">
               <span>Email</span> - info@qhtechsolutions.com
