@@ -134,7 +134,8 @@ const Footer = () => {
               Address
             </motion.p>
             <p className="text-sm lg:text-lg">
-              <span>Office</span> - Nad Al Sheba Meydan Freezone, PO Box - 95195
+              <span>Office</span> - Al Meydan Free Zone,
+Nad Al Sheba, Dubai, PO Box # 9305, UAE
             </p>
             <p className="mt-2 text-sm lg:text-lg">
               <span>Phone</span>- +971 54 223 6123
