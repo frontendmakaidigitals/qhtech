@@ -62,7 +62,7 @@ const Page = () => {
       desc: "who craft compelling narratives to spark emotional connections.",
     },
     {
-      title: "Problem-solvers",
+      title: "Problem-Solvers",
       desc: "who thrive on turning challenges into opportunities.",
     },
     {
