@@ -78,7 +78,7 @@ const Page = () => {
   return (
     <motion.div className="  bg-white" ref={containerRef}>
       <motion.div>
-        <div className="w-full h-screen overflow-hidden bg-black relative">
+        <div className="w-full h-[100dvh] overflow-hidden bg-black relative">
           <div className=" w-full h-full flex relative ">
             <div className="absolute top-0 left-0 w-full h-full">
               <BackgroundGradientAnimation
