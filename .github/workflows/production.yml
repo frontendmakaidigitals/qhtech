@@ -42,7 +42,7 @@ jobs:
       - name: Upload project files via rsync
         run: |
           rsync -avz --delete --exclude '.git' --exclude 'node_modules' \
-            -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" \
+            -e "ssh -p 9389 -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" \
             ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/qhtech/
 
       - name: Deploy and run with PM2
