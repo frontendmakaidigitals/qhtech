@@ -47,7 +47,7 @@ jobs:
 
       - name: Deploy and run with PM2
         run: |
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+          ssh -i ~/.ssh/id_rsa -p 9389 -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
             cd ~/qhtech &&
             
             # Stop and delete existing PM2 process if it exists
